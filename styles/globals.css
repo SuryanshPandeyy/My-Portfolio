@@ -37,7 +37,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
   align-items: center;
   justify-content: center;
 }
@@ -80,7 +80,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2rem 0 0rem 0;
+  /* margin: 2rem 0 0rem 0; */
 }
 
 .slider {
@@ -107,7 +107,7 @@ body {
   /* color: #fff; */
   height: 5rem;
   margin-bottom: 5rem;
-  padding: 1.9rem 1.5rem;
+  padding: 1.55rem 0.4rem;
   /* text-align: center; */
   text-align: start;
   box-sizing: border-box;
@@ -154,17 +154,13 @@ body {
 
 .skillsTab ul {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
-  grid-gap: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(3rem, 1fr));
   width: 100%;
+  grid-gap: 3rem;
   place-content: center;
   place-items: center;
   grid-auto-flow: dense;
   list-style: none;
-}
-
-.skillsTab ul li {
-  width: 8rem;
 }
 
 .skillsTab ul li:hover {
@@ -181,8 +177,8 @@ body {
 }
 
 .skillsTab .tube {
-  height: 15rem;
-  width: 5rem;
+  height: 11rem;
+  width: 4rem;
   max-width: 100%;
   border: .2rem solid rgba(135, 207, 235, 0.434);
   border-bottom-left-radius: 5rem;
@@ -291,25 +287,37 @@ body {
 
 .certificatesBox {
   position: fixed;
-  inset: -1rem 0;
+  inset: 5rem;
+  /* width: 70%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%); */
   overflow: auto;
   background: white;
   border: .3rem solid black;
+  border-radius: 2rem;
   margin-top: 10rem;
   padding: 2rem 2rem 10rem 2rem;
+  z-index: 1200;
 }
 
-.certificatesBox .closeBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+.closeBtn {
   position: fixed;
-  bottom: 0rem;
+  top:7rem;
+  left: 7rem;
+  background-color: rgba(255, 255, 255, 0);
   margin: 1rem 0;
 }
 
-.certificatesBox .closeBtn button {
+.blocker{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  inset: 0;
+  z-index: 1199;
+}
+
+.closeBtn button {
   background: royalblue;
   color: white;
   padding: 1rem 2rem;
@@ -333,24 +341,42 @@ body {
   font-size: 4rem;
   text-align: center;
   margin-bottom: 2rem;
-  color: white;
+  color: black;
 }
 
 .certificates {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(55rem, 1fr));
   grid-gap: 2rem;
   place-content: center;
   place-items: center;
 }
 
 .certificateImg {
-  width: 100%;
-  aspect-ratio: 1/1;
-  border: .3rem solid black;
+  max-width: 70vw;
+  width: 55rem;
+  display: flex;
+  justify-content: center;
+  border: .14rem solid black; 
 }
 
+.certificateImage{
+  width: 20rem;
+  height: 20rem;
+}
+.certificateDetails{
+  width: 50%;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: space-around; 
+}
+.certificateDetails .certificateName{
+  font-size: 2rem;
+  font-weight: bold;
+}
 .portfolio_header p:first-child,
 .portfolio_header2 p:first-child {
   font-family: 'Roboto Condensed',
@@ -417,7 +443,7 @@ body {
 }
 
 .bioContent p {
-  margin-bottom: 2rem;
+  margin: 4rem 0;
   font-family: 'Livvic',
     sans-serif;
 }
@@ -888,9 +914,15 @@ iframe {
   .download_resume_btn2 {
     display: none;
   }
+  .download_resume_btn{
+    margin: 3rem 0;
+  }
 }
 
 @media only screen and (max-width: 798px) {
+  .bioContent >p {
+    margin: 0rem 0;
+  }
   .bio {
     flex-direction: column;
   }

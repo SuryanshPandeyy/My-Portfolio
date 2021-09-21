@@ -323,64 +323,33 @@ const Bio = () => {
         </div>
 
         {show ? (
-          <div className="certificatesBox">
-            <div className="certificateTitle">
-              <p> Certificates </p>
-            </div>
-            <div className="certificates">
-              <div className="certificateImg">
-                <Image
-                  src={certificates}
-                  alt={certificates}
-                  loader={myLoader}
-                  objectFit="cover"
-                />
+          <>
+            <div className="certificatesBox">
+              <div className="certificateTitle">
+                <p> Certificates </p>
               </div>
-              <div className="certificateImg">
-                <Image
-                  src={certificates}
-                  alt={certificates}
-                  loader={myLoader}
-                  objectFit="cover"
-                />
+              <div className="certificates">
+                <div className="certificateImg">
+                  <Image
+                    width="330"
+                    height="280"
+                    src={certificates}
+                    alt={certificates}
+                    loader={myLoader}
+                    objectFit="contain"
+                  />
+                  <div className="certificateDetails">
+                    <div className="certificateName">Andrei</div>
+                    <div className="certificateAbout">Well known Full Stack Web Developer</div>
+                  </div>
+                </div>
               </div>
-              <div className="certificateImg">
-                <Image
-                  src={certificates}
-                  alt={certificates}
-                  loader={myLoader}
-                  objectFit="cover"
-                />
-              </div>
-              <div className="certificateImg">
-                <Image
-                  src={certificates}
-                  alt={certificates}
-                  loader={myLoader}
-                  objectFit="cover"
-                />
-              </div>
-              <div className="certificateImg">
-                <Image
-                  src={certificates}
-                  alt={certificates}
-                  loader={myLoader}
-                  objectFit="cover"
-                />
-              </div>
-              <div className="certificateImg">
-                <Image
-                  src={certificates}
-                  alt={certificates}
-                  loader={myLoader}
-                  objectFit="cover"
-                />
+              <div className="closeBtn">
+                <button onClick={certificatePopdown}> Close </button>
               </div>
             </div>
-            <div className="closeBtn">
-              <button onClick={certificatePopdown}> Close </button>
-            </div>
-          </div>
+              <div className="blocker" onClick={certificatePopdown}></div>
+          </>
         ) : (
           <></>
         )}
