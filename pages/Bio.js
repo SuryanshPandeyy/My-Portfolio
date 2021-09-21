@@ -38,12 +38,25 @@ const Bio = () => {
                     <Fade down>
                       <p>Suryansh Pandey</p>
                       <div>
-                        <Fade cascade>I am a Full Stack Web Developer</Fade>
+                        <Fade cascade>
+                          <div className="slider-wrapper">
+                            I am a
+                            <div className="slider">
+                              <div className="slider-text1">UI DESIGNER</div>
+                              <div className="slider-text2">SEO Optimizer</div>
+                              <div className="slider-text3">
+                                Full Stack Web Developer
+                              </div>
+                            </div>
+                          </div>
+                        </Fade>
                       </div>
                     </Fade>
                   </div>
                   <div className="download_resume_btn resume_btn">
-                    <a href="/documents/suryansh_resume.pdf" download>Download Resume</a>
+                    <a href="/documents/suryansh_resume.pdf" download>
+                      Download Resume
+                    </a>
                   </div>
                 </div>
 
@@ -66,7 +79,20 @@ const Bio = () => {
                       <Fade down>
                         <p>Suryansh Pandey</p>
                         <div>
-                          <Fade cascade>I am a Full Stack Web Developer</Fade>
+                          <Fade cascade>
+                            <div className="slider-wrapper">
+                              I am a
+                              <div className="slider">
+                                <div className="slider-text1">UI DESIGNER</div>
+                                <div className="slider-text2">
+                                  SEO Optimizer
+                                </div>
+                                <div className="slider-text3">
+                                  Full Stack Web Developer
+                                </div>
+                              </div>
+                            </div>
+                          </Fade>
                         </div>
                       </Fade>
                     </div>
@@ -96,7 +122,11 @@ const Bio = () => {
                       mankind.
                     </p>
                     <div className="social">
-                      <a href="https://github.com/Suryanshpsurya" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://github.com/Suryanshpsurya"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <i>
                           <DiGithubBadge
                             className="footer_icon"
@@ -104,19 +134,29 @@ const Bio = () => {
                           />
                         </i>
                       </a>
-                      <a href="https://codepen.io/SuryanshPallavi" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://codepen.io/SuryanshPallavi"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <i>
                           <AiOutlineCodepenCircle className="footer_icon" />
                         </i>
                       </a>
-                      <a href="https://palsuryom.com" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://palsuryom.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <i>
                           <CgGlobeAlt className="footer_icon" />
                         </i>
                       </a>
                     </div>
                     <div className="download_resume_btn2 resume_btn">
-                      <a href="/documents/suryansh_resume.pdf" download>Download Resume</a>
+                      <a href="/documents/suryansh_resume.pdf" download>
+                        Download Resume
+                      </a>
                     </div>
                   </div>
                 </div>
