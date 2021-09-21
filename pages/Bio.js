@@ -5,6 +5,9 @@ import Suryansh from "/public/images/profile/profile.png";
 import certificates from "/public/images/certificates/UC-64a5cb50-0930-429f-9e05-db77afd1ed0f.jpg";
 import Links from "./Links";
 import certificateLogo from "/public/images/Icons/cerificate_logo.png";
+import { CgGlobeAlt } from "react-icons/cg";
+import { AiOutlineCodepenCircle } from "react-icons/ai";
+import { DiGithubBadge } from "react-icons/di";
 
 const myLoader = ({ src }) => {
   return `${src}`;
@@ -18,71 +21,104 @@ const Bio = () => {
   };
   const certificatePopdown = () => {
     setShow(false);
-  }
+  };
 
   return (
     <>
       <div className="suryansh_portfolio" id="body">
         <div className="bio">
           <div className="inside circles">
-            <Links/>
+            <Links />
           </div>
           <div className="bioData">
-            <div id="bioBox" className="bioBox order1">
-              <div className="bioImage">
-                <div className="wrap">
-                  <div className="shape"></div>
+            <div>
+              <div className="bioDetails">
+                <div className="bioExtra">
+                  <div className="portfolio_header">
+                    <Fade down>
+                      <p>Suryansh Pandey</p>
+                      <div>
+                        <Fade cascade>I am a Full Stack Web Developer</Fade>
+                      </div>
+                    </Fade>
+                  </div>
+                  <div className="download_resume_btn resume_btn">
+                    <a href="/documents/suryansh_resume.pdf" download>Download Resume</a>
+                  </div>
                 </div>
-                <Image
-                  className="image"
-                  loader={myLoader}
-                  src={Suryansh}
-                  alt="Suryansh"
-                  quality="100"
-                />
-              </div>
-              <div className="bioContent">
-                <div className="portfolio_header">
-                  <Fade down>
-                    <p>Suryansh Pandey</p>
-                    <div>
-                      <Fade cascade>I am a Full Stack Web Developer</Fade>
+
+                <div className="bioExtra2">
+                  <div className="bioImage">
+                    <div className="wrap">
+                      <div className="shape"></div>
                     </div>
-                  </Fade>
-                </div>
-                <p>
-                  I am a Full Stack Web Developer & a Tech-Savvy having a
-                  passion for coding, researching & staying updated since my
-                  teenage. I have focused more on developing my practical coding
-                  skills even during my academic years. I am here to make money
-                  working on my passion, creating the unique masterpiece for my
-                  clients as per their vision which adds on their leads, this
-                  win-win attitude of working is what I am known for. I have
-                  been a curious one ever since my childhood days, I love
-                  creating art and figuring out how things work. This nature of
-                  mine paved the way toward new technologies. I was 16 when I
-                  came across knowing what HTML is, my curious and exploring
-                  nature helped me learn HTML, CSS, and JavaScript within 3
-                  months. I quit coding for 3yrs as I had to clear my matrix and
-                  intermediate education first. After school, I opted for the
-                  IIT-JEE exam but couldn&apos;t complete it due to COVID19
-                  crises and then my friend asked me to move on with my passion
-                  and do what I enjoy doing and that satisfies me. I recalled my
-                  skills and brought back the 16yo enthusiastic boy in me. After
-                  revising the past learned skills I kept learning the new
-                  technologies. Now I have a vision of achieving my complete
-                  potential and contribute to the growth of mankind.
-                </p>
-                <div className="social">
-                  <a href="https://github.com/Suryanshpsurya">
-                    <i className="fab fa-github"></i>
-                  </a>
-                  <a href="">
-                    <i className="fab fa-codepen"></i>
-                  </a>
-                  <a href="https://palsuryom.com">
-                    <i className="fas fa-globe"></i>
-                  </a>
+                    <Image
+                      className="image"
+                      loader={myLoader}
+                      src={Suryansh}
+                      alt="Suryansh"
+                      quality="100"
+                    />
+                  </div>
+
+                  <div className="bioContent">
+                    <div className="portfolio_header2">
+                      <Fade down>
+                        <p>Suryansh Pandey</p>
+                        <div>
+                          <Fade cascade>I am a Full Stack Web Developer</Fade>
+                        </div>
+                      </Fade>
+                    </div>
+                    <p>
+                      I am a Full Stack Web Developer & a Tech-Savvy having a
+                      passion for coding, researching & staying updated since my
+                      teenage. I have focused more on developing my practical
+                      coding skills even during my academic years. I am here to
+                      make money working on my passion, creating the unique
+                      masterpiece for my clients as per their vision which adds
+                      on their leads, this win-win attitude of working is what I
+                      am known for. I have been a curious one ever since my
+                      childhood days, I love creating art and figuring out how
+                      things work. This nature of mine paved the way toward new
+                      technologies. I was 16 when I came across knowing what
+                      HTML is, my curious and exploring nature helped me learn
+                      HTML, CSS, and JavaScript within 3 months. I quit coding
+                      for 3yrs as I had to clear my matrix and intermediate
+                      education first. After school, I opted for the IIT-JEE
+                      exam but couldn&apos;t complete it due to COVID19 crises
+                      and then my friend asked me to move on with my passion and
+                      do what I enjoy doing and that satisfies me. I recalled my
+                      skills and brought back the 16yo enthusiastic boy in me.
+                      After revising the past learned skills I kept learning the
+                      new technologies. Now I have a vision of achieving my
+                      complete potential and contribute to the growth of
+                      mankind.
+                    </p>
+                    <div className="social">
+                      <a href="https://github.com/Suryanshpsurya" target="_blank" rel="noopener noreferrer">
+                        <i>
+                          <DiGithubBadge
+                            className="footer_icon"
+                            style={{ fontSize: "4.4rem" }}
+                          />
+                        </i>
+                      </a>
+                      <a href="https://codepen.io/SuryanshPallavi" target="_blank" rel="noopener noreferrer">
+                        <i>
+                          <AiOutlineCodepenCircle className="footer_icon" />
+                        </i>
+                      </a>
+                      <a href="https://palsuryom.com" target="_blank" rel="noopener noreferrer">
+                        <i>
+                          <CgGlobeAlt className="footer_icon" />
+                        </i>
+                      </a>
+                    </div>
+                    <div className="download_resume_btn2 resume_btn">
+                      <a href="/documents/suryansh_resume.pdf" download>Download Resume</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
