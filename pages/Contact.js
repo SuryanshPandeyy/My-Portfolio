@@ -1,5 +1,6 @@
 import Links from "./Links";
 import { useRef } from "react";
+import Heads from "./Head";
 
 const Contact = () => {
   const nameRef = useRef();
@@ -35,11 +36,9 @@ const Contact = () => {
   };
   return (
     <>
+      <Heads title="Contact" />
       <div className="suryansh_portfolio" id="body">
         <div id="contact">
-          <div className="inside circles">
-            <Links />
-          </div>
           <h2 className="card-container-heading">Contact Us</h2>
           <p id="success"></p>
           <div className="form">

@@ -31,7 +31,8 @@
     "react-reveal": "^1.2.2",
     "react-tabs": "^3.2.2",
     "serverless-mysql": "^1.5.4",
-    "swiper": "^6.8.1",
+    "swiper": "^6.8.4",
+    "swr": "^1.0.1",
     "typescript": "^4.4.2"
   },
   "devDependencies": {

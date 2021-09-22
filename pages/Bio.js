@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Fade from "react-reveal/Fade";
 import Suryansh from "/public/images/profile/profile.png";
@@ -8,13 +8,41 @@ import certificateLogo from "/public/images/Icons/cerificate_logo.png";
 import { CgGlobeAlt } from "react-icons/cg";
 import { AiOutlineCodepenCircle } from "react-icons/ai";
 import { DiGithubBadge } from "react-icons/di";
-
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Testimonial from "/public/components/TestimonialBox";
+import Testimonials from "/public/components/Testimonials";
+// import Swiper core and required modules
+import SwiperCore, {EffectCoverflow, Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import Heads from "./Head";
 const myLoader = ({ src }) => {
   return `${src}`;
 };
 
+const nTestimonial = (val) => {
+  return (
+    <>
+      <SwiperSlide className="swiperSlide2" key={val.id}>
+        <div className="cardPackage">
+          <Testimonial desc={val.desc} title={val.title} />
+        </div>
+      </SwiperSlide>
+    </>
+  );
+};
+
+// install Swiper modules
+SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
+
 const Bio = () => {
   const [show, setShow] = useState(false);
+  const [showPara, setShowPara] = useState("hide");
+  const [btn, setBtn] = useState("...more");
+
+  const showParagraph = () => {
+    setShowPara(showPara === "hide" ? "show" : "hide");
+    setBtn(showPara === "hide" ? "less" : "...more");
+  };
 
   const certificatesPopup = () => {
     setShow(true);
@@ -25,11 +53,9 @@ const Bio = () => {
 
   return (
     <>
+    <Heads title="Bio" />
       <div className="suryansh_portfolio" id="body">
         <div className="bio">
-          <div className="inside circles">
-            <Links />
-          </div>
           <div className="bioData">
             <div>
               <div className="bioDetails">
@@ -96,31 +122,46 @@ const Bio = () => {
                         </div>
                       </Fade>
                     </div>
-                    <p>
-                      I am a Full Stack Web Developer & a Tech-Savvy having a
-                      passion for coding, researching & staying updated since my
-                      teenage. I have focused more on developing my practical
-                      coding skills even during my academic years. I am here to
-                      make money working on my passion, creating the unique
-                      masterpiece for my clients as per their vision which adds
-                      on their leads, this win-win attitude of working is what I
-                      am known for. I have been a curious one ever since my
-                      childhood days, I love creating art and figuring out how
-                      things work. This nature of mine paved the way toward new
-                      technologies. I was 16 when I came across knowing what
-                      HTML is, my curious and exploring nature helped me learn
-                      HTML, CSS, and JavaScript within 3 months. I quit coding
-                      for 3yrs as I had to clear my matrix and intermediate
-                      education first. After school, I opted for the IIT-JEE
-                      exam but couldn&apos;t complete it due to COVID19 crises
-                      and then my friend asked me to move on with my passion and
-                      do what I enjoy doing and that satisfies me. I recalled my
-                      skills and brought back the 16yo enthusiastic boy in me.
-                      After revising the past learned skills I kept learning the
-                      new technologies. Now I have a vision of achieving my
-                      complete potential and contribute to the growth of
-                      mankind.
-                    </p>
+                    <div className="bioDesc">
+                      <p className={`switch${showPara}`}>
+                        I am a Full Stack Web Developer & a Tech-Savvy having a
+                        passion for coding, researching & staying updated since
+                        my teenage. I have focused more on developing my
+                        practical coding skills even during my academic years. I
+                        am here to make money working on my passion, creating
+                        the unique masterpiece for my clients as per their
+                        vision which adds on their leads, this win-win attitude
+                        of working is what I am known for. I have been a curious
+                        one ever since my childhood days, I love creating art
+                        and figuring out how things work. This nature of mine
+                        paved the way toward new technologies. I was 16 when I
+                        came across knowing what HTML is, my curious and
+                        exploring nature helped me learn HTML, CSS, and
+                        JavaScript within 3 months. I quit coding for 3yrs as I
+                        had to clear my matrix and intermediate education first.
+                        After school, I opted for the IIT-JEE exam but
+                        couldn&apos;t complete it due to COVID19 crises and then
+                        my friend asked me to move on with my passion and do
+                        what I enjoy doing and that satisfies me. I recalled my
+                        skills and brought back the 16yo enthusiastic boy in me.
+                        After revising the past learned skills I kept learning
+                        the new technologies. Now I have a vision of achieving
+                        my complete potential and contribute to the growth of
+                        mankind.
+                      </p>
+                      <div className="show_btn">
+                        <button onClick={showParagraph}>
+                          {btn}
+                          <span>
+                            {showPara === "hide" ? (
+                              <FaChevronDown />
+                            ) : (
+                              <FaChevronUp />
+                            )}
+                          </span>
+                        </button>
+                      </div>
+                    </div>
                     <div className="social">
                       <a
                         href="https://github.com/Suryanshpsurya"
@@ -331,7 +372,7 @@ const Bio = () => {
               <div className="certificates">
                 <div className="certificateImg">
                   <Image
-                    width="330"
+                    width="430"
                     height="280"
                     src={certificates}
                     alt={certificates}
@@ -339,8 +380,13 @@ const Bio = () => {
                     objectFit="contain"
                   />
                   <div className="certificateDetails">
-                    <div className="certificateName">Andrei</div>
-                    <div className="certificateAbout">Well known Full Stack Web Developer</div>
+                    <div className="certificateName">
+                      <span> Instructor:</span>Andrei
+                    </div>
+                    <div className="certificateAbout">
+                      <span> Skilled In: </span> Well known Full Stack Web
+                      Developer
+                    </div>
                   </div>
                 </div>
               </div>
@@ -348,11 +394,33 @@ const Bio = () => {
                 <button onClick={certificatePopdown}> Close </button>
               </div>
             </div>
-              <div className="blocker" onClick={certificatePopdown}></div>
+            <div className="blocker" onClick={certificatePopdown}></div>
           </>
         ) : (
           <></>
         )}
+
+        <div className="clients swiper-container">
+          <div className="client_title">Client Reviews</div>
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            effect={"coverflow"}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={"auto"}
+            coverflowEffect={{
+              rotate: 50,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            pagination={{ clickable: true }}
+            navigation={{clickable: true}}
+          >
+            {Testimonials.map(nTestimonial)}
+          </Swiper>
+        </div>
       </div>
     </>
   );

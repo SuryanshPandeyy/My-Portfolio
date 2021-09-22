@@ -1,6 +1,5 @@
 import React from "react";
-import Links from "./Links";
-
+import Heads from "./Head";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Business from "/public/components/Templates/Business";
@@ -19,14 +18,11 @@ const nBusiness = (val, key) => {
 const Templates = () => {
   return (
     <>
+      <Heads title="Templates" />
       <div className="suryansh_portfolio" id="body">
         <div id="templates">
-          <div className="inside circles">
-            <Links />
-          </div>
-
           <h2 className="card-container-heading">Website Templates</h2>
-          <div className="shape" id="shape">
+          <div id="shape">
             <Tabs>
               <TabList className="tablist">
                 <Tab>Title 1</Tab>
@@ -37,9 +33,7 @@ const Templates = () => {
 
               <div className="templates">
                 <TabPanel>
-                  <div className="cardPackage">
-                    {Business.map(nBusiness)}
-                  </div>
+                  <div className="cardPackage">{Business.map(nBusiness)}</div>
                 </TabPanel>
                 <TabPanel>
                   <div className="cardPackage">
