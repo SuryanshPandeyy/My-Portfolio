@@ -59,7 +59,7 @@ const Bio = () => {
 
   return (
     <>
-      <Heads title="Suryansh Pandey - Hiresupa" />
+      <Heads title="Suryansh Pandey - HireSupa" />
       <div className="suryansh_portfolio" id="body">
         <div className="bio">
           <div className="bioData">

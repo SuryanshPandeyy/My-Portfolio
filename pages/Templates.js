@@ -21,7 +21,7 @@ const nTemplate = (val, key) => {
 const Templates = () => {
   return (
     <>
-      <Heads title="Suryansh Pandey - Hiresupa: Templates" />
+      <Heads title="Suryansh Pandey - HireSupa: Templates" />
       <div className="suryansh_portfolio" id="body">
         <div id="templates">
           <h2 className="card-container-heading">Website Templates</h2>

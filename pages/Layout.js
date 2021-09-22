@@ -13,14 +13,14 @@ const Layout = ({ children }) => {
         <link rel="canonical" href="https://hiresupa.com/" />
         <meta
           name="description"
-          content="Hiresupa: I am a Full Stack Web Developer {Next.JS, React.JS, MongoDB, etc} with both Frontend and Backend development, SEO optimization, Database Management and UI Designing."
+          content="HireSuPa: I am a Full Stack Web Developer {Next.JS, React.JS, MongoDB, etc} with both Frontend and Backend development, SEO optimization, Database Management and UI Designing."
         />
         <meta
           name="keywords"
-          content="hiresupa, hire, suryansh, portfolio, business, html, css, javascript, react, next, js, php, mongodb, blogs, templates, projects, pallavi, website"
+          content="HireSuPa, hire, suryansh, portfolio, business, html, css, javascript, react, next, js, php, mongodb, blogs, templates, projects, pallavi, website"
         />
         <meta property="fb:admins" content="suryanshpandeyy" />
-        <meta property="og:title" content="Hiresupa" />
+        <meta property="og:title" content="HireSuPa" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://hiresupa.com/" />
         <meta

@@ -14,7 +14,7 @@ const nPersonal = (val, key) => {
 const Projects = () => {
   return (
     <>
-      <Heads title="Suryansh Pandey - Hiresupa: Projects" />
+      <Heads title="Suryansh Pandey - HireSupa: Projects" />
       <div className="suryansh_portfolio" id="body">
         <div id="projects" className="projects">
           <h2 className="card-container-heading">Projects</h2>
