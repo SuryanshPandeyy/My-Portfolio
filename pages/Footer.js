@@ -4,10 +4,11 @@ const Footer = () => {
       <div className="footer">
         <h1 className="hiresupa">
           <span> HireSupa </span>
-          <p>
-            All Copyright © 2021 reserved, Design and Developed by Suryansh &
-            Pallavi
-          </p>
+          <span>
+            All Copyright © 2021 reserved.
+            <br />
+            Design and Developed by Suryansh & Pallavi
+          </span>
         </h1>
       </div>
     </>

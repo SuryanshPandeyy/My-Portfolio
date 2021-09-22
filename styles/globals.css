@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Iceland&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap ');
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap ");
 * {
   font-size: 1.5rem;
   margin: 0;
@@ -22,17 +22,18 @@ body {
   webkit-user-zoom: none;
 }
 
-.hiresupa{
+
+.hiresupa {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   font-weight: 400;
 }
 
-.hiresupa span{
-  font-size: 3.5rem;
+.hiresupa span:nth-child(1) {
+  font-size: 3rem;
   margin: 1rem;
-  color: royalblue;
+  color: rgb(145, 145, 145);
   font-family: "Iceland", cursive;
 }
 
@@ -44,7 +45,7 @@ body {
 
 @media only screen and (max-width: 768px) {
   .suryansh_portfolio {
-    padding-bottom:10rem;
+    padding-bottom: 10rem;
   }
 }
 
@@ -61,12 +62,11 @@ body {
 .bioContent .bioDesc {
   font-family: "Overpass", sans-serif;
 }
-.switchhide{
+.switchhide {
   overflow: hidden;
   height: 5.5rem;
-  
 }
-.switchshow{
+.switchshow {
   height: 100%;
 }
 .skillTitle p {
@@ -79,18 +79,19 @@ body {
   justify-content: flex-end;
 }
 
-.show_btn button{
+.show_btn button {
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-  padding: .4rem 1rem;
-  background-color: #fff;
+  padding: 0.4rem 1rem;
+  background-color: transparent;
+  color: yellow;
   cursor: pointer;
 }
 
-.show_btn button span{
-  margin:0 .3rem;
+.show_btn button span {
+  margin: 0 0.3rem;
 }
 
 .resume_btn {
@@ -120,7 +121,7 @@ body {
 
 .portfolio_header p:first-child,
 .portfolio_header2 p:first-child {
-  color: royalblue;
+  color: grey;
   font-family: "Iceland", cursive;
   font-size: 4rem;
   font-weight: bolder;
@@ -358,7 +359,6 @@ body {
   cursor: pointer;
   outline: none;
   padding: 1rem 2rem;
-
 }
 
 .certificatesTab {
@@ -410,7 +410,7 @@ body {
   word-wrap: break-word;
 }
 
-.certificateDetails span{
+.certificateDetails span {
   font-size: 2rem;
   font-weight: bold;
 }
@@ -582,112 +582,7 @@ body {
   margin-bottom: 2rem;
   text-align: center;
   /* text-decoration: underline; */
-  font-family: 'Boogaloo',
-  cursive;
-}
-
-.menu {
-  align-items: flex-start;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  height: 4rem;
-  justify-content: center;
-  justify-content: flex-end;
-  margin-left: 3rem;
-  margin-top: 3rem;
-  position: absolute;
-  width: 4rem;
-  z-index: 200;
-  z-index: 2001;
-}
-
-.menu .bars {
-  background-color: white;
-  color: white;
-  height: 0.4rem;
-  margin: 0.4rem 0;
-  position: absolute;
-  transition: all 0.2s linear;
-}
-
-.menu .bars:nth-of-type(1) {
-  top: 0rem;
-  width: 4rem;
-}
-
-.menu .bars:nth-of-type(2) {
-  top: 1rem;
-  width: 3rem;
-}
-
-.menu .bars:nth-of-type(3) {
-  top: 2rem;
-  width: 2rem;
-}
-
-#bar1.active1 {
-  margin: 0rem 0;
-  top: 2rem;
-  transform: rotate(45deg);
-}
-
-#bar2.active2 {
-  margin: 0rem 0;
-  top: 2rem;
-  transform: rotate(-45deg);
-  width: 4rem;
-}
-
-#bar3.active3 {
-  display: none;
-}
-
-.menuBox {
-  background-color: grey;
-  height: 100vh;
-  left: -100%;
-  position: fixed;
-  transition: all 0.2s linear;
-  width: 100%;
-  z-index: 2000;
-}
-
-#menuBox.active {
-  background-color: grey;
-  height: 100vh;
-  left: 0;
-  transition: all 0.2s linear;
-  width: 100%;
-  z-index: 2000;
-}
-
-.menuBox ul {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  list-style: none;
-  margin: 0 3rem;
-  width: fit-content;
-}
-
-.menuBox ul li {
-  border-bottom: 0px solid white;
-  margin: 2rem 0;
-  transition: all 0.2s linear;
-  width: 100%;
-}
-
-.menuBox ul li:hover {
-  border-bottom: 4px solid white;
-  width: 100%;
-}
-
-.menuBox ul li a {
-  color: white;
-  font-size: 4rem;
-  text-decoration: none;
+  font-family: "Boogaloo", cursive;
 }
 
 .circles {
@@ -717,6 +612,10 @@ body {
   margin-top: 0.2rem;
 }
 
+.menu_active {
+  color: #fff;
+}
+
 a {
   text-decoration: none;
 }
@@ -727,7 +626,7 @@ a {
 
 .circles ul li {
   align-items: center;
-  color: #fff;
+  color: rgb(152, 152, 152);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -830,6 +729,7 @@ a {
   justify-content: center;
   position: relative;
   width: 100%;
+  z-index: 0;
 }
 
 .shape:nth-of-type(1) {
@@ -922,7 +822,7 @@ iframe {
   width: 100%;
 }
 
-.clients{
+.clients, .faqBox {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -930,10 +830,11 @@ iframe {
   margin: 2em 0;
 }
 
-.clients .client_title{
+.clients .client_title, .faqBox .faq_title {
   color: #fff;
-  font-size:3.5rem;
+  font-size: 3.5rem;
   font-weight: bold;
+  margin-bottom: 2rem;
 }
 
 .swiper-wrapper .swiperSlide2 {
@@ -955,20 +856,39 @@ iframe {
   align-items: center;
   justify-content: center;
 }
+.faqs{
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
 
-.footer{
+.faqsBox{
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  color: #fff;
+  background-color: black;
+  height: 10rem;
+  margin: 3rem 0;
+}
+
+.footer {
   position: absolute;
   width: 100%;
   display: flex;
-  background-color: black;
-  color: #fff;
+  background-color: rgb(53, 53, 53);
+  color: rgb(145, 145, 145);
   align-items: center;
   justify-content: center;
-  padding: 3rem 0;
+  padding: 10rem 0;
   word-wrap: break-word;
 }
-.footer p{
-  padding:0 2rem;
+.footer .hiresupa span:nth-child(2) {
+  padding: 0 2rem;
 }
 @media only screen and (max-width: 378px) {
   .bio .bioData h3 {
@@ -1029,12 +949,12 @@ iframe {
     margin-bottom: 10rem;
     margin-top: 0;
   }
-  .certificateImg{
+  .certificateImg {
     flex-direction: column;
     justify-content: center;
-    align-items: space-around; 
+    align-items: space-around;
   }
-  .certificateDetails{
+  .certificateDetails {
     margin: 2rem 4rem;
   }
 

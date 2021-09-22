@@ -12,6 +12,8 @@ import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Testimonial from "/public/components/TestimonialBox";
 import Testimonials from "/public/components/Testimonials";
+import FaqBox from "/public/components/FaqBox";
+import Faq from "/public/components/Faq";
 // import Swiper core and required modules
 import SwiperCore, {
   EffectCoverflow,
@@ -33,6 +35,15 @@ const nTestimonial = (val) => {
           <Testimonial desc={val.desc} title={val.title} />
         </div>
       </SwiperSlide>
+    </>
+  );
+};
+
+const nFaqBox = (val) => {
+  return (
+    <>
+        <FaqBox quest={val.quest} ans={val.ans} key={val.id}/>
+
     </>
   );
 };
@@ -63,7 +74,7 @@ const Bio = () => {
       <div className="suryansh_portfolio" id="body">
         <div className="bio">
           <div className="bioData">
-            <div>
+            <div style={{ backgroundColor: "black" }}>
               <div className="bioDetails">
                 <div className="bioExtra">
                   <div className="portfolio_header">
@@ -426,6 +437,13 @@ const Bio = () => {
           >
             {Testimonials.map(nTestimonial)}
           </Swiper>
+        </div>
+
+        <div className="faqBox">
+          <div className="faq_title">FAQ</div>
+          <div className="faqs">
+            {Faq.map(nFaqBox)}
+          </div>
         </div>
       </div>
     </>

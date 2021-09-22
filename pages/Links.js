@@ -1,10 +1,9 @@
 import Link from "next/link";
-import {useRouter} from "next/router";
-import { IoPerson, IoPersonOutline } from "react-icons/io5"; 
-import { AiOutlineCode, AiFillCode  } from "react-icons/ai"; 
-import { BsCollection, BsFillCollectionFill } from "react-icons/bs"; 
-import { HiOutlineMail, HiMail } from "react-icons/hi"; 
-
+import { useRouter } from "next/router";
+import { IoPerson, IoPersonOutline } from "react-icons/io5";
+import { AiOutlineCode, AiFillCode } from "react-icons/ai";
+import { BsCollection, BsFillCollectionFill } from "react-icons/bs";
+import { HiOutlineMail, HiMail } from "react-icons/hi";
 
 const Links = () => {
   return (
@@ -18,14 +17,16 @@ const Links = () => {
                   window.location.href ==
                   `${window.location.protocol}//${window.location.hostname}/` ? (
                     <>
-                    <IoPerson className="headerIcon"/>
-                  <h3>Bio</h3>
-                  </>
+                      <div className="menu_active">
+                        <IoPerson className="headerIcon" />
+                        <h3>Bio</h3>
+                      </div>
+                    </>
                   ) : (
                     <>
-                    <IoPersonOutline className="headerIcon"/>
-                  <h3>Bio</h3>
-                  </>
+                      <IoPersonOutline className="headerIcon" />
+                      <h3>Bio</h3>
+                    </>
                   )
                 ) : (
                   ""
@@ -42,14 +43,16 @@ const Links = () => {
                   window.location.href ==
                   `${window.location.protocol}//${window.location.hostname}/Projects/` ? (
                     <>
-                    <AiFillCode className="headerIcon"/>
-                  <h3>Projects</h3>
-                  </>
+                      <div className="menu_active">
+                        <AiFillCode className="headerIcon" />
+                        <h3>Projects</h3>
+                      </div>
+                    </>
                   ) : (
                     <>
-                    <AiOutlineCode className="headerIcon"/>
-                  <h3>Projects</h3>
-                  </>
+                      <AiOutlineCode className="headerIcon" />
+                      <h3>Projects</h3>
+                    </>
                   )
                 ) : (
                   ""
@@ -66,14 +69,16 @@ const Links = () => {
                   window.location.href ==
                   `${window.location.protocol}//${window.location.hostname}/Templates/` ? (
                     <>
-                    <BsFillCollectionFill className="headerIcon"/>
-                  <h3>Templates</h3>
-                  </>
+                      <div className="menu_active">
+                        <BsFillCollectionFill className="headerIcon" />
+                        <h3>Templates</h3>
+                      </div>
+                    </>
                   ) : (
                     <>
-                    <BsCollection className="headerIcon"/>
-                  <h3>Templates</h3>
-                  </>
+                      <BsCollection className="headerIcon" />
+                      <h3>Templates</h3>
+                    </>
                   )
                 ) : (
                   ""
@@ -90,14 +95,16 @@ const Links = () => {
                   window.location.href ==
                   `${window.location.protocol}//${window.location.hostname}/Contact/` ? (
                     <>
-                    <HiMail className="headerIcon"/>
-                  <h3>Contact</h3>
-                  </>
+                      <div className="menu_active">
+                        <HiMail className="headerIcon" />
+                        <h3>Contact</h3>
+                      </div>
+                    </>
                   ) : (
                     <>
-                   <HiOutlineMail className="headerIcon"/>
-                  <h3>Contact</h3>
-                  </>
+                      <HiOutlineMail className="headerIcon" />
+                      <h3>Contact</h3>
+                    </>
                   )
                 ) : (
                   ""
