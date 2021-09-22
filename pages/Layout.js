@@ -1,4 +1,5 @@
 // import useSWR from "swr";
+import { NextSeo } from "next-seo";
 import Links from "./Links";
 import Footer from "./Footer";
 import Head from "next/head";
@@ -13,14 +14,14 @@ const Layout = ({ children }) => {
         <link rel="canonical" href="https://hiresupa.com/" />
         <meta
           name="description"
-          content="HireSuPa: I am a Full Stack Web Developer {Next.JS, React.JS, MongoDB, etc} with both Frontend and Backend development, SEO optimization, Database Management and UI Designing."
+          content="Hire Suryansh for Full Stack Web Development {Next.JS, MongoDB}, SEO optimization, Web and UI Design. - HireSuPa"
         />
         <meta
           name="keywords"
           content="HireSuPa, hire, suryansh, portfolio, business, html, css, javascript, react, next, js, php, mongodb, blogs, templates, projects, pallavi, website"
         />
         <meta property="fb:admins" content="suryanshpandeyy" />
-        <meta property="og:title" content="HireSuPa" />
+        <meta property="og:title" content="Suryansh Pandey - HireSuPa" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://hiresupa.com/" />
         <meta
@@ -29,7 +30,7 @@ const Layout = ({ children }) => {
         />
         <meta
           property="og:description"
-          content="Hiresupa: I am a Full Stack Web Developer {Next.JS, React.JS, MongoDB, etc} with both Frontend and Backend development, SEO optimization, Database Management and UI Designing."
+          content="Hire Suryansh for Full Stack Web Development {Next.JS, MongoDB}, SEO optimization, Web and UI Design. - HireSuPa"
         />
         <link rel="shortcut icon" href="/images/favicons/favicon.ico" />
 
@@ -69,6 +70,12 @@ const Layout = ({ children }) => {
         />
         <meta name="theme-color" content="#ffffff"></meta>
       </Head>
+      
+      <NextSeo
+        title="Suryansh Pandey - HireSuPa"
+        description="Hire Suryansh for Full Stack Web Development {Next.JS, MongoDB}, SEO optimization, Web and UI Design. - HireSuPa"
+      />
+
       <div className="inside circles">
         <Links />
       </div>

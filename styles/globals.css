@@ -23,11 +23,17 @@ body {
 }
 
 .hiresupa{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-weight: 400;
+}
+
+.hiresupa span{
+  font-size: 3.5rem;
   margin: 1rem;
   color: royalblue;
-  font-weight: 400;
   font-family: "Iceland", cursive;
-  font-size: 3.5rem;
 }
 
 @media only screen and (min-width: 768px) {
