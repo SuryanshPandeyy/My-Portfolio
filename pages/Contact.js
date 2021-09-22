@@ -36,7 +36,7 @@ const Contact = () => {
   };
   return (
     <>
-      <Heads title="Contact" />
+      <Heads title="Suryansh Pandey - Hiresupa: Contact" />
       <div className="suryansh_portfolio" id="body">
         <div id="contact">
           <h2 className="card-container-heading">Contact Us</h2>

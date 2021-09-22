@@ -13,7 +13,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Testimonial from "/public/components/TestimonialBox";
 import Testimonials from "/public/components/Testimonials";
 // import Swiper core and required modules
-import SwiperCore, {EffectCoverflow, Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import SwiperCore, {
+  EffectCoverflow,
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+} from "swiper";
 import Heads from "./Head";
 const myLoader = ({ src }) => {
   return `${src}`;
@@ -53,7 +59,7 @@ const Bio = () => {
 
   return (
     <>
-    <Heads title="Bio" />
+      <Heads title="Suryansh Pandey - Hiresupa" />
       <div className="suryansh_portfolio" id="body">
         <div className="bio">
           <div className="bioData">
@@ -416,7 +422,7 @@ const Bio = () => {
               slideShadows: true,
             }}
             pagination={{ clickable: true }}
-            navigation={{clickable: true}}
+            navigation={{ clickable: true }}
           >
             {Testimonials.map(nTestimonial)}
           </Swiper>

@@ -3,9 +3,12 @@ import Heads from "./Head";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Business from "/public/components/Templates/Business";
+import Portfolio from "/public/components/Templates/Portfolio";
+import Blogs from "/public/components/Templates/Blogs";
+import Landing from "/public/components/Templates/Landing";
 import TemplateBox from "/public/components/TemplateBox";
 
-const nBusiness = (val, key) => {
+const nTemplate = (val, key) => {
   return (
     <>
       <div className="cardPackage" key={key}>
@@ -18,50 +21,31 @@ const nBusiness = (val, key) => {
 const Templates = () => {
   return (
     <>
-      <Heads title="Templates" />
+      <Heads title="Suryansh Pandey - Hiresupa: Templates" />
       <div className="suryansh_portfolio" id="body">
         <div id="templates">
           <h2 className="card-container-heading">Website Templates</h2>
           <div id="shape">
             <Tabs>
               <TabList className="tablist">
-                <Tab>Title 1</Tab>
-                <Tab>Title 2</Tab>
-                <Tab>Title 3</Tab>
-                <Tab>Title 4</Tab>
+                <Tab>Business</Tab>
+                <Tab>Portfolio</Tab>
+                <Tab>Blogs</Tab>
+                <Tab>Landing Page</Tab>
               </TabList>
 
               <div className="templates">
                 <TabPanel>
-                  <div className="cardPackage">{Business.map(nBusiness)}</div>
+                  <div className="cardPackage">{Business.map(nTemplate)}</div>
                 </TabPanel>
                 <TabPanel>
-                  <div className="cardPackage">
-                    <div className="packageCard">
-                      <h1 className="title">Comming Soon 2</h1>
-                    </div>
-                  </div>
+                  <div className="cardPackage">{Portfolio.map(nTemplate)}</div>
                 </TabPanel>
                 <TabPanel>
-                  <div className="cardPackage">
-                    <div className="packageCard">
-                      <h1 className="title">Comming Soon 3</h1>
-                    </div>
-                  </div>
+                  <div className="cardPackage">{Blogs.map(nTemplate)}</div>
                 </TabPanel>
                 <TabPanel>
-                  <div className="cardPackage">
-                    <div className="packageCard">
-                      <h1 className="title">Comming Soon 4</h1>
-                    </div>
-                  </div>
-                </TabPanel>
-                <TabPanel>
-                  <div className="cardPackage">
-                    <div className="packageCard">
-                      <h1 className="title">Comming Soon 5</h1>
-                    </div>
-                  </div>
+                  <div className="cardPackage">{Landing.map(nTemplate)}</div>
                 </TabPanel>
               </div>
             </Tabs>

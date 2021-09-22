@@ -22,6 +22,14 @@ body {
   webkit-user-zoom: none;
 }
 
+.hiresupa{
+  margin: 1rem;
+  color: royalblue;
+  font-weight: 400;
+  font-family: "Iceland", cursive;
+  font-size: 3.5rem;
+}
+
 @media only screen and (min-width: 768px) {
   .suryansh_portfolio {
     margin: 10rem 0;
