@@ -1,4 +1,4 @@
-const Testimonials = [
+const TestimonialJson = [
  {
   id: 1,
   title: 'Testimonials',
@@ -26,4 +26,4 @@ const Testimonials = [
  },
 ]
 
-export default Testimonials;
+export default TestimonialJson;

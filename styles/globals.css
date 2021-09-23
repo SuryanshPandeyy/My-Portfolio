@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Iceland&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap ");
+
 * {
   font-size: 1.5rem;
   margin: 0;
@@ -62,13 +63,27 @@ body {
 .bioContent .bioDesc {
   font-family: "Overpass", sans-serif;
 }
+
 .switchhide {
   overflow: hidden;
   height: 5.5rem;
 }
+
 .switchshow {
   height: 100%;
 }
+
+.switchAnshide{
+  display: none;
+}
+
+.switchAnsshow{
+  word-wrap: break-word;
+  width: 100%;
+  margin-top: 2rem;
+  color: rgb(197, 197, 197);
+}
+
 .skillTitle p {
   font-size: 4rem;
 }
@@ -734,27 +749,23 @@ a {
 
 .shape:nth-of-type(1) {
   animation: wave 5s ease-in-out infinite;
-  background: linear-gradient(
-    64.009163468deg,
-    #f34868 23.44140625%,
-    #f24768 23.44140625%,
-    #9e00ec 79.84765625%
-  );
-  background-image: linear-gradient(
-    to left bottom,
-    #d1f3c5,
-    #c1f5be,
-    #adf7b9,
-    #94fab8,
-    #72fcb9,
-    #44f9d5,
-    #07f4ed,
-    #00edff,
-    #00d8ff,
-    #4cbdff,
-    #a39aff,
-    #da70d6
-  );
+  background: linear-gradient(64.009163468deg,
+      #f34868 23.44140625%,
+      #f24768 23.44140625%,
+      #9e00ec 79.84765625%);
+  background-image: linear-gradient(to left bottom,
+      #d1f3c5,
+      #c1f5be,
+      #adf7b9,
+      #94fab8,
+      #72fcb9,
+      #44f9d5,
+      #07f4ed,
+      #00edff,
+      #00d8ff,
+      #4cbdff,
+      #a39aff,
+      #da70d6);
   height: 30rem;
   opacity: 1;
   position: absolute;
@@ -764,6 +775,7 @@ a {
 }
 
 @keyframes wave {
+
   0%,
   100% {
     border-radius: 66% 34% 37% 63% / 57% 31% 69% 43%;
@@ -822,7 +834,8 @@ iframe {
   width: 100%;
 }
 
-.clients, .faqBox {
+.clients,
+.faqBox {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -830,7 +843,8 @@ iframe {
   margin: 2em 0;
 }
 
-.clients .client_title, .faqBox .faq_title {
+.clients .client_title,
+.faqBox .faq_title {
   color: #fff;
   font-size: 3.5rem;
   font-weight: bold;
@@ -856,24 +870,29 @@ iframe {
   align-items: center;
   justify-content: center;
 }
-.faqs{
-  display:flex;
+
+.faqs {
+  display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   width: 100%;
 }
 
-.faqsBox{
-  display:flex;
-  align-items: center;
+.faqsBox {
+  display: flex;
+  /* align-items: center; */
   flex-direction: column;
   justify-content: center;
+  padding: 1rem 2rem;
   width: 90%;
   color: #fff;
   background-color: black;
-  height: 10rem;
   margin: 3rem 0;
+}
+
+.faqQuest{
+  color: rgb(255, 208, 0);
 }
 
 .footer {
@@ -884,12 +903,22 @@ iframe {
   color: rgb(145, 145, 145);
   align-items: center;
   justify-content: center;
-  padding: 10rem 0;
+  padding: 7rem 0;
   word-wrap: break-word;
 }
+
+.footer .hiresupa{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .footer .hiresupa span:nth-child(2) {
   padding: 0 2rem;
 }
+
 @media only screen and (max-width: 378px) {
   .bio .bioData h3 {
     font-size: 2.5rem;
@@ -921,7 +950,7 @@ iframe {
 }
 
 @media only screen and (max-width: 798px) {
-  .bioContent > p {
+  .bioContent>p {
     margin: 0rem 0;
   }
 
@@ -949,11 +978,13 @@ iframe {
     margin-bottom: 10rem;
     margin-top: 0;
   }
+
   .certificateImg {
     flex-direction: column;
     justify-content: center;
     align-items: space-around;
   }
+
   .certificateDetails {
     margin: 2rem 4rem;
   }
@@ -982,6 +1013,7 @@ iframe {
   .bioExtra {
     display: none;
   }
+
   .footer {
     position: relative;
     bottom: 7rem;

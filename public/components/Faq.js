@@ -1,14 +1,24 @@
-const Faq = [
- {
-  id: 1,
-  quest: 'FAQ question',
-  ans: 'Faq Answer'
- },
- {
-  id: 2,
-  quest: 'FAQ question',
-  ans: 'Faq Answer'
- },
-]
+import FaqBox from "/public/components/FaqBox";
+import FaqJson from "/public/json/FaqJson";
+
+const nFaqBox = (val) => {
+  return (
+    <>
+      <FaqBox quest={val.quest} ans={val.ans} key={val.id} />
+    </>
+  );
+};
+
+
+const Faq = () => {
+  return (
+    <>
+      <div className="faqBox">
+        <div className="faq_title">FAQ</div>
+        <div className="faqs">{FaqJson.map(nFaqBox)}</div>
+      </div>
+    </>
+  );
+};
 
 export default Faq;

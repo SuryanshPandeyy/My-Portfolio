@@ -3,53 +3,18 @@ import Image from "next/image";
 import Fade from "react-reveal/Fade";
 import Suryansh from "/public/images/profile/profile.png";
 import certificates from "/public/images/certificates/UC-64a5cb50-0930-429f-9e05-db77afd1ed0f.jpg";
-import Links from "./Links";
+import ClientReviews from "../public/components/ClientReviews";
 import certificateLogo from "/public/images/Icons/cerificate_logo.png";
 import { CgGlobeAlt } from "react-icons/cg";
 import { AiOutlineCodepenCircle } from "react-icons/ai";
 import { DiGithubBadge } from "react-icons/di";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Testimonial from "/public/components/TestimonialBox";
-import Testimonials from "/public/components/Testimonials";
-import FaqBox from "/public/components/FaqBox";
 import Faq from "/public/components/Faq";
-// import Swiper core and required modules
-import SwiperCore, {
-  EffectCoverflow,
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-} from "swiper";
 import Heads from "./Head";
 const myLoader = ({ src }) => {
   return `${src}`;
 };
 
-const nTestimonial = (val) => {
-  return (
-    <>
-      <SwiperSlide className="swiperSlide2" key={val.id}>
-        <div className="cardPackage">
-          <Testimonial desc={val.desc} title={val.title} />
-        </div>
-      </SwiperSlide>
-    </>
-  );
-};
-
-const nFaqBox = (val) => {
-  return (
-    <>
-        <FaqBox quest={val.quest} ans={val.ans} key={val.id}/>
-
-    </>
-  );
-};
-
-// install Swiper modules
-SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
 const Bio = () => {
   const [show, setShow] = useState(false);
@@ -416,35 +381,8 @@ const Bio = () => {
         ) : (
           <></>
         )}
-
-        <div className="clients swiper-container">
-          <div className="client_title">Client Reviews</div>
-          <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            effect={"coverflow"}
-            grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={"auto"}
-            coverflowEffect={{
-              rotate: 50,
-              stretch: 0,
-              depth: 100,
-              modifier: 1,
-              slideShadows: true,
-            }}
-            pagination={{ clickable: true }}
-            navigation={{ clickable: true }}
-          >
-            {Testimonials.map(nTestimonial)}
-          </Swiper>
-        </div>
-
-        <div className="faqBox">
-          <div className="faq_title">FAQ</div>
-          <div className="faqs">
-            {Faq.map(nFaqBox)}
-          </div>
-        </div>
+          <ClientReviews />
+          <Faq />
       </div>
     </>
   );

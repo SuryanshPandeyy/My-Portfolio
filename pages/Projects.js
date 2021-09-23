@@ -1,5 +1,5 @@
 import Heads from "./Head";
-import PersonalProjects, { ClientsProjects } from "/public/components/Cards";
+import PersonalProjects, { ClientsProjects } from "/public/json/Cards";
 import ProjectBox from "/public/components/ProjectBox";
 const nPersonal = (val, key) => {
   return (
