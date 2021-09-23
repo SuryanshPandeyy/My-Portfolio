@@ -629,15 +629,17 @@ body {
 
 .menu_active {
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
 }
 
 a {
   text-decoration: none;
 }
 
-.circles ul div:last-child li .headerIcon {
-  font-size: 4rem;
-}
 
 .circles ul li {
   align-items: center;
@@ -655,7 +657,7 @@ a {
 }
 
 .headerIcon {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .circles ul li:hover {
