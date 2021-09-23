@@ -2,10 +2,10 @@ import React from "react";
 import Heads from "./Head";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import Business from "/public/components/Templates/Business";
-import Portfolio from "/public/components/Templates/Portfolio";
-import Blogs from "/public/components/Templates/Blogs";
-import Landing from "/public/components/Templates/Landing";
+import Business from "/public/json/Templates/Business";
+import Portfolio from "/public/json/Templates/Portfolio";
+import Blogs from "/public/json/Templates/Blogs";
+import Landing from "/public/json/Templates/Landing";
 import TemplateBox from "/public/components/TemplateBox";
 
 const nTemplate = (val, key) => {
