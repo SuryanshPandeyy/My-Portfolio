@@ -73,11 +73,11 @@ body {
   height: 100%;
 }
 
-.switchAnshide{
+.switchAnshide {
   display: none;
 }
 
-.switchAnsshow{
+.switchAnsshow {
   word-wrap: break-word;
   width: 100%;
   margin-top: 2rem;
@@ -677,30 +677,91 @@ a {
   margin: 2rem 0;
   padding: 0 2rem;
   height: 100%;
-  
+
 }
 
-.templateCard{
+.templateCard {
   background: white;
 }
 
-.templateImage{
+.templateImage {
   width: 30rem;
   height: 30rem;
 }
 
-
-.templateFrame2{
+.templateFrame2 {
   height: 10rem;
   background: black;
-  padding:1rem;
+  padding: 1rem;
 }
+
+.templateDetails1 {
+  display: none;
+}
+
+.templateDetails {
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+}
+
+.templateDetailsSet{
+  padding: 2rem;
+}
+
+.templateDetailsSet form{
+  display: flex;
+  flex-direction: column;
+}
+
+.templateDetailsSet .title{
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  text-transform:capitalize;
+  margin: 1rem 0;
+}
+
+.templateDetailsSet select{
+  padding:.5rem .2rem;
+  width: 15rem;
+  margin-bottom: 1rem;
+}
+
+.templateDetailsSet form button{
+  background: rgb(14, 217, 44);
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: .6rem .2rem;
+  margin: .5rem 0rem;
+  width: 8rem;
+  cursor: pointer;
+}
+
+.templateDetailsSet form button[type="submit"]{
+  margin: 0 1rem;
+  background: royalblue;
+}
+
+.templateDetailsSet .price{
+  font-weight: bold;
+  font-size:  clamp(1.6rem , 4vw, 2.2rem);
+  margin: 1rem 0;
+}
+
+.templateDetailsSet .price span{
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 400;
+}
+
 
 .templateFrame1 {
   display: flex;
-  /* margin: 3rem 0; */
   width: 100%;
 }
+
 
 .form {
   align-items: center;
@@ -904,7 +965,7 @@ iframe {
   margin: 3rem 0;
 }
 
-.faqQuest{
+.faqQuest {
   color: rgb(255, 208, 0);
 }
 
@@ -920,7 +981,7 @@ iframe {
   word-wrap: break-word;
 }
 
-.footer .hiresupa{
+.footer .hiresupa {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -965,6 +1026,17 @@ iframe {
 @media only screen and (max-width: 798px) {
   .bioContent>p {
     margin: 0rem 0;
+  }
+
+  .templateDetails {
+    display: none;
+  }
+
+  .templateDetails1 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
   }
 
   .bio {
@@ -1017,6 +1089,16 @@ iframe {
 
   .templates .cardPackage {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .templateImage {
+    width: 100%;
+    height: 30rem;
+    object-fit: contain;
+  }
+
+  .templateFrame1 {
+    flex-direction: column;
   }
 
   .download_resume_btn {

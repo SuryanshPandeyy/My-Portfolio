@@ -39,17 +39,23 @@ const TemplateBox = ({
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const tempOpt = Object.entries(tempVal).map(([prop, val]) => ({
     prop,
-    val
+    val,
   }));
 
   const [tempValues, setTempValues] = useState([]);
   const [selectedTemp, setSelectedTemp] = useState("");
+  const [show, setShow] = useState(false);
 
   function handleTemplate(e) {
     const tempSel = e.target.value;
     setSelectedTemp(tempSel);
     setTempValues(tempSel);
+    setShow(true);
+    if(e.target.value === "none"){
+      setShow(false);
+    }
   }
+
 
   return (
     <>
@@ -71,30 +77,41 @@ const TemplateBox = ({
                       src={curr}
                       alt={curr}
                       layout="fill"
-                      objectFit="contain"
+                      objectFit="cover"
                     />
                   </SwiperSlide>
                 );
               })}
             </Swiper>
           </div>
-          <div className="templateDetails">
+          <div className="templateDetails templateDetailsSet">
             <h2 className="title">{title}</h2>
-            <select
-              name="template"
-              onChange={(e) => handleTemplate(e)}
-              val={selectedTemp}
-            >
-              <option value="">Select type</option>
-              {tempOpt.map((temp, key) => (
-                <option key={key} value={temp.val}>
-                  {temp.prop}
-                </option>
-              ))}
-            </select>
-            <div>
-              Price:
-              {tempValues}
+            <form>
+              <input type="hidden" name="id" value={id} />
+              <input type="hidden" name="title" value={title} />
+              <select
+                name="template"
+                onChange={(e) => handleTemplate(e)}
+                val={selectedTemp}
+              >
+                <option value="none">Select type</option>
+                {tempOpt.map((temp, key) => (
+                  <option key={key} value={temp.val}>
+                    {temp.prop}
+                  </option>
+                ))}
+              </select>
+              {show ? (
+                <div className="btn">
+                  <button>View</button>
+                  <button type="submit">Submit</button>
+                </div>
+              ) : (
+                "Select from above packages to view or buy"
+              )}
+            </form>
+            <div className="price">
+              {show ? <span>Price: {tempValues}</span> : ""}
             </div>
           </div>
         </div>
@@ -125,6 +142,36 @@ const TemplateBox = ({
               );
             })}
           </Swiper>
+        </div>
+        <div className="templateDetails1 templateDetailsSet">
+          <h2 className="title">{title}</h2>
+          <form>
+            <input type="hidden" name="id" value={id} />
+            <input type="hidden" name="title" value={title} />
+            <select
+              name="template"
+              onChange={(e) => handleTemplate(e)}
+              val={selectedTemp}
+            >
+              <option value="none">Select type</option>
+              {tempOpt.map((temp, key) => (
+                <option key={key} value={temp.val}>
+                  {temp.prop}
+                </option>
+              ))}
+            </select>
+            {show ? (
+              <div className="btn">
+                <button>View</button>
+                <button type="submit">Submit</button>
+              </div>
+            ) : (
+              "Select from above packages to view or buy"
+            )}
+          </form>
+          <div className="price">
+            {show ? <span>Price: {tempValues}</span> : ""}
+          </div>
         </div>
       </div>
     </>
