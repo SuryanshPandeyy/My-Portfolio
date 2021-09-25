@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import Button from "@material-ui/core/Button";
 import Image from "next/image";
 import Link from "next/link";
@@ -48,14 +48,15 @@ const TemplateBox = ({
 
   function handleTemplate(e) {
     const tempSel = e.target.value;
+
     setSelectedTemp(tempSel);
+    
     setTempValues(tempSel);
     setShow(true);
-    if(e.target.value === "none"){
+    if (e.target.value === "none") {
       setShow(false);
     }
   }
-
 
   return (
     <>
@@ -98,12 +99,15 @@ const TemplateBox = ({
                 {tempOpt.map((temp, key) => (
                   <option key={key} value={temp.val}>
                     {temp.prop}
+                    {key}
                   </option>
                 ))}
               </select>
               {show ? (
                 <div className="btn">
-                  <button>View</button>
+                  <Link href={`/Templates/${id}`} passHref>
+                    <a>View</a>
+                  </Link>
                   <button type="submit">Submit</button>
                 </div>
               ) : (
@@ -154,15 +158,21 @@ const TemplateBox = ({
               val={selectedTemp}
             >
               <option value="none">Select type</option>
-              {tempOpt.map((temp, key) => (
-                <option key={key} value={temp.val}>
-                  {temp.prop}
-                </option>
-              ))}
+              {tempOpt.map((temp, key) => {
+                return (
+                  <>
+                    <option key={key} value={temp.val}>
+                      {temp.prop}
+                    </option>
+                  </>
+                );
+              })}
             </select>
             {show ? (
               <div className="btn">
-                <button>View</button>
+                <Link href={`/Templates/${id}`} passHref>
+                  <a>View</a>
+                </Link>
                 <button type="submit">Submit</button>
               </div>
             ) : (
@@ -170,7 +180,7 @@ const TemplateBox = ({
             )}
           </form>
           <div className="price">
-            {show ? <span>Price: {tempValues}</span> : ""}
+            {show ? <span>Price: {selectedTemp}</span> : ""}
           </div>
         </div>
       </div>
