@@ -31,6 +31,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.2.0",
     "react-reveal": "^1.2.2",
+    "react-select": "^5.0.0",
     "react-tabs": "^3.2.2",
     "serverless-mysql": "^1.5.4",
     "swiper": "^6.8.4",
