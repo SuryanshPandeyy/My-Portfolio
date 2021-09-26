@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,25 +15,14 @@ const myLoader = ({ src }) => {
   return `${src}`;
 };
 
-const TemplateBox = ({
-  id,
-  title,
-  desc,
-  image,
-  price1,
-  price2,
-  price3,
-  price4,
-  price5,
-  price6,
-}) => {
+const TemplateBox = ({url, id, title, desc, image, price }) => {
   const tempVal = {
-    "Basic site": price1,
-    "Basic site with DB": price2,
-    "Singlepage site": price3,
-    "Singlepage site with DB": price4,
-    "Singlepage site with SEO": price5,
-    "Singlepage site with DB & SEO": price6,
+    "Basic site": price[0],
+    "Basic site with DB": price[1],
+    "Singlepage site": price[2],
+    "Singlepage site with DB": price[3],
+    "Singlepage site with SEO": price[4],
+    "Singlepage site with DB & SEO": price[5],
   };
 
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -50,7 +39,7 @@ const TemplateBox = ({
     const tempSel = e.target.value;
 
     setSelectedTemp(tempSel);
-    
+
     setTempValues(tempSel);
     setShow(true);
     if (e.target.value === "none") {
@@ -99,13 +88,17 @@ const TemplateBox = ({
                 {tempOpt.map((temp, key) => (
                   <option key={key} value={temp.val}>
                     {temp.prop}
-                    {key}
                   </option>
                 ))}
               </select>
               {show ? (
                 <div className="btn">
-                  <Link href={`/Templates/${id}`} passHref>
+                  <Link
+                    href={{
+                      pathname: `/${url}/${id}/${selectedTemp}`,
+                    }}
+                    passHref
+                  >
                     <a>View</a>
                   </Link>
                   <button type="submit">Submit</button>
@@ -170,7 +163,12 @@ const TemplateBox = ({
             </select>
             {show ? (
               <div className="btn">
-                <Link href={`/Templates/${id}`} passHref>
+                <Link
+                  href={{
+                    pathname: `/${url}/${id}/${selectedTemp}`,
+                  }}
+                  passHref
+                >
                   <a>View</a>
                 </Link>
                 <button type="submit">Submit</button>
