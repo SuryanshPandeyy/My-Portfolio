@@ -806,10 +806,12 @@ a {
   width: 12rem;
 }
 
-#success {
+.success {
   color: white;
   font-size: 3rem;
   margin: 1rem;
+  width: fit-content;
+  padding: .1rem 2rem;
 }
 
 .wrap {

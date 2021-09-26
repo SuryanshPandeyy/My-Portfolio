@@ -1,38 +1,48 @@
 import Links from "./Links";
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import Heads from "./Head";
 
 const Contact = () => {
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const phoneRef = useRef();
-  const messageRef = useRef();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [alert, setAlert] = useState("");
+  const [bg, setBg] = useState({})
+
+  const backgroundColors = (msg, bgcolor) => {
+    setAlert(msg);
+    setBg({
+      backgroundColor: bgcolor,
+    });
+  }
 
   const submitForm = async (e) => {
     e.preventDefault();
-     console.log("Sending");
-
-    const enteredName = nameRef.current.value;
-    const enteredEmail = emailRef.current.value;
-    const enteredPhone = phoneRef.current.value;
-    const enteredMessage = messageRef.current.value;
+    backgroundColors("Sending", "red");
+    
 
     const formData = {
-      name: enteredName,
-      email: enteredEmail,
-      phone: enteredPhone,
-      message: enteredMessage,
+      name,
+      email,
+      phone,
+      message,
     };
+    setName("");
+    setEmail("");
+    setPhone("");
+    setMessage("");
 
     await fetch("/api/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
-    })
-    .then((res) => {
-      console.log("Response received");
+    }).then((res) => {
+      backgroundColors("Received", "blue");
       if (res.status === 200) {
-        console.log("Response succeeded!");
+        backgroundColors("Success", "green");
+        setTimeout(backgroundColors, 2000);
+
       }
     });
   };
@@ -42,7 +52,7 @@ const Contact = () => {
       <div className="suryansh_portfolio" id="body">
         <div id="contact">
           <h2 className="card-container-heading">Contact Us</h2>
-          <p id="success"></p>
+          <p className="success" style={bg}>{alert}</p>
           <div className="form">
             <form id="data" onSubmit={submitForm}>
               <label forHtml="name">Name: </label>
@@ -52,7 +62,9 @@ const Contact = () => {
                 id="name"
                 className="form-control"
                 placeholder="Your full Name"
-                ref={nameRef}
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+                required
               />
 
               <label Html="email">Email: </label>
@@ -62,7 +74,9 @@ const Contact = () => {
                 id="email"
                 className="form-control"
                 placeholder="Your Email"
-                ref={emailRef}
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                required
               />
 
               <label forHtml="phone">Phone: </label>
@@ -72,7 +86,9 @@ const Contact = () => {
                 id="phone"
                 className="form-control"
                 placeholder="Phone No."
-                ref={phoneRef}
+                onChange={(e) => setPhone(e.target.value)}
+                value={phone}
+                required
               />
 
               <label forHtml="message">Message: </label>
@@ -84,7 +100,9 @@ const Contact = () => {
                 spellCheck="true"
                 className="form-control"
                 placeholder="Write Something..."
-                ref={messageRef}
+                onChange={(e) => setMessage(e.target.value)}
+                value={message}
+                required
               ></textarea>
 
               <button
