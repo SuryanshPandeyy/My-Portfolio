@@ -1,6 +1,7 @@
 const Business = [
   {
     id: 1,
+    type: 0,
     title: "name",
     desc: "description",
     price: [35000, 65000, 85000, 95000, 105000, 125000],
@@ -27,6 +28,7 @@ const Business = [
   },
   {
     id: 2,
+    type: 0,
     title: "name2",
     desc: "description",
     price: [35000, 65000, 85000, 95000, 105000, 125000],

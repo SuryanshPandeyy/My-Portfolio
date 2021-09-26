@@ -1,12 +1,25 @@
-import Links from "./Links";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Heads from "./Head";
+import Image from "next/image";
 import { useRouter } from "next/router";
-import { RouterTwoTone } from "@material-ui/icons";
+import Business from "/public/json/Templates/Business";
+import Portfolio from "/public/json/Templates/Portfolio";
+import Blogs from "/public/json/Templates/Blogs";
+import Landing from "/public/json/Templates/Landing";
+
+const myLoader = ({ src }) => {
+  return `${src}`;
+}
 
 const Contact = () => {
   const router = useRouter();
-  const { id, packageId, set } = router;
+  const { ids, packageId, type } = router.query;
+
+  const tempCart =  [Business[ids],Blogs[ids], Landing[ids], Portfolio[ids]];
+  // const data = JSON.stringify(res);
+  // const datas = JSON.parse(data);
+  // const ids = datas.id;
+  // console.log(res);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,7 +31,7 @@ const Contact = () => {
   const [selectedKey, setSelectedKey] = useState();
 
   const selectValue = ["Query", "Hire", "Feedback"];
-  const messageText = ["Ask Me","Hire Me", "Feedback"];
+  const messageText = ["Ask Me", "Hire Me", "Feedback"];
 
   const handleVal = (e) => {
     const selVal = e.target.value;
@@ -38,7 +51,7 @@ const Contact = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    backgroundColors("Sending", "red");
+    backgroundColors("Please Wait! Sending...", "red");
 
     const formData = {
       name,
@@ -65,13 +78,20 @@ const Contact = () => {
   };
   return (
     <>
-      <Heads title="Suryansh Pandey - HireSupa: Contact" />
+      <Heads title={alert ? alert : "Suryansh Pandey - HireSupa: Contact"} />
       <div className="suryansh_portfolio" id="body">
         <div id="contact">
           <h2 className="card-container-heading">Contact Us</h2>
-          <p className="success" style={bg}>
-            {alert}
-          </p>
+          {alert ? (
+            <div className="successBox">
+              <div className="blockerContact"></div>
+              <div className="success" style={bg}>
+                {alert}
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
           <div className="form">
             <form id="data" onSubmit={submitForm}>
               <label forHtml="name">Name: </label>
@@ -111,15 +131,11 @@ const Contact = () => {
               />
 
               <label forHtml="select">Select:</label>
-              <select onChange={(e) => handleVal(e)} val={selectedVal}>
-                {!router.query.id & !router.query.packageId?(
+              <select onChange={(e) => handleVal(e)} val={selectedVal} required>
+                {!ids & !packageId ? (
                   selectValue.map((val, key) => {
                     return (
-                      <option
-                        key={key}
-                        value={val}
-                        id={key}
-                      >
+                      <option key={key} value={val} id={key}>
                         {val}
                       </option>
                     );
@@ -157,6 +173,18 @@ const Contact = () => {
             </form>
           </div>
         </div>
+
+        {ids || packageId ? (
+          <div className="templateCart">
+            <div className="imageCart">
+              <Image loader={myLoader} width={100} height={100}src={tempCart[type].image[type]} alt={type} objectFit="contain" placeholder="Loading image..."/>
+            </div>
+            <div className="titleCart">{tempCart[type].title}</div>
+            <div className="priceCart"></div>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

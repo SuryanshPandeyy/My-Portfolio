@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+
 // import Swiper core and required modules
 import SwiperCore, { EffectFade, Navigation, Thumbs } from "swiper";
 
@@ -14,7 +15,7 @@ const myLoader = ({ src }) => {
   return `${src}`;
 };
 
-const TemplateBox = ({ url, id, title, desc, image, price }) => {
+const TemplateBox = ({type, url, id, title, desc, image, price }) => {
   const tempVal = {
     "Basic site": price[0],
     "Basic site with DB": price[1],
@@ -107,7 +108,7 @@ const TemplateBox = ({ url, id, title, desc, image, price }) => {
                 <Link href={{
                   pathname: "/Contact",
                   query: {
-                    id:tempValues, packageId: selectedTemp
+                    ids:tempValues, packageId: tempValues, type
                   }
                 }}>
                   <a>

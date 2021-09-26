@@ -806,12 +806,31 @@ a {
   width: 12rem;
 }
 
+.successBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset:0;
+  position: absolute;
+}
+
+.blockerContact{
+  position:fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.903);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
 .success {
   color: white;
   font-size: 3rem;
   margin: 1rem;
-  width: fit-content;
+  background-color:red;
   padding: .1rem 2rem;
+  z-index: 20000;
+  position: fixed;
 }
 
 .wrap {
@@ -970,6 +989,19 @@ iframe {
 
 .faqQuest {
   color: rgb(255, 208, 0);
+}
+
+.templateCart{
+  width: 100%;
+  height: 10rem;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+  padding: 1rem 0;
+}
+.templateCart .imageCart{
+  margin:0 2rem;
 }
 
 .footer {

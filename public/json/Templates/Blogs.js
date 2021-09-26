@@ -1,6 +1,7 @@
 const Blogs = [
   {
     id: 1,
+    type:1,
     title: "name",
     desc: "description",
     price: [35000, 65000, 85000, 95000, 105000, 125000],
