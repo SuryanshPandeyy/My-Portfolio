@@ -682,6 +682,8 @@ a {
 
 .templateCard {
   background: white;
+  display: flex;
+  flex-direction:column;
 }
 
 .templateImage {
@@ -761,7 +763,6 @@ a {
   display: flex;
   width: 100%;
 }
-
 
 .form {
   align-items: center;
@@ -1113,4 +1114,6 @@ iframe {
     position: relative;
     bottom: 7rem;
   }
+
+  
 }

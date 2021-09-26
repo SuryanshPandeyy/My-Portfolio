@@ -12,7 +12,20 @@ const nTemplate = (val, key) => {
   return (
     <>
       <div className="cardPackage" key={key}>
-        <TemplateBox url="/Template" id={val.id} price={val.price} title={val.title} desc={val.desc} image={val.image} price1={val.price1} price2={val.price2} price3={val.price3} price4={val.price4} price5={val.price5} price6={val.price6} />
+        <TemplateBox
+        url={val.url}
+          id={val.id}
+          price={val.price}
+          title={val.title}
+          desc={val.desc}
+          image={val.image}
+          price1={val.price1}
+          price2={val.price2}
+          price3={val.price3}
+          price4={val.price4}
+          price5={val.price5}
+          price6={val.price6}
+        />
       </div>
     </>
   );
