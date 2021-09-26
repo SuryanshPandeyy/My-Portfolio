@@ -49,38 +49,6 @@ const TemplateBox = ({ url, id, title, desc, image, price }) => {
     }
   }
 
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const phoneRef = useRef();
-  const messageRef = useRef();
-
-  const submitTemp = async (e) => {
-    e.preventDefault();
-
-    const enteredName = nameRef.current.value;
-    const enteredEmail = emailRef.current.value;
-    const enteredPhone = phoneRef.current.value;
-    const enteredMessage = messageRef.current.value;
-
-    const formData = {
-      name: enteredName,
-      email: enteredEmail,
-      phone: enteredPhone,
-      message: enteredMessage,
-    };
-
-    await fetch("/api/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
   return (
     <>
       <div className="templateCard">
@@ -111,34 +79,45 @@ const TemplateBox = ({ url, id, title, desc, image, price }) => {
 
           <div className="templateDetailsSet temporder2">
             <h2 className="title">{title}</h2>
-            <form>
-              <input type="hidden" name="id" value={id} />
-              <input type="hidden" name="title" value={title} />
-              <select
-                name="template"
-                onChange={(e) => handleTemplate(e)}
-                val={selectedTemp}
-              >
-                <option value="none">Select type</option>
-                {tempOpt.map((temp, key) => {
-                  return (
-                    <>
-                      <option key={key} value={temp.val} id={key}>
-                        {temp.prop}
-                      </option>
-                    </>
-                  );
-                })}
-              </select>
-              {show ? (
-                <div className="btn">
-                  {selectedTemp ? <a href={url[tempValues]} target="blank">view</a> : ""}
-                  <button type="submit">Submit</button>
-                </div>
-              ) : (
-                "Select from above packages to view or buy"
-              )}
-            </form>
+            <select
+              name="template"
+              onChange={(e) => handleTemplate(e)}
+              val={selectedTemp}
+            >
+              <option value="none">Select type</option>
+              {tempOpt.map((temp, key) => {
+                return (
+                  <>
+                    <option key={key} value={temp.val} id={key}>
+                      {temp.prop}
+                    </option>
+                  </>
+                );
+              })}
+            </select>
+            {show ? (
+              <div className="btn">
+                {selectedTemp ? (
+                  <a href={url[tempValues]} target="blank">
+                    view
+                  </a>
+                ) : (
+                  ""
+                )}
+                <Link href={{
+                  pathname: "/Contact",
+                  query: {
+                    id:tempValues, packageId: selectedTemp
+                  }
+                }}>
+                  <a>
+                    <button type="submit">Select</button>
+                  </a>
+                </Link>
+              </div>
+            ) : (
+              "Select from above packages to view or buy"
+            )}
             <div className="price">
               {show ? <span>Price: {selectedTemp}</span> : ""}
             </div>
