@@ -132,7 +132,7 @@ const TemplateBox = ({ url, id, title, desc, image, price }) => {
               </select>
               {show ? (
                 <div className="btn">
-                  {selectedTemp ? <a href={url[tempValues]}>view</a> : ""}
+                  {selectedTemp ? <a href={url[tempValues]} target="blank">view</a> : ""}
                   <button type="submit">Submit</button>
                 </div>
               ) : (

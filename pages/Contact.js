@@ -10,6 +10,7 @@ const Contact = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
+     console.log("Sending");
 
     const enteredName = nameRef.current.value;
     const enteredEmail = emailRef.current.value;
@@ -28,11 +29,12 @@ const Contact = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => {
-        console.error(error);
-      });
+    .then((res) => {
+      console.log("Response received");
+      if (res.status === 200) {
+        console.log("Response succeeded!");
+      }
+    });
   };
   return (
     <>
