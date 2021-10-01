@@ -136,7 +136,7 @@ body {
 
 .portfolio_header p:first-child,
 .portfolio_header2 p:first-child {
-  color: grey;
+  color: rgb(106, 143, 255); 
   font-family: "Iceland", cursive;
   font-size: 4rem;
   font-weight: bolder;
@@ -993,15 +993,62 @@ iframe {
 
 .templateCart{
   width: 100%;
-  height: 10rem;
-  background-color: #fff;
   display: flex;
   align-items: center;
-  justify-content:flex-start;
+  justify-content:center;
   padding: 1rem 0;
 }
+.cartWidth{
+  height: 15rem;
+  max-width: 95vw;
+  background-color: #fff;
+  width: 70rem;
+  display: flex;
+  align-items:center;
+  justify-content:space-around;
+}
+
+.templateCartDetails{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  height: 100%;
+}
+
 .templateCart .imageCart{
-  margin:0 2rem;
+  margin:0 1rem;
+}
+
+.templateCart .cartDetails{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.templateCart .titleCart{
+  font-size: 3rem;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.templateCart .priceCart{
+  font-size: 2.5rem;
+  color: orange;
+  font-weight: bold;
+}
+
+.optionCart{
+  justify-self: flex-end;
+}
+.optionCart button{
+  background-color: rgb(255, 61, 61);
+  padding: .7rem 1.7rem;
+  border: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
 }
 
 .footer {

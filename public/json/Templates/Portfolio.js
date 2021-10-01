@@ -2,7 +2,7 @@ const Portfolio = [
   {
     id: 1,
     type:3,
-    title: "name",
+    title: "portfolio1",
     desc: "description",
     price: [35000, 65000, 85000, 95000, 105000, 125000],
     url: [

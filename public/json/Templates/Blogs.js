@@ -2,7 +2,7 @@ const Blogs = [
   {
     id: 1,
     type:1,
-    title: "name",
+    title: "blog1",
     desc: "description",
     price: [35000, 65000, 85000, 95000, 105000, 125000],
     url: [

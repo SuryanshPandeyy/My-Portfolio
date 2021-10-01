@@ -2,7 +2,7 @@ const Landing = [
   {
     id: 1,
     type:4,
-    title: "name",
+    title: "landing1",
     desc: "description",
     price: [35000, 65000, 85000, 95000, 105000, 125000],
     url: [

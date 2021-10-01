@@ -9,17 +9,13 @@ import Landing from "/public/json/Templates/Landing";
 
 const myLoader = ({ src }) => {
   return `${src}`;
-}
+};
 
 const Contact = () => {
   const router = useRouter();
   const { ids, packageId, type } = router.query;
 
-  const tempCart =  [Business[ids],Blogs[ids], Landing[ids], Portfolio[ids]];
-  // const data = JSON.stringify(res);
-  // const datas = JSON.parse(data);
-  // const ids = datas.id;
-  // console.log(res);
+  const tempCart = [Business[ids], Blogs[ids], Landing[ids], Portfolio[ids]];
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -146,7 +142,11 @@ const Contact = () => {
               </select>
 
               <label forHtml="message">
-                {messageText[selectedKey] ? messageText[selectedKey] : "Ask Me"}
+                {!ids & !packageId
+                  ? messageText[selectedKey]
+                    ? messageText[selectedKey]
+                    : "Ask Me"
+                  : ""}
               </label>
               <textarea
                 rows="4"
@@ -168,7 +168,11 @@ const Contact = () => {
                 className="form-control"
                 value="Submit"
               >
-                {messageText[selectedKey] ? messageText[selectedKey] : "Ask Me"}
+                {!ids & !packageId
+                  ? messageText[selectedKey]
+                    ? messageText[selectedKey]
+                    : "Ask Me"
+                  : "Buy"}
               </button>
             </form>
           </div>
@@ -176,11 +180,39 @@ const Contact = () => {
 
         {ids || packageId ? (
           <div className="templateCart">
-            <div className="imageCart">
-              <Image loader={myLoader} width={100} height={100}src={tempCart[type].image[type]} alt={type} objectFit="contain" placeholder="Loading image..."/>
+            <div className="cartWidth">
+              <div className="templateCartDetails">
+                <div className="imageCart">
+                  <Image
+                    loader={myLoader}
+                    width={130}
+                    height={130}
+                    src={tempCart[type].image[0]}
+                    alt={type}
+                    objectFit="contain"
+                    placeholder="Loading image..."
+                  />
+                </div>
+
+                <div className="cartDetails">
+                  <div className="titleCart">{tempCart[type].title}</div>
+                  <div className="priceCart">
+                    {tempCart[type].price[packageId]}
+                  </div>
+                </div>
+              </div>
+
+              <div className="optionCart">
+                <div className="deleteBtn">
+                  <button
+                    className="delete"
+                    onClick={() => router.replace("/Contact")}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="titleCart">{tempCart[type].title}</div>
-            <div className="priceCart"></div>
           </div>
         ) : (
           ""
