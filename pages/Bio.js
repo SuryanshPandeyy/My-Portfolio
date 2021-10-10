@@ -5,8 +5,8 @@ import Suryansh from "/public/images/profile/profile.png";
 import certificates from "/public/images/certificates/UC-64a5cb50-0930-429f-9e05-db77afd1ed0f.jpg";
 import ClientReviews from "../public/components/ClientReviews";
 import certificateLogo from "/public/images/Icons/cerificate_logo.png";
-import { CgGlobeAlt } from "react-icons/cg";
 import { AiOutlineCodepenCircle } from "react-icons/ai";
+import { FaLinkedin } from "react-icons/fa";
 import { DiGithubBadge } from "react-icons/di";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import Faq from "/public/components/Faq";
@@ -90,9 +90,11 @@ const Bio = () => {
                             <div className="slider-wrapper">
                               I am a
                               <div className="slider">
-                                <div className="slider-text1">Seo Optimiser</div>
+                                <div className="slider-text1">
+                                  Seo Optimiser
+                                </div>
                                 <div className="slider-text2">
-                                 React & Next Developer
+                                  React & Next Developer
                                 </div>
                                 <div className="slider-text3">
                                   Full Stack Web Developer
@@ -166,12 +168,12 @@ const Bio = () => {
                         </i>
                       </a>
                       <a
-                        href="https://palsuryom.com"
+                        href="https://www.linkedin.com/in/suryanshpandeyy"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <i>
-                          <CgGlobeAlt className="footer_icon" />
+                          <FaLinkedin className="footer_icon" />
                         </i>
                       </a>
                     </div>

@@ -20,6 +20,7 @@ const Layout = ({ children }) => {
           name="keywords"
           content="HireSuPa, hire, suryansh, portfolio, business, html, css, javascript, react, next, js, php, mongodb, blogs, templates, projects, pallavi, website"
         />
+        {/* <meta name="color-scheme" content="dark light" /> */}
         <meta property="fb:admins" content="suryanshpandeyy" />
         <meta property="og:title" content="Suryansh Pandey - HireSuPa" />
         <meta property="og:type" content="website" />
