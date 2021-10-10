@@ -15,7 +15,6 @@ const myLoader = ({ src }) => {
   return `${src}`;
 };
 
-
 const Bio = () => {
   const [show, setShow] = useState(false);
   const [showPara, setShowPara] = useState("hide");
@@ -91,9 +90,9 @@ const Bio = () => {
                             <div className="slider-wrapper">
                               I am a
                               <div className="slider">
-                                <div className="slider-text1">UI DESIGNER</div>
+                                <div className="slider-text1">Seo Optimiser</div>
                                 <div className="slider-text2">
-                                  SEO Optimizer
+                                 React & Next Developer
                                 </div>
                                 <div className="slider-text3">
                                   Full Stack Web Developer
@@ -381,8 +380,8 @@ const Bio = () => {
         ) : (
           <></>
         )}
-          <ClientReviews />
-          <Faq />
+        <ClientReviews />
+        <Faq />
       </div>
     </>
   );

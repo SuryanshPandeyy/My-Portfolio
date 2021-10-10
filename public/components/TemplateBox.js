@@ -108,7 +108,7 @@ const TemplateBox = ({type, url, id, title, desc, image, price }) => {
                 <Link href={{
                   pathname: "/Contact",
                   query: {
-                    ids:tempValues, packageId: tempValues, type
+                    ids:id-1, packageId: tempValues, type
                   }
                 }}>
                   <a>

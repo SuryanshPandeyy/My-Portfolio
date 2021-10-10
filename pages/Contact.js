@@ -21,6 +21,8 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [select, setSelected] = useState(false);
+
   const [alert, setAlert] = useState("");
   const [bg, setBg] = useState({});
   const [selectedVal, setSelectedVal] = useState();
@@ -36,6 +38,7 @@ const Contact = () => {
     const keySel = el.getAttribute("id");
     setSelectedVal(selVal);
     setSelectedKey(keySel);
+    setSelected(selVal);
   };
 
   const backgroundColors = (msg, bgcolor) => {
@@ -47,30 +50,53 @@ const Contact = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    backgroundColors("Please Wait! Sending...", "red");
-
-    const formData = {
-      name,
-      email,
-      phone,
-      message,
-    };
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
-
-    await fetch("/api/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    }).then((res) => {
-      backgroundColors("Received", "blue");
-      if (res.status === 200) {
-        backgroundColors("Success", "green");
-        setTimeout(backgroundColors, 2000);
+    if (
+      name === "" ||
+      email === "" ||
+      phone === "" ||
+      message === "" ||
+      select === false
+    ) {
+      backgroundColors("Please fill the form", "yellow");
+      setTimeout(backgroundColors, 2000);
+    } else {
+      if (ids || packageId) {
+        var title = tempCart[type].title;
+        var price = tempCart[type].price[packageId];
+      } else {
+        var title = false;
+        var price = false;
       }
-    });
+
+      backgroundColors("Please Wait! Sending...", "red");
+
+      const formData = {
+        name,
+        email,
+        phone,
+        message,
+        select,
+        title,
+        price,
+      };
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+      setSelected("");
+
+      await fetch("/api/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      }).then((res) => {
+        backgroundColors("Received", "blue");
+        if (res.status === 200) {
+          backgroundColors("Success", "green");
+          setTimeout(backgroundColors, 2000);
+        }
+      });
+    }
   };
   return (
     <>
@@ -127,7 +153,15 @@ const Contact = () => {
               />
 
               <label forHtml="select">Select:</label>
-              <select onChange={(e) => handleVal(e)} val={selectedVal} required>
+              <select
+                className="select"
+                onChange={(e) => handleVal(e)}
+                val={selectedVal}
+                required
+              >
+                <option value="false" selected disabled>
+                  Select
+                </option>
                 {!ids & !packageId ? (
                   selectValue.map((val, key) => {
                     return (
@@ -137,7 +171,12 @@ const Contact = () => {
                     );
                   })
                 ) : (
-                  <option value="buy">Buy a template</option>
+                  <>
+                    <option value="false" selected disabled>
+                      Select
+                    </option>
+                    <option value="buy">Buy a template</option>
+                  </>
                 )}
               </select>
 
@@ -172,7 +211,7 @@ const Contact = () => {
                   ? messageText[selectedKey]
                     ? messageText[selectedKey]
                     : "Ask Me"
-                  : "Buy"}
+                  : "Hire Me"}
               </button>
             </form>
           </div>

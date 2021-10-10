@@ -5,7 +5,7 @@ const nodemailer = require("nodemailer");
 
 async function handler(req, res) {
   if (req.method === "POST") {
-    const { email, name, phone, message } = req.body;
+    const { email, name, phone, message, select, title, price } = req.body;
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -19,7 +19,9 @@ async function handler(req, res) {
       from: `${email}`,
       to: `${process.env.EMAIL}`,
       subject: `New mail from ${email}`,
-      html: `<div>${message}</div>`
+      html: `<div>${message}</div><div>${select}</div><div>${
+        title !== false ? title : ""
+      }</div><div>${price !== false ? price : ""}</div>`,
     };
 
     transporter.sendMail(mailOption, (err, data) => {
@@ -42,6 +44,9 @@ async function handler(req, res) {
       name,
       phone,
       message,
+      select,
+      title,
+      price,
     });
 
     client.close();

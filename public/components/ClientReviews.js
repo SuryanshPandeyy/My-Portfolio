@@ -37,7 +37,7 @@ const ClientReviews = () => {
           centeredSlides={true}
           slidesPerView={"auto"}
           coverflowEffect={{
-            rotate: 50,
+            rotate: 35,
             stretch: 0,
             depth: 100,
             modifier: 1,
