@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import Testimonial from "/public/components/TestimonialBox";
 import TestimonialJson from "/public/json/TestimonialJson";
+import useSWR from "swr";
 
 // import Swiper core and required modules
 import SwiperCore, {
@@ -25,7 +26,9 @@ const nTestimonial = (val) => {
     </>
   );
 };
-const ClientReviews = () => {
+
+const ClientReviews = ({ reviews }) => {
+  console.log(reviews)
   return (
     <>
       <div className="clients swiper-container">
@@ -46,11 +49,38 @@ const ClientReviews = () => {
           pagination={{ clickable: true }}
           navigation={{ clickable: true }}
         >
-          {TestimonialJson.map(nTestimonial)}
+          <SwiperSlide className="swiperSlide2">
+            <div className="cardPackage">
+              {/* <Testimonial desc={val.desc} title={val.title} /> */}
+              {/* {reviews.map((review, i) => (
+                <>
+                  <Testimonial desc={review.desc} />
+                </>
+              ))} */}
+            </div>
+          </SwiperSlide>
         </Swiper>
       </div>
     </>
   );
 };
+
+export async function getServerSideProps(ctx) {
+  // get the current environment
+  let dev = process.env.NODE_ENV !== "production";
+  let { DEV_URL, PROD_URL } = process.env;
+
+  // request posts from api
+  let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/reviews`);
+  // extract the data
+  let data = await response.json();
+  console.log(data);
+
+  return {
+    props: {
+      reviews: data['message'],
+    },
+  };
+}
 
 export default ClientReviews;
