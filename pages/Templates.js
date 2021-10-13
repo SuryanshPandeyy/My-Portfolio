@@ -13,8 +13,8 @@ const nTemplate = (val, key) => {
     <>
       <div className="cardPackage" key={key}>
         <TemplateBox
-        type={val.type}
-        url={val.url}
+          type={val.type}
+          url={val.url}
           id={val.id}
           price={val.price}
           title={val.title}

@@ -15,72 +15,54 @@ import SwiperCore, {
 // install Swiper modules
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
-const nTestimonial = (val) => {
+const fetcher = (url) => fetch(url).then((res) => res.json());
+const ClientReviews = () => {
+  const { data, error } = useSWR("/api/reviews", fetcher);
+
+  if (error) return <div style={{ color: "#fff" }}>failed to load</div>;
+  if (!data) return <div style={{ color: "#fff" }}>loading...</div>;
+
+  const datas = data.message;
+
   return (
     <>
-      <SwiperSlide className="swiperSlide2" key={val.id}>
-        <div className="cardPackage">
-          <Testimonial desc={val.desc} title={val.title} />
+      {!datas ? (
+        <div className="clients swiper-container">
+          <div className="client_title">Client Reviews</div>
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            effect={"coverflow"}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={"auto"}
+            coverflowEffect={{
+              rotate: 35,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            pagination={{ clickable: true }}
+            navigation={{ clickable: true }}
+          >
+            {datas.map((review, i) => (
+              <>
+                <SwiperSlide className="swiperSlide2">
+                  <div className="cardPackage">
+                    <>
+                      <Testimonial title={review.name} desc={review.message} />
+                    </>
+                  </div>
+                </SwiperSlide>
+              </>
+            ))}
+          </Swiper>
         </div>
-      </SwiperSlide>
+      ) : (
+        ""
+      )}
     </>
   );
 };
-
-const ClientReviews = ({ reviews }) => {
-  console.log(reviews)
-  return (
-    <>
-      <div className="clients swiper-container">
-        <div className="client_title">Client Reviews</div>
-        <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          effect={"coverflow"}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={"auto"}
-          coverflowEffect={{
-            rotate: 35,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }}
-          pagination={{ clickable: true }}
-          navigation={{ clickable: true }}
-        >
-          <SwiperSlide className="swiperSlide2">
-            <div className="cardPackage">
-              {/* <Testimonial desc={val.desc} title={val.title} /> */}
-              {/* {reviews.map((review, i) => (
-                <>
-                  <Testimonial desc={review.desc} />
-                </>
-              ))} */}
-            </div>
-          </SwiperSlide>
-        </Swiper>
-      </div>
-    </>
-  );
-};
-
-export async function getServerSideProps(ctx) {
-  // get the current environment
-  let dev = process.env.NODE_ENV !== "production";
-  let { DEV_URL, PROD_URL } = process.env;
-
-  // request posts from api
-  let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/reviews`);
-  // extract the data
-  let data = await response.json();
-  console.log(data);
-
-  return {
-    props: {
-      reviews: data['message'],
-    },
-  };
-}
 
 export default ClientReviews;

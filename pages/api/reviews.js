@@ -9,7 +9,7 @@ async function handler(req, res) {
 
     const reviews = await db
       .collection("users")
-      .find({})
+      .find({select : "feedback"})
       .sort({
         published: -1,
       })
