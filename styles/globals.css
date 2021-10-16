@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amarante&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
 
 * {
   font-size: 1.5rem;
@@ -84,9 +85,9 @@ body {
 }
 
 .bioContent .bioDesc p {
-  font-family: 'Squada One',
+  font-family: 'Baloo 2',
     cursive;
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .switchhide {
@@ -623,7 +624,7 @@ body {
   text-align: center;
   /* text-decoration: underline; */
   font-family: 'Amarante',
-  cursive;
+    cursive;
 }
 
 .circles {
@@ -650,7 +651,7 @@ body {
   font-size: 1.4rem;
   font-weight: 400;
   font-family: 'Amarante',
-  cursive;
+    cursive;
   justify-self: flex-end;
   margin-top: 0.2rem;
 }
@@ -686,10 +687,6 @@ a {
 
 .headerIcon {
   font-size: 3rem;
-}
-
-.circles ul li:hover {
-  transform: scale(1.1);
 }
 
 .project {
@@ -1037,9 +1034,9 @@ iframe {
   justify-content: space-around;
 }
 
-.templateDetailsSet .title{
+.templateDetailsSet .title {
   font-family: 'Akaya Telivigala',
-  cursive;
+    cursive;
 }
 
 .select {
