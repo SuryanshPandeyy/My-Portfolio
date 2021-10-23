@@ -60,6 +60,57 @@ const Bio = () => {
                       </div>
                     </Fade>
                   </div>
+                  <div className="bioDesc">
+                    <p>
+                      I am a Full Stack Web Developer & a Tech-Savvy having a
+                      passion for coding, researching & staying updated since my
+                      teenage.
+                    </p>
+                    {/* <div className="show_btn">
+                        <button onClick={showParagraph}>
+                          {btn}
+                          <span>
+                            {showPara === "hide" ? (
+                              <FaChevronDown />
+                            ) : (
+                              <FaChevronUp />
+                            )}
+                          </span>
+                        </button>
+                      </div> */}
+                  </div>
+                  <div className="social">
+                    <a
+                      href="https://github.com/Suryanshpsurya"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i>
+                        <DiGithubBadge
+                          className="footer_icon"
+                          style={{ fontSize: "4.4rem" }}
+                        />
+                      </i>
+                    </a>
+                    <a
+                      href="https://codepen.io/SuryanshPallavi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i>
+                        <AiOutlineCodepenCircle className="footer_icon" />
+                      </i>
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/suryanshpandeyy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i>
+                        <FaLinkedin className="footer_icon" />
+                      </i>
+                    </a>
+                  </div>
                   <div className="download_resume_btn resume_btn">
                     <a href="/documents/suryansh_resume.pdf" download>
                       Download Resume
@@ -80,109 +131,6 @@ const Bio = () => {
                       quality="100"
                     />
                   </div>
-
-                  <div className="bioContent">
-                    <div className="portfolio_header2">
-                      <Fade down>
-                        <p>Suryansh Pandey</p>
-                        <div>
-                          <Fade cascade>
-                            <div className="slider-wrapper">
-                              I am a
-                              <div className="slider">
-                                <div className="slider-text1">
-                                  Seo Optimiser
-                                </div>
-                                <div className="slider-text2">
-                                  React & Next Developer
-                                </div>
-                                <div className="slider-text3">
-                                  Full Stack Web Developer
-                                </div>
-                              </div>
-                            </div>
-                          </Fade>
-                        </div>
-                      </Fade>
-                    </div>
-                    <div className="bioDesc">
-                      <p className={`switch${showPara}`}>
-                        I am a Full Stack Web Developer & a Tech-Savvy having a
-                        passion for coding, researching & staying updated since
-                        my teenage. I have focused more on developing my
-                        practical coding skills even during my academic years. I
-                        am here to make money working on my passion, creating
-                        the unique masterpiece for my clients as per their
-                        vision which adds on their leads, this win-win attitude
-                        of working is what I am known for. I have been a curious
-                        one ever since my childhood days, I love creating art
-                        and figuring out how things work. This nature of mine
-                        paved the way toward new technologies. I was 16 when I
-                        came across knowing what HTML is, my curious and
-                        exploring nature helped me learn HTML, CSS, and
-                        JavaScript within 3 months. I quit coding for 3yrs as I
-                        had to clear my matrix and intermediate education first.
-                        After school, I opted for the IIT-JEE exam but
-                        couldn&apos;t complete it due to COVID19 crises and then
-                        my friend asked me to move on with my passion and do
-                        what I enjoy doing and that satisfies me. I recalled my
-                        skills and brought back the 16yo enthusiastic boy in me.
-                        After revising the past learned skills I kept learning
-                        the new technologies. Now I have a vision of achieving
-                        my complete potential and contribute to the growth of
-                        mankind.
-                      </p>
-                      <div className="show_btn">
-                        <button onClick={showParagraph}>
-                          {btn}
-                          <span>
-                            {showPara === "hide" ? (
-                              <FaChevronDown />
-                            ) : (
-                              <FaChevronUp />
-                            )}
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                    <div className="social">
-                      <a
-                        href="https://github.com/Suryanshpsurya"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i>
-                          <DiGithubBadge
-                            className="footer_icon"
-                            style={{ fontSize: "4.4rem" }}
-                          />
-                        </i>
-                      </a>
-                      <a
-                        href="https://codepen.io/SuryanshPallavi"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i>
-                          <AiOutlineCodepenCircle className="footer_icon" />
-                        </i>
-                      </a>
-                      <a
-                        href="https://www.linkedin.com/in/suryanshpandeyy"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i>
-                          <FaLinkedin className="footer_icon" />
-                        </i>
-                      </a>
-                    </div>
-                    <div className="download_resume_btn2 resume_btn">
-                      <a href="/documents/suryansh_resume.pdf" download>
-                        Download Resume
-                      </a>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -201,9 +149,9 @@ const Bio = () => {
                           <div className="tube">
                             <div
                               className="tubeValue"
-                              style={{ height: "80%" }}
+                              style={{ height: "90%" }}
                             >
-                              <div className="title">80%</div>
+                              <div className="title">90%</div>
                             </div>
                           </div>
                         </div>
@@ -214,9 +162,9 @@ const Bio = () => {
                           <div className="tube">
                             <div
                               className="tubeValue"
-                              style={{ height: "60%" }}
+                              style={{ height: "70%" }}
                             >
-                              <div className="title">60%</div>
+                              <div className="title">70%</div>
                             </div>
                           </div>
                         </div>
@@ -227,9 +175,9 @@ const Bio = () => {
                           <div className="tube">
                             <div
                               className="tubeValue"
-                              style={{ height: "80%" }}
+                              style={{ height: "95%" }}
                             >
-                              <div className="title">80%</div>
+                              <div className="title">95%</div>
                             </div>
                           </div>
                         </div>
@@ -292,9 +240,9 @@ const Bio = () => {
                           <div className="tube">
                             <div
                               className="tubeValue"
-                              style={{ height: "80%" }}
+                              style={{ height: "95%" }}
                             >
-                              <div className="title">80%</div>
+                              <div className="title">95%</div>
                             </div>
                           </div>
                         </div>
@@ -305,9 +253,9 @@ const Bio = () => {
                           <div className="tube">
                             <div
                               className="tubeValue"
-                              style={{ height: "80%" }}
+                              style={{ height: "90%" }}
                             >
-                              <div className="title">80%</div>
+                              <div className="title">90%</div>
                             </div>
                           </div>
                         </div>
@@ -321,6 +269,19 @@ const Bio = () => {
                               style={{ height: "100%" }}
                             >
                               <div className="title">100%</div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="skillsTube">
+                          <div className="value">React Native</div>
+                          <div className="tube">
+                            <div
+                              className="tubeValue"
+                              style={{ height: "50%" }}
+                            >
+                              <div className="title">50%</div>
                             </div>
                           </div>
                         </div>

@@ -84,7 +84,7 @@ body {
   width: 100%;
 }
 
-.bioContent .bioDesc p {
+.bioDesc p {
   font-family: 'Baloo 2',
     cursive;
   font-weight: 400;
@@ -241,7 +241,7 @@ body {
 .skillsTab ul {
   display: grid;
   grid-auto-flow: dense;
-  grid-gap: 4rem;
+  grid-gap:1rem 3rem;
   grid-template-columns: repeat(auto-fill, minmax(3rem, 1fr));
   list-style: none;
   place-content: center;
@@ -265,7 +265,7 @@ body {
   border: 0.2rem solid rgba(135, 207, 235, 0.434);
   border-bottom-left-radius: 5rem;
   border-bottom-right-radius: 5rem;
-  height: 11rem;
+  height: 10rem;
   margin: 1rem 0;
   max-width: 100%;
   overflow: hidden;
@@ -328,7 +328,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 6rem;
+  margin-top: 1rem;
   width: 100%;
 }
 
@@ -462,18 +462,18 @@ body {
   width: 24rem;
 }
 
-.bioExtra,
-.bioExtra2 {
+.bioExtra {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 4rem;
+  width: 50%;
+
 }
 
 .bioExtra {
   align-items: center;
-  height: 60rem;
   justify-content: flex-start;
 }
 
@@ -703,6 +703,19 @@ a {
   padding: 0 2rem;
   height: 100%;
 
+}
+
+.testimonialInfo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.testimonialInfo p{
+  background-color: rgb(77, 150, 205);
+  padding: 1rem 2rem;
+  font-size: 2rem;
 }
 
 .templateCard {
@@ -1140,10 +1153,6 @@ iframe {
     top: 0;
   }
 
-  .download_resume_btn2 {
-    display: none;
-  }
-
   .download_resume_btn {
     margin: 3rem 0;
   }
@@ -1177,8 +1186,17 @@ iframe {
     flex-direction: column;
   }
 
+  .bioDetails{
+    flex-direction: column-reverse;
+  }
+  
+  .bioExtra{
+    margin-top: 4rem;
+    width: 80vw;
+  }
+
   .bioContent {
-    width: 70vw;
+    width: 80vw;
   }
 
   .flex_row {
@@ -1225,14 +1243,6 @@ iframe {
 
   .templateFrame1 {
     flex-direction: column;
-  }
-
-  .download_resume_btn {
-    display: none;
-  }
-
-  .bioExtra {
-    display: none;
   }
 
   .footer {

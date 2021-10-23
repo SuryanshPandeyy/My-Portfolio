@@ -19,9 +19,18 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 const ClientReviews = () => {
   const { data, error } = useSWR("/api/reviews", fetcher);
 
-  if (error) return <div style={{ color: "#fff" }}>failed to load</div>;
-  if (!data) return <div style={{ color: "#fff" }}>loading...</div>;
-
+  if (error)
+    return (
+      <div className="testimonialInfo" style={{ color: "#fff" }}>
+        <p style={{background: 'orange'}}> Failed to load Testimonials </p>
+      </div>
+    );
+  if (!data)
+    return (
+      <div className="testimonialInfo" style={{ color: "#fff" }}>
+        <p> Loading... </p>
+      </div>
+    );
   const datas = data.message;
 
   return (
