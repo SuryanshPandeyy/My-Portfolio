@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Amarante&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
 * {
   font-size: 1.5rem;
@@ -162,10 +163,13 @@ body {
 
 .portfolio_header p:first-child,
 .portfolio_header2 p:first-child {
-  color: rgb(106, 143, 255);
   font-family: "Iceland", cursive;
   font-size: 4rem;
   font-weight: bolder;
+  background: linear-gradient(#9AFF9A, #69DAFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .slider-wrapper {
@@ -241,7 +245,7 @@ body {
 .skillsTab ul {
   display: grid;
   grid-auto-flow: dense;
-  grid-gap:1rem 3rem;
+  grid-gap: 1rem 3rem;
   grid-template-columns: repeat(auto-fill, minmax(3rem, 1fr));
   list-style: none;
   place-content: center;
@@ -415,7 +419,9 @@ body {
 
 .certificateTitle p {
   color: black;
-  font-size: 4rem;
+  font-size: 3.5rem;
+  letter-spacing: .3rem;
+  font-family: 'Trebuchet MS', sans-serif;
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -446,14 +452,23 @@ body {
   align-items: space-around;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   max-width: 90vw;
   word-wrap: break-word;
+  margin: 2rem 0;
+
 }
 
-.certificateDetails span {
-  font-size: 2rem;
-  font-weight: bold;
+.certificateDetails div {
+  font-size: 1.5rem;
+}
+
+.certificateBio div {
+  font-size: 1.6rem;
+  font-family: 'Roboto Condensed',
+    sans-serif;
+  font-weight: 600;
+  letter-spacing: .078rem;
+  width: 20rem;
 }
 
 .bio .bioImage {
@@ -463,19 +478,22 @@ body {
 }
 
 .bioExtra {
-  align-items: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   margin: 0 4rem;
   width: 50%;
 
 }
 
-.bioExtra {
+.bioExtra2 {
+  width: 40%;
+  display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
+
 
 .bioDetails {
   align-items: center;
@@ -705,14 +723,14 @@ a {
 
 }
 
-.testimonialInfo{
+.testimonialInfo {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
 }
 
-.testimonialInfo p{
+.testimonialInfo p {
   background-color: rgb(77, 150, 205);
   padding: 1rem 2rem;
   font-size: 2rem;
@@ -1186,11 +1204,11 @@ iframe {
     flex-direction: column;
   }
 
-  .bioDetails{
+  .bioDetails {
     flex-direction: column-reverse;
   }
-  
-  .bioExtra{
+
+  .bioExtra {
     margin-top: 4rem;
     width: 80vw;
   }
@@ -1206,16 +1224,6 @@ iframe {
   .certificatesBox {
     margin-bottom: 10rem;
     margin-top: 0;
-  }
-
-  .certificateImg {
-    flex-direction: column;
-    justify-content: center;
-    align-items: space-around;
-  }
-
-  .certificateDetails {
-    margin: 2rem 4rem;
   }
 
   .certificatesBox .closeBtn {

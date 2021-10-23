@@ -4,7 +4,7 @@ import Fade from "react-reveal/Fade";
 import Suryansh from "/public/images/profile/profile.png";
 import certificates from "/public/images/certificates/UC-64a5cb50-0930-429f-9e05-db77afd1ed0f.jpg";
 import ClientReviews from "../public/components/ClientReviews";
-import certificateLogo from "/public/images/Icons/cerificate_logo.png";
+import certificateLogo from "/public/images/Icons/certificate_logo1.png";
 import { AiOutlineCodepenCircle } from "react-icons/ai";
 import { FaLinkedin } from "react-icons/fa";
 import { DiGithubBadge } from "react-icons/di";
@@ -62,9 +62,11 @@ const Bio = () => {
                   </div>
                   <div className="bioDesc">
                     <p>
-                      I am a Full Stack Web Developer & a Tech-Savvy having a
-                      passion for coding, researching & staying updated since my
-                      teenage.
+                      I design and develop almost every type of websites with
+                      fresh coding using new technologies creating the unique
+                      masterpiece for my clients they desire. &quot;Your soul&#39;s
+                      hunger to satisfaction, is your best motivation&quot; -
+                      Suryansh Pandey.
                     </p>
                     {/* <div className="show_btn">
                         <button onClick={showParagraph}>
@@ -298,8 +300,8 @@ const Bio = () => {
                   loader={myLoader}
                   src={certificateLogo}
                   alt="Suryansh Certificate"
-                  width="300"
-                  height="300"
+                  width="250"
+                  height="250"
                   objectFit="contain"
                 />
               </div>
@@ -316,20 +318,19 @@ const Bio = () => {
               <div className="certificates">
                 <div className="certificateImg">
                   <Image
-                    width="430"
-                    height="280"
+                    width="400"
+                    height="300"
                     src={certificates}
                     alt={certificates}
                     loader={myLoader}
                     objectFit="contain"
                   />
                   <div className="certificateDetails">
-                    <div className="certificateName">
-                      <span> Instructor:</span>Andrei
+                    <div className="certificateBio">
+                      <div> Instructor </div> Andrei Neagoie
                     </div>
-                    <div className="certificateAbout">
-                      <span> Skilled In: </span> Well known Full Stack Web
-                      Developer
+                    <div className="certificateBio">
+                      <div> Profession </div> Senior Software Developer/ Founder of Zerotomastery Academy
                     </div>
                   </div>
                 </div>
