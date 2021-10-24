@@ -6,6 +6,7 @@ import Business from "/public/json/Templates/Business";
 import Portfolio from "/public/json/Templates/Portfolio";
 import Blogs from "/public/json/Templates/Blogs";
 import Landing from "/public/json/Templates/Landing";
+import { SiUpwork, SiFreelancer, SiFiverr } from "react-icons/si";
 
 const myLoader = ({ src }) => {
   return `${src}`;
@@ -256,6 +257,33 @@ const Contact = () => {
         ) : (
           ""
         )}
+        <hr />
+        <div className="hireLinks">
+          <h3>Hire me on</h3>
+          <ul>
+            <li>
+              <a
+                href="https://www.upwork.com/freelancers/~018c7cd1a1aee5936b/"
+                target="blank"
+              >
+                <SiUpwork className="hireLinksIcon" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.freelancer.in/u/pandeysuryansh"
+                target="blank"
+              >
+                <SiFreelancer className="hireLinksIcon" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.fiverr.com/palsuryom" target="blank">
+                <SiFiverr className="hireLinksIcon" />
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </>
   );

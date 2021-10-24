@@ -1,13 +1,14 @@
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Heads from "./Head";
 import PersonalProjects, { ClientsProjects } from "/public/json/Cards";
 import ProjectBox from "/public/components/ProjectBox";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 const nPersonal = (val, key) => {
   return (
     <>
       <div className="cardPackage" key={key}>
-        <ProjectBox title={val.title} image={val.image} />
+        <ProjectBox title={val.title} image={val.image} link={val.link}/>
       </div>
     </>
   );
@@ -20,18 +21,19 @@ const Projects = () => {
       <div className="suryansh_portfolio" id="body">
         <div id="projects" className="projects">
           <h2 className="card-container-heading">Projects</h2>
-          <br />
           <Tabs>
             <TabList className="tablist">
-              <Tab>Personal</Tab>
               <Tab>Top Clients Projects</Tab>
+              <Tab>Personal</Tab>
             </TabList>
 
             <div className="projects">
               <TabPanel>
+                <div className="project">{ClientsProjects.map(nPersonal)}</div>
+              </TabPanel>
+              <TabPanel>
                 <div className="project">{PersonalProjects.map(nPersonal)}</div>
               </TabPanel>
-              <TabPanel>a</TabPanel>
             </div>
           </Tabs>
         </div>

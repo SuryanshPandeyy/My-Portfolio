@@ -6,7 +6,7 @@ import certificates from "/public/images/certificates/UC-64a5cb50-0930-429f-9e05
 import ClientReviews from "../public/components/ClientReviews";
 import certificateLogo from "/public/images/Icons/certificate_logo1.png";
 import { AiOutlineCodepenCircle } from "react-icons/ai";
-import { FaLinkedin } from "react-icons/fa";
+import { TiSocialLinkedinCircular } from "react-icons/ti";
 import { DiGithubBadge } from "react-icons/di";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import Faq from "/public/components/Faq";
@@ -64,8 +64,8 @@ const Bio = () => {
                     <p>
                       I design and develop almost every type of websites with
                       fresh coding using new technologies creating the unique
-                      masterpiece for my clients they desire. &quot;Your soul&#39;s
-                      hunger to satisfaction, is your best motivation&quot; -
+                      masterpiece for my clients they desire. &quot; Soul&apos;s
+                      hunger for satisfaction is the best motivation &quot; -
                       Suryansh Pandey.
                     </p>
                     {/* <div className="show_btn">
@@ -109,7 +109,7 @@ const Bio = () => {
                       rel="noopener noreferrer"
                     >
                       <i>
-                        <FaLinkedin className="footer_icon" />
+                        <TiSocialLinkedinCircular className="footer_icon" />
                       </i>
                     </a>
                   </div>
@@ -318,19 +318,21 @@ const Bio = () => {
               <div className="certificates">
                 <div className="certificateImg">
                   <Image
-                    width="400"
-                    height="300"
+                    // width="400"
+                    // height="300"
                     src={certificates}
                     alt={certificates}
                     loader={myLoader}
                     objectFit="contain"
+                    className="certImg"
                   />
                   <div className="certificateDetails">
                     <div className="certificateBio">
                       <div> Instructor </div> Andrei Neagoie
                     </div>
                     <div className="certificateBio">
-                      <div> Profession </div> Senior Software Developer/ Founder of Zerotomastery Academy
+                      <div> Profession </div> Senior Software Developer/ Founder
+                      of Zerotomastery Academy
                     </div>
                   </div>
                 </div>

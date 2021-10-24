@@ -5,8 +5,8 @@ import Link from "next/link";
 const myLoader = ({ src }) => {
   return `${src}`;
 };
- 
-const ProjectBox = (props) => {
+
+const ProjectBox = ({ image, title, link }) => {
   return (
     <>
       <div className="cardPackage">
@@ -16,16 +16,18 @@ const ProjectBox = (props) => {
             <Image
               className="cardimg"
               loader={myLoader}
-              src={props.image}
-              alt={props.image}
+              src={image}
+              alt={image}
               layout="fill"
               objectFit="cover"
             />
           </div>
           <div className="Carddetails">
-            <div className="Cardtitle">{props.title}</div>
+            <div className="Cardtitle">{title}</div>
             <div className="view">
-              <Link href=""><a href="projects.php">View</a></Link>
+              <a href={link} target="blank">
+                View
+              </a>
             </div>
           </div>
         </div>
