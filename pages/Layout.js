@@ -3,6 +3,7 @@ import { NextSeo } from "next-seo";
 import Links from "./Links";
 import Footer from "./Footer";
 import Head from "next/head";
+import Menu from "./Menu"
 
 const Layout = ({ children }) => {
   return (
@@ -81,6 +82,9 @@ const Layout = ({ children }) => {
         <Links />
       </div>
       <main>{children}</main>
+      <div className="menuBox">
+        <Menu />
+      </div>
       <Footer />
     </>
   );

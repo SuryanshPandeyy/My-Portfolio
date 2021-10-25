@@ -15,7 +15,7 @@ const myLoader = ({ src }) => {
   return `${src}`;
 };
 
-const Bio = () => {
+const Bio = ({ hi }) => {
   const [show, setShow] = useState(false);
   const [showPara, setShowPara] = useState("hide");
   const [btn, setBtn] = useState("...more");

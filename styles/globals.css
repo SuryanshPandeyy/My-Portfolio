@@ -1005,8 +1005,8 @@ a {
   font-size: 3.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
-   font-family: 'Trebuchet MS',
-   sans-serif;
+  font-family: 'Trebuchet MS',
+    sans-serif;
 }
 
 .swiper-wrapper .swiperSlide2 {
@@ -1019,7 +1019,7 @@ a {
 }
 
 .testimonialBox {
-  width: 30rem;
+  /* width: 30rem; */
   height: 30rem;
   background-color: white;
   border-radius: 1rem;
@@ -1078,7 +1078,7 @@ a {
 
 .faqQuest {
   color: rgb(255, 208, 0);
-  
+
 }
 
 .templateCart {
@@ -1212,6 +1212,73 @@ a {
 
 .footer .hiresupa span:nth-child(2) {
   padding: 0 2rem;
+}
+
+.menuBox {
+  position: fixed;
+  z-index: 20000;
+  bottom: 9rem;
+  right: 3rem;
+}
+
+.menu_settings_container button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.settingIcon {
+  color: #fff;
+  font-size: 3.5rem;
+  cursor: pointer;
+}
+
+.settingIcon:hover {
+  color: #4169e1;
+}
+
+.menus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menus ul {
+  list-style: none;
+  margin-bottom: 1rem;
+  background: #fff;
+  width: 4rem;
+  padding: .5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2rem;
+  border-bottom-right-radius: 0;
+  position: relative;
+  right: 2rem;
+}
+
+.menus ul li {
+  margin: 1rem;
+}
+
+.langIcon,
+.profIcon {
+  color: rgb(0, 0, 0);
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.langIcon:hover,
+.profIcon:hover {
+  color: #4169e1;
 }
 
 @media only screen and (max-width: 378px) {
