@@ -4,7 +4,7 @@ import { google } from "googleapis";
 const nodemailer = require("nodemailer");
 
 async function handler(req, res) {
-  if (req.method === "POST") {
+  if (req.method === "POST") { 
     const { email, otpNum } = req.body;
 
     const transporter = nodemailer.createTransport({
