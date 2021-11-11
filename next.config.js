@@ -15,8 +15,8 @@ module.exports = (phase) => {
         mongodb_password: "tuly%40th%40llo297",
         mongodb_cluster: "cluster0",
         mongodb_database: "hiresupa-dev",
-        EMAIL: "suryanshpallavi@gmail.com",
-        PASSWORD: "lufoqoajjyttdggp",
+        NODEMAILER_EMAIL: "suryanshpallavi@gmail.com",
+        NODEMAILER_PASSWORD: "lufoqoajjyttdggp",
       },
     };
   }
@@ -33,8 +33,8 @@ module.exports = (phase) => {
       mongodb_password: "tuly%40th%40llo297",
       mongodb_cluster: "cluster0",
       mongodb_database: "hiresupa",
-      EMAIL: "suryanshpallavi@gmail.com",
-      PASSWORD: "lufoqoajjyttdggp",
+      NODEMAILER_EMAIL: "suryanshpallavi@gmail.com",
+      NODEMAILER_PASSWORD: "lufoqoajjyttdggp",
     },
   };
 };
