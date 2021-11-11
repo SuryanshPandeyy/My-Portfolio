@@ -16,7 +16,7 @@ module.exports = (phase) => {
         mongodb_cluster: "cluster0",
         mongodb_database: "hiresupa-dev",
         NODEMAILER_EMAIL: "suryanshpallavi@gmail.com",
-        NODEMAILER_PASSWORD: "lufoqoajjyttdggp",
+        NODEMAILER_PASSWORD: "iralgpratgenbnkh",
       },
     };
   }
@@ -34,7 +34,7 @@ module.exports = (phase) => {
       mongodb_cluster: "cluster0",
       mongodb_database: "hiresupa",
       NODEMAILER_EMAIL: "suryanshpallavi@gmail.com",
-      NODEMAILER_PASSWORD: "lufoqoajjyttdggp",
+      NODEMAILER_PASSWORD: "iralgpratgenbnkh",
     },
   };
 };
