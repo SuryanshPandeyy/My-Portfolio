@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Heads from "./Head";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -7,6 +7,7 @@ import Portfolio from "/public/json/Templates/Portfolio";
 import Blogs from "/public/json/Templates/Blogs";
 import Landing from "/public/json/Templates/Landing";
 import { SiUpwork, SiFreelancer, SiFiverr } from "react-icons/si";
+import axios from "axios";
 
 const myLoader = ({ src }) => {
   return `${src}`;
@@ -23,9 +24,15 @@ const Contact = () => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [select, setSelected] = useState(false);
-
-  const [alert, setAlert] = useState("");
-  const [bg, setBg] = useState({});
+  const [otp, setOtp] = useState(false);
+  const [otpFill, setOtpFill] = useState(false);
+  const [verify, setVerify] = useState(false);
+  const [otpSuccess, setOtpSuccess] = useState("");
+  const [otpInput, setOtpInput] = useState("");
+  const [success, setSuccess] = useState("");
+  const successMsg = (msg) => {
+    setSuccess(msg);
+  };
   const [selectedVal, setSelectedVal] = useState();
   const [selectedKey, setSelectedKey] = useState();
 
@@ -42,13 +49,6 @@ const Contact = () => {
     setSelected(selVal);
   };
 
-  const backgroundColors = (msg, bgcolor) => {
-    setAlert(msg);
-    setBg({
-      backgroundColor: bgcolor,
-    });
-  };
-
   const submitForm = async (e) => {
     e.preventDefault();
     if (
@@ -58,66 +58,85 @@ const Contact = () => {
       message === "" ||
       select === false
     ) {
-      backgroundColors("Please fill the form", "yellow");
-      setTimeout(backgroundColors, 2000);
+      successMsg("Please fill the form");
+      setTimeout(successMsg, 2000);
     } else {
-      if (ids || packageId) {
-        var title = tempCart[type].title;
-        var price = tempCart[type].price[packageId];
-      } else {
-        var title = false;
-        var price = false;
-      }
-
-      backgroundColors("Please Wait! Sending...", "red");
-
-      const formData = {
-        name,
-        email,
-        phone,
-        message,
-        select,
-        title,
-        price,
-      };
-      setName("");
-      setEmail("");
-      setPhone("");
-      setMessage("");
-      setSelected("");
-
-      await fetch("/api/users", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      }).then((res) => {
-        backgroundColors("Received", "blue");
-        if (res.status === 200) {
-          backgroundColors("Success", "green");
-          setTimeout(backgroundColors, 2000);
+      if (otpFill === true) {
+        if (ids || packageId) {
+          var title = tempCart[type].title;
+          var price = tempCart[type].price[packageId];
+        } else {
+          var title = false;
+          var price = false;
         }
-      });
+
+        successMsg("Sending...");
+
+        const formData = {
+          name,
+          email,
+          phone,
+          message,
+          select,
+          title,
+          price,
+        };
+        setName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+        setSelected("");
+
+        await fetch("/api/users", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }).then((res) => {
+          successMsg("Details Recieved But Not Sent, Please Retry!");
+          if (res.status === 200) {
+            successMsg("Details Submitted");
+            setTimeout(successMsg, 2000);
+          }
+        });
+      } else {
+        successMsg("Please fill the OTP");
+        setTimeout(successMsg, 2000);
+      }
     }
   };
+
+  function generateOTP() {
+    // Declare a digits variable
+    // which stores all digits
+    var digits = "0123456789";
+    let OTP = "";
+    for (let i = 0; i < 6; i++) {
+      OTP += digits[Math.floor(Math.random() * 10)];
+    }
+    return OTP;
+  }
   return (
     <>
-      <Heads title={alert ? alert : "Suryansh Pandey - HireSupa: Contact"} />
+      <Heads
+        title={success ? success : "Suryansh Pandey - HireSupa: Contact"}
+      />
       <div className="suryansh_portfolio" id="body">
         <div id="contact">
           <h2 className="card-container-heading">Contact Us</h2>
-          {alert ? (
-            <div className="successBox">
-              <div className="blockerContact"></div>
-              <div className="success" style={bg}>
-                {alert}
+          {success ? (
+            <>
+              <div className="successComment">
+                <div>{success}</div>
               </div>
-            </div>
+            </>
           ) : (
             ""
           )}
+
           <div className="form">
             <form id="data" onSubmit={submitForm}>
               <label forHtml="name">Name: </label>
+
               <input
                 type="text"
                 name="name"
@@ -127,6 +146,7 @@ const Contact = () => {
                 onChange={(e) => setName(e.target.value)}
                 value={name}
                 required
+                disabled={success ? true : false}
               />
 
               <label Html="email">Email: </label>
@@ -136,10 +156,99 @@ const Contact = () => {
                 id="email"
                 className="form-control"
                 placeholder="Your Email"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => (setEmail(e.target.value), setVerify(true))}
                 value={email}
                 required
+                disabled={success ? true : false}
               />
+              {otpSuccess === "correct" ? <>Verified</> : null}
+              {otpSuccess === "incorrect" ? (
+                <>
+                  {
+                    (successMsg("Please fill the form"),
+                    setTimeout(successMsg, 2000))
+                  }
+                </>
+              ) : null}
+
+              {verify ? (
+                <>
+                  <form
+                    onClick={async (e) => {
+                      e.preventDefault();
+
+                      const otpNum = generateOTP();
+
+                      const formData = {
+                        email,
+                        otpNum,
+                      };
+
+                      if (email !== "") {
+                        successMsg("Sending Otp...");
+                        await fetch("/api/updateOtp", {
+                          method: "POST",
+                          headers: {
+                            "Content-Type": "application/json",
+                          },
+                          body: JSON.stringify(formData),
+                        }).then((res) => {
+                          successMsg("Otp recieved");
+                          if (res.status === 200) {
+                            successMsg("Otp sent sucessfully");
+                            setTimeout(successMsg, 2000);
+                            setVerify(false);
+                            setOtp(true);
+                          }
+                        });
+                      }
+                    }}
+                  >
+                    <button>Verify</button>
+                  </form>
+                </>
+              ) : null}
+              {otp ? (
+                <>
+                  <div className="otpForm">
+                    <div>
+                      <form
+                        onClick={async (e) => {
+                          e.preventDefault();
+
+                          if (email !== "") {
+                            axios.get(`/api/showOtp`).then((response) => {
+                              const otpData = response.data.message;
+                              const filterOtp = otpData.filter(
+                                (data) => email === data.email
+                              );
+
+                              if (filterOtp !== []) {
+                                if (otpInput == filterOtp[0].otpNum) {
+                                  setOtpSuccess("correct");
+                                  setOtp(false);
+                                } else {
+                                  setOtpSuccess("incorrect");
+                                }
+                              }
+                            });
+                          } else {
+                            successMsg("Please fill the form");
+                            setTimeout(successMsg, 2000);
+                          }
+                        }}
+                      >
+                        <input
+                          type="number"
+                          onChange={(e) => setOtpInput(e.target.value)}
+                          value={otpInput}
+                        />
+                        <button type="submit">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                </>
+              ) : null}
 
               <label forHtml="phone">Phone: </label>
               <input
@@ -151,6 +260,7 @@ const Contact = () => {
                 onChange={(e) => setPhone(e.target.value)}
                 value={phone}
                 required
+                disabled={success ? true : false}
               />
 
               <label forHtml="select">Select:</label>
@@ -159,6 +269,7 @@ const Contact = () => {
                 onChange={(e) => handleVal(e)}
                 val={selectedVal}
                 required
+                disabled={success ? true : false}
               >
                 <option value="false" selected disabled>
                   Select
@@ -199,14 +310,15 @@ const Contact = () => {
                 onChange={(e) => setMessage(e.target.value)}
                 value={message}
                 required
+                disabled={success ? true : false}
               ></textarea>
 
               <button
                 type="submit"
-                id="form_submit"
                 name="submit"
-                className="form-control"
+                className={`${!success ? "form-control" : "form-disabled"}`}
                 value="Submit"
+                disabled={success ? true : false}
               >
                 {!ids & !packageId
                   ? messageText[selectedKey]

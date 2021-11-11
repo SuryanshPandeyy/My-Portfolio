@@ -3,7 +3,7 @@ import { NextSeo } from "next-seo";
 import Links from "./Links";
 import Footer from "./Footer";
 import Head from "next/head";
-import Menu from "./Menu"
+import Menu from "./Menu";
 
 const Layout = ({ children }) => {
   return (
@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
         />
         <meta name="theme-color" content="#ffffff"></meta>
       </Head>
-      
+
       <NextSeo
         title="Suryansh Pandey - HireSuPa"
         description="Hire Suryansh for Full Stack Web Development {Next.JS, MongoDB}, SEO optimization, Web and UI Design. - HireSuPa"
@@ -82,10 +82,11 @@ const Layout = ({ children }) => {
         <Links />
       </div>
       <main>{children}</main>
-      <div className="menuBox">
-        <Menu />
+
+      <Menu />
+      <div className="footerDiv">
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };

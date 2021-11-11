@@ -11,14 +11,18 @@ import { DiGithubBadge } from "react-icons/di";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import Faq from "/public/components/Faq";
 import Heads from "./Head";
+import Menu from "./Menu"
+
+
 const myLoader = ({ src }) => {
   return `${src}`;
 };
 
-const Bio = ({ hi }) => {
+const Bio = () => {
   const [show, setShow] = useState(false);
   const [showPara, setShowPara] = useState("hide");
   const [btn, setBtn] = useState("...more");
+  const [lang, setLang] = useState(false);
 
   const showParagraph = () => {
     setShowPara(showPara === "hide" ? "show" : "hide");
@@ -43,7 +47,7 @@ const Bio = ({ hi }) => {
                 <div className="bioExtra">
                   <div className="portfolio_header">
                     <Fade down>
-                      <p>Suryansh Pandey</p>
+                      <p>{lang ? "सूर्यांश" : "Suryansh"}</p>
                       <div>
                         <Fade cascade>
                           <div className="slider-wrapper">
@@ -300,8 +304,8 @@ const Bio = ({ hi }) => {
                   loader={myLoader}
                   src={certificateLogo}
                   alt="Suryansh Certificate"
-                  width="250"
-                  height="250"
+                  width="200"
+                  height="200"
                   objectFit="contain"
                 />
               </div>
@@ -346,7 +350,7 @@ const Bio = ({ hi }) => {
         ) : (
           <></>
         )}
-        <ClientReviews />
+        {/* <ClientReviews /> */}
         <Faq />
       </div>
     </>

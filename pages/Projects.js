@@ -8,7 +8,7 @@ const nPersonal = (val, key) => {
   return (
     <>
       <div className="cardPackage" key={key}>
-        <ProjectBox title={val.title} image={val.image} link={val.link}/>
+        <ProjectBox title={val.title} image={val.image} link={val.link} />
       </div>
     </>
   );
@@ -20,14 +20,16 @@ const Projects = () => {
       <Heads title="Suryansh Pandey - HireSupa: Projects" />
       <div className="suryansh_portfolio" id="body">
         <div id="projects" className="projects">
-          <h2 className="card-container-heading">Projects</h2>
           <Tabs>
-            <TabList className="tablist">
-              <Tab>Top Clients Projects</Tab>
-              <Tab>Personal</Tab>
-            </TabList>
+            <div className="fixed">
+              <h2 className="card-container-heading">Projects</h2>
+              <TabList className="tablist">
+                <Tab>Top Clients Projects</Tab>
+                <Tab>Personal</Tab>
+              </TabList>
+            </div>
 
-            <div className="projects">
+            <div className="projectsTab">
               <TabPanel>
                 <div className="project">{ClientsProjects.map(nPersonal)}</div>
               </TabPanel>
