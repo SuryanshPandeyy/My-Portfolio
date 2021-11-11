@@ -61,7 +61,7 @@ const Contact = () => {
       successMsg("Please fill the form");
       setTimeout(successMsg, 2000);
     } else {
-      if (otpFill === true) {
+      if (otpFill === false) {
         if (ids || packageId) {
           var title = tempCart[type].title;
           var price = tempCart[type].price[packageId];
