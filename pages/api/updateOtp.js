@@ -8,13 +8,13 @@ const handler = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "suryanshpallavi@gmail.com",
-        pass: "lufoqoajjyttdggp",
+        user: process.env.NODEMAILER_EMAIL,
+        pass: process.env.NODEMAILER_PASSWORD,
       },
     });
 
     const mailOption = {
-      from: `Hiresupa`,
+      from: `suryanshpallavi@gmail.com`,
       to: `${email}`,
       subject: `Otp`,
       html: `Your Otp is : ${otpNum}`,
@@ -24,6 +24,8 @@ const handler = async (req, res) => {
       if (err) {
         console.log(err);
         res.send("error" + JSON.stringify(err));
+      } else {
+        console.log(data);
       }
     });
 
