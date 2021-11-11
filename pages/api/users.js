@@ -10,14 +10,14 @@ async function handler(req, res) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD,
+        user: process.env.NODEMAILER_EMAIL,
+        pass: process.env.NODEMAILER_PASSWORD,
       },
     });
 
     const mailOption = {
       from: `${email}`,
-      to: `${process.env.EMAIL}`,
+      to: `${process.env.NODEMAILER_EMAIL}`,
       subject: `New mail from ${email}`,
       html: `<div>${message}</div><div>${select}</div><div>${
         title !== false ? title : ""
