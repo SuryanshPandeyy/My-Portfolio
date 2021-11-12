@@ -61,7 +61,7 @@ const Contact = () => {
       successMsg("Please fill the form");
       setTimeout(successMsg, 2000);
     } else {
-      if (otpFill === false) {
+      if (otpFill === true) {
         if (ids || packageId) {
           var title = tempCart[type].title;
           var price = tempCart[type].price[packageId];
@@ -116,30 +116,6 @@ const Contact = () => {
     return OTP;
   }
 
-  const submitOtp = async(e) => {
-    
-      e.preventDefault();
-
-      if (email !== "") {
-        axios.get(`/api/showOtp`).then((response) => {
-          const otpData = response.data.message;
-          const filterOtp = otpData.filter((data) => email === data.email);
-
-          if (filterOtp !== []) {
-            if (otpInput == filterOtp[0].otpNum) {
-              setOtpSuccess("correct");
-              setOtp(false);
-            } else {
-              setOtpSuccess("incorrect");
-            }
-          }
-        });
-      } else {
-        successMsg("Please fill the form");
-        setTimeout(successMsg, 2000);
-      }
-  
-  }
   return (
     <>
       <Heads
@@ -187,19 +163,11 @@ const Contact = () => {
                 disabled={success ? true : false}
               />
               {otpSuccess === "correct" ? <>Verified</> : null}
-              {otpSuccess === "incorrect" ? (
-                <>
-                  {
-                    (successMsg("Please fill the form"),
-                    setTimeout(successMsg, 2000))
-                  }
-                </>
-              ) : null}
 
               {verify ? (
                 <>
                   <button
-                    onSubmit={async (e) => {
+                    onClick={async (e) => {
                       e.preventDefault();
 
                       const otpNum = generateOTP();
@@ -237,17 +205,47 @@ const Contact = () => {
                 <>
                   <div className="otpForm">
                     <div>
-                      <form onSubmit={submitOtp}>
-                        <input
-                          type="number"
-                          name="otp"
-                          onChange={(e) => setOtpInput(e.target.value)}
-                          value={otpInput}
-                          required
-                          disabled={success ? true : false}
-                        />
-                        <button type="submit">Submit</button>
-                      </form>
+                      {/* <form onClick={submitOtp}> */}
+                      <input
+                        type="number"
+                        name="otp"
+                        onChange={(e) => setOtpInput(e.target.value)}
+                        value={otpInput}
+                        required
+                        disabled={success ? true : false}
+                      />
+                      <button
+                        onClick={async (e) => {
+                          e.preventDefault();
+
+                          if (email !== "") {
+                            axios.get(`/api/showOtp`).then((response) => {
+                              const otpData = response.data.message;
+                              const filterOtp = otpData.filter(
+                                (data) => email === data.email
+                              );
+
+                              if (filterOtp !== []) {
+                                if (otpInput == filterOtp[0].otpNum) {
+                                  setOtpSuccess("correct");
+                                  setOtpFill(true);
+                                  setOtp(false);
+                                } else {
+                                  setOtpSuccess("incorrect");
+                                  successMsg("Wrong OTP");
+                                  setTimeout(successMsg, 2000);
+                                }
+                              }
+                            });
+                          } else {
+                            successMsg("Please fill the form");
+                            setTimeout(successMsg, 2000);
+                          }
+                        }}
+                      >
+                        Submit
+                      </button>
+                      {/* </form> */}
                     </div>
                   </div>
                 </>
