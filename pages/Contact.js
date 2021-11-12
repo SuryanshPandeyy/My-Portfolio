@@ -115,6 +115,31 @@ const Contact = () => {
     }
     return OTP;
   }
+
+  const submitOtp = async(e) => {
+    
+      e.preventDefault();
+
+      if (email !== "") {
+        axios.get(`/api/showOtp`).then((response) => {
+          const otpData = response.data.message;
+          const filterOtp = otpData.filter((data) => email === data.email);
+
+          if (filterOtp !== []) {
+            if (otpInput == filterOtp[0].otpNum) {
+              setOtpSuccess("correct");
+              setOtp(false);
+            } else {
+              setOtpSuccess("incorrect");
+            }
+          }
+        });
+      } else {
+        successMsg("Please fill the form");
+        setTimeout(successMsg, 2000);
+      }
+  
+  }
   return (
     <>
       <Heads
@@ -173,8 +198,8 @@ const Contact = () => {
 
               {verify ? (
                 <>
-                  <form
-                    onClick={async (e) => {
+                  <button
+                    onSubmit={async (e) => {
                       e.preventDefault();
 
                       const otpNum = generateOTP();
@@ -204,44 +229,22 @@ const Contact = () => {
                       }
                     }}
                   >
-                    <button>Verify</button>
-                  </form>
+                    Verify
+                  </button>
                 </>
               ) : null}
               {otp ? (
                 <>
                   <div className="otpForm">
                     <div>
-                      <form
-                        onClick={async (e) => {
-                          e.preventDefault();
-
-                          if (email !== "") {
-                            axios.get(`/api/showOtp`).then((response) => {
-                              const otpData = response.data.message;
-                              const filterOtp = otpData.filter(
-                                (data) => email === data.email
-                              );
-
-                              if (filterOtp !== []) {
-                                if (otpInput == filterOtp[0].otpNum) {
-                                  setOtpSuccess("correct");
-                                  setOtp(false);
-                                } else {
-                                  setOtpSuccess("incorrect");
-                                }
-                              }
-                            });
-                          } else {
-                            successMsg("Please fill the form");
-                            setTimeout(successMsg, 2000);
-                          }
-                        }}
-                      >
+                      <form onSubmit={submitOtp}>
                         <input
                           type="number"
+                          name="otp"
                           onChange={(e) => setOtpInput(e.target.value)}
                           value={otpInput}
+                          required
+                          disabled={success ? true : false}
                         />
                         <button type="submit">Submit</button>
                       </form>

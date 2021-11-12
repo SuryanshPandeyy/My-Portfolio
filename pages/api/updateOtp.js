@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 const nodemailer = require("nodemailer");
 
-const handler = async (req, res) => {
+const handlerOtp = async (req, res) => {
   if (req.method === "POST") {
     const { email, otpNum } = req.body;
 
@@ -55,4 +55,4 @@ const handler = async (req, res) => {
   }
 };
 
-export default handler;
+export default handlerOtp;
