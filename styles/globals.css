@@ -8,6 +8,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Headland+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer&display=swap');
 
 * {
   font-size: 1.5rem;
@@ -848,7 +851,7 @@ a {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width:55rem;
+  max-width: 55rem;
 }
 
 .form form label {
@@ -880,6 +883,7 @@ a {
   background: royalblue;
   color: #fff;
 }
+
 .form button.form-disabled {
   border: none;
   cursor: default;
@@ -981,9 +985,6 @@ a {
   justify-content: center;
   transition: all 0.2s linear;
 }
-
-
-
 
 .react-tabs .tablist {
   align-items: center;
@@ -1316,6 +1317,180 @@ a {
   font-size: 3rem;
   font-family: 'Open Sans',
     sans-serif;
+}
+
+.service_container {
+  width: 100%;
+  margin: 2rem 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.serviceBtn {
+  width: 80%;
+  background-color: royalblue;
+  padding: 1.5rem;
+}
+
+.serviceBtn span {
+  margin-left: 1rem;
+}
+
+.serviceBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.serviceBox h3 {
+  font-size: 5rem;
+  font-weight: 400;
+}
+
+
+.serviceTable {
+  margin-top: 2rem;
+  font-family: Arial,
+    Helvetica,
+    sans-serif;
+  border-collapse: collapse;
+  width: 85%;
+  color: #fff;
+}
+
+
+.serviceTable td,
+.serviceTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.serviceTable tr .id {
+  width: 10%;
+}
+
+.serviceTable tr .title {
+  width: 50%;
+}
+
+.serviceTable tr .price {
+  width: 30%;
+}
+
+.serviceTable tr .view a {
+  text-decoration: none;
+}
+
+.serviceTable tr .view a button {
+  color: #fff;
+  font-size: 1.2rem;
+  background: rgb(159, 159, 159);
+}
+
+.serviceTable tr:nth-child(even) {
+  background-color: #4b4747;
+}
+
+.serviceTable tr:hover {
+  background-color: #525956;
+}
+
+.serviceTable th {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+.serviceTable tr {
+  width: 100%;
+}
+
+.service_page {
+  color: #fff;
+}
+
+.servicePage_content {
+  margin-top: 5rem;
+  padding: 1rem 2rem;
+}
+
+.servicePage_content .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.servicePage_content h1 {
+  font-size: 3rem;
+  font-family: 'Headland One',
+    serif;
+}
+
+.servicePage_content h3 {
+  font-size: 2.5rem;
+  font-family: 'Maven Pro',
+    sans-serif;
+}
+
+.servicePage_content h3 span{
+  font-size: 2.5rem;
+  font-family:initial;
+}
+
+.servicePage_content .content {
+  margin-top: 3rem;
+}
+
+.servicePage_content .content .row {
+  font-size: 2.3rem;
+  font-family: 'IM Fell Great Primer',
+    serif;
+}
+
+.prevNext {
+  margin-top: 1rem;
+  padding:0 2rem ;
+  position: relative;
+  height: 1.5rem;
+}
+
+.prevNext a {
+  text-decoration: none;
+}
+
+.prevNext button {
+  background: #a73737;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #7a2828, #a73737);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #7a2828, #a73737);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.prevNext div.prev{
+  float: left;
+}
+.prevNext div.next{
+  float: right;
+}
+
+.serviceFooter {
+  margin-top: 5rem;
+}
+
+.servicePage_content ul {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 4rem;
 }
 
 @media only screen and (max-width: 378px) {

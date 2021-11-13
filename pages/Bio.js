@@ -11,8 +11,7 @@ import { DiGithubBadge } from "react-icons/di";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import Faq from "/public/components/Faq";
 import Heads from "./Head";
-import Menu from "./Menu"
-
+import Services from "/public/components/Services";
 
 const myLoader = ({ src }) => {
   return `${src}`;
@@ -139,6 +138,10 @@ const Bio = () => {
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div className="service_container">
+              <Services />
             </div>
 
             <div className="flex_row">
