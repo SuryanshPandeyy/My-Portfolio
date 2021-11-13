@@ -1,6 +1,5 @@
 import { MongoClient } from "mongodb";
 const nodemailer = require("nodemailer");
-const { smtpTransport } = require("nodemailer-smtp-transport");
 
 const handlerOtp = async (req, res) => {
   if (req.method === "POST") {
@@ -20,39 +19,17 @@ const handlerOtp = async (req, res) => {
     );
 
     if (db) {
-      Object.defineProperty(global, "__stack", {
-        get: function () {
-          var orig = Error.prepareStackTrace;
-          Error.prepareStackTrace = function (_, stack) {
-            return stack;
-          };
-          var err = new Error();
-          Error.captureStackTrace(err, arguments.callee);
-          var stack = err.stack;
-          Error.prepareStackTrace = orig;
-          return stack;
+      const transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        debug: true,
+        port: 465,
+        secure: true,
+        service: "gmail",
+        auth: {
+          user: process.env.NODEMAILER_EMAIL,
+          pass: process.env.NODEMAILER_PASSWORD,
         },
       });
-
-      Object.defineProperty(global, "__line", {
-        get: function () {
-          return __stack[1].getLineNumber();
-        },
-      });
-
-      const transporter = nodemailer.createTransport(
-        smtpTransport({
-          host: "smtp.gmail.com",
-          debug: true,
-          port: 465,
-          secure: true,
-          service: "gmail",
-          auth: {
-            user: process.env.NODEMAILER_EMAIL,
-            pass: process.env.NODEMAILER_PASSWORD,
-          },
-        })
-      );
 
       const mailOption = {
         from: `suryanshpallavi@gmail.com`,
