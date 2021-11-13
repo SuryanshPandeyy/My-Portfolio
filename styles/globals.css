@@ -850,7 +850,7 @@ a {
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 70vw;
   max-width: 55rem;
 }
 
@@ -869,8 +869,7 @@ a {
   max-width: 80vw;
   padding: 1rem;
   resize: vertical;
-  width: 90%;
-  max-width: 55rem;
+  width: 100%;
 }
 
 .form button.form-control {
@@ -1319,6 +1318,63 @@ a {
     sans-serif;
 }
 
+.otpForm {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.924);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.otpFrame1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.otpFrame1 input {
+  padding: 1rem 2rem;
+}
+
+.otpFrame1 button {
+  font-size: 1.3rem;
+  color: #fff;
+  margin: 1rem;
+}
+
+.otpFrame1 button[type="submit"] {
+  background: #1488CC;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2B32B2, #1488CC);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2B32B2, #1488CC);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.otpFrame1 button[type="button"] {
+  background: #ec008c;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fc6767, #ec008c);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fc6767, #ec008c);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.submitformbtn {
+  background: #8E2DE2;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4A00E0, #8E2DE2);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-size: 1.3rem;
+  color: #fff;
+}
+
 .service_container {
   width: 100%;
   margin: 2rem 0;
@@ -1439,9 +1495,9 @@ a {
     sans-serif;
 }
 
-.servicePage_content h3 span{
+.servicePage_content h3 span {
   font-size: 2.5rem;
-  font-family:initial;
+  font-family: initial;
 }
 
 .servicePage_content .content {
@@ -1456,7 +1512,7 @@ a {
 
 .prevNext {
   margin-top: 1rem;
-  padding:0 2rem ;
+  padding: 0 2rem;
   position: relative;
   height: 1.5rem;
 }
@@ -1476,10 +1532,11 @@ a {
   font-size: 1.2rem;
 }
 
-.prevNext div.prev{
+.prevNext div.prev {
   float: left;
 }
-.prevNext div.next{
+
+.prevNext div.next {
   float: right;
 }
 

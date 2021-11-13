@@ -8,6 +8,7 @@ import Blogs from "/public/json/Templates/Blogs";
 import Landing from "/public/json/Templates/Landing";
 import { SiUpwork, SiFreelancer, SiFiverr } from "react-icons/si";
 import axios from "axios";
+import { Button } from "@mui/material";
 
 const myLoader = ({ src }) => {
   return `${src}`;
@@ -23,7 +24,7 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  const [select, setSelected] = useState(false);
+  const [select, setSelected] = useState("");
   const [otp, setOtp] = useState(false);
   const [otpFill, setOtpFill] = useState(false);
   const [verify, setVerify] = useState(false);
@@ -56,7 +57,7 @@ const Contact = () => {
       email === "" ||
       phone === "" ||
       message === "" ||
-      select === false
+      select === ""
     ) {
       successMsg("Please fill the form");
       setTimeout(successMsg, 2000);
@@ -96,6 +97,7 @@ const Contact = () => {
           if (res.status === 200) {
             successMsg("Details Submitted");
             setTimeout(successMsg, 2000);
+            setOtp(false);
           }
         });
       } else {
@@ -116,6 +118,48 @@ const Contact = () => {
     return OTP;
   }
 
+  const submitDetails = async (e) => {
+    e.preventDefault();
+
+    if (
+      name === "" ||
+      email === "" ||
+      phone === "" ||
+      message === "" ||
+      select === ""
+    ) {
+      successMsg("Please fill the form");
+      setTimeout(successMsg, 2000);
+    } else {
+      const otpNum = generateOTP();
+
+      const formData = {
+        email,
+        otpNum,
+      };
+
+      if (email !== "") {
+        successMsg("Sending Otp...");
+        await fetch("/api/updateOtp", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }).then((res) => {
+          successMsg("Otp recieved");
+          setTimeout(successMsg, 2000);
+          if (res.status === 200) {
+            successMsg("Otp sent sucessfully");
+            setTimeout(successMsg, 2000);
+            setVerify(false);
+            setOtp(true);
+          }
+        });
+      }
+    }
+  };
+
   return (
     <>
       <Heads
@@ -134,8 +178,86 @@ const Contact = () => {
             ""
           )}
 
+          {otp ? (
+            <>
+              <div className="otpForm">
+                <div>
+                  <form
+                    onSubmit={async (e) => {
+                      e.preventDefault();
+                      if (
+                        name === "" ||
+                        email === "" ||
+                        phone === "" ||
+                        message === "" ||
+                        select === ""
+                      ) {
+                        successMsg("Please fill the form");
+                        setTimeout(successMsg, 2000);
+                      } else {
+                        successMsg("Please Wait");
+                        axios.get(`/api/showOtp`).then((response) => {
+                          const otpData = response.data.message;
+                          const filterOtp = otpData.filter(
+                            (data) => email === data.email
+                          );
+
+                          if (filterOtp !== []) {
+                            if (otpInput == filterOtp[0].otpNum) {
+                              setTimeout(successMsg, 10);
+                              setOtpSuccess("correct");
+                              setOtpFill(true);
+                              setOtpInput("");
+                            } else {
+                              setOtpSuccess("incorrect");
+                              successMsg("Wrong OTP");
+                              setTimeout(successMsg, 2000);
+                            }
+                          }
+                        });
+                      }
+                    }}
+                  >
+                    <div className="otpFrame1">
+                      <div className="otpFrame2">
+                        <input
+                          type="number"
+                          name="otp"
+                          onChange={(e) => setOtpInput(e.target.value)}
+                          value={otpInput}
+                          required
+                          disabled={otpFill || success ? true : false}
+                        />
+                      </div>
+                      <div>
+                        <Button type="submit" disabled={otpFill ? true : false}>
+                          Submit Otp
+                        </Button>
+
+                        <Button type="button" onClick={(e) => setOtp(false)}>
+                          Cancel
+                        </Button>
+                      </div>
+                    </div>
+                    {otpSuccess === "correct" ? <>Verified</> : null}
+                  </form>
+
+                  {otpFill ? (
+                    <>
+                      <form onSubmit={submitForm}>
+                        <Button type="submit" className="submitformbtn">
+                          Submit Details
+                        </Button>
+                      </form>
+                    </>
+                  ) : null}
+                </div>
+              </div>
+            </>
+          ) : null}
+
           <div className="form">
-            <form id="data" onSubmit={submitForm}>
+            <form id="data" onSubmit={submitDetails}>
               <label forHtml="name">Name: </label>
 
               <input
@@ -157,99 +279,11 @@ const Contact = () => {
                 id="email"
                 className="form-control"
                 placeholder="Your Email"
-                onChange={(e) => (setEmail(e.target.value), setVerify(true))}
+                onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 required
                 disabled={success ? true : false}
               />
-              {otpSuccess === "correct" ? <>Verified</> : null}
-
-              {verify ? (
-                <>
-                  <button
-                    onClick={async (e) => {
-                      e.preventDefault();
-
-                      const otpNum = generateOTP();
-
-                      const formData = {
-                        email,
-                        otpNum,
-                      };
-
-                      if (email !== "") {
-                        successMsg("Sending Otp...");
-                        await fetch("/api/updateOtp", {
-                          method: "POST",
-                          headers: {
-                            "Content-Type": "application/json",
-                          },
-                          body: JSON.stringify(formData),
-                        }).then((res) => {
-                          successMsg("Otp recieved");
-                          if (res.status === 200) {
-                            successMsg("Otp sent sucessfully");
-                            setTimeout(successMsg, 2000);
-                            setVerify(false);
-                            setOtp(true);
-                          }
-                        });
-                      }
-                    }}
-                  >
-                    Verify
-                  </button>
-                </>
-              ) : null}
-              {otp ? (
-                <>
-                  <div className="otpForm">
-                    <div>
-                      {/* <form onClick={submitOtp}> */}
-                      <input
-                        type="number"
-                        name="otp"
-                        onChange={(e) => setOtpInput(e.target.value)}
-                        value={otpInput}
-                        required
-                        disabled={success ? true : false}
-                      />
-                      <button
-                        onClick={async (e) => {
-                          e.preventDefault();
-
-                          if (email !== "") {
-                            axios.get(`/api/showOtp`).then((response) => {
-                              const otpData = response.data.message;
-                              const filterOtp = otpData.filter(
-                                (data) => email === data.email
-                              );
-
-                              if (filterOtp !== []) {
-                                if (otpInput == filterOtp[0].otpNum) {
-                                  setOtpSuccess("correct");
-                                  setOtpFill(true);
-                                  setOtp(false);
-                                } else {
-                                  setOtpSuccess("incorrect");
-                                  successMsg("Wrong OTP");
-                                  setTimeout(successMsg, 2000);
-                                }
-                              }
-                            });
-                          } else {
-                            successMsg("Please fill the form");
-                            setTimeout(successMsg, 2000);
-                          }
-                        }}
-                      >
-                        Submit
-                      </button>
-                      {/* </form> */}
-                    </div>
-                  </div>
-                </>
-              ) : null}
 
               <label forHtml="phone">Phone: </label>
               <input
@@ -314,7 +348,7 @@ const Contact = () => {
                 disabled={success ? true : false}
               ></textarea>
 
-              <button
+              <Button
                 type="submit"
                 name="submit"
                 className={`${!success ? "form-control" : "form-disabled"}`}
@@ -326,7 +360,7 @@ const Contact = () => {
                     ? messageText[selectedKey]
                     : "Ask Me"
                   : "Hire Me"}
-              </button>
+              </Button>
             </form>
           </div>
         </div>
@@ -357,12 +391,12 @@ const Contact = () => {
 
               <div className="optionCart">
                 <div className="deleteBtn">
-                  <button
+                  <Button
                     className="delete"
                     onClick={() => router.replace("/Contact")}
                   >
                     Delete
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
