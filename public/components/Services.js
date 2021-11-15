@@ -1,44 +1,83 @@
 import ServiceJson from "/public/json/ServiceJson";
+import ServiceBox from "./ServiceBox";
+import { useState, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import { Button } from "@mui/material";
+
+// import Swiper core and required modules
+import SwiperCore, {
+  EffectCoverflow,
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+} from "swiper";
+
+// install Swiper modules
+SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
+
 const nServices = (val) => {
-  return (
-    <>
-      <tr>
-        <td className="id">{val.id}</td>
-        <td className="title">{val.title}</td>
-        <td className="price">
-          {new Intl.NumberFormat("en-IN", {
-            style: "currency",
-            currency: "INR",
-          }).format(val.price)}
-        </td>
-        <td className="view">
-          <Link href={`/Services/${val.id}`}>
-            <a>
-              <Button>View</Button>
-            </a>
-          </Link>
-        </td>
-      </tr>
-    </>
-  );
+  return <></>;
 };
 
 const Services = () => {
+  const [check, setCheck] = useState(false);
+  const [price, setPrice] = useState();
   return (
     <>
       <div className="serviceBox">
         <h3>Services</h3>
-        <table className="serviceTable">
-          <tr>
-            <th className="id">Id:</th>
-            <th className="title">Title</th>
-            <th className="price">Price</th>
-            <th className="options">Options</th>
-          </tr>
-          {ServiceJson.map(nServices)}
-        </table>
+        <br />
+
+        <div className="containerToggle">
+          <span>Frontend</span>
+          <div className="toggle-switch">
+            <input
+              type="checkbox"
+              className="checkbox"
+              name="toggle"
+              id="toggle"
+              checked={check}
+              onChange={(e) => setCheck(e.target.checked)}
+            />
+            <label className="label" htmlFor="toggle">
+              <span className="inner" />
+              <span className="switch" />
+            </label>
+          </div>
+          <span>Backened</span>
+        </div>
+
+        <br />
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          effect={"coverflow"}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={"auto"}
+          coverflowEffect={{
+            rotate: 35,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          pagination={{ clickable: true }}
+          navigation={{ clickable: true }}
+        >
+          {ServiceJson.map((val) => (
+            <>
+              <SwiperSlide className="swiperSlide2">
+                <ServiceBox
+                  value={val}
+                  check={check}
+                 
+                />
+              </SwiperSlide>
+            </>
+          ))}
+        </Swiper>
       </div>
     </>
   );

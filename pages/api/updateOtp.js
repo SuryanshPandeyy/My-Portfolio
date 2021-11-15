@@ -3,22 +3,11 @@ const nodemailer = require("nodemailer");
 const sgMail = require("@sendgrid/mail");
 // const puretext = require("puretext");
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require("twilio")(accountSid, authToken);
-
 const handlerOtp = async (req, res) => {
   if (req.method === "POST") {
     const { email, otpNum } = req.body;
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-    // await client.messages
-    //   .create({
-    //     body: `Otp: ${otpNum}`,
-    //     from: "+15005550006",
-    //     to: "+918303559608",
-    //   })
-    //   .then((message) => console.log(message.sid));
 
     const message = `
   Otp: ${otpNum}
@@ -30,7 +19,7 @@ const handlerOtp = async (req, res) => {
       subject: "Hiresupa: Otp",
       text: message,
       html: `Your Otp is : ${otpNum}`,
-    };
+    }
 
     let clientDb;
     const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.l7odd.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;

@@ -1,56 +1,77 @@
 const ServiceJson = [
   {
     id: 1,
-    title: "Static Website",
-    price: 2500,
-    desc: "Website",
-    Extra: [
-      {
-        Bootstrap: "Yes",
+    title: "Standard",
+    price: 2788.5,
+    languages: {
+      frontend: ["HTML", "CSS", "JavaScript"],
+      backend: ["Php", "MySQL"],
+    },
+    page: 1,
+    time: {
+      frontend: {
+        day: 1,
+        hour: 1.5,
       },
-      {
-        FontAwesome: "Yes",
+      backend: {
+        day: 1,
+        hour: 3,
       },
-      {
-        Jquery: "Yes",
-      },
-    ],
+    },
+
+    seo: 2788.5,
+    singlePage: false,
+    revision: 1,
   },
   {
     id: 2,
-    title: "Dynamic Website",
-    price: 4000,
-    desc: "Website",
-    backenedPrice: 2000,
-    Extra: [
-      {
-        Bootstrap: "Yes",
+    title: "Premium",
+    price: 6691.05,
+    languages: {
+      frontend: ["ReactJS"],
+      backend: ["NodeJS", "MongoDB"],
+    },
+    page: 1,
+    time: {
+      frontend: {
+        day: 1,
+        hour: 3,
       },
-      {
-        FontAwesome: "Yes",
+      backend: {
+        day: 2,
+        hour: 6,
       },
-      {
-        Jquery: "Yes",
-      },
-    ],
+    },
+
+    seo: 6691.05,
+    singlePage: true,
+    revision: 3,
   },
+
   {
     id: 3,
-    title: "Dynamic Website",
-    price: 4000,
-    desc: "Website",
-    backenedPrice: 2000,
-    Extra: [
-      {
-        Bootstrap: "Yes",
+    title: "Pro",
+    price: 7806.24,
+    languages: {
+      frontend: ["NextJS"],
+      backend: ["NodeJS", "MongoDB"],
+    },
+    page: 1,
+    time: {
+      frontend: {
+        day: 1,
+        hour: 3,
       },
-      {
-        FontAwesome: "Yes",
+      backend: {
+        day: 2,
+        hour: 6,
       },
-      {
-        Jquery: "Yes",
-      },
-    ],
+    },
+
+    seo: 7806.24,
+
+    singlePage: true,
+    revision: 5,
   },
 ];
 

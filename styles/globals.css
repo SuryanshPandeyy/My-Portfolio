@@ -1550,6 +1550,109 @@ a {
   margin: 1rem 4rem;
 }
 
+.serviceCard {
+  min-height: 20rem;
+  padding-bottom: 4rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  color: royalblue;
+}
+
+.serviceCard h3 {
+  font-size: 3rem;
+  font-weight: 400;
+  margin: 1rem 0;
+}
+
+.serviceCard .price p {
+  font-size: 4rem;
+  margin: 1rem 0;
+}
+
+.containerToggle {
+  text-align: center;
+}
+
+.containerToggle .toggle-switch {
+  position: relative;
+  width: 6rem;
+  display: inline-block;
+  text-align: left;
+  top: .8rem;
+  margin: 0 1rem;
+}
+
+.containerToggle .checkbox {
+  display: none;
+}
+
+.containerToggle .label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 0 solid #bbb;
+  border-radius: 2rem;
+}
+
+.containerToggle .inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+
+.containerToggle .inner:before,
+.containerToggle .inner:after {
+  float: left;
+  width: 50%;
+  height: 3rem;
+  padding: 0;
+  line-height: 3.6rem;
+  color: #fff;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.containerToggle .inner:before {
+  content: "";
+  padding-left: 1rem;
+  background-color: royalblue;
+  color: #fff;
+}
+
+.containerToggle .inner:after {
+  content: "";
+  padding-right: 1rem;
+  background-color: #bbb;
+  color: #fff;
+  text-align: right;
+}
+
+.containerToggle .switch {
+  display: block;
+  width: 2rem;
+  margin: .5rem;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 3rem;
+  border: 0 solid #bbb;
+  border-radius: 2rem;
+  transition: all 0.3s ease-in 0s;
+}
+
+.containerToggle .checkbox:checked+.label .inner {
+  margin-left: 0;
+}
+
+.containerToggle .checkbox:checked+.label .switch {
+  right: 0rem;
+}
+
 @media only screen and (max-width: 378px) {
   .bio .bioData h3 {
     font-size: 2.5rem;

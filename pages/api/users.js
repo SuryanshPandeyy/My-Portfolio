@@ -9,32 +9,6 @@ async function handler(req, res) {
   if (req.method === "POST") {
     const { email, name, phone, message, select, title, price } = req.body;
 
-    // const transporter = nodemailer.createTransport({
-    //   service: "gmail",
-    //   auth: {
-    //     user: process.env.NODEMAILER_EMAIL,
-    //     pass: process.env.NODEMAILER_PASSWORD,
-    //   },
-    // });
-
-    // const mailOption = {
-    //   from: `${email}`,
-    //   to: `${process.env.NODEMAILER_EMAIL}`,
-    //   subject: `New mail from ${email}`,
-    //   html: `<div>${message}</div><div>${select}</div><div>${
-    //     title !== false ? title : ""
-    //   }</div><div>${price !== false ? price : ""}</div>`,
-    // };
-
-    // transporter.sendMail(mailOption, (err, data) => {
-    //   if (err) {
-    //     console.log(err);
-    //     res.send("error" + JSON.stringify(err));
-    //   } else {
-    //     console.log("mail send");
-    //   }
-    // });
-
     const msg = {
       to: "suryanshpallavi@gmail.com", // Change to your recipient
       from: "details@hiresupa.com", // Change to your verified sender

@@ -25,11 +25,21 @@ const Contact = () => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [select, setSelected] = useState("");
-  const [otp, setOtp] = useState(false);
-  const [otpFill, setOtpFill] = useState(false);
-  const [verify, setVerify] = useState(false);
-  const [otpSuccess, setOtpSuccess] = useState("");
-  const [otpInput, setOtpInput] = useState("");
+
+  const [otpEmail, setOtpEmail] = useState(false);
+  const [disableEmail, setDisableEmail] = useState(false);
+  const [verifyEmail, setVerifyEmail] = useState(false);
+  const [otpFillEmail, setOtpFillEmail] = useState(false);
+  const [otpSuccessEmail, setOtpSuccessEmail] = useState("");
+  const [otpInputEmail, setOtpInputEmail] = useState("");
+
+  const [otpPhone, setOtpPhone] = useState(false);
+  const [verifyPhone, setVerifyPhone] = useState(false);
+  const [disablePhone, setDisablePhone] = useState(false);
+  const [otpFillPhone, setOtpFillPhone] = useState(false);
+  const [otpSuccessPhone, setOtpSuccessPhone] = useState("");
+  const [otpInputPhone, setOtpInputPhone] = useState("");
+
   const [success, setSuccess] = useState("");
   const successMsg = (msg) => {
     setSuccess(msg);
@@ -62,7 +72,7 @@ const Contact = () => {
       successMsg("Please fill the form");
       setTimeout(successMsg, 2000);
     } else {
-      if (otpFill === true) {
+      if (otpFillEmail && otpFillPhone) {
         if (ids || packageId) {
           var title = tempCart[type].title;
           var price = tempCart[type].price[packageId];
@@ -97,7 +107,8 @@ const Contact = () => {
           if (res.status === 200) {
             successMsg("Details Submitted");
             setTimeout(successMsg, 2000);
-            setOtp(false);
+            setOtpEmail(false);
+            setOtpPhone(false);
           }
         });
       } else {
@@ -118,45 +129,73 @@ const Contact = () => {
     return OTP;
   }
 
-  const submitDetails = async (e) => {
+  const submitEmailDetails = async (e) => {
+    setDisableEmail(true);
     e.preventDefault();
 
-    if (
-      name === "" ||
-      email === "" ||
-      phone === "" ||
-      message === "" ||
-      select === ""
-    ) {
-      successMsg("Please fill the form");
-      setTimeout(successMsg, 2000);
-    } else {
-      const otpNum = generateOTP();
+    const otpNum = generateOTP();
 
-      const formData = {
-        email,
-        otpNum,
-      };
+    const formData = {
+      email,
+      otpNum,
+    };
 
-      if (email !== "") {
-        successMsg("Sending Otp...");
-        await fetch("/api/updateOtp", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }).then((res) => {
-          successMsg("Otp recieved");
+    if (email !== "") {
+      successMsg("Sending Otp...");
+      await fetch("/api/updateOtp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }).then((res) => {
+        successMsg("Otp recieved");
+        setTimeout(successMsg, 2000);
+        if (res.status === 200) {
+          successMsg("Otp sent sucessfully");
           setTimeout(successMsg, 2000);
-          if (res.status === 200) {
-            successMsg("Otp sent sucessfully");
-            setTimeout(successMsg, 2000);
-            setVerify(false);
-            setOtp(true);
-          }
-        });
-      }
+          setVerifyEmail(false);
+          setOtpEmail(true);
+        }
+      });
+    } else {
+      successMsg("Please enter any email");
+      setTimeout(successMsg, 2000);
+    }
+  };
+
+  const submitPhoneDetails = async (e) => {
+    setDisableEmail(true);
+    e.preventDefault();
+
+    const otpNum = generateOTP();
+
+    const formData = {
+      phone,
+      otpNum,
+    };
+
+    if (phone !== "") {
+      successMsg("Sending Otp to Number...");
+      await fetch("/api/updateOtpPhone", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }).then((res) => {
+        successMsg("Otp recieved");
+        setTimeout(successMsg, 2000);
+        if (res.status === 200) {
+          successMsg("Otp sent sucessfully to your Number");
+          setTimeout(successMsg, 2000);
+          setVerifyPhone(false);
+          setOtpPhone(true);
+        }
+      });
+    } else {
+      successMsg("Please enter any number");
+      setTimeout(successMsg, 2000);
     }
   };
 
@@ -178,91 +217,9 @@ const Contact = () => {
             ""
           )}
 
-          {otp ? (
-            <>
-              <div className="otpForm">
-                <div>
-                  <form
-                    onSubmit={async (e) => {
-                      e.preventDefault();
-                      if (
-                        name === "" ||
-                        email === "" ||
-                        phone === "" ||
-                        message === "" ||
-                        select === ""
-                      ) {
-                        successMsg("Please fill the form");
-                        setTimeout(successMsg, 2000);
-                      } else {
-                        successMsg("Please Wait");
-                        axios.get(`/api/showOtp`).then((response) => {
-                          const otpData = response.data.message;
-                          const filterOtp = otpData.filter(
-                            (data) => email === data.email
-                          );
-
-                          if (filterOtp !== []) {
-                            if (otpInput == filterOtp[0].otpNum) {
-                              setTimeout(successMsg, 10);
-                              setOtpSuccess("correct");
-                              setOtpFill(true);
-                              setOtpInput("");
-                            } else {
-                              setOtpSuccess("incorrect");
-                              successMsg("Wrong OTP");
-                              setTimeout(successMsg, 2000);
-                            }
-                          }
-                        });
-                      }
-                    }}
-                  >
-                    <div className="otpFrame1">
-                      <div className="otpFrame2">
-                        <input
-                          type="number"
-                          name="otp"
-                          onChange={(e) => setOtpInput(e.target.value)}
-                          value={otpInput}
-                          required
-                          disabled={otpFill || success ? true : false}
-                        />
-                      </div>
-                      <div>
-                        <Button type="submit" disabled={otpFill ? true : false}>
-                          Submit Otp
-                        </Button>
-
-                        <Button
-                          type="button"
-                          onClick={(e) => (setOtp(false), setOtpFill(false))}
-                        >
-                          Cancel
-                        </Button>
-                      </div>
-                    </div>
-                    {otpSuccess === "correct" ? <>Verified</> : null}
-                  </form>
-
-                  {otpFill ? (
-                    <>
-                      <form onSubmit={submitForm}>
-                        <Button type="submit" className="submitformbtn">
-                          Submit Details
-                        </Button>
-                      </form>
-                    </>
-                  ) : null}
-                </div>
-              </div>
-            </>
-          ) : null}
-
           <div className="form">
-            <form id="data" onSubmit={submitDetails}>
+            <form id="data" onSubmit={submitForm}>
               <label forHtml="name">Name: </label>
-
               <input
                 type="text"
                 name="name"
@@ -276,31 +233,214 @@ const Contact = () => {
               />
 
               <label Html="email">Email: </label>
-              <input
-                type="text"
-                name="email"
-                id="email"
-                className="form-control"
-                placeholder="Your Email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                required
-                disabled={success ? true : false}
-              />
+
+              <div>
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  className="form-control"
+                  placeholder="Your Email"
+                  onChange={(e) => (
+                    setEmail(e.target.value), setVerifyEmail(true)
+                  )}
+                  value={email}
+                  required
+                  disabled={disableEmail || success ? true : false}
+                />
+                {verifyEmail && email !== "" ? (
+                  <>
+                    <Button onClick={submitEmailDetails}>Verify</Button>
+                  </>
+                ) : null}
+
+                {otpEmail ? (
+                  <>
+                    <div className="otpFor">
+                      <div>
+                        <div className="otpFrame1">
+                          <div className="otpFrame2">
+                            <input
+                              type="number"
+                              name="otp"
+                              onChange={(e) => setOtpInputEmail(e.target.value)}
+                              value={otpInputEmail}
+                              required
+                              disabled={otpFillEmail || success ? true : false}
+                            />
+                          </div>
+                          <div>
+                            <Button
+                              onClick={async (e) => {
+                                e.preventDefault();
+
+                                successMsg("Please Wait");
+                                axios.get(`/api/showOtp`).then((response) => {
+                                  const otpData = response.data.message;
+                                  const filterOtp = otpData.filter(
+                                    (data) => email === data.email
+                                  );
+
+                                  if (filterOtp !== []) {
+                                    if (otpInputEmail == filterOtp[0].otpNum) {
+                                      setTimeout(successMsg, 10);
+                                      setOtpSuccessEmail("correct");
+                                      setOtpFillEmail(false);
+                                      setOtpInputEmail("");
+                                      setOtpEmail(false);
+                                    } else {
+                                      setOtpSuccessEmail("incorrect");
+                                      successMsg("Wrong OTP");
+                                      setTimeout(successMsg, 2000);
+                                    }
+                                  }
+                                });
+                              }}
+                              disabled={otpFillEmail ? true : false}
+                            >
+                              Submit Otp
+                            </Button>
+
+                            <Button
+                              type="button"
+                              onClick={(e) => (
+                                setOtpEmail(false),
+                                setOtpFillEmail(false),
+                                setDisableEmail(false)
+                              )}
+                            >
+                              Cancel
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                ) : null}
+                {otpSuccessEmail === "correct" ? (
+                  <>
+                    Verified
+                    <Button
+                      type="button"
+                      onClick={(e) => (
+                        setOtpEmail(false),
+                        setOtpFillEmail(false),
+                        setDisableEmail(false),
+                        setOtpSuccessEmail("")
+                      )}
+                    >
+                      Change Email
+                    </Button>
+                  </>
+                ) : null}
+              </div>
 
               <label forHtml="phone">Phone: </label>
-              <input
-                type="text"
-                name="phone"
-                id="phone"
-                className="form-control"
-                placeholder="Phone No."
-                onChange={(e) => setPhone(e.target.value)}
-                value={phone}
-                required
-                disabled={success ? true : false}
-              />
+              <div>
+                <input
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  className="form-control"
+                  placeholder="Phone No."
+                  onChange={(e) => (
+                    setPhone(e.target.value), setVerifyPhone(true)
+                  )}
+                  value={phone}
+                  required
+                  disabled={disablePhone || success ? true : false}
+                />
 
+                {verifyPhone && phone !== "" ? (
+                  <>
+                    <Button onClick={submitPhoneDetails}>Verify</Button>
+                  </>
+                ) : null}
+
+                {otpPhone ? (
+                  <>
+                    <div className="otpFor">
+                      <div>
+                        <div className="otpFrame1">
+                          <div className="otpFrame2">
+                            <input
+                              type="number"
+                              name="otp"
+                              onChange={(e) => setOtpInputPhone(e.target.value)}
+                              value={otpInputPhone}
+                              required
+                              disabled={otpFillPhone || success ? true : false}
+                            />
+                          </div>
+                          <div>
+                            <Button
+                              onClick={(e) => {
+                                async (e) => {
+                                  e.preventDefault();
+
+                                  successMsg("Please Wait");
+                                  axios
+                                    .get(`/api/showOtpPhone`)
+                                    .then((response) => {
+                                      const otpData = response.data.message;
+                                      const filterOtp = otpData.filter(
+                                        (data) => phone === data.phone
+                                      );
+
+                                      if (filterOtp !== []) {
+                                        if (
+                                          otpInputPhone == filterOtp[0].otpNum
+                                        ) {
+                                          setTimeout(successMsg, 10);
+                                          setOtpSuccessPhone("correct");
+                                          setOtpFillPhone(false);
+                                          setOtpInputPhone("");
+                                          setOtpPhone(false);
+                                        } else {
+                                          setOtpSuccessPhone("incorrect");
+                                          successMsg("Wrong OTP");
+                                          setTimeout(successMsg, 2000);
+                                        }
+                                      }
+                                    });
+                                };
+                              }}
+                              disabled={otpFillPhone ? true : false}
+                            >
+                              Submit Otp
+                            </Button>
+
+                            <Button
+                              type="button"
+                              onClick={(e) => (
+                                setOtpPhone(false), setOtpFillPhone(false)
+                              )}
+                            >
+                              Cancel
+                            </Button>
+                          </div>
+                        </div>
+                        {otpSuccessPhone === "correct" ? (
+                          <>
+                            Verified
+                            <Button
+                              type="button"
+                              onClick={(e) => (
+                                setOtpPhone(false),
+                                setOtpFillPhone(false),
+                                setDisablePhone(false),
+                                setOtpSuccessPhone("")
+                              )}
+                            >
+                              Change Email
+                            </Button>
+                          </>
+                        ) : null}
+                      </div>
+                    </div>
+                  </>
+                ) : null}
+              </div>
               <label forHtml="select">Select:</label>
               <select
                 className="select"
@@ -329,7 +469,6 @@ const Contact = () => {
                   </>
                 )}
               </select>
-
               <label forHtml="message">
                 {!ids & !packageId
                   ? messageText[selectedKey]
@@ -350,7 +489,6 @@ const Contact = () => {
                 required
                 disabled={success ? true : false}
               ></textarea>
-
               <Button
                 type="submit"
                 name="submit"
