@@ -37,10 +37,10 @@ async function handler(req, res) {
 
     const msg = {
       to: "suryanshpallavi@gmail.com", // Change to your recipient
-      from: email, // Change to your verified sender
+      from: "details@hiresupa.com", // Change to your verified sender
       subject: "Hiresupa Form",
       text: `${message}`,
-      html: `<div>${message}</div><div>${select}</div><div>${
+      html: `<div>${email},${message}</div><div>${select}</div><div>${
         title !== false ? title : ""
       }</div><div>${price !== false ? price : ""}</div>`,
     };
