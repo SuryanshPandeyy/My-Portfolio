@@ -47,7 +47,7 @@ const handlerOtp = async (req, res) => {
     );
 
     if (db) {
-      sgMail
+     await sgMail
         .send(msg)
         .then(() => {
           console.log("Email sent");
