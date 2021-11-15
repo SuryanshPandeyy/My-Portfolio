@@ -231,10 +231,13 @@ const Contact = () => {
                       </div>
                       <div>
                         <Button type="submit" disabled={otpFill ? true : false}>
-                         Submit Otp
-                        </Button> 
+                          Submit Otp
+                        </Button>
 
-                        <Button type="button" onClick={(e) => setOtp(false)}>
+                        <Button
+                          type="button"
+                          onClick={(e) => (setOtp(false), setOtpFill(false))}
+                        >
                           Cancel
                         </Button>
                       </div>
@@ -250,7 +253,6 @@ const Contact = () => {
                         </Button>
                       </form>
                     </>
-                    
                   ) : null}
                 </div>
               </div>
