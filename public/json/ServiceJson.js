@@ -10,7 +10,7 @@ const ServiceJson = [
     page: 1,
     time: {
       frontend: {
-        day: 1,
+        day: 2,
         hour: 1.5,
       },
       backend: {
@@ -45,7 +45,7 @@ const ServiceJson = [
 
     seo: 6691.05,
     singlePage: true,
-    revision: 3,
+    revision: 2,
   },
 
   {
@@ -71,7 +71,7 @@ const ServiceJson = [
     seo: 7806.24,
 
     singlePage: true,
-    revision: 5,
+    revision: 2,
   },
 ];
 

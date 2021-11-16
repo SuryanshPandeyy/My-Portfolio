@@ -11,6 +11,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Headland+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 * {
   font-size: 1.5rem;
@@ -1378,22 +1382,12 @@ a {
 .service_container {
   width: 100%;
   margin: 2rem 0;
-  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.serviceBtn {
-  width: 80%;
-  background-color: royalblue;
-  padding: 1.5rem;
-}
-
-.serviceBtn span {
-  margin-left: 1rem;
-}
 
 .serviceBox {
   width: 100%;
@@ -1405,68 +1399,10 @@ a {
 
 .serviceBox h3 {
   font-size: 5rem;
+  color: #fff;
   font-weight: 400;
 }
 
-
-.serviceTable {
-  margin-top: 2rem;
-  font-family: Arial,
-    Helvetica,
-    sans-serif;
-  border-collapse: collapse;
-  width: 85%;
-  color: #fff;
-}
-
-
-.serviceTable td,
-.serviceTable th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-.serviceTable tr .id {
-  width: 10%;
-}
-
-.serviceTable tr .title {
-  width: 50%;
-}
-
-.serviceTable tr .price {
-  width: 30%;
-}
-
-.serviceTable tr .view a {
-  text-decoration: none;
-}
-
-.serviceTable tr .view a button {
-  color: #fff;
-  font-size: 1.2rem;
-  background: rgb(159, 159, 159);
-}
-
-.serviceTable tr:nth-child(even) {
-  background-color: #4b4747;
-}
-
-.serviceTable tr:hover {
-  background-color: #525956;
-}
-
-.serviceTable th {
-  padding-top: 1.2rem;
-  padding-bottom: 1.2rem;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
-}
-
-.serviceTable tr {
-  width: 100%;
-}
 
 .service_page {
   color: #fff;
@@ -1552,28 +1488,146 @@ a {
 
 .serviceCard {
   min-height: 20rem;
-  padding-bottom: 4rem;
+  padding: 2rem 0;
   background-color: #fff;
+  border-radius: .5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
+  text-align: center;
+  margin: 1rem 0 4rem 0;
+  box-shadow: .4rem 0rem .7rem 0rem rgba(91, 113, 137, 0.7), 0rem .4rem .7rem rgba(164, 123, 123, 0.7);
   /* justify-content: center; */
-  color: royalblue;
 }
 
+
 .serviceCard h3 {
+  color: rgb(7, 16, 120);
   font-size: 3rem;
   font-weight: 400;
   margin: 1rem 0;
+  font-family: 'Lora',
+    serif;
 }
 
 .serviceCard .price p {
   font-size: 4rem;
-  margin: 1rem 0;
+  font-family: 'Martel Sans',
+    sans-serif;
+}
+
+.serviceCard ul {
+  list-style: none;
+}
+
+.serviceCard ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: start;
+  width: 100%;
+}
+
+.serviceCard ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  border: .1rem solid rgba(0, 0, 0, 0.2);
+  margin: .3rem 0;
+  padding: .7rem;
+  border-radius: .4rem;
+}
+
+.serviceCard ul li span {
+  font-family: 'Montserrat',
+    sans-serif;
+}
+
+.serviceCard ul li .serviceHeading {
+  font-weight: 400;
+  margin: .2rem 0;
+  font-family: 'Poppins',
+    sans-serif;
+}
+
+.serviceCard ul li .pageNo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.serviceCard ul li .pageNo .pageButton {
+  background-color: transparent;
+  border: .1rem solid;
+  width: 2.7rem;
+  height: 2.7rem;
+  margin: 0 .5rem;
+  cursor: pointer;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.serviceCard ul li input[type="checkbox"] {
+  display: none;
+}
+
+.serviceCard ul li label.checkbox {
+  width: 2.9rem;
+  height: 2.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  /* border: .2rem solid #000000; */
+  box-sizing: border-box;
+  transition: all .3s ease;
+  cursor: pointer;
+  position: relative;
+  background: rgba(128, 128, 128, 0.593);
+
+}
+
+.serviceCard ul li #check1:checked~label[for=check1],
+.serviceCard ul li #check2:checked~label[for=check2],
+.serviceCard ul li #check3:checked~label[for=check3] {
+  background-color: transparent;
+  /* border: .2rem solid #fff; */
+  background: royalblue;
+}
+
+.serviceCard ul li label[for=check1] svg,
+.serviceCard ul li label[for=check2] svg,
+.serviceCard ul li label[for=check3] svg {
+  /* display: none; */
+  color: #fff;
+}
+
+.serviceCard ul li #check1:checked~label[for=check1] svg,
+.serviceCard ul li #check2:checked~label[for=check2] svg,
+.serviceCard ul li #check3:checked~label[for=check3] svg {
+  display: block;
+}
+
+
+.serviceCard ul li div {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: center;
+
 }
 
 .containerToggle {
   text-align: center;
+}
+
+.containerToggle .switchName {
+  color: #fff;
+  font-family: 'Rubik',
+    sans-serif;
 }
 
 .containerToggle .toggle-switch {

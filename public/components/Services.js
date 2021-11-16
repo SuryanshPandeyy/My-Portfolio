@@ -31,7 +31,7 @@ const Services = () => {
         <br />
 
         <div className="containerToggle">
-          <span>Frontend</span>
+          <span className="switchName">Frontend</span>
           <div className="toggle-switch">
             <input
               type="checkbox"
@@ -46,7 +46,7 @@ const Services = () => {
               <span className="switch" />
             </label>
           </div>
-          <span>Backened</span>
+          <span className="switchName">With Backened</span>
         </div>
 
         <br />
@@ -55,13 +55,14 @@ const Services = () => {
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
+          spaceBetween={50}
           slidesPerView={"auto"}
           coverflowEffect={{
-            rotate: 35,
+            rotate: 25,
             stretch: 0,
             depth: 100,
             modifier: 1,
-            slideShadows: true,
+            slideShadows: false,
           }}
           pagination={{ clickable: true }}
           navigation={{ clickable: true }}
@@ -69,11 +70,7 @@ const Services = () => {
           {ServiceJson.map((val) => (
             <>
               <SwiperSlide className="swiperSlide2">
-                <ServiceBox
-                  value={val}
-                  check={check}
-                 
-                />
+                <ServiceBox value={val} check={check} />
               </SwiperSlide>
             </>
           ))}
