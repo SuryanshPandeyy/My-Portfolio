@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { Button, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { useSWR } from "swr";
 
-const ServiceBox = ({ value, check }) => {
+const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
   const [checkSeo, setCheckSeo] = useState(false);
   const [price, setPrice] = useState(value.price);
   const [page, setPage] = useState(value.page);
@@ -18,13 +19,15 @@ const ServiceBox = ({ value, check }) => {
         {/* price */}
         <div className="price">
           <p>
+            {symbol}
             {new Intl.NumberFormat("en-IN", {
-              style: "currency",
-              currency: "INR",
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              currency: toCurrency,
             }).format(
               !check
-                ? price * page + 500 * revision + seo
-                : price * 2 * page + 500 * revision + seo
+                ? (price * page + 500 * revision + seo) / priceCurr
+                : (price * 2 * page + 500 * revision + seo) / priceCurr
             )}
           </p>
         </div>

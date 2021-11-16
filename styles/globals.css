@@ -1623,6 +1623,17 @@ a {
 
 }
 
+.serviceBox select {
+  min-width: 10rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+.serviceBox select option:hover {
+  background-color: royalblue;
+  color: #fff;
+}
+
 .containerToggle {
   text-align: center;
 }
