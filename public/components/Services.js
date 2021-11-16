@@ -22,7 +22,7 @@ const nServices = (val) => {
 };
 
 const Services = () => {
-  const [check, setCheck] = useState(false);
+  const [check, setCheck] = useState(true);
   const [price, setPrice] = useState();
   return (
     <>
@@ -58,7 +58,7 @@ const Services = () => {
           spaceBetween={50}
           slidesPerView={"auto"}
           coverflowEffect={{
-            rotate: 25,
+            rotate: 0,
             stretch: 0,
             depth: 100,
             modifier: 1,

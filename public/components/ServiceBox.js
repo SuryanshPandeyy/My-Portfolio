@@ -8,7 +8,7 @@ const ServiceBox = ({ value, check }) => {
   const [price, setPrice] = useState(value.price);
   const [page, setPage] = useState(value.page);
   const [seo, setSeo] = useState(0);
-  const [revision, setRevision] = useState(value.revision);
+  const [revision, setRevision] = useState(0);
 
   return (
     <>
@@ -23,8 +23,8 @@ const ServiceBox = ({ value, check }) => {
               currency: "INR",
             }).format(
               !check
-                ? price * page + (revision > 1 ? 150 * revision : 0) + seo
-                : price * 2 * page + (revision > 1 ? 150 * revision : 0) + seo
+                ? price * page + 500 * revision + seo
+                : price * 2 * page + 500 * revision + seo
             )}
           </p>
         </div>
@@ -35,19 +35,13 @@ const ServiceBox = ({ value, check }) => {
               <div>
                 <span className="serviceHeading">Languages: </span>
                 <span>{value.languages.frontend.join(", ")}</span>
+                {check ? (
+                  <>
+                    <span>{value.languages.backend.join(", ")}</span>
+                  </>
+                ) : null}
               </div>
             </li>
-
-            {check ? (
-              <>
-                <li>
-                  <div>
-                    <span className="serviceHeading">Backened: </span>
-                    <span>{value.languages.backend.join(", ")}</span>
-                  </div>
-                </li>
-              </>
-            ) : null}
 
             {/* pages */}
             <li>
@@ -93,10 +87,14 @@ const ServiceBox = ({ value, check }) => {
 
             {/* revisions */}
             <li>
+              <span className="serviceHeading">Free Revisions</span>
+              <span>{Math.ceil((value.revision * page) / 5)}</span>
+            </li>
+            <li>
               <span className="serviceHeading">Revisions:</span>
 
               <span className="pageNo">
-                {revision === 1 ? null : (
+                {revision === 0 ? null : (
                   <>
                     <IconButton
                       size="small"
@@ -108,7 +106,7 @@ const ServiceBox = ({ value, check }) => {
                     </IconButton>
                   </>
                 )}
-                {revision}
+                +{revision}
                 <IconButton
                   size="small"
                   variant="outlined"

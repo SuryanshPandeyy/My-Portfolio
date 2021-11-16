@@ -1537,6 +1537,9 @@ a {
   margin: .3rem 0;
   padding: .7rem;
   border-radius: .4rem;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .serviceCard ul li span {
@@ -1655,7 +1658,7 @@ a {
   display: block;
   width: 200%;
   margin-left: -100%;
-  transition: margin 0.3s ease-in 0s;
+  transition: margin 0.1s ease-in 0s;
 }
 
 .containerToggle .inner:before,
@@ -1696,7 +1699,7 @@ a {
   right: 3rem;
   border: 0 solid #bbb;
   border-radius: 2rem;
-  transition: all 0.3s ease-in 0s;
+  transition: all 0.1s ease-in 0s;
 }
 
 .containerToggle .checkbox:checked+.label .inner {
