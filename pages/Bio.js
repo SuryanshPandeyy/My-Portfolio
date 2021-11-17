@@ -154,144 +154,122 @@ const Bio = () => {
                     <ul>
                       <li>
                         <div className="skillsTube">
-                          <div className="value">ReactJS</div>
                           <div className="tube">
+                            <div className="title">ReactJS</div>
                             <div
                               className="tubeValue"
-                              style={{ height: "90%" }}
-                            >
-                              <div className="title">90%</div>
-                            </div>
+                              style={{ width: "90%" }}
+                            ></div>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div className="skillsTube">
-                          <div className="value">NextJS</div>
                           <div className="tube">
+                            <div className="title">NextJS</div>
                             <div
                               className="tubeValue"
-                              style={{ height: "70%" }}
-                            >
-                              <div className="title">70%</div>
-                            </div>
+                              style={{ width: "70%" }}
+                            ></div>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div className="skillsTube">
-                          <div className="value">MongoDB</div>
                           <div className="tube">
+                            <div className="title">MongoDB</div>
                             <div
                               className="tubeValue"
-                              style={{ height: "95%" }}
-                            >
-                              <div className="title">95%</div>
-                            </div>
+                              style={{ width: "95%" }}
+                            ></div>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div className="skillsTube">
-                          <div className="value">NodeJS</div>
                           <div className="tube">
+                            <div className="title">NodeJS</div>
                             <div
                               className="tubeValue"
-                              style={{ height: "90%" }}
-                            >
-                              <div className="title">90%</div>
-                            </div>
+                              style={{ width: "90%" }}
+                            ></div>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div className="skillsTube">
-                          <div className="value">ExpressJS</div>
                           <div className="tube">
+                            <div className="title">ExpressJS</div>
                             <div
                               className="tubeValue"
-                              style={{ height: "70%" }}
-                            >
-                              <div className="title">70%</div>
-                            </div>
+                              style={{ width: "70%" }}
+                            ></div>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div className="skillsTube">
-                          <div className="value">Html</div>
                           <div className="tube">
+                            <div className="title">Html</div>
                             <div
                               className="tubeValue"
-                              style={{ height: "100%" }}
-                            >
-                              <div className="title">100%</div>
-                            </div>
+                              style={{ width: "100%" }}
+                            ></div>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div className="skillsTube">
-                          <div className="value">Css</div>
                           <div className="tube">
+                            <div className="title">Css</div>
                             <div
                               className="tubeValue"
-                              style={{ height: "100%" }}
-                            >
-                              <div className="title">100%</div>
-                            </div>
+                              style={{ width: "100%" }}
+                            ></div>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div className="skillsTube">
-                          <div className="value">Javascript</div>
                           <div className="tube">
+                            <div className="title">Javascript</div>
                             <div
                               className="tubeValue"
-                              style={{ height: "95%" }}
-                            >
-                              <div className="title">95%</div>
-                            </div>
+                              style={{ width: "95%" }}
+                            ></div>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div className="skillsTube">
-                          <div className="value">Php</div>
                           <div className="tube">
+                            <div className="title">Php</div>
                             <div
                               className="tubeValue"
-                              style={{ height: "90%" }}
-                            >
-                              <div className="title">90%</div>
-                            </div>
+                              style={{ width: "90%" }}
+                            ></div>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div className="skillsTube">
-                          <div className="value">MYSQL</div>
                           <div className="tube">
+                            <div className="title">MYSQL</div>
                             <div
                               className="tubeValue"
-                              style={{ height: "100%" }}
-                            >
-                              <div className="title">100%</div>
-                            </div>
+                              style={{ width: "100%" }}
+                            ></div>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div className="skillsTube">
-                          <div className="value">React Native</div>
                           <div className="tube">
+                            <div className="title">React Native</div>
                             <div
                               className="tubeValue"
-                              style={{ height: "50%" }}
-                            >
-                              <div className="title">50%</div>
-                            </div>
+                              style={{ width: "50%" }}
+                            ></div>
                           </div>
                         </div>
                       </li>
