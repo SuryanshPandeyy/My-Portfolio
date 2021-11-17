@@ -2,7 +2,7 @@ const ServiceJson = [
   {
     id: 1,
     title: "Standard",
-    price: 2788.5,
+    price: 37.46,
     languages: {
       frontend: ["HTML", "CSS", "JavaScript"],
       backend: ["Php", "MySQL"],
@@ -19,14 +19,14 @@ const ServiceJson = [
       },
     },
 
-    seo: 2788.5,
+    seo: 37.46,
     singlePage: false,
     revision: 1,
   },
   {
     id: 2,
     title: "Premium",
-    price: 6691.05,
+    price: 89.88,
     languages: {
       frontend: ["ReactJS"],
       backend: ["NodeJS", "MongoDB"],
@@ -43,7 +43,7 @@ const ServiceJson = [
       },
     },
 
-    seo: 6691.05,
+    seo: 89.88,
     singlePage: true,
     revision: 2,
   },
@@ -51,7 +51,7 @@ const ServiceJson = [
   {
     id: 3,
     title: "Pro",
-    price: 7806.24,
+    price: 104.86,
     languages: {
       frontend: ["NextJS"],
       backend: ["NodeJS", "MongoDB"],
@@ -68,7 +68,7 @@ const ServiceJson = [
       },
     },
 
-    seo: 7806.24,
+    seo: 104.86,
 
     singlePage: true,
     revision: 2,

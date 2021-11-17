@@ -70,8 +70,7 @@ const Layout = ({ children }) => {
           name="msapplication-TileImage"
           content="/images/favicons/mstile-144x144.png"
         />
-        <meta name="theme-color" content="#ffffff"></meta>
-      </Head>
+        <meta name="theme-color" content="#ffffff"></meta>      </Head>
 
       <NextSeo
         title="Suryansh Pandey - HireSuPa"

@@ -26,8 +26,8 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
               currency: toCurrency,
             }).format(
               !check
-                ? (price * page + 500 * revision + seo) / priceCurr
-                : (price * 2 * page + 500 * revision + seo) / priceCurr
+                ? (price * page + 6.72 * revision + seo) / priceCurr
+                : (price * 2 * page + 6.72 * revision + seo) / priceCurr
             )}
           </p>
         </div>
@@ -126,12 +126,18 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
               <div>
                 <span className="serviceHeading">Seo (for whole website):</span>
                 <span>
-                  {checkSeo
-                    ? new Intl.NumberFormat("en-IN", {
-                        style: "currency",
-                        currency: "INR",
-                      }).format(value.seo)
-                    : "No"}
+                  {checkSeo ? (
+                    <>
+                      {symbol}
+                      {new Intl.NumberFormat("en-IN", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                        currency: toCurrency,
+                      }).format(value.seo / priceCurr)}
+                    </>
+                  ) : (
+                    "No"
+                  )}
                 </span>
               </div>
 

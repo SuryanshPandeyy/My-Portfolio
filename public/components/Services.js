@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import { Button } from "@mui/material";
 import CurrencyJson from "./currency";
+import { BsCurrencyExchange } from "react-icons/bs";
 
 // import Swiper core and required modules
 import SwiperCore, {
@@ -21,7 +22,7 @@ SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 const Services = () => {
   const [check, setCheck] = useState(true);
   const [currencies] = useState(Object.keys(CurrencyJson.results));
-  const [toCurrency, setToCurrency] = useState("INR");
+  const [toCurrency, setToCurrency] = useState("USD");
   const [symbols, setSymbols] = useState(
     CurrencyJson.results[toCurrency].currencySymbol
   );
@@ -33,10 +34,10 @@ const Services = () => {
     const val = e.target.value;
 
     const res = await fetch(
-      `https://free.currconv.com/api/v7/convert?q=${val}_INR&compact=ultra&apiKey=787f636c0b0da32b58e1`
+      `https://free.currconv.com/api/v7/convert?q=${val}_USD&compact=ultra&apiKey=787f636c0b0da32b58e1`
     );
     const rates = await res.json();
-    setPriceCurr(rates[`${val}_INR`]);
+    setPriceCurr(rates[`${val}_USD`]);
     setSymbols(CurrencyJson.results[val].currencySymbol);
   };
 
@@ -44,37 +45,44 @@ const Services = () => {
     <>
       <div className="serviceBox">
         <h3>Services</h3>
-        <div>
-          <select value={toCurrency} onChange={convert}>
-            <option value="INR">
-              INR {CurrencyJson.results.INR.currencySymbol}
-            </option>
-            {currencies.map((data, i) => (
-              <option value={data} key={i}>
-                {data} {CurrencyJson.results[data].currencySymbol}
-              </option>
-            ))}
-          </select>
-        </div>
-        <br />
 
-        <div className="containerToggle">
-          <span className="switchName">Frontend</span>
-          <div className="toggle-switch">
-            <input
-              type="checkbox"
-              className="checkbox"
-              name="toggle"
-              id="toggle"
-              checked={check}
-              onChange={(e) => setCheck(e.target.checked)}
-            />
-            <label className="label" htmlFor="toggle">
-              <span className="inner" />
-              <span className="switch" />
-            </label>
+        <div className="serviceFlex">
+          <div className="containerToggle">
+            <span className="switchName">Frontend</span>
+            <div className="toggle-switch">
+              <input
+                type="checkbox"
+                className="checkbox"
+                name="toggle"
+                id="toggle"
+                checked={check}
+                onChange={(e) => setCheck(e.target.checked)}
+              />
+              <label className="label" htmlFor="toggle">
+                <span className="inner" />
+                <span className="switch" />
+              </label>
+            </div>
+            <span className="switchName">With Backened</span>
           </div>
-          <span className="switchName">With Backened</span>
+          <br />
+
+          <div className="serviceSelect">
+            <span className="fancyArrow">
+              <BsCurrencyExchange className="currIcon" />
+            </span>
+            <select value={toCurrency} onChange={convert}>
+              <option value="USD">
+                USD {CurrencyJson.results.USD.currencySymbol}
+              </option>
+              {currencies.map((data, i) => (
+                <option value={data} key={i}>
+                  {data} {CurrencyJson.results[data].currencySymbol},{" "}
+                  {CurrencyJson.results[data].currencyName},
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
         <br />
