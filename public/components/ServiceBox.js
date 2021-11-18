@@ -3,6 +3,7 @@ import { Button, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useSWR } from "swr";
+import { BsCheck2, BsX } from "react-icons/bs";
 
 const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
   const [checkSeo, setCheckSeo] = useState(false);
@@ -176,13 +177,21 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
               <span className="serviceHeading">Single Page:</span>
               <span>{value.singlePage ? "Yes" : "No"}</span>
             </li>
-            {value.id === 2 || value.id === 3 ? (
-              <>
-                <li>
-                  <span>FREE SSL &#38; Hosting </span>
-                </li>
-              </>
-            ) : null}
+
+            <li>
+              <span>FREE SSL &#38; Hosting </span>
+              <span>
+                {value.freeSslHosting ? (
+                  <>
+                    <BsCheck2 className="check" />
+                  </>
+                ) : (
+                  <>
+                    <BsX className="uncheck" />
+                  </>
+                )}
+              </span>
+            </li>
           </ul>
         </div>
       </div>

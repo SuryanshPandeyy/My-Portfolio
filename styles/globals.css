@@ -1582,6 +1582,13 @@ a {
   /* justify-content: center; */
 }
 
+.swiper-button-prev {}
+
+.swiper-button-next {}
+
+.swiper-pagination-bullet {
+  background-color: rgb(255, 255, 255) !important;
+}
 
 .serviceCard h3 {
   color: rgb(7, 16, 120);
@@ -1645,7 +1652,8 @@ a {
 
 .serviceCard ul li .pageNo .pageButton {
   background-color: transparent;
-  /* border: .1rem solid; */
+  border: .1rem solid;
+  height: 2.5rem;
   margin: 0 .5rem;
   cursor: pointer;
   font-size: 2rem;
@@ -1673,6 +1681,17 @@ a {
   position: relative;
   background: rgba(128, 128, 128, 0.593);
 
+}
+
+.serviceCard ul li .check{
+  font-size: 2.6rem;
+  color: rgb(21, 224, 21);
+  font-weight: bold;
+}
+.serviceCard ul li .uncheck{
+  font-size: 2.6rem;
+  color: red;
+  font-weight: bold;
 }
 
 .serviceCard ul li #check1:checked~label[for=check1],

@@ -100,8 +100,8 @@ const Services = () => {
             modifier: 1,
             slideShadows: false,
           }}
-          pagination={{ clickable: true }}
-          navigation={{ clickable: true }}
+          pagination={{ clickable: true}}
+          // navigation={{ clickable: true }}
         >
           {ServiceJson.map((val) => (
             <>
