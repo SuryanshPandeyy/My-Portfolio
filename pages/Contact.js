@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Heads from "./Head";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
+import NProgress from "nprogress";
 import Business from "/public/json/Templates/Business";
 import Portfolio from "/public/json/Templates/Portfolio";
 import Blogs from "/public/json/Templates/Blogs";
@@ -9,6 +10,11 @@ import Landing from "/public/json/Templates/Landing";
 import { SiUpwork, SiFreelancer, SiFiverr } from "react-icons/si";
 import axios from "axios";
 import { Button } from "@mui/material";
+
+let timer;
+let state;
+let activeRequests = 0;
+const delay = 250;
 
 const myLoader = ({ src }) => {
   return `${src}`;

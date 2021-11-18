@@ -51,10 +51,14 @@ const Bio = () => {
                       <div>
                         <Fade cascade>
                           <div className="slider-wrapper">
-                            I am a
+                            I&apos;m
                             <div className="slider">
-                              <div className="slider-text1">UI DESIGNER</div>
-                              <div className="slider-text2">SEO Optimizer</div>
+                              <div className="slider-text1">
+                                NEXTJS Developer
+                              </div>
+                              <div className="slider-text2">
+                                ReactJS Developer
+                              </div>
                               <div className="slider-text3">
                                 Full Stack Web Developer
                               </div>
@@ -85,11 +89,26 @@ const Bio = () => {
                       </div> */}
                   </div>
                   <div className="social">
-                    <SocialIcon className="social-icon" bgColor="#fff" url="https://github.com/Suryanshpsurya" />
+                    <SocialIcon
+                      className="social-icon"
+                      bgColor="#fff"
+                      url="https://github.com/Suryanshpsurya"
+                      style={{width: "3.5rem", height: "3.5rem"}}
+                    />
 
-                    <SocialIcon className="social-icon" bgColor="#fff" url="https://codepen.io/SuryanshPallavi" />
+                    <SocialIcon
+                      className="social-icon"
+                      bgColor="#fff"
+                      url="https://codepen.io/SuryanshPallavi"
+                      style={{width: "3.5rem", height: "3.5rem"}}
+                    />
 
-                    <SocialIcon className="social-icon" bgColor="#fff" url="https://www.linkedin.com/in/suryanshpandeyy" />
+                    <SocialIcon
+                      className="social-icon"
+                      bgColor="#fff"
+                      url="https://www.linkedin.com/in/suryanshpandeyy"
+                      style={{width: "3.5rem", height: "3.5rem"}}
+                    />
                   </div>
                   <div className="download_resume_btn resume_btn">
                     <a href="/documents/suryansh_resume.pdf" download>

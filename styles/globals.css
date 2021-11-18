@@ -192,13 +192,14 @@ body {
   display: flex;
   font-weight: bold;
   justify-content: center;
-  text-transform: uppercase;
+
 
 }
 
 .slider {
   height: 5rem;
   overflow-y: hidden;
+  text-transform: uppercase;
 }
 
 .slider .slider-text1 {
@@ -624,7 +625,7 @@ body {
   margin: 3rem;
 }
 
-.social-icon{
+.social-icon {
   margin: 0 1rem;
 }
 
@@ -1075,8 +1076,8 @@ a {
   justify-content: center;
   align-items: center;
   margin-bottom: 3rem;
-  border-radius: 1.3rem;
-
+  border-radius: 3rem;
+  overflow: hidden;
 }
 
 .react-tabs__tab {
@@ -1087,11 +1088,14 @@ a {
   align-items: center;
   text-align: center;
   min-width: 10rem;
-  border-radius: 1.3rem;
+
 }
 
 .react-tabs__tab--selected {
   color: black;
+  border-radius: 2rem;
+  border: .5rem solid #fff;
+
 }
 
 .clients,
@@ -1641,15 +1645,14 @@ a {
 
 .serviceCard ul li .pageNo .pageButton {
   background-color: transparent;
-  border: .1rem solid;
-  width: 2.7rem;
-  height: 2.7rem;
+  /* border: .1rem solid; */
   margin: 0 .5rem;
   cursor: pointer;
   font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .serviceCard ul li input[type="checkbox"] {
