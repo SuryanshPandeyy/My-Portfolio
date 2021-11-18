@@ -198,28 +198,28 @@ body {
 
 .slider {
   height: 5rem;
-  overflow-y: hidden;
+   overflow-y: hidden; 
   text-transform: uppercase;
 }
 
 .slider .slider-text1 {
   animation: slide 7s linear infinite;
-  color: lightblue;
+  color: rgb(216, 173, 230);
 }
 
 .slider .slider-text2 {
-  color: #50c878;
+  color: #ffc685;
 }
 
 .slider .slider-text3 {
-  color: greenyellow;
+  color: rgb(246, 255, 0);
 }
 
 .slider div {
   box-sizing: border-box;
   height: 5rem;
   margin-bottom: 5rem;
-  padding: 1.23rem 0.4rem;
+  padding: 1.35rem 0.4rem;
   text-align: start;
 }
 

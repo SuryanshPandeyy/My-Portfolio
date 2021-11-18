@@ -51,13 +51,13 @@ const Bio = () => {
                       <div>
                         <Fade cascade>
                           <div className="slider-wrapper">
-                            I&apos;m
+                            I&apos;m a
                             <div className="slider">
                               <div className="slider-text1">
                                 NEXTJS Developer
                               </div>
                               <div className="slider-text2">
-                                ReactJS Developer
+                                React Developer
                               </div>
                               <div className="slider-text3">
                                 Full Stack Web Developer
