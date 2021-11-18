@@ -6,12 +6,13 @@ import certificates from "/public/images/certificates/UC-64a5cb50-0930-429f-9e05
 import ClientReviews from "../public/components/ClientReviews";
 import certificateLogo from "/public/images/Icons/certificate_logo1.png";
 import { AiOutlineCodepenCircle } from "react-icons/ai";
-import { TiSocialLinkedinCircular } from "react-icons/ti";
-import { DiGithubBadge } from "react-icons/di";
+import { GrLinkedinOption } from "react-icons/gr";
+import { FiGithub } from "react-icons/fi";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import Faq from "/public/components/Faq";
 import Heads from "./Head";
 import Services from "/public/components/Services";
+import { SocialIcon } from "react-social-icons";
 
 const myLoader = ({ src }) => {
   return `${src}`;
@@ -46,7 +47,7 @@ const Bio = () => {
                 <div className="bioExtra">
                   <div className="portfolio_header">
                     <Fade down>
-                      <p>{lang ? "सूर्यांश" : "Suryansh"}</p>
+                      <p>{lang ? "सूर्यांश" : "Suryansh Pandey"}</p>
                       <div>
                         <Fade cascade>
                           <div className="slider-wrapper">
@@ -65,11 +66,10 @@ const Bio = () => {
                   </div>
                   <div className="bioDesc">
                     <p>
-                      I design and develop almost every type of websites with
-                      fresh coding using new technologies creating the unique
-                      masterpiece for my clients they desire. &quot; Soul&apos;s
-                      hunger for satisfaction is the best motivation &quot; -
-                      Suryansh Pandey.
+                      Currently pursuing internship as Jr. Web Designer at
+                      Naavigo Campaigns &amp; Events Pvt Ltd. Apart from this, I
+                      am freelancing as a Full-Stack Web Developer using both
+                      old and new technologies.
                     </p>
                     {/* <div className="show_btn">
                         <button onClick={showParagraph}>
@@ -85,36 +85,11 @@ const Bio = () => {
                       </div> */}
                   </div>
                   <div className="social">
-                    <a
-                      href="https://github.com/Suryanshpsurya"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i>
-                        <DiGithubBadge
-                          className="footer_icon"
-                          style={{ fontSize: "4.4rem" }}
-                        />
-                      </i>
-                    </a>
-                    <a
-                      href="https://codepen.io/SuryanshPallavi"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i>
-                        <AiOutlineCodepenCircle className="footer_icon" />
-                      </i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/suryanshpandeyy"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i>
-                        <TiSocialLinkedinCircular className="footer_icon" />
-                      </i>
-                    </a>
+                    <SocialIcon className="social-icon" bgColor="#fff" url="https://github.com/Suryanshpsurya" />
+
+                    <SocialIcon className="social-icon" bgColor="#fff" url="https://codepen.io/SuryanshPallavi" />
+
+                    <SocialIcon className="social-icon" bgColor="#fff" url="https://www.linkedin.com/in/suryanshpandeyy" />
                   </div>
                   <div className="download_resume_btn resume_btn">
                     <a href="/documents/suryansh_resume.pdf" download>
@@ -134,6 +109,8 @@ const Bio = () => {
                       src={Suryansh}
                       alt="Suryansh"
                       quality="100"
+                      width="250"
+                      height="250"
                     />
                   </div>
                 </div>
@@ -279,6 +256,9 @@ const Bio = () => {
               </div>
 
               <div className="certificatesTab order3">
+                <div className="certificateTitle">
+                  <p> Certificates </p>
+                </div>
                 <Image
                   onClick={certificatesPopup}
                   className="Image"
@@ -297,9 +277,6 @@ const Bio = () => {
         {show ? (
           <>
             <div className="certificatesBox">
-              <div className="certificateTitle">
-                <p> Certificates </p>
-              </div>
               <div className="certificates">
                 <div className="certificateImg">
                   <Image

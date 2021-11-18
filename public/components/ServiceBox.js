@@ -176,6 +176,13 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
               <span className="serviceHeading">Single Page:</span>
               <span>{value.singlePage ? "Yes" : "No"}</span>
             </li>
+            {value.id === 2 || value.id === 3 ? (
+              <>
+                <li>
+                  <span>FREE SSL &#38; Hosting </span>
+                </li>
+              </>
+            ) : null}
           </ul>
         </div>
       </div>

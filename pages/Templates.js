@@ -43,12 +43,14 @@ const Templates = () => {
             <h2 className="card-container-heading">Website Templates</h2>
             <div id="shape">
               <Tabs>
-                <TabList className="tablist">
-                  <Tab>Business</Tab>
-                  <Tab>Portfolio</Tab>
-                  <Tab>Blogs</Tab>
-                  <Tab>Landing Page</Tab>
-                </TabList>
+                <div className="fixed">
+                  <TabList className="tablist">
+                    <Tab>Business</Tab>
+                    <Tab>Portfolio</Tab>
+                    <Tab>Blogs</Tab>
+                    <Tab>Landing Page</Tab>
+                  </TabList>
+                </div>
 
                 <div className="templates">
                   <TabPanel>
@@ -71,9 +73,9 @@ const Templates = () => {
           </div>
         ) : (
           <>
-          <div className="comming">
-            <p>Comming Soon</p>
-          </div>
+            <div className="comming">
+              <p>Comming Soon</p>
+            </div>
           </>
         )}
       </div>

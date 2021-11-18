@@ -15,7 +15,7 @@ const Faq = () => {
     <>
       <div className="faqBox">
         <div className="faq_title">FAQ</div>
-        {/* <div className="faqs">{FaqJson.map(nFaqBox)}</div> */}
+        <div className="faqs">{FaqJson.map(nFaqBox)}</div>
       </div>
     </>
   );

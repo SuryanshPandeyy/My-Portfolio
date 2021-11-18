@@ -22,6 +22,7 @@ const ServiceJson = [
     seo: 37.46,
     singlePage: false,
     revision: 1,
+
   },
   {
     id: 2,
@@ -46,9 +47,10 @@ const ServiceJson = [
     seo: 89.88,
     singlePage: true,
     revision: 2,
+
   },
 
-  {
+  { 
     id: 3,
     title: "Pro",
     price: 104.86,
@@ -72,6 +74,7 @@ const ServiceJson = [
 
     singlePage: true,
     revision: 2,
+
   },
 ];
 

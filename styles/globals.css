@@ -15,11 +15,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amaranth&display=swap');
 
 * {
   font-size: 1.5rem;
   margin: 0;
   padding: 0;
+  font-family: 'Mukta', sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -92,11 +96,10 @@ body {
   flex-direction: column;
   justify-content: center;
   width: 100%;
+
 }
 
 .bioDesc p {
-  font-family: 'Baloo 2',
-    cursive;
   font-weight: 400;
 }
 
@@ -153,6 +156,7 @@ body {
   background-color: #13aa52;
   border-radius: 0.5rem;
   color: white;
+
   cursor: pointer;
   padding: 1rem 2rem;
   width: 100%;
@@ -165,14 +169,15 @@ body {
 .portfolio_header2 span,
 .portfolio_header2 div {
   color: rgb(207, 207, 207);
-  font-family: "Share Tech", sans-serif;
+  /* font-family: "Share Tech", sans-serif; */
   font-size: clamp(1rem, 3vw, 1.5rem);
   position: relative;
 }
 
 .portfolio_header p:first-child,
 .portfolio_header2 p:first-child {
-  font-family: "Iceland", cursive;
+  font-family: 'Amaranth',
+    sans-serif;
   font-size: 4rem;
   font-weight: bolder;
   background: linear-gradient(#9AFF9A, #69DAFF);
@@ -188,6 +193,7 @@ body {
   font-weight: bold;
   justify-content: center;
   text-transform: uppercase;
+
 }
 
 .slider {
@@ -212,7 +218,7 @@ body {
   box-sizing: border-box;
   height: 5rem;
   margin-bottom: 5rem;
-  padding: 1.65rem 0.4rem;
+  padding: 1.23rem 0.4rem;
   text-align: start;
 }
 
@@ -248,7 +254,7 @@ body {
 
 .skillsTab {
   position: relative;
-  margin: 0 auto;
+  margin: 2rem auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -374,26 +380,24 @@ body {
   font-size: 1.5rem;
   font-weight: 400;
   z-index: 1;
-  color:black;
-  width:100%;
+  color: black;
+  width: 100%;
 }
 
 .skillsTab ul li:nth-child(even) .tube .title {
-  /* display: none; */
   text-align: left;
   margin-left: 1rem;
-  
+
 }
 
 .skillsTab ul li:nth-child(odd) .tube .title {
   text-align: right;
-  margin-right:  1rem;
-
+  margin-right: 1rem;
 }
 
 @keyframes animate {
   from {
-    height: 0;
+    width: 0;
   }
 }
 
@@ -506,6 +510,7 @@ body {
 .certificatesTab {
   align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
 }
@@ -515,10 +520,9 @@ body {
 }
 
 .certificateTitle p {
-  color: black;
+  color: #fff;
   font-size: 3.5rem;
   letter-spacing: .3rem;
-  font-family: 'Trebuchet MS', sans-serif;
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -561,8 +565,6 @@ body {
 
 .certificateBio div {
   font-size: 1.6rem;
-  font-family: 'Roboto Condensed',
-    sans-serif;
   font-weight: 600;
   letter-spacing: .078rem;
   width: 20rem;
@@ -570,8 +572,13 @@ body {
 
 .bio .bioImage {
   border-radius: 50%;
-  height: 20rem;
-  width: 24rem;
+  height: 100%;
+  max-width: 90vw;
+  border: .1rem solid rgba(255, 255, 255, 0.703);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .bioExtra {
@@ -585,7 +592,7 @@ body {
 }
 
 .bioExtra2 {
-  width: 40%;
+  /* width: 50%; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -601,46 +608,26 @@ body {
 }
 
 .image {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+
   border-radius: 50%;
-  moz-user-drag: none;
-  o-user-drag: none;
-  webkit-user-drag: none;
-  width: 100%;
-}
-
-.bioContent {
-  align-items: center;
-  background: rgba(0, 0, 0, 0.4);
-  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 9rem;
-  position: relative;
-  text-align: justify;
-  top: -6rem;
-  width: 50vw;
-}
-
-.bioContent p {
-  font-family: "Livvic", sans-serif;
-  margin: 2rem 0;
+  border: .2rem solid #fff;
 }
 
 .social {
-  align-items: flex-end;
   display: flex;
   justify-content: center;
-  margin: 1rem 0;
+  align-items: center;
+  margin: 3rem;
 }
 
-.social i .footer_icon {
-  color: white;
-  font-size: 4rem;
-  margin: 1rem;
+.social-icon{
+  margin: 0 1rem;
 }
+
 
 .projects_heading {
   text-align: center;
@@ -738,8 +725,8 @@ body {
   margin: 2rem 0;
   text-align: center;
   /* text-decoration: underline; */
-  font-family: 'Amarante',
-    cursive;
+  font-family: 'Amaranth',
+    sans-serif;
 }
 
 .circles {
@@ -763,10 +750,10 @@ body {
 }
 
 .circles ul li h3 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 400;
-  font-family: 'Amarante',
-    cursive;
+  /* font-family: 'Amarante',
+    cursive; */
   justify-self: flex-end;
   margin-top: 0.2rem;
 }
@@ -796,7 +783,7 @@ a {
   display: flex;
   flex-direction: column;
   font-size: clamp(0.5rem, 3vw, 1.5rem);
-  height: 4.5rem;
+  height: 5rem;
   justify-content: space-around;
   margin: 1.5rem 0;
   position: relative;
@@ -934,7 +921,7 @@ a {
 }
 
 .form form {
-  align-items: center;
+  /* align-items: center; */
   display: flex;
   flex-direction: column;
   width: 70vw;
@@ -1000,7 +987,7 @@ a {
   background-color: rgba(195, 195, 195, 0.793);
 }
 
-.wrap {
+/* .wrap {
   align-items: center;
   display: flex;
   height: 0rem;
@@ -1047,7 +1034,7 @@ a {
   50% {
     border-radius: 26% 74% 51% 49% / 22% 53% 47% 78%;
   }
-}
+} */
 
 .projectBtn {
   align-items: center;
@@ -1072,27 +1059,35 @@ a {
   transition: all 0.2s linear;
 }
 
-.react-tabs .tablist {
+.fixed {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
   align-items: center;
-  border-bottom: 0.1rem solid #fff;
+  text-align: center;
+}
+
+.react-tabs .tablist {
+  border: 0.1rem solid #fff;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   margin-bottom: 3rem;
-  width: 100%;
+  border-radius: 1.3rem;
 
 }
 
 .react-tabs__tab {
-  align-items: center;
   color: rgb(255, 255, 255);
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  width: 100%;
-  font-family: 'Poppins',
-    sans-serif;
+  min-width: 10rem;
+  border-radius: 1.3rem;
 }
 
 .react-tabs__tab--selected {
@@ -1114,8 +1109,8 @@ a {
   font-size: 3.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
-  font-family: 'Trebuchet MS',
-    sans-serif;
+  /* font-family: 'Trebuchet MS',
+    sans-serif; */
 }
 
 .swiper-wrapper .swiperSlide2 {
@@ -1209,8 +1204,8 @@ a {
 }
 
 .templateDetailsSet .title {
-  font-family: 'Akaya Telivigala',
-    cursive;
+  /* font-family: 'Akaya Telivigala',
+    cursive; */
 }
 
 .select {
@@ -1218,11 +1213,11 @@ a {
   margin: 1rem 0;
   padding: 1rem;
   border: none;
-  font: 1.6rem "fantasy", cursive;
+  /* font: 1.6rem "fantasy", cursive; */
 }
 
 .select option {
-  font: 2rem "fantasy", cursive;
+  /* font: 2rem "fantasy", cursive; */
 }
 
 .templateCartDetails {
@@ -1281,7 +1276,7 @@ a {
   color: #fff;
   font-size: 2rem;
   font-weight: normal;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* font-family: Georgia, 'Times New Roman', Times, serif; */
 }
 
 .hireLinks ul {
@@ -1401,8 +1396,8 @@ a {
 
 .comming p {
   font-size: 3rem;
-  font-family: 'Open Sans',
-    sans-serif;
+  /* font-family: 'Open Sans',
+    sans-serif; */
 }
 
 .otpForm {
@@ -1504,14 +1499,14 @@ a {
 
 .servicePage_content h1 {
   font-size: 3rem;
-  font-family: 'Headland One',
-    serif;
+  /* font-family: 'Headland One',
+    serif; */
 }
 
 .servicePage_content h3 {
   font-size: 2.5rem;
-  font-family: 'Maven Pro',
-    sans-serif;
+  /* font-family: 'Maven Pro',
+    sans-serif; */
 }
 
 .servicePage_content h3 span {
@@ -1525,8 +1520,8 @@ a {
 
 .servicePage_content .content .row {
   font-size: 2.3rem;
-  font-family: 'IM Fell Great Primer',
-    serif;
+  /* font-family: 'IM Fell Great Primer',
+    serif; */
 }
 
 .prevNext {
@@ -1589,14 +1584,14 @@ a {
   font-size: 3rem;
   font-weight: 400;
   margin: 1rem 0;
-  font-family: 'Lora',
-    serif;
+  /* font-family: 'Lora',
+    serif; */
 }
 
 .serviceCard .price p {
   font-size: 4rem;
-  font-family: 'Martel Sans',
-    sans-serif;
+  /* font-family: 'Martel Sans',
+    sans-serif; */
 }
 
 .serviceCard ul {
@@ -1626,15 +1621,16 @@ a {
 }
 
 .serviceCard ul li span {
-  font-family: 'Montserrat',
-    sans-serif;
+  /* font-family: 'Montserrat',
+    sans-serif; */
 }
 
 .serviceCard ul li .serviceHeading {
-  font-weight: 400;
+  font-weight: 600;
+  font-size: 1.8rem;
   margin: .2rem 0;
-  font-family: 'Poppins',
-    sans-serif;
+  /* font-family: 'Poppins',
+    sans-serif; */
 }
 
 .serviceCard ul li .pageNo {
@@ -1762,8 +1758,8 @@ a {
 
 .containerToggle .switchName {
   color: #fff;
-  font-family: 'Rubik',
-    sans-serif;
+  /* font-family: 'Rubik',
+    sans-serif; */
 }
 
 .containerToggle .toggle-switch {
@@ -1962,8 +1958,8 @@ a {
 
   .certificateBio div {
     font-size: 1.6rem;
-    font-family: 'Roboto Condensed',
-      sans-serif;
+    /* font-family: 'Roboto Condensed',
+      sans-serif; */
     font-weight: 600;
     letter-spacing: .078rem;
     width: 20rem;
@@ -1981,28 +1977,6 @@ a {
   .inside {
     bottom: 0rem;
   }
-
-  /* .fixed {
-    position: fixed;
-    z-index: 200;
-
-    top: 0rem;
-    width: 100%;
-    background: rgb(0, 0, 0);
-  }
-
-  .project {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow: hidden;
-
-  }
-
-  .projectsTab {
-    position: relative;
-    top: 15rem;
-  } */
 
 
 
