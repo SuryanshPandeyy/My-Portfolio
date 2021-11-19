@@ -8,6 +8,7 @@ import ClientReviews from "../public/components/ClientReviews";
 import { AiOutlineCodepenCircle } from "react-icons/ai";
 import { GrLinkedinOption } from "react-icons/gr";
 import { FiGithub } from "react-icons/fi";
+import { Button } from "@mui/material";
 
 import Faq from "/public/components/Faq";
 import Heads from "./Head";
@@ -93,9 +94,17 @@ const Bio = () => {
                     />
                   </div>
                   <div className="download_resume_btn resume_btn">
-                    <a href="/documents/suryansh_resume.pdf" download>
+                    <Button
+                      onClick={() =>
+                        typeof window !== "undefined"
+                          ? (window.location.href =
+                              "/documents/suryansh_resume.pdf")
+                          : null
+                      }
+                      download
+                    >
                       Download Resume
-                    </a>
+                    </Button>
                   </div>
                 </div>
 
@@ -266,13 +275,13 @@ const Bio = () => {
                   onClick={certificatesPopup}
                   className="Image"
                   loader={myLoader}
-                  src ="https://img.icons8.com/external-justicon-flat-justicon/512/000000/external-certificate-reward-and-badges-justicon-flat-justicon-2.png"
+                  src="https://img.icons8.com/external-justicon-flat-justicon/512/000000/external-certificate-reward-and-badges-justicon-flat-justicon-2.png"
                   alt="Suryansh Certificate"
                   width="140"
                   height="140"
                   objectFit="contain"
                 />
-              <Faq />
+                <Faq />
               </div>
             </div>
           </div>

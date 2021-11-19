@@ -61,6 +61,7 @@
   },
   "devDependencies": {
     "eslint": "7.32.0",
-    "eslint-config-next": "11.1.0"
+    "eslint-config-next": "11.1.0",
+    "react-dfb": "^1.0.4"
   }
 }

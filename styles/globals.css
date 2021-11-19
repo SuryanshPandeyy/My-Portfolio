@@ -145,7 +145,7 @@ body {
   margin-bottom: 3rem;
 }
 
-.resume_btn a {
+.resume_btn button {
   background-color: #13aa52;
   border-radius: 0.5rem;
   color: white;
@@ -153,6 +153,10 @@ body {
   cursor: pointer;
   padding: 1rem 2rem;
   width: 100%;
+}
+.resume_btn button:hover {
+  background-color: #13aa52;
+  color: white;
 }
 
 .portfolio_header h1,
@@ -448,10 +452,12 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 100%;
   text-overflow: ellipsis;
-  background-image: radial-gradient(ellipse farthest-corner at 140rem 170%, #686868 0%, #4f4f4f 70%, #353535 70%);
+  background: radial-gradient(ellipse farthest-corner at 140rem 170%, #686868 0%, #4f4f4f 70%, #353535 70%);
+
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: center center;
   -webkit-background-origin: padding-box;
   background-origin: padding-box;
   -webkit-background-clip: border-box;
@@ -460,6 +466,7 @@ body {
   background-size: auto auto;
   -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
 .bio h3,
@@ -957,7 +964,7 @@ a {
   width: 100%;
 }
 
-.form .verify{
+.form .verify {
   background-color: royalblue;
   color: #fff;
 }
