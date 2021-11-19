@@ -63,15 +63,8 @@ body {
 }
 
 .hiresupa {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  font-size: 2rem;
   font-weight: 400;
-}
-
-.hiresupa span:nth-child(1) {
-  font-size: 3rem;
-  margin: 1rem;
   color: rgb(145, 145, 145);
   font-family: "Iceland", cursive;
 }
@@ -198,7 +191,7 @@ body {
 
 .slider {
   height: 5rem;
-   overflow-y: hidden; 
+  overflow-y: hidden;
   text-transform: uppercase;
 }
 
@@ -429,6 +422,10 @@ body {
   filter: brightness(110%) contrast(110%);
 }
 
+.skillsTab ul hr {
+  background: #fff;
+}
+
 .bio {
   align-items: center;
   display: flex;
@@ -451,6 +448,18 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
+  text-overflow: ellipsis;
+  background-image: radial-gradient(ellipse farthest-corner at 140rem 170%, #686868 0%, #4f4f4f 70%, #353535 70%);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  -webkit-background-origin: padding-box;
+  background-origin: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-size: auto auto;
+  background-size: auto auto;
+  -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .bio h3,
@@ -514,6 +523,7 @@ body {
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  padding: 3rem 0;
 }
 
 .certificatesTab .Image {
@@ -947,6 +957,11 @@ a {
   width: 100%;
 }
 
+.form .verify{
+  background-color: royalblue;
+  color: #fff;
+}
+
 .form button.form-control {
   border: none;
   cursor: pointer;
@@ -1178,15 +1193,19 @@ a {
   flex-direction: column;
   justify-content: center;
   padding: 1rem 2rem;
-  width: 90%;
+  width: 40rem;
+  max-width: 90%;
   color: #fff;
   background-color: black;
   margin: 1rem 0;
+  position: relative;
 }
 
 .faqQuest {
   color: rgb(255, 208, 0);
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .templateCart {
@@ -1273,7 +1292,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 .hireLinks h3 {
@@ -1306,20 +1325,27 @@ a {
   color: rgb(145, 145, 145);
   align-items: center;
   justify-content: center;
-  padding: 7rem 0;
+  padding: 4rem 0;
+  flex-direction: column;
   word-wrap: break-word;
 }
 
 .footer .hiresupa {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.footer .hiresupa span:nth-child(2) {
-  padding: 0 2rem;
+.footer div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer .hiresupa {
+  padding: 2rem 0;
 }
 
 .menuBox {
@@ -1653,7 +1679,9 @@ a {
 .serviceCard ul li .pageNo .pageButton {
   background-color: transparent;
   border: .1rem solid;
-  height: 2.5rem;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  padding: 1rem 0.7rem;
   margin: 0 .5rem;
   cursor: pointer;
   font-size: 2rem;
@@ -1683,12 +1711,13 @@ a {
 
 }
 
-.serviceCard ul li .check{
+.serviceCard ul li .check {
   font-size: 2.6rem;
   color: rgb(21, 224, 21);
   font-weight: bold;
 }
-.serviceCard ul li .uncheck{
+
+.serviceCard ul li .uncheck {
   font-size: 2.6rem;
   color: red;
   font-weight: bold;

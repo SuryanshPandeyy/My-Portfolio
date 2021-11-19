@@ -14,7 +14,7 @@ const Faq = () => {
   return (
     <>
       <div className="faqBox">
-        <div className="faq_title">FAQ</div>
+        <div className="faq_title">FAQs</div>
         <div className="faqs">{FaqJson.map(nFaqBox)}</div>
       </div>
     </>

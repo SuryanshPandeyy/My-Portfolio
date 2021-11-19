@@ -1,19 +1,20 @@
-import {useState} from "react";
+import { useState } from "react";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 const FaqBox = (props) => {
- const [Faq, setFaq] = useState("hide");
+  const [Faq, setFaq] = useState("hide");
 
   const showFaq = () => {
     setFaq(Faq === "hide" ? "show" : "hide");
   };
   return (
     <>
-      <div
-        className="faqsBox"
-        onClick={showFaq}
-      >
-        <div className="faqQuest">{props.quest}</div>
-        <div className={`switchAns${Faq}`}>{props.ans}</div>
+      <div className="faqsBox" onClick={showFaq}>
+        <div className="faqQuest">
+          {props.quest}
+          {Faq === "hide" ? <FaChevronDown /> : <FaChevronUp />}
+        </div>
+        <div className={`switchAns${Faq} faqAns`}>{props.ans}</div>
       </div>
     </>
   );

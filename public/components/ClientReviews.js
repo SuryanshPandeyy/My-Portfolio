@@ -57,7 +57,7 @@ const ClientReviews = () => {
 
   return (
     <>
-      {datas ? (
+      {datas.find((data) => data.message) ? (
         <div className="clients swiper-container">
           <div className="client_title">Client Reviews</div>
           <Swiper

@@ -4,11 +4,11 @@ import Fade from "react-reveal/Fade";
 import Suryansh from "/public/images/profile/profile.png";
 import certificates from "/public/images/certificates/UC-64a5cb50-0930-429f-9e05-db77afd1ed0f.jpg";
 import ClientReviews from "../public/components/ClientReviews";
-import certificateLogo from "/public/images/Icons/certificate_logo1.png";
+import certificateLogo from "/public/images/Icons/certificate_logo2.png";
 import { AiOutlineCodepenCircle } from "react-icons/ai";
 import { GrLinkedinOption } from "react-icons/gr";
 import { FiGithub } from "react-icons/fi";
-import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+
 import Faq from "/public/components/Faq";
 import Heads from "./Head";
 import Services from "/public/components/Services";
@@ -21,13 +21,7 @@ const myLoader = ({ src }) => {
 const Bio = () => {
   const [show, setShow] = useState(false);
   const [showPara, setShowPara] = useState("hide");
-  const [btn, setBtn] = useState("...more");
   const [lang, setLang] = useState(false);
-
-  const showParagraph = () => {
-    setShowPara(showPara === "hide" ? "show" : "hide");
-    setBtn(showPara === "hide" ? "less" : "...more");
-  };
 
   const certificatesPopup = () => {
     setShow(true);
@@ -75,39 +69,27 @@ const Bio = () => {
                       am freelancing as a Full-Stack Web Developer using both
                       old and new technologies.
                     </p>
-                    {/* <div className="show_btn">
-                        <button onClick={showParagraph}>
-                          {btn}
-                          <span>
-                            {showPara === "hide" ? (
-                              <FaChevronDown />
-                            ) : (
-                              <FaChevronUp />
-                            )}
-                          </span>
-                        </button>
-                      </div> */}
                   </div>
                   <div className="social">
                     <SocialIcon
                       className="social-icon"
                       bgColor="#fff"
                       url="https://github.com/Suryanshpsurya"
-                      style={{width: "3.5rem", height: "3.5rem"}}
+                      style={{ width: "3.5rem", height: "3.5rem" }}
                     />
 
                     <SocialIcon
                       className="social-icon"
                       bgColor="#fff"
                       url="https://codepen.io/SuryanshPallavi"
-                      style={{width: "3.5rem", height: "3.5rem"}}
+                      style={{ width: "3.5rem", height: "3.5rem" }}
                     />
 
                     <SocialIcon
                       className="social-icon"
                       bgColor="#fff"
                       url="https://www.linkedin.com/in/suryanshpandeyy"
-                      style={{width: "3.5rem", height: "3.5rem"}}
+                      style={{ width: "3.5rem", height: "3.5rem" }}
                     />
                   </div>
                   <div className="download_resume_btn resume_btn">
@@ -269,6 +251,8 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
+                      <br />
+                      <hr />
                     </ul>
                   </div>
                 </div>
@@ -284,10 +268,11 @@ const Bio = () => {
                   loader={myLoader}
                   src={certificateLogo}
                   alt="Suryansh Certificate"
-                  width="200"
-                  height="200"
+                  width="140"
+                  height="140"
                   objectFit="contain"
                 />
+              <Faq />
               </div>
             </div>
           </div>
@@ -327,8 +312,7 @@ const Bio = () => {
         ) : (
           <></>
         )}
-        {/* <ClientReviews /> */}
-        <Faq />
+        <ClientReviews />
       </div>
     </>
   );
