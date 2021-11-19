@@ -1119,7 +1119,7 @@ a {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin: 2em 0;
+  margin: 2rem 0;
 }
 
 .clients .client_title,
@@ -1194,7 +1194,7 @@ a {
   justify-content: center;
   padding: 1rem 2rem;
   width: 40rem;
-  max-width: 90%;
+  max-width: 80%;
   color: #fff;
   background-color: black;
   margin: 1rem 0;

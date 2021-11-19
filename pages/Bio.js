@@ -4,7 +4,7 @@ import Fade from "react-reveal/Fade";
 import Suryansh from "/public/images/profile/profile.png";
 import certificates from "/public/images/certificates/UC-64a5cb50-0930-429f-9e05-db77afd1ed0f.jpg";
 import ClientReviews from "../public/components/ClientReviews";
-import certificateLogo from "/public/images/Icons/certificate_logo2.png";
+// import certificateLogo from "/public/images/Icons/certificate_logo2.png";
 import { AiOutlineCodepenCircle } from "react-icons/ai";
 import { GrLinkedinOption } from "react-icons/gr";
 import { FiGithub } from "react-icons/fi";
@@ -266,7 +266,7 @@ const Bio = () => {
                   onClick={certificatesPopup}
                   className="Image"
                   loader={myLoader}
-                  src={certificateLogo}
+                  src ="https://img.icons8.com/external-justicon-flat-justicon/512/000000/external-certificate-reward-and-badges-justicon-flat-justicon-2.png"
                   alt="Suryansh Certificate"
                   width="140"
                   height="140"
