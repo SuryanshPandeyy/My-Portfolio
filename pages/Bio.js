@@ -139,17 +139,7 @@ const Bio = () => {
                   </div>
                   <div className="skillsTab">
                     <ul>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">ReactJS</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "90%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
+                      {" "}
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
@@ -172,6 +162,19 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
+
+                      <li>
+                        <div className="skillsTube">
+                          <div className="tube">
+                            <div className="title">React</div>
+                            <div
+                              className="tubeValue"
+                              style={{ width: "90%" }}
+                            ></div>
+                          </div>
+                        </div>
+                      </li>
+
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
@@ -183,6 +186,7 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
+
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
@@ -194,10 +198,11 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
+
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
-                            <div className="title">Html</div>
+                            <div className="title">Html, CSS, SASS</div>
                             <div
                               className="tubeValue"
                               style={{ width: "100%" }}
@@ -205,13 +210,14 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
+
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
-                            <div className="title">Css</div>
+                            <div className="title">React Native</div>
                             <div
                               className="tubeValue"
-                              style={{ width: "100%" }}
+                              style={{ width: "15%" }}
                             ></div>
                           </div>
                         </div>
@@ -230,6 +236,54 @@ const Bio = () => {
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
+                            <div className="title">JQuery</div>
+                            <div
+                              className="tubeValue"
+                              style={{ width: "90%" }}
+                            ></div>
+                          </div>
+                        </div>
+                      </li>
+
+                      <li>
+                        <div className="skillsTube">
+                          <div className="tube">
+                            <div className="title">Wordpress</div>
+                            <div
+                              className="tubeValue"
+                              style={{ width: "20%" }}
+                            ></div>
+                          </div>
+                        </div>
+                      </li>
+
+                      <li>
+                        <div className="skillsTube">
+                          <div className="tube">
+                            <div className="title">AWS</div>
+                            <div
+                              className="tubeValue"
+                              style={{ width: "5%" }}
+                            ></div>
+                          </div>
+                        </div>
+                      </li>
+
+                      <li>
+                        <div className="skillsTube">
+                          <div className="tube">
+                            <div className="title">UI</div>
+                            <div
+                              className="tubeValue"
+                              style={{ width: "5%" }}
+                            ></div>
+                          </div>
+                        </div>
+                      </li>
+
+                      <li>
+                        <div className="skillsTube">
+                          <div className="tube">
                             <div className="title">Php</div>
                             <div
                               className="tubeValue"
@@ -238,6 +292,7 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
+
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
@@ -245,17 +300,6 @@ const Bio = () => {
                             <div
                               className="tubeValue"
                               style={{ width: "100%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">React Native</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "50%" }}
                             ></div>
                           </div>
                         </div>

@@ -154,6 +154,7 @@ body {
   padding: 1rem 2rem;
   width: 100%;
 }
+
 .resume_btn button:hover {
   background-color: #13aa52;
   color: white;
@@ -256,6 +257,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .skillsTab::after {
@@ -272,17 +274,16 @@ body {
 }
 
 .skillsTab ul li {
-  padding: 0rem 4rem;
   position: relative;
   background-color: inherit;
 }
 
 .skillsTab ul li:nth-child(odd) {
-  left: -9rem;
+  left: -8rem;
 }
 
 .skillsTab ul li:nth-child(even) {
-  left: 9rem;
+  left: 8rem;
   /* top: -5.5rem; */
 }
 
@@ -320,7 +321,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+
 }
 
 .skillsTab li .tube {
@@ -329,11 +330,10 @@ body {
   align-items: center;
   /* border: 0.2rem solid rgba(135, 207, 235, 0.434); */
   height: 2rem;
-  max-width: 100%;
   overflow: hidden;
   position: relative;
   width: 15rem;
-  max-width: 90vw;
+  max-width: 90%;
   padding: .3rem 0rem;
 }
 
@@ -432,7 +432,7 @@ body {
 
 .bio {
   align-items: center;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   margin-top: 1rem;
@@ -441,7 +441,7 @@ body {
 
 .bio .bioData {
   align-items: center;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   width: 100%;
@@ -589,10 +589,11 @@ body {
 }
 
 .bio .bioImage {
-  border-radius: 50%;
+  /* border-radius: 50%; */
   height: 100%;
   max-width: 90vw;
-  border: .1rem solid rgba(255, 255, 255, 0.703);
+  border: none;
+  border-bottom: .1rem solid rgba(255, 255, 255, 0.703);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -631,7 +632,7 @@ body {
   -moz-user-select: none;
   user-select: none;
 
-  border-radius: 50%;
+  /* border-radius: 50%; */
   border: .2rem solid #fff;
 }
 
@@ -1127,6 +1128,7 @@ a {
   flex-direction: column;
   justify-content: center;
   margin: 2rem 0;
+  width: 100%;
 }
 
 .clients .client_title,
@@ -1201,7 +1203,7 @@ a {
   justify-content: center;
   padding: 1rem 2rem;
   width: 40rem;
-  max-width: 80%;
+  max-width: 70%;
   color: #fff;
   background-color: black;
   margin: 1rem 0;
@@ -1294,6 +1296,17 @@ a {
   cursor: pointer;
 }
 
+.flexColumnCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.client {
+  margin-top: 4rem;
+}
+
 .hireLinks {
   display: flex;
   flex-direction: column;
@@ -1302,7 +1315,7 @@ a {
   margin-top: 4rem;
 }
 
-.hireLinks h3 {
+.subHeading {
   color: #fff;
   font-size: 2rem;
   font-weight: normal;

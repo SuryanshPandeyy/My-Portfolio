@@ -7,7 +7,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 async function handler(req, res) {
   if (req.method === "POST") {
-    const { email, name, phone, message, select, title, price } = req.body;
+    const { email, name, phone, message, select, title, price, approve } = req.body;
 
     const msg = {
       to: "suryanshpallavi@gmail.com", // Change to your recipient
@@ -33,6 +33,7 @@ async function handler(req, res) {
       select,
       title,
       price,
+      approve
     });
 
     if (db) {

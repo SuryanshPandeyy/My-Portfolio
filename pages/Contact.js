@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Heads from "./Head";
+import useSWR, { mutate } from "swr";
 import Image from "next/image";
 import Router, { useRouter } from "next/router";
 import NProgress from "nprogress";
@@ -10,17 +11,15 @@ import Landing from "/public/json/Templates/Landing";
 import { SiUpwork, SiFreelancer, SiFiverr } from "react-icons/si";
 import axios from "axios";
 import { Button } from "@mui/material";
-
-let timer;
-let state;
-let activeRequests = 0;
-const delay = 250;
+import Client from "/public/components/Client";
 
 const myLoader = ({ src }) => {
   return `${src}`;
 };
 
 const Contact = () => {
+  const fetcher = (url) => fetch(url).then((res) => res.json());
+  const { data, error } = useSWR("/api/showUsers", fetcher);
   const router = useRouter();
   const { ids, packageId, type } = router.query;
 
@@ -31,7 +30,7 @@ const Contact = () => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [select, setSelected] = useState("");
-
+  const [emailExists, setEmailExists] = useState(false);
   const [otpEmail, setOtpEmail] = useState(false);
   const [disableEmail, setDisableEmail] = useState(false);
   const [verifyEmail, setVerifyEmail] = useState(false);
@@ -53,8 +52,10 @@ const Contact = () => {
   const [selectedVal, setSelectedVal] = useState();
   const [selectedKey, setSelectedKey] = useState();
 
-  const selectValue = ["Query", "Hire", "Feedback"];
-  const messageText = ["Ask Me", "Hire Me", "Feedback"];
+  const selectValue = ["Query", "Hire"];
+  const messageText = ["Ask Me", "Hire Me"];
+
+  const approve = "pending";
 
   const handleVal = (e) => {
     const selVal = e.target.value;
@@ -66,19 +67,42 @@ const Contact = () => {
     setSelected(selVal);
   };
 
+  useEffect(() => {
+    if (error)
+      return (
+        <>
+          <div className="loading">Failed to Load</div>
+        </>
+      );
+    if (!data)
+      return (
+        <>
+          <div className="loading">Loading...</div>
+        </>
+      );
+
+    const datas = data.message;
+
+    const findMail = datas.find((data) => data.select === "Hire");
+    const filterMail = findMail.filter((data) => data.email === email);
+    filterMail ? setEmailExists(true) : setEmailExists(false);
+  }, [data, email, error]);
+
   const submitForm = async (e) => {
     e.preventDefault();
-    if (
-      name === "" ||
-      email === "" ||
-      phone === "" ||
-      message === "" ||
-      select === ""
-    ) {
-      successMsg("Please fill the form");
-      setTimeout(successMsg, 2000);
-    } else {
-      if (otpFillEmail && otpFillPhone) {
+
+    if (emailExists === false) {
+      if (
+        name === "" ||
+        email === "" ||
+        phone === "" ||
+        // message === "" ||
+        select === ""
+      ) {
+        successMsg("Please fill the form");
+        setTimeout(successMsg, 2000);
+      } else {
+        // if (otpFillEmail && otpFillPhone) {
         if (ids || packageId) {
           var title = tempCart[type].title;
           var price = tempCart[type].price[packageId];
@@ -93,15 +117,16 @@ const Contact = () => {
           name,
           email,
           phone,
-          message,
+          // message,
           select,
           title,
           price,
+          approve,
         };
         setName("");
         setEmail("");
         setPhone("");
-        setMessage("");
+        // setMessage("");
         setSelected("");
 
         await fetch("/api/users", {
@@ -117,10 +142,14 @@ const Contact = () => {
             setOtpPhone(false);
           }
         });
-      } else {
-        successMsg("Please fill the OTP");
-        setTimeout(successMsg, 2000);
+        // } else {
+        //   successMsg("Please fill the OTP");
+        //   setTimeout(successMsg, 2000);
+        // }
       }
+    } else {
+      successMsg("Email Already Exists");
+      setTimeout(successMsg, 2000);
     }
   };
 
@@ -212,7 +241,7 @@ const Contact = () => {
       />
       <div className="suryansh_portfolio" id="body">
         <div id="contact">
-          <h2 className="card-container-heading">Contact Us</h2>
+          <h2 className="card-container-heading">Contact</h2>
           {success ? (
             <>
               <div className="successComment">
@@ -248,7 +277,7 @@ const Contact = () => {
                   className="form-control"
                   placeholder="Your Email"
                   onChange={(e) => (
-                    setEmail(e.target.value), setVerifyEmail(true)
+                    setEmail(e.target.value), setVerifyEmail(false)
                   )}
                   value={email}
                   required
@@ -342,125 +371,117 @@ const Contact = () => {
                   </>
                 ) : null}
               </div>
-              {selectedVal !== "Feedback" ? (
-                <>
-                  <label forHtml="phone">Phone: </label>
-                  <div className="phone">
-                    <input
-                      type="text"
-                      name="phone"
-                      id="phone"
-                      className="form-control"
-                      placeholder="Phone No."
-                      onChange={(e) => (
-                        setPhone(e.target.value),
-                        // setVerifyPhone(true)
-                        setOtpFillPhone(true)
-                      )}
-                      value={phone}
-                      required
-                      disabled={disablePhone || success ? true : false}
-                    />
 
-                    {verifyPhone && phone !== "" ? (
-                      <>
-                        <Button onClick={submitPhoneDetails} className="verify">
-                          Verify
-                        </Button>
-                      </>
-                    ) : null}
+              <label forHtml="phone">Phone: </label>
+              <div className="phone">
+                <input
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  className="form-control"
+                  placeholder="Phone No."
+                  onChange={(e) => (
+                    setPhone(e.target.value),
+                    // setVerifyPhone(true)
+                    setOtpFillPhone(true)
+                  )}
+                  value={phone}
+                  required
+                  disabled={disablePhone || success ? true : false}
+                />
 
-                    {otpPhone ? (
-                      <>
-                        <div className="otpFor">
+                {verifyPhone && phone !== "" ? (
+                  <>
+                    <Button onClick={submitPhoneDetails} className="verify">
+                      Verify
+                    </Button>
+                  </>
+                ) : null}
+
+                {otpPhone ? (
+                  <>
+                    <div className="otpFor">
+                      <div>
+                        <div className="otpFrame1">
+                          <div className="otpFrame2">
+                            <input
+                              type="number"
+                              name="otp"
+                              onChange={(e) => setOtpInputPhone(e.target.value)}
+                              value={otpInputPhone}
+                              required
+                              disabled={otpFillPhone || success ? true : false}
+                            />
+                          </div>
                           <div>
-                            <div className="otpFrame1">
-                              <div className="otpFrame2">
-                                <input
-                                  type="number"
-                                  name="otp"
-                                  onChange={(e) =>
-                                    setOtpInputPhone(e.target.value)
-                                  }
-                                  value={otpInputPhone}
-                                  required
-                                  disabled={
-                                    otpFillPhone || success ? true : false
-                                  }
-                                />
-                              </div>
-                              <div>
-                                <Button
-                                  onClick={(e) => {
-                                    async (e) => {
-                                      e.preventDefault();
+                            <Button
+                              onClick={(e) => {
+                                async (e) => {
+                                  e.preventDefault();
 
-                                      successMsg("Please Wait");
-                                      axios
-                                        .get(`/api/showOtpPhone`)
-                                        .then((response) => {
-                                          const otpData = response.data.message;
-                                          const filterOtp = otpData.filter(
-                                            (data) => phone === data.phone
-                                          );
+                                  successMsg("Please Wait");
+                                  axios
+                                    .get(`/api/showOtpPhone`)
+                                    .then((response) => {
+                                      const otpData = response.data.message;
+                                      const filterOtp = otpData.filter(
+                                        (data) => phone === data.phone
+                                      );
 
-                                          if (filterOtp !== []) {
-                                            if (
-                                              otpInputPhone ==
-                                              filterOtp[0].otpNum
-                                            ) {
-                                              setTimeout(successMsg, 10);
-                                              setOtpSuccessPhone("correct");
-                                              setOtpFillPhone(false);
-                                              setOtpInputPhone("");
-                                              setOtpPhone(false);
-                                            } else {
-                                              setOtpSuccessPhone("incorrect");
-                                              successMsg("Wrong OTP");
-                                              setTimeout(successMsg, 2000);
-                                            }
-                                          }
-                                        });
-                                    };
-                                  }}
-                                  disabled={otpFillPhone ? true : false}
-                                >
-                                  Submit Otp
-                                </Button>
+                                      if (filterOtp !== []) {
+                                        if (
+                                          otpInputPhone == filterOtp[0].otpNum
+                                        ) {
+                                          setTimeout(successMsg, 10);
+                                          setOtpSuccessPhone("correct");
+                                          setOtpFillPhone(false);
+                                          setOtpInputPhone("");
+                                          setOtpPhone(false);
+                                        } else {
+                                          setOtpSuccessPhone("incorrect");
+                                          successMsg("Wrong OTP");
+                                          setTimeout(successMsg, 2000);
+                                        }
+                                      }
+                                    });
+                                };
+                              }}
+                              disabled={otpFillPhone ? true : false}
+                            >
+                              Submit Otp
+                            </Button>
 
-                                <Button
-                                  type="button"
-                                  onClick={(e) => (
-                                    setOtpPhone(false), setOtpFillPhone(false)
-                                  )}
-                                >
-                                  Cancel
-                                </Button>
-                              </div>
-                            </div>
-                            {otpSuccessPhone === "correct" ? (
-                              <>
-                                Verified
-                                <Button
-                                  type="button"
-                                  onClick={(e) => (
-                                    setOtpPhone(false),
-                                    setOtpFillPhone(false),
-                                    setDisablePhone(false),
-                                    setOtpSuccessPhone("")
-                                  )}
-                                >
-                                  Change Email
-                                </Button>
-                              </>
-                            ) : null}
+                            <Button
+                              type="button"
+                              onClick={(e) => (
+                                setOtpPhone(false), setOtpFillPhone(false)
+                              )}
+                            >
+                              Cancel
+                            </Button>
                           </div>
                         </div>
-                      </>
-                    ) : null}
-                  </div>
-                </>
-              ) : null}
+                        {otpSuccessPhone === "correct" ? (
+                          <>
+                            Verified
+                            <Button
+                              type="button"
+                              onClick={(e) => (
+                                setOtpPhone(false),
+                                setOtpFillPhone(false),
+                                setDisablePhone(false),
+                                setOtpSuccessPhone("")
+                              )}
+                            >
+                              Change Email
+                            </Button>
+                          </>
+                        ) : null}
+                      </div>
+                    </div>
+                  </>
+                ) : null}
+              </div>
 
               <label forHtml="select">Select:</label>
               <select
@@ -490,7 +511,7 @@ const Contact = () => {
                   </>
                 )}
               </select>
-              <label forHtml="message">
+              {/* <label forHtml="message">
                 {!ids & !packageId
                   ? messageText[selectedKey]
                     ? messageText[selectedKey]
@@ -509,12 +530,11 @@ const Contact = () => {
                 value={message}
                 required
                 disabled={success ? true : false}
-              ></textarea>
+              ></textarea> */}
               <Button
                 type="submit"
                 name="submit"
                 className={`${!success ? "form-control" : "form-disabled"}`}
-                value="Submit"
                 disabled={success ? true : false}
               >
                 {!ids & !packageId
@@ -568,7 +588,7 @@ const Contact = () => {
         )}
         <hr />
         <div className="hireLinks">
-          <h3>Hire me on</h3>
+          <h3 className="subHeading">Hire me on</h3>
           <ul>
             <li>
               <a
@@ -593,6 +613,8 @@ const Contact = () => {
             </li>
           </ul>
         </div>
+
+        <Client />
       </div>
     </>
   );
