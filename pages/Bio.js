@@ -37,7 +37,7 @@ const Bio = () => {
       <div className="suryansh_portfolio" id="body">
         <div className="bio">
           <div className="bioData">
-            <div style={{ backgroundColor: "black" }}>
+            <div className="bioDataFrame">
               <div className="bioDetails">
                 <div className="bioExtra">
                   <div className="portfolio_header">
@@ -162,7 +162,6 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
-
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
@@ -174,7 +173,6 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
-
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
@@ -186,7 +184,6 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
-
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
@@ -198,7 +195,6 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
-
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
@@ -210,7 +206,6 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
-
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
@@ -244,7 +239,6 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
-
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
@@ -256,7 +250,6 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
-
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
@@ -268,7 +261,6 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
-
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
@@ -280,7 +272,6 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
-
                       <li>
                         <div className="skillsTube">
                           <div className="tube">
@@ -292,7 +283,6 @@ const Bio = () => {
                           </div>
                         </div>
                       </li>
-
                       <li>
                         <div className="skillsTube">
                           <div className="tube">

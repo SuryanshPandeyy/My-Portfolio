@@ -14,13 +14,13 @@ const Users = () => {
   if (error)
     return (
       <>
-        <div className="loading">Failed to Load</div>
+        <div className="loading suryansh_portfolio">Failed to Load</div>
       </>
     );
   if (!data)
     return (
       <>
-        <div className="loading">Loading...</div>
+        <div className="loading suryansh_portfolio">Loading...</div>
       </>
     );
 

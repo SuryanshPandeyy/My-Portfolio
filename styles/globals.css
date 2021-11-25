@@ -149,7 +149,7 @@ body {
   background-color: #13aa52;
   border-radius: 0.5rem;
   color: white;
-
+  font-size: 1.2rem;
   cursor: pointer;
   padding: 1rem 2rem;
   width: 100%;
@@ -182,6 +182,10 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.bioDataFrame {
+  background: #000;
 }
 
 .slider-wrapper {
@@ -589,11 +593,11 @@ body {
 }
 
 .bio .bioImage {
-  /* border-radius: 50%; */
+
   height: 100%;
   max-width: 90vw;
   border: none;
-  border-bottom: .1rem solid rgba(255, 255, 255, 0.703);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -633,7 +637,6 @@ body {
   user-select: none;
 
   /* border-radius: 50%; */
-  border: .2rem solid #fff;
 }
 
 .social {
@@ -1011,7 +1014,7 @@ a {
   background-color: rgba(195, 195, 195, 0.793);
 }
 
-/* .wrap {
+.wrap {
   align-items: center;
   display: flex;
   height: 0rem;
@@ -1023,28 +1026,12 @@ a {
 
 .shape:nth-of-type(1) {
   animation: wave 5s ease-in-out infinite;
-  background: linear-gradient(64.009163468deg,
-      #f34868 23.44140625%,
-      #f24768 23.44140625%,
-      #9e00ec 79.84765625%);
-  background-image: linear-gradient(to left bottom,
-      #d1f3c5,
-      #c1f5be,
-      #adf7b9,
-      #94fab8,
-      #72fcb9,
-      #44f9d5,
-      #07f4ed,
-      #00edff,
-      #00d8ff,
-      #4cbdff,
-      #a39aff,
-      #da70d6);
-  height: 30rem;
+  background: radial-gradient(white 45%, rgb(205, 195, 195) 100%);
+  height: 25rem;
   opacity: 1;
   position: absolute;
-  top: -5rem;
-  width: 30rem;
+  top: 4rem;
+  width: 28rem;
   z-index: -1;
 }
 
@@ -1052,13 +1039,13 @@ a {
 
   0%,
   100% {
-    border-radius: 66% 34% 37% 63% / 57% 31% 69% 43%;
+    border-radius: 60% 64% 67% 63% / 67% 61% 69% 63%;
   }
 
   50% {
-    border-radius: 26% 74% 51% 49% / 22% 53% 47% 78%;
+    border-radius: 66% 64% 61% 69% / 62% 63% 67% 68%;
   }
-} */
+}
 
 .projectBtn {
   align-items: center;

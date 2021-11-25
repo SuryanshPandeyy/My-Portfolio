@@ -18,10 +18,10 @@ const myLoader = ({ src }) => {
 };
 
 const Contact = () => {
-  const fetcher = (url) => fetch(url).then((res) => res.json());
-  const { data, error } = useSWR("/api/showUsers", fetcher);
   const router = useRouter();
   const { ids, packageId, type } = router.query;
+  const fetcher = (url) => fetch(url).then((res) => res.json());
+  const { data, error } = useSWR("/api/showUsers", fetcher);
 
   const tempCart = [Business[ids], Blogs[ids], Landing[ids], Portfolio[ids]];
 
@@ -67,31 +67,29 @@ const Contact = () => {
     setSelected(selVal);
   };
 
-  useEffect(() => {
-    if (error)
-      return (
-        <>
-          <div className="loading">Failed to Load</div>
-        </>
-      );
-    if (!data)
-      return (
-        <>
-          <div className="loading">Loading...</div>
-        </>
-      );
+  if (error)
+    return (
+      <>
+        <div className="loading suryansh_portfolio">Failed to Load</div>
+      </>
+    );
+  if (!data)
+    return (
+      <>
+        <div className="loading suryansh_portfolio">Loading...</div>
+      </>
+    );
 
-    const datas = data.message;
-
-    const findMail = datas.find((data) => data.select === "Hire");
-    const filterMail = findMail.filter((data) => data.email === email);
-    filterMail ? setEmailExists(true) : setEmailExists(false);
-  }, [data, email, error]);
+  const datas = data.message;
 
   const submitForm = async (e) => {
     e.preventDefault();
+    const findMail = datas.find(
+      (data) => data.select == "Hire" && data.email == email
+    );
+    const Email = findMail ? findMail.email : "not found";
 
-    if (emailExists === false) {
+    if (Email !== email) {
       if (
         name === "" ||
         email === "" ||
@@ -117,7 +115,7 @@ const Contact = () => {
           name,
           email,
           phone,
-          // message,
+
           select,
           title,
           price,
@@ -125,8 +123,7 @@ const Contact = () => {
         };
         setName("");
         setEmail("");
-        setPhone("");
-        // setMessage("");
+
         setSelected("");
 
         await fetch("/api/users", {
@@ -142,10 +139,6 @@ const Contact = () => {
             setOtpPhone(false);
           }
         });
-        // } else {
-        //   successMsg("Please fill the OTP");
-        //   setTimeout(successMsg, 2000);
-        // }
       }
     } else {
       successMsg("Email Already Exists");
@@ -282,6 +275,7 @@ const Contact = () => {
                   value={email}
                   required
                   disabled={disableEmail || success ? true : false}
+                  // autoComplete={false}
                 />
                 {verifyEmail && email !== "" ? (
                   <>
