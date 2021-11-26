@@ -4,9 +4,7 @@ module.exports = (phase) => {
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     return {
       pageExtensions: ["mdx", "jsx", "js", "ts", "tsx"],
-      images: {
-        loader: "imgix",
-      },
+  
       reactStrictMode: true,
       trailingSlash: true,
 
@@ -26,9 +24,7 @@ module.exports = (phase) => {
   }
   return {
     pageExtensions: ["mdx", "jsx", "js", "ts", "tsx"],
-    images: {
-      loader: "imgix",
-    },
+  
     reactStrictMode: true,
     trailingSlash: true,
 

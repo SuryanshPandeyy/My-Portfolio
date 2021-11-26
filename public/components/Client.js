@@ -9,8 +9,17 @@ const Client = () => {
         <h3 className="subHeading">Client Access</h3>
 
         <>
-          <form
-            onSubmit={async (e) => {
+          <label forHtml="emailPhone"></label>
+          <input
+            name="email"
+            value={emailPhone}
+            onChange={(e) => setEmailPhone(e.target.value)}
+            id="emailPhone"
+          />
+          <Button
+            className="button"
+            type="submit"
+            onClick={async (e) => {
               e.preventDefault();
               axios.get(`/api/showUsers`).then((response) => {
                 const datas = response.data.message;
@@ -21,16 +30,10 @@ const Client = () => {
               });
             }}
           >
-            <label forHtml="emailPhone"></label>
-            <input
-              value={emailPhone}
-              onChange={(e) => setEmailPhone(e.target.value)}
-              id="emailPhone"
-            />
-            <Button className="button" type="submit">
-              Login
-            </Button>
-          </form>
+            Login
+          </Button>
+
+          <form></form>
         </>
       </div>
     </>

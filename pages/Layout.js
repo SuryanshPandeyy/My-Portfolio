@@ -1,5 +1,5 @@
 // import useSWR from "swr";
-import { NextSeo } from "next-seo";
+
 import Links from "./Links";
 import Footer from "./Footer";
 import Head from "next/head";
@@ -71,11 +71,6 @@ const Layout = ({ children }) => {
           content="/images/favicons/mstile-144x144.png"
         />
         <meta name="theme-color" content="#ffffff"></meta>      </Head>
-
-      <NextSeo
-        title="Suryansh Pandey - HireSuPa"
-        description="Hire Suryansh for Full Stack Web Development {Next.JS, MongoDB}, SEO optimization, Web and UI Design. - HireSuPa"
-      />
 
       <div className="inside circles">
         <Links />
