@@ -1,29 +1,22 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Fade from "react-reveal/Fade";
-import Suryansh from "/public/images/profile/profile.png";
+import { Fade, Zoom } from "react-reveal";
+import Suryansh from "/public/images/profile/profile5.png";
 import certificates from "/public/images/certificates/UC-64a5cb50-0930-429f-9e05-db77afd1ed0f.jpg";
-import ClientReviews from "../public/components/ClientReviews";
-// import certificateLogo from "/public/images/Icons/certificate_logo2.png";
-import { AiOutlineCodepenCircle } from "react-icons/ai";
-import { GrLinkedinOption } from "react-icons/gr";
-import { FiGithub } from "react-icons/fi";
+import ClientReviews from "/public/components/ClientReviews";
 import { Button } from "@mui/material";
-
+import Skills from "/public/json/Skills";
 import Faq from "/public/components/Faq";
 import Heads from "./Head";
 import Services from "/public/components/Services";
 import { SocialIcon } from "react-social-icons";
 
-const myLoader = ({ src }) => {
-  return `${src}`;
+const myLoader = ({ src, width }) => {
+  return `${src}?width=${width}`;
 };
 
 const Bio = () => {
   const [show, setShow] = useState(false);
-  const [showPara, setShowPara] = useState("hide");
-  const [lang, setLang] = useState(false);
-
   const certificatesPopup = () => {
     setShow(true);
   };
@@ -42,7 +35,7 @@ const Bio = () => {
                 <div className="bioExtra">
                   <div className="portfolio_header">
                     <Fade down>
-                      <p>{lang ? "सूर्यांश" : "Suryansh Pandey"}</p>
+                      <p>Suryansh Pandey</p>
                       <div>
                         <Fade cascade>
                           <div className="slider-wrapper">
@@ -72,26 +65,32 @@ const Bio = () => {
                     </p>
                   </div>
                   <div className="social">
-                    <SocialIcon
-                      className="social-icon"
-                      bgColor="#fff"
-                      url="https://github.com/Suryanshpsurya"
-                      style={{ width: "3.5rem", height: "3.5rem" }}
-                    />
+                    <Zoom>
+                      <SocialIcon
+                        className="social-icon"
+                        bgColor="#fff"
+                        url="https://github.com/Suryanshpsurya"
+                        style={{ width: "3.5rem", height: "3.5rem" }}
+                      />
+                    </Zoom>
 
-                    <SocialIcon
-                      className="social-icon"
-                      bgColor="#fff"
-                      url="https://codepen.io/SuryanshPallavi"
-                      style={{ width: "3.5rem", height: "3.5rem" }}
-                    />
+                    <Zoom>
+                      <SocialIcon
+                        className="social-icon"
+                        bgColor="#fff"
+                        url="https://codepen.io/SuryanshPallavi"
+                        style={{ width: "3.5rem", height: "3.5rem" }}
+                      />
+                    </Zoom>
 
-                    <SocialIcon
-                      className="social-icon"
-                      bgColor="#fff"
-                      url="https://www.linkedin.com/in/suryanshpandeyy"
-                      style={{ width: "3.5rem", height: "3.5rem" }}
-                    />
+                    <Zoom>
+                      <SocialIcon
+                        className="social-icon"
+                        bgColor="#fff"
+                        url="https://www.linkedin.com/in/suryanshpandeyy"
+                        style={{ width: "3.5rem", height: "3.5rem" }}
+                      />
+                    </Zoom>
                   </div>
                   <div className="download_resume_btn resume_btn">
                     <Button
@@ -110,17 +109,19 @@ const Bio = () => {
 
                 <div className="bioExtra2">
                   <div className="bioImage">
-                    <div className="wrap">
+                    {/* <div className="wrap">
                       <div className="shape"></div>
-                    </div>
+                    </div> */}
                     <Image
                       className="image"
                       loader={myLoader}
                       src={Suryansh}
                       alt="Suryansh"
                       quality="100"
-                      width="250"
-                      height="250"
+                      width={450}
+                      height={450}
+                      objectFit="cover"
+                      priority={true}
                     />
                   </div>
                 </div>
@@ -139,161 +140,27 @@ const Bio = () => {
                   </div>
                   <div className="skillsTab">
                     <ul>
-                      {" "}
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">NextJS</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "70%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">MongoDB</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "95%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">React</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "90%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">NodeJS</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "90%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">ExpressJS</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "70%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">Html, CSS, SASS</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "100%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">React Native</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "15%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">Javascript</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "95%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">JQuery</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "90%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">Wordpress</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "20%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">AWS</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "5%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">UI</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "5%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">Php</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "90%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="skillsTube">
-                          <div className="tube">
-                            <div className="title">MYSQL</div>
-                            <div
-                              className="tubeValue"
-                              style={{ width: "100%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </li>
+                      {Skills.map((skills, i) => (
+                        <>
+                          <Fade
+                            right={skills.id % 2 === 0 ? true : false}
+                            left={skills.id % 2 === 0 ? false : true}
+                            key={skills.id}
+                          >
+                            <li>
+                              <div className="skillsTube">
+                                <div className="tube">
+                                  <div className="title">{skills.title}</div>
+                                  <div
+                                    className="tubeValue"
+                                    style={{ width: `${skills.value}%` }}
+                                  ></div>
+                                </div>
+                              </div>
+                            </li>
+                          </Fade>
+                        </>
+                      ))}
                       <br />
                       <hr />
                     </ul>
@@ -305,16 +172,19 @@ const Bio = () => {
                 <div className="certificateTitle">
                   <p> Certificates </p>
                 </div>
-                <Image
-                  onClick={certificatesPopup}
-                  className="Image"
-                  loader={myLoader}
-                  src="https://img.icons8.com/external-justicon-flat-justicon/512/000000/external-certificate-reward-and-badges-justicon-flat-justicon-2.png"
-                  alt="Suryansh Certificate"
-                  width="140"
-                  height="140"
-                  objectFit="contain"
-                />
+                <Zoom>
+                  <Image
+                    onClick={certificatesPopup}
+                    className="Image"
+                    loader={myLoader}
+                    src="https://img.icons8.com/external-justicon-flat-justicon/512/000000/external-certificate-reward-and-badges-justicon-flat-justicon-2.png"
+                    alt="Suryansh Certificate"
+                    width="140"
+                    height="140"
+                    objectFit="contain"
+                    priority={true}
+                  />
+                </Zoom>
                 <Faq />
               </div>
             </div>
@@ -334,6 +204,7 @@ const Bio = () => {
                     loader={myLoader}
                     objectFit="contain"
                     className="certImg"
+                    priority={true}
                   />
                   <div className="certificateDetails">
                     <div className="certificateBio">

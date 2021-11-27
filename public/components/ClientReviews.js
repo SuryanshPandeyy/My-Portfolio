@@ -79,7 +79,7 @@ const ClientReviews = () => {
             {/* <IoIosRefresh className={loadCss} onClick={refresh} /> */}
             {datas.map((review, i) => (
               <>
-                <SwiperSlide className="swiperSlide2">
+                <SwiperSlide className="swiperSlide2" key={i}>
                   <div className="cardPackage">
                     <>
                       <Testimonial

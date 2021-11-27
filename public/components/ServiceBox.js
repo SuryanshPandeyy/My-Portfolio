@@ -7,8 +7,8 @@ import { BsCheck2, BsX } from "react-icons/bs";
 
 const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
   const [checkSeo, setCheckSeo] = useState(false);
-  const [price, setPrice] = useState(value.price);
-  const [page, setPage] = useState(value.page);
+  const [price] = useState(value.price);
+  const [page, setPage] = useState(1);
   const [seo, setSeo] = useState(0);
   const [revision, setRevision] = useState(0);
 
@@ -26,7 +26,17 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
               maximumFractionDigits: 2,
               currency: toCurrency,
             }).format(
-              !check
+              value.id === 2 || value.id === 3
+                ? page > 7
+                  ? !check
+                    ? (price * page + page * 50 *value.inc+ 6.72 * revision + seo) /
+                      priceCurr
+                    : (price * 2 * page + page * 50 *value.inc+ 6.72 * revision + seo) /
+                      priceCurr
+                  : !check
+                  ? (price * page + 6.72 * revision + seo) / priceCurr
+                  : (price * 2 * page + 6.72 * revision + seo) / priceCurr
+                : !check
                 ? (price * page + 6.72 * revision + seo) / priceCurr
                 : (price * 2 * page + 6.72 * revision + seo) / priceCurr
             )}
@@ -155,7 +165,7 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
                       setSeo(0);
                     }
                   }}
-                  check={checkSeo}
+                  check={checkSeo ? checkSeo : undefined}
                 />
                 <label htmlFor={`check${value.id}`} className="checkbox">
                   <svg

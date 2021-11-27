@@ -48,6 +48,7 @@ const ServiceJson = [
     singlePage: true,
     revision: 2,
     freeSslHosting: true,
+    inc: 1.1,
   },
 
   {
@@ -75,6 +76,7 @@ const ServiceJson = [
     singlePage: true,
     revision: 2,
     freeSslHosting: true,
+    inc: 1.2,
   },
 ];
 

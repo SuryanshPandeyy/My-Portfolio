@@ -715,16 +715,16 @@ body {
 }
 
 .packageCard .view a {
-  background-color: royalblue;
+  background-color: rgb(59, 100, 221);
   border-radius: 0.4rem;
   color: white;
   padding: 1rem 2rem;
   text-decoration: none;
-  width: 80%;
+  width: 10rem;
 }
 
 .packageCard .view a:hover {
-  background-color: navy;
+  background-color: rgb(35, 87, 245);
 }
 
 .packageCard .Carddetails .view button {
@@ -781,7 +781,6 @@ body {
 }
 
 .menu_active {
-  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -789,7 +788,11 @@ body {
 
 }
 
-.menu_active .headerIcon {
+.menu_active .active {
+  color: rgb(255, 255, 255);
+}
+
+.menu_active .icon {
   font-size: 2.5rem;
 }
 
@@ -1080,13 +1083,13 @@ a {
 }
 
 .react-tabs .tablist {
-  border: 0.1rem solid #fff;
+  border-bottom: 0.1rem solid #fff;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-bottom: 3rem;
-  border-radius: 3rem;
+  /* border-radius: 3rem; */
   overflow: hidden;
 }
 
@@ -1103,9 +1106,8 @@ a {
 
 .react-tabs__tab--selected {
   color: black;
-  border-radius: 2rem;
-  border: .5rem solid #fff;
-
+  border: .5rem solid rgb(142, 101, 101);
+  border-radius: 0rem;
 }
 
 .clients,
@@ -1686,6 +1688,7 @@ a {
 .serviceCard ul li .pageNo .pageButton {
   background-color: transparent;
   border: .1rem solid;
+  border-radius: 50%;
   height: 2.5rem !important;
   width: 2.5rem !important;
   padding: 1rem 0.7rem;

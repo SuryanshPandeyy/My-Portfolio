@@ -1,14 +1,41 @@
 import Heads from "./Head";
 import PersonalProjects, { ClientsProjects } from "/public/json/Cards";
-import ProjectBox from "/public/components/ProjectBox";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import Image from "next/image";
+import Button from "@material-ui/core/Button";
+
+const myLoader = ({ src, width, quality }) => {
+  return `${src}?width=${width}&quality=${quality}`;
+};
 
 const nPersonal = (val, key) => {
   return (
     <>
       <div className="cardPackage" key={key}>
-        <ProjectBox title={val.title} image={val.image} link={val.link} />
+        <div className="cardPackage">
+          <div className="packageCard">
+            <div className="packageBlocker"></div>
+            <div className="CardImg">
+              <Image
+                className="cardimg"
+                loader={myLoader}
+                src={val.image}
+                alt={val.image}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+            <div className="Carddetails">
+              <div className="Cardtitle">{val.title}</div>
+              <div className="view">
+                <Button href={val.link} target="blank">
+                  View
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

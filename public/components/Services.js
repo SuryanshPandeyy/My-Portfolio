@@ -1,20 +1,16 @@
-import ServiceJson from "/public/json/ServiceJson";
-import ServiceBox from "./ServiceBox";
-import { useState, useEffect, useMemo } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Link from "next/link";
-import { Button } from "@mui/material";
-import CurrencyJson from "./currency";
-import { BsCurrencyExchange } from "react-icons/bs";
-
+import { useState } from "react";
 // import Swiper core and required modules
 import SwiperCore, {
-  EffectCoverflow,
+  A11y, EffectCoverflow,
   Navigation,
   Pagination,
-  Scrollbar,
-  A11y,
+  Scrollbar
 } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import CurrencyJson from "./currency";
+import ServiceBox from "./ServiceBox";
+import ServiceJson from "/public/json/ServiceJson";
+import {BsCurrencyExchange} from "react-icons/bs";
 
 // install Swiper modules
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
@@ -34,7 +30,7 @@ const Services = () => {
     const val = e.target.value;
 
     const res = await fetch(
-      `https://free.currconv.com/api/v7/convert?q=${val}_USD&compact=ultra&apiKey=787f636c0b0da32b58e1`
+      `https://free.currconv.com/api/v7/convert?q=${val}_USD&compact=ultra&apiKey=10c2e398cd45ac21e733`
     );
     const rates = await res.json();
     setPriceCurr(rates[`${val}_USD`]);
@@ -100,20 +96,22 @@ const Services = () => {
             modifier: 1,
             slideShadows: false,
           }}
-          pagination={{ clickable: true}}
+          pagination={{ clickable: true }}
           // navigation={{ clickable: true }}
         >
-          {ServiceJson.map((val) => (
+          {ServiceJson.map((val,i) => (
             <>
-              <SwiperSlide className="swiperSlide2">
-                <ServiceBox
-                  value={val}
-                  check={check}
-                  toCurrency={toCurrency}
-                  priceCurr={priceCurr}
-                  symbol={symbols}
-                />
-              </SwiperSlide>
+              <div key={i}>
+                <SwiperSlide className="swiperSlide2">
+                  <ServiceBox
+                    value={val}
+                    check={check}
+                    toCurrency={toCurrency}
+                    priceCurr={priceCurr}
+                    symbol={symbols}
+                  />
+                </SwiperSlide>
+              </div>
             </>
           ))}
         </Swiper>
