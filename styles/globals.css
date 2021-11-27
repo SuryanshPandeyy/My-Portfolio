@@ -762,14 +762,14 @@ body {
 }
 
 .circles ul {
-  align-items: center;
   color: white;
   display: flex;
-  flex-direction: row;
+  align-items: center;
   justify-content: space-evenly;
   list-style-type: none;
   width: 100%;
 }
+
 
 .circles ul li h3 {
   font-size: 1.5rem;
@@ -800,20 +800,23 @@ a {
   text-decoration: none;
 }
 
+.circles ul a {
+  width: 100%;
+}
 
 .circles ul li {
+  display: flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
   color: rgb(152, 152, 152);
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
   font-size: clamp(0.5rem, 3vw, 1.5rem);
   height: 5rem;
-  justify-content: space-around;
   margin: 1.5rem 0;
   position: relative;
   transition: all 0.2s linear;
-  width: 45%;
+  width: 100%;
 }
 
 .headerIcon {
@@ -1294,6 +1297,29 @@ a {
 
 .client {
   margin-top: 4rem;
+}
+
+.client input{
+  background-color: transparent;
+  border: none;
+  border-bottom: 0.2rem solid white;
+  color: white;
+  margin: 1rem 0;
+  max-width: 80vw;
+  padding: 1rem;
+  resize: vertical;
+  width: 30rem;
+}
+
+.client .buttonOtp {
+  color: #fff;
+  background: #c94b4b;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4b134f, #c94b4b);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4b134f, #c94b4b);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-size: 1.3rem;
 }
 
 .hireLinks {

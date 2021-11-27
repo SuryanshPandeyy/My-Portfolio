@@ -20,8 +20,6 @@ const myLoader = ({ src }) => {
 const Contact = () => {
   const router = useRouter();
   const { ids, packageId, type } = router.query;
-  const fetcher = (url) => fetch(url).then((res) => res.json());
-  const { data, error } = useSWR("/api/showUsers", fetcher);
 
   const tempCart = [Business[ids], Blogs[ids], Landing[ids], Portfolio[ids]];
 
@@ -30,7 +28,6 @@ const Contact = () => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [select, setSelected] = useState("");
-  const [emailExists, setEmailExists] = useState(false);
   const [otpEmail, setOtpEmail] = useState(false);
   const [disableEmail, setDisableEmail] = useState(false);
   const [verifyEmail, setVerifyEmail] = useState(false);
@@ -44,13 +41,13 @@ const Contact = () => {
   const [otpFillPhone, setOtpFillPhone] = useState(false);
   const [otpSuccessPhone, setOtpSuccessPhone] = useState("");
   const [otpInputPhone, setOtpInputPhone] = useState("");
+  const [selectedVal, setSelectedVal] = useState();
+  const [selectedKey, setSelectedKey] = useState();
 
   const [success, setSuccess] = useState("");
   const successMsg = (msg) => {
     setSuccess(msg);
   };
-  const [selectedVal, setSelectedVal] = useState();
-  const [selectedKey, setSelectedKey] = useState();
 
   const selectValue = ["Query", "Hire"];
   const messageText = ["Ask Me", "Hire Me"];
@@ -67,82 +64,58 @@ const Contact = () => {
     setSelected(selVal);
   };
 
-  if (error)
-    return (
-      <>
-        <div className="loading suryansh_portfolio">Failed to Load</div>
-      </>
-    );
-  if (!data)
-    return (
-      <>
-        <div className="loading suryansh_portfolio">Loading...</div>
-      </>
-    );
-
-  const datas = data.message;
-
   const submitForm = async (e) => {
     e.preventDefault();
-    const findMail = datas.find(
-      (data) => data.select == "Hire" && data.email == email
-    );
-    const Email = findMail ? findMail.email : "not found";
 
-    if (Email !== email) {
-      if (
-        name === "" ||
-        email === "" ||
-        phone === "" ||
-        // message === "" ||
-        select === ""
-      ) {
-        successMsg("Please fill the form");
-        setTimeout(successMsg, 2000);
-      } else {
-        // if (otpFillEmail && otpFillPhone) {
-        if (ids || packageId) {
-          var title = tempCart[type].title;
-          var price = tempCart[type].price[packageId];
-        } else {
-          var title = false;
-          var price = false;
-        }
-
-        successMsg("Sending...");
-
-        const formData = {
-          name,
-          email,
-          phone,
-
-          select,
-          title,
-          price,
-          approve,
-        };
-        setName("");
-        setEmail("");
-
-        setSelected("");
-
-        await fetch("/api/users", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }).then((res) => {
-          successMsg("Details Recieved But Not Sent, Please Retry!");
-          if (res.status === 200) {
-            successMsg("Details Submitted");
-            setTimeout(successMsg, 2000);
-            setOtpEmail(false);
-            setOtpPhone(false);
-          }
-        });
-      }
-    } else {
-      successMsg("Email Already Exists");
+    if (name === "" || email === "" || phone === "" || select === "") {
+      successMsg("Please fill the form");
       setTimeout(successMsg, 2000);
+    } else {
+      // if (otpFillEmail && otpFillPhone) {
+      if (ids || packageId) {
+        var title = tempCart[type].title;
+        var price = tempCart[type].price[packageId];
+      } else {
+        var title = false;
+        var price = false;
+      }
+
+      successMsg("Sending...");
+
+      const formData = {
+        name,
+        email,
+        phone,
+        message,
+        select,
+        title,
+        price,
+        approve,
+      };
+      setName("");
+      setEmail("");
+      setMessage("");
+      setSelected("");
+
+      await fetch("/api/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      }).then((res) => {
+        successMsg("Details Recieved But Not Sent, Please Retry!");
+        if (res.status === 200) {
+          successMsg("Details Submitted");
+          setTimeout(successMsg, 2000);
+          setOtpEmail(false);
+          setOtpPhone(false);
+        }
+        if (res.status === 409) {
+          successMsg("Email already exists");
+          setTimeout(successMsg, 2000);
+          setOtpEmail(false);
+          setOtpPhone(false);
+        }
+      });
     }
   };
 
@@ -505,26 +478,30 @@ const Contact = () => {
                   </>
                 )}
               </select>
-              {/* <label forHtml="message">
-                {!ids & !packageId
-                  ? messageText[selectedKey]
-                    ? messageText[selectedKey]
-                    : "Ask Me"
-                  : ""}
-              </label>
-              <textarea
-                rows="4"
-                name="message"
-                id="message"
-                type="text"
-                spellCheck="true"
-                className="form-control"
-                placeholder="Write Something..."
-                onChange={(e) => setMessage(e.target.value)}
-                value={message}
-                required
-                disabled={success ? true : false}
-              ></textarea> */}
+              {select == "Query" ? (
+                <>
+                  <label forHtml="message">
+                    {!ids & !packageId
+                      ? messageText[selectedKey]
+                        ? messageText[selectedKey]
+                        : "Ask Me"
+                      : ""}
+                  </label>
+                  <textarea
+                    rows="4"
+                    name="message"
+                    id="message"
+                    type="text"
+                    spellCheck="true"
+                    className="form-control"
+                    placeholder="Write Something..."
+                    onChange={(e) => setMessage(e.target.value)}
+                    value={message}
+                    required
+                    disabled={success ? true : false}
+                  ></textarea>
+                </>
+              ) : null}
               <Button
                 type="submit"
                 name="submit"
@@ -608,7 +585,7 @@ const Contact = () => {
           </ul>
         </div>
 
-        <Client />
+        <Client msg={successMsg} />
       </div>
     </>
   );

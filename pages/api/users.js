@@ -7,7 +7,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 async function handler(req, res) {
   if (req.method === "POST") {
-    const { email, name, phone, message, select, title, price, approve } = req.body;
+    const { email, name, phone, message, select, title, price, approve } =
+      req.body;
 
     const msg = {
       to: "suryanshpallavi@gmail.com", // Change to your recipient
@@ -25,33 +26,39 @@ async function handler(req, res) {
     client = await MongoClient.connect(connectionString);
     const db = client.db();
 
-    await db.collection("users").insertOne({
-      email,
-      name,
-      phone,
-      message,
-      select,
-      title,
-      price,
-      approve
-    });
+    const collection = db.collection("users");
 
-    if (db) {
-     await sgMail
-        .send(msg)
-        .then(() => {
-          console.log("Email Form sent");
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+    const user = await collection.findOne({ email: email });
+
+    if (!user) {
+      await collection.insertOne({
+        email,
+        name,
+        phone,
+        message,
+        select,
+        title,
+        price,
+        approve,
+      });
+      if (db) {
+        await sgMail
+          .send(msg)
+          .then(() => {
+            console.log("Email Form sent");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+      res.status(200).json({
+        success: true,
+      });
+    } else {
+      res.status(409).send({ error: "Email already Exist" });
     }
-    client.close();
 
-    const successdb = res.status(200).json({
-      success: true,
-    });
-    console.log(successdb);
+    client.close();
   }
 }
 
