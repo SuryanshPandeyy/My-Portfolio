@@ -3,7 +3,7 @@ import Heads from "./Head";
 import useSWR, { mutate } from "swr";
 import Image from "next/image";
 import Router, { useRouter } from "next/router";
-
+import { signIn, signOut, useSession } from "next-auth/client";
 import Business from "/public/json/Templates/Business";
 import Portfolio from "/public/json/Templates/Portfolio";
 import Blogs from "/public/json/Templates/Blogs";
@@ -18,6 +18,10 @@ const myLoader = ({ src }) => {
 };
 
 const Contact = () => {
+  const [session, loading] = useSession();
+  {
+    loading && <p>Loading..</p>;
+  }
   const router = useRouter();
   const { ids, packageId, type } = router.query;
 
@@ -49,7 +53,8 @@ const Contact = () => {
     setSuccess(msg);
   };
 
-  const selectValue = ["Query", "Hire"];
+  const selectValue = session ? ["Query"] : ["Query", "Hire"];
+
   const messageText = ["Ask Me", "Hire Me"];
 
   const approve = "pending";
@@ -95,7 +100,9 @@ const Contact = () => {
       setName("");
       setEmail("");
       setMessage("");
+      setPhone("");
       setSelected("");
+      setSelectedVal("");
 
       await fetch("/api/users", {
         method: "POST",
@@ -458,7 +465,7 @@ const Contact = () => {
                 required
                 disabled={success ? true : false}
               >
-                <option value="false" selected disabled>
+                <option value="" selected disabled>
                   Select
                 </option>
                 {!ids & !packageId ? (

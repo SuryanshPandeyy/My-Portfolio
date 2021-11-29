@@ -19,7 +19,7 @@ const handlerOtp = async (req, res) => {
       subject: "Hiresupa: Otp",
       text: message,
       html: `Your Otp is : ${otpNum}`,
-    }
+    };
 
     let clientDb;
     const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.l7odd.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
@@ -27,57 +27,36 @@ const handlerOtp = async (req, res) => {
     clientDb = await MongoClient.connect(connectionString);
     const db = clientDb.db();
 
-    await db.collection("otp").updateOne(
-      { email: email },
-      {
-        $set: { email: email, otpNum: otpNum },
-      },
-      { upsert: true }
-    );
+    const collection = db.collection("users");
+    const user = await collection.findOne({ email: email });
 
-    if (db) {
-     await sgMail
-        .send(msg)
-        .then(() => {
-          console.log("Email sent");
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+    if (user) {
+      await collection.updateOne(
+        { email: email, select: "Hire" },
+        {
+          $set: { otpNum: otpNum },
+        },
+        { upsert: true }
+      );
 
-      // const transporter = nodemailer.createTransport({
-      //   host: "smtp.gmail.com",
-      //   debug: true,
-      //   port: 465,
-      //   secure: true,
-      //   service: "gmail",
-      //   auth: {
-      //     user: process.env.NODEMAILER_EMAIL,
-      //     pass: process.env.NODEMAILER_PASSWORD,
-      //   },
-      // });
-      // const mailOption = {
-      //   from: `suryanshpallavi@gmail.com`,
-      //   to: `${email}`,
-      //   subject: `Otp`,
-      //   text: "",
-      //   html: `Your Otp is : ${otpNum}`,
-      // };
-      // transporter.sendMail(mailOption, (err, data) => {
-      //   if (err) {
-      //     console.log(err);
-      //     res.send("error" + JSON.stringify(err));
-      //   } else {
-      //     console.log(data);
-      //   }
-      // });
+      if (db) {
+        await sgMail
+          .send(msg)
+          .then(() => {
+            console.log("Email sent");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+      res.status(200).json({
+        success: true,
+      });
+    } else {
+      res.status(409).send({ error: "Email not Exist" });
     }
 
     clientDb.close();
-
-    const successdb = res.status(200).json({
-      success: true,
-    });
   }
 };
 

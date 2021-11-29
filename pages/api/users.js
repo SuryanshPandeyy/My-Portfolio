@@ -28,36 +28,105 @@ async function handler(req, res) {
 
     const collection = db.collection("users");
 
-    const user = await collection.findOne({ email: email });
+    const user = await collection.findOne({ email });
+    const hireNo = user ? user.hasOwnProperty("hires").length <= 1 : null;
 
-    if (!user) {
-      await collection.insertOne({
-        email,
-        name,
-        phone,
-        message,
-        select,
-        title,
-        price,
-        approve,
-      });
-      if (db) {
-        await sgMail
-          .send(msg)
-          .then(() => {
-            console.log("Email Form sent");
-          })
-          .catch((error) => {
-            console.error(error);
+    if (hireNo === null) {
+      if (!user) {
+        await collection.insertOne({
+          email,
+          name,
+          phone,
+          title,
+          price,
+          approve,
+        });
+        if (db) {
+          await sgMail
+            .send(msg)
+            .then(() => {
+              console.log("Email Form sent");
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        }
+
+        if (select === "Hire") {
+          await collection.update(
+            { email },
+            {
+              $push: {
+                hires: {
+                  id: 0,
+                  "Hired Date": new Date(),
+                },
+              },
+            }
+          );
+        }
+        if (select === "Query") {
+          await collection.update(
+            { email: email },
+            {
+              $push: { message: message },
+            }
+          );
+        }
+
+        res.status(200).json({
+          success: true,
+        });
+      } else {
+        if (select === "Query") {
+          await collection.update(
+            { email: email },
+            {
+              $push: { message: message },
+            }
+          );
+
+          res.status(200).json({
+            success: true,
           });
-      }
-      res.status(200).json({
-        success: true,
-      });
-    } else {
-      res.status(409).send({ error: "Email already Exist" });
-    }
+        } else if (select === "Hire") {
+          const countLength = user.hasOwnProperty("hires")
+            ? user.hires[user.hires.length - 1] + 1
+            : { id: 0 };
 
+          await collection.update(
+            { email },
+            {
+              $push: {
+                hires: {
+                  id: countLength.id,
+                  "Hired Date": new Date(),
+                },
+              },
+            }
+          );
+          res.status(200).json({
+            success: true,
+          });
+        }
+      }
+    } else {
+      if (select === "Query") {
+        await collection.update(
+          { email: email },
+          {
+            $push: { message: message },
+          }
+        );
+
+        res.status(200).json({
+          success: true,
+        });
+      }
+      res
+        .status(409)
+        .send({ error: "Email already Exist! Please SignIn to hire again!" });
+    }
     client.close();
   }
 }

@@ -1,8 +1,6 @@
-
-
 .admin nav {
  width: 100%;
- margin-top: 2rem;
+ margin: 2rem 0;
 }
 
 .admin nav ul {
@@ -17,6 +15,7 @@
  border: .1rem solid rgba(150, 150, 150, 0.407);
  border-radius: 1rem;
  padding: .1rem 2rem;
+ color: #fff;
 }
 
 .admin table {
@@ -26,7 +25,13 @@
 }
 
 .admin thead {
- background-color: #95A5A6;
+ background: #1488CC;
+ /* fallback for old browsers */
+ background: -webkit-linear-gradient(to right, #2B32B2, #1488CC);
+ /* Chrome 10-25, Safari 5.1-6 */
+ background: linear-gradient(to right, #2B32B2, #1488CC);
+ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .admin thead tr th {
@@ -63,7 +68,7 @@
 
 }
 
-.loading{
+.loading {
  display: flex;
  align-items: center;
  justify-content: center;
@@ -71,6 +76,26 @@
  font-size: 2rem;
 }
 
-footer.footer {
- /* display: none; */
+.admin .login {
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ color: #fff;
+ height: 20rem;
+}
+
+.admin .login div {
+ margin: 1rem 0;
+}
+
+.admin .login .signIn {
+ color: black;
+}
+
+button.signInOut,
+button.signInOut:hover {
+ background-color: royalblue;
+ color: #fff;
 }

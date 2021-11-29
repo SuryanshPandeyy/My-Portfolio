@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { signIn, signOut, useSession } from "next-auth/client";
+import { Button } from "@mui/material";
 
 const Links = () => {
+  const [session, loading] = useSession();
   const router = useRouter();
   const pathname = router.pathname;
   console.log(router);
+
   return (
     <>
       <nav>
@@ -35,6 +39,27 @@ const Links = () => {
               </li>
             </a>
           </Link>
+          <Link href="/admin/Query">
+            <a>
+              <li
+                style={
+                  pathname === "/admin/Query"
+                    ? { backgroundColor: "royalblue", color: "#fff" }
+                    : null
+                }
+              >
+                Query
+              </li>
+            </a>
+          </Link>
+          <Button
+            onClick={(e) => (
+              e.preventDefault(), signOut((e) => e.preventDefault())
+            )}
+            className="signInOut"
+          >
+            Sign out
+          </Button>
         </ul>
       </nav>
     </>

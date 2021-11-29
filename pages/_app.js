@@ -1,5 +1,6 @@
-import "../styles/globals.css";
-import "../styles/admin.css";
+import "/styles/globals.css";
+import "/styles/admin.css";
+import { Provider } from "next-auth/client";
 // Import Swiper styles
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
@@ -12,12 +13,14 @@ import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 
 import Layout from "./Layout";
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <Provider session={pageProps.session}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </Provider>
     </>
   );
 }
