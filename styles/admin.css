@@ -1,6 +1,7 @@
 .admin nav {
  width: 100%;
  margin: 2rem 0;
+ color:#fff;
 }
 
 .admin nav ul {
@@ -61,9 +62,9 @@
 .admin tbody tr td button.decline {
  background: #f46b45;
  /* fallback for old browsers */
- background: -webkit-linear-gradient(to right, #eea849, #f46b45);
+ background: -webkit-linear-gradient(to right, #f39d24, #f46b45);
  /* Chrome 10-25, Safari 5.1-6 */
- background: linear-gradient(to right, #eea849, #f46b45);
+ background: linear-gradient(to right, #fa4f0b, #f03a22);
  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
@@ -95,7 +96,14 @@
 }
 
 button.signInOut,
-button.signInOut:hover {
+button.signInOut:hover,
+.primary,
+.primary button {
  background-color: royalblue;
+ color: #fff;
+ font-size: 1.3rem;
+}
+
+.client{
  color: #fff;
 }

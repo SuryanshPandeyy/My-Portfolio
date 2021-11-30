@@ -1,5 +1,7 @@
 import { signIn, signOut, useSession } from "next-auth/client";
 import useSWR, { mutate } from "swr";
+import Link from "next/link";
+import { Button } from "@mui/material";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -31,7 +33,14 @@ const SignedIn = () => {
       {findData ? (
         session && session.user.email == findData.email ? (
           <>
-            <p>You are logged In with {session.user.email}</p>
+            <div className="signInContainer">
+              <p>You are logged In with {session.user.email}</p>
+              <Link href={`/client/${findData._id}`}>
+                <a className="primary">
+                  <Button>Dashboard</Button>
+                </a>
+              </Link>
+            </div>
           </>
         ) : (
           <>

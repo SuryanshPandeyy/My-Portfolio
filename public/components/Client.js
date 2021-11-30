@@ -30,16 +30,6 @@ const Client = ({ msg }) => {
   const submitOtp = async (e) => {
     e.preventDefault();
     if (emailPhone !== "") {
-      // axios.get(`/api/showUsers`).then(async (response) => {
-      //   const datas = response.data.message;
-      //   const findMail = datas.find(
-      //     (data) => data.select === "Hire" && data.email === emailPhone
-      //   );
-      //   findMail
-      //     ? findMail.email == emailPhone
-      //       ? setOtp(true)
-      //       : (msg("Email not found"), setTimeout(msg, 2000))
-      //     : (msg("Email not Found"), setTimeout(msg, 2000));
 
       const otpNum = generateOTP();
       console.log(otpNum);
@@ -68,7 +58,7 @@ const Client = ({ msg }) => {
           setTimeout(msg, 2000);
         }
       });
-      // });
+    
     } else {
       msg("Please enter any number");
       setTimeout(msg, 2000);

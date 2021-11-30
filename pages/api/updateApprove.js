@@ -12,7 +12,7 @@ const handlerOtp = async (req, res) => {
 
     // delete req.body._id;
     await db.collection("users").updateMany(
-      { email: email, select: "Hire" },
+      { email: email },
       {
         $set: { approve: approve },
       },
@@ -21,7 +21,7 @@ const handlerOtp = async (req, res) => {
 
     clientDb.close();
 
-    const successdb = res.status(200).json({
+    res.status(200).json({
       success: true,
     });
   }
