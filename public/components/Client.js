@@ -4,39 +4,25 @@ import axios from "axios";
 import { signIn, signOut, useSession } from "next-auth/client";
 import { FcGoogle } from "react-icons/fc";
 import SignedIn from "./SignedIn";
+const bcrypt = require("bcryptjs");
 
 const Client = ({ msg }) => {
   const [session, loading] = useSession();
   const [emailPhone, setEmailPhone] = useState("");
   const [otp, setOtp] = useState(false);
-  const [otpInputEmail, setOtpInputEmail] = useState(false);
+  const [otpInputEmail, setOtpInputEmail] = useState("");
   const [otpSuccessEmail, setOtpSuccessEmail] = useState("");
-  const [login, setLogin] = useState(false);
+  // const [login, setLogin] = useState(false);
   {
     loading && <p>Loading..</p>;
-  }
-
-  function generateOTP() {
-    // Declare a digits variable
-    // which stores all digits
-    var digits = "0123456789";
-    let OTP = "";
-    for (let i = 0; i < 6; i++) {
-      OTP += digits[Math.floor(Math.random() * 10)];
-    }
-    return OTP;
   }
 
   const submitOtp = async (e) => {
     e.preventDefault();
     if (emailPhone !== "") {
-
-      const otpNum = generateOTP();
-      console.log(otpNum);
       const email = emailPhone;
       const formData = {
         email,
-        otpNum,
       };
 
       msg("Sending Otp to Number...");
@@ -51,6 +37,7 @@ const Client = ({ msg }) => {
         setTimeout(msg, 2000);
         if (res.status === 200) {
           msg("Otp sent sucessfully to your Number");
+          setOtp(true);
           setTimeout(msg, 2000);
         }
         if (res.status === 409) {
@@ -58,34 +45,50 @@ const Client = ({ msg }) => {
           setTimeout(msg, 2000);
         }
       });
-    
     } else {
       msg("Please enter any number");
       setTimeout(msg, 2000);
     }
   };
 
-  const verifyOtp = () => {
-    async (e) => {
-      e.preventDefault();
+  const verifyOtp = async (e) => {
+    e.preventDefault();
 
-      successMsg("Please Wait");
-      axios.get(`/api/showOtp`).then((response) => {
-        const otpData = response.data.message;
-        const filterOtp = otpData.filter((data) => email === data.email);
+    msg("Please Wait");
 
-        if (filterOtp !== []) {
-          if (otpInputEmail == filterOtp[0].otpNum) {
-            setTimeout(msg, 10);
-            setOtpSuccessEmail("correct");
-          } else {
-            setOtpSuccessEmail("incorrect");
-            msg("Wrong OTP");
-            setTimeout(msg, 2000);
-          }
-        }
-      });
+    const formData = {
+      emailPhone,
+      otpInputEmail,
     };
+    await fetch("/api/showOtp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    }).then((res) => {
+      msg("Verifying...");
+      setTimeout(msg, 2000);
+      if (res.status === 200) {
+        setOtpSuccessEmail("correct");
+        msg("correct");
+        setTimeout(msg, 2000);
+      }
+      if (res.status === 409) {
+        setOtpSuccessEmail("incorrect");
+        msg("incorrect otp");
+        setTimeout(msg, 2000);
+      }
+    });
+  };
+
+  const login = async () => {
+    const status = await signIn("credentials", {
+      redirect: false,
+      email: emailPhone,
+    });
+
+    console.log(status);
   };
 
   return (
@@ -104,34 +107,53 @@ const Client = ({ msg }) => {
               disabled={otp ? true : false}
               required
             />
-            {!otp ? (
-              <Button className="buttonOtp" type="submit" onClick={submitOtp}>
-                Send Otp
-              </Button>
-            ) : (
-              <>
-                <div className="otpFor">
-                  <div>
-                    <div className="otpFrame1">
-                      <div className="otpFrame2">
-                        <input
-                          type="number"
-                          name="otp"
-                          onChange={(e) => setOtpInputEmail(e.target.value)}
-                          value={otpInputEmail}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Button onClick={verifyOtp}>Submit Otp</Button>
+            {otpSuccessEmail}
 
-                        <Button type="button" onClick={(e) => setOtp(false)}>
-                          Cancel
-                        </Button>
+            {otpSuccessEmail == "incorrect" || otpSuccessEmail == "" ? (
+              <>
+                {!otp ? (
+                  <Button
+                    className="buttonOtp"
+                    type="submit"
+                    onClick={submitOtp}
+                  >
+                    Send Otp
+                  </Button>
+                ) : (
+                  <>
+                    <div className="otpFor">
+                      <div>
+                        <div className="otpFrame1">
+                          <div className="otpFrame2">
+                            <input
+                              type="number"
+                              name="otp"
+                              onChange={(e) => setOtpInputEmail(e.target.value)}
+                              value={otpInputEmail}
+                              required
+                            />
+                          </div>
+                          <div>
+                            <Button onClick={verifyOtp}>Submit Otp</Button>
+
+                            <Button
+                              type="button"
+                              onClick={(e) => setOtp(false)}
+                            >
+                              Cancel
+                            </Button>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                <Button onClick={login} className="primary">
+                  Login
+                </Button>
               </>
             )}
           </div>

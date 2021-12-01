@@ -1,24 +1,30 @@
 import { MongoClient } from "mongodb";
+const bcrypt = require("bcryptjs");
 
 async function handler(req, res) {
-  let client;
-  const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.l7odd.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
+  if (req.method === "POST") {
+    const { emailPhone, otpInputEmail } = req.body;
 
-  client = await MongoClient.connect(connectionString);
-  const db = client.db();
+    let client;
+    const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.l7odd.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
 
-  const reviews = await db
-    .collection("otp")
-    .find()
-    .sort({
-      published: -1,
-    })
-    .toArray();
+    client = await MongoClient.connect(connectionString);
+    const db = client.db();
 
-  res.json({
-    message: JSON.parse(JSON.stringify(reviews)),
-    success: true,
-  });
+    const collection = db.collection("users");
+
+    const user = await collection.findOne({ email: emailPhone });
+    if (bcrypt.compareSync(otpInputEmail, user.otpNum)) {
+      res.status(200).json({
+        success: true,
+      });
+    } else {
+      res.status(409).json({
+        success: false,
+      });
+    }
+    client.close();
+  }
 }
 
 export default handler;

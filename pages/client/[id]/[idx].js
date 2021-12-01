@@ -1,10 +1,17 @@
 import { useRouter } from "next/router";
 import useSWR, { mutate } from "swr";
 import Links from "./Links";
+import { signIn, signOut, useSession } from "next-auth/client";
+import Link from "next/link";
+import { Button } from "@mui/material";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Id = () => {
+  const [session, loading] = useSession();
+  {
+    loading && <p>Loading..</p>;
+  }
   const router = useRouter();
   const { data, error } = useSWR("/api/showUsers", fetcher);
   if (error)
@@ -28,16 +35,35 @@ const Id = () => {
     : null;
   return (
     <>
-      {findHire !== undefined ? (
-        <div className="client admin suryansh_portfolio">
-          <Links id={router.query.id} />
-          {findHire.id}
-          <br />
-          {findHire["Hired Date"]}
-        </div>
+      {session && session.user.email === findData.email ? (
+        <>
+          {findHire !== undefined ? (
+            <div className="client admin suryansh_portfolio">
+              <Link href={`../${router.query.id}`}>
+                <a>
+                  <Button>Back</Button>
+                </a>
+              </Link>
+              {findHire.id}
+              <br />
+              {findHire["Hired Date"]}
+            </div>
+          ) : (
+            <>
+              <div className="client suryansh_portfolio">Not found</div>
+            </>
+          )}
+        </>
       ) : (
         <>
-          <div className="client suryansh_portfolio">Not found</div>
+          <div className="client admin suryansh_portfolio">
+            <Link href="/Contact">
+              <a className="primary">
+                <Button>Back</Button>
+              </a>
+            </Link>
+            Your are not signed in
+          </div>
         </>
       )}
     </>

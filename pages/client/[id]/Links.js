@@ -5,6 +5,9 @@ import { Button } from "@mui/material";
 
 const Links = ({ id, idx }) => {
   const [session, loading] = useSession();
+  {
+    loading && <p>Loading..</p>;
+  }
   const router = useRouter();
   const { pathname, query } = router;
 
@@ -51,14 +54,16 @@ const Links = ({ id, idx }) => {
               </li>
             </a>
           </Link>
-          <Button
-            onClick={(e) => (
-              e.preventDefault(), signOut((e) => e.preventDefault())
-            )}
-            className="signInOut"
-          >
-            Sign out
-          </Button>
+          {session && (
+            <Button
+              onClick={(e) => (
+                e.preventDefault(), signOut((e) => e.preventDefault())
+              )}
+              className="signInOut"
+            >
+              Sign out
+            </Button>
+          )}
         </ul>
       </nav>
     </>

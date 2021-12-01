@@ -26,6 +26,8 @@
     "@sendgrid/mail": "^7.6.0",
     "antd": "^4.17.1",
     "axios": "^0.24.0",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "file-saver": "^2.0.5",
@@ -45,11 +47,11 @@
     "react-tabs": "^3.2.3",
     "serverless-mysql": "^1.5.4",
     "styled-components": "^5.3.3",
+    "swiper": "^6.8.4",
     "swr": "^1.0.1",
     "twilio": "^3.71.2",
     "typescript": "^4.5.2",
-    "xlsx": "^0.17.4",
-    "swiper": "^6.8.4"
+    "xlsx": "^0.17.4"
   },
   "devDependencies": {
     "eslint": "7.32.0",
