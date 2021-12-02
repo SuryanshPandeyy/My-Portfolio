@@ -28,10 +28,10 @@ async function handler(req, res) {
 
     const collection = db.collection("users");
 
-    const user = await collection.findOne({ email });
-    const hireNo = user ? user.hasOwnProperty("hires").length <= 1 : null;
+    const user = await collection.findOne({ email: email });
+    const hireNo = user ? (user.hasOwnProperty("hires") ? true : false) : null;
 
-    if (hireNo === null) {
+    if (hireNo == false || hireNo == null) {
       if (!user) {
         await collection.insertOne({
           email,
@@ -64,6 +64,7 @@ async function handler(req, res) {
               },
             }
           );
+          res.status(200).json({ status: true });
         }
         if (select === "Query") {
           await collection.update(
@@ -72,11 +73,8 @@ async function handler(req, res) {
               $push: { message: message },
             }
           );
+          res.status(200).json({ status: true });
         }
-
-        res.status(200).json({
-          success: true,
-        });
       } else {
         if (select === "Query") {
           await collection.update(
@@ -85,10 +83,7 @@ async function handler(req, res) {
               $push: { message: message },
             }
           );
-
-          res.status(200).json({
-            success: true,
-          });
+          res.status(200).json({ status: true });
         } else if (select === "Hire") {
           const countLength = user.hasOwnProperty("hires")
             ? user.hires[user.hires.length - 1] + 1
@@ -105,9 +100,7 @@ async function handler(req, res) {
               },
             }
           );
-          res.status(200).json({
-            success: true,
-          });
+          res.status(200).json({ status: true });
         }
       }
     } else {
@@ -118,14 +111,11 @@ async function handler(req, res) {
             $push: { message: message },
           }
         );
-
-        res.status(200).json({
-          success: true,
-        });
+        res.status(200).json({ status: true });
       }
-      res
-        .status(409)
-        .send({ error: "Email already Exist! Please SignIn to hire again!" });
+      if (select === "Hire") {
+        res.status(409).json({ status: false });
+      }
     }
     client.close();
   }

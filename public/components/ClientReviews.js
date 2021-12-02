@@ -58,8 +58,8 @@ const ClientReviews = () => {
   return (
     <>
       {datas.find((data) => data.message) ? (
-        <div className="clients swiper-container">
-          <div className="client_title">Client Reviews</div>
+        <div className="box swiper-container">
+          <h3>Client Reviews</h3>
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             effect={"coverflow"}

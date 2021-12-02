@@ -1,7 +1,9 @@
 import "/styles/globals.css";
 import "/styles/admin.css";
 import { Provider } from "next-auth/client";
+
 // Import Swiper styles
+
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/scrollbar/scrollbar.min.css";

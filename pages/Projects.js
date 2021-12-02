@@ -49,7 +49,8 @@ const Projects = () => {
         <div id="projects" className="projects">
           <Tabs>
             <div className="fixed">
-              <h2 className="card-container-heading">Projects</h2>
+              <h3>Projects</h3>
+              <br />
               <TabList className="tablist">
                 <Tab>Top Clients Projects</Tab>
                 <Tab>Personal</Tab>

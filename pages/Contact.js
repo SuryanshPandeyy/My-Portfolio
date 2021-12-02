@@ -214,7 +214,7 @@ const Contact = () => {
       />
       <div className="suryansh_portfolio" id="body">
         <div id="contact">
-          <h2 className="card-container-heading">Contact</h2>
+          <h3>Contact</h3>
           {success ? (
             <>
               <div className="successComment">
@@ -564,33 +564,9 @@ const Contact = () => {
         ) : (
           ""
         )}
+        <br />
+        <br />
         <hr />
-        <div className="hireLinks">
-          <h3 className="subHeading">Hire me on</h3>
-          <ul>
-            <li>
-              <a
-                href="https://www.upwork.com/freelancers/~018c7cd1a1aee5936b/"
-                target="blank"
-              >
-                <SiUpwork className="hireLinksIcon" />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.freelancer.in/u/pandeysuryansh"
-                target="blank"
-              >
-                <SiFreelancer className="hireLinksIcon" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.fiverr.com/suryanshpandeyy/" target="blank">
-                <SiFiverr className="hireLinksIcon" />
-              </a>
-            </li>
-          </ul>
-        </div>
 
         <Client msg={successMsg} />
       </div>

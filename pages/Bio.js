@@ -135,8 +135,8 @@ const Bio = () => {
             <div className="flex_row">
               <div className="order2 skillsCenter">
                 <div className="skillsSection">
-                  <div className="skillTitle">
-                    <p> Skills I Use </p>
+                  <div className="title">
+                    <h3> Skills I Use </h3>
                   </div>
                   <div className="skillsTab">
                     <ul>
@@ -169,8 +169,8 @@ const Bio = () => {
               </div>
 
               <div className="certificatesTab order3">
-                <div className="certificateTitle">
-                  <p> Certificates </p>
+                <div className="title">
+                  <h3> Certificates </h3>
                 </div>
                 <Zoom>
                   <Image

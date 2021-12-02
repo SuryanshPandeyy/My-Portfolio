@@ -23,6 +23,7 @@ module.exports = (phase) => {
         GOOGLE_ID:
           "988864140252-6s32v333h05980t6nhdp17qs7fl6cg3k.apps.googleusercontent.com",
         GOOGLE_SECRET: "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",
+        NEXTAUTH_URL: "http://localhost:3000",
       },
     };
   }
@@ -46,6 +47,7 @@ module.exports = (phase) => {
       GOOGLE_ID:
         "988864140252-6s32v333h05980t6nhdp17qs7fl6cg3k.apps.googleusercontent.com",
       GOOGLE_SECRET: "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",
+      NEXTAUTH_URL: "https://hiresupa.com/",
     },
   };
 };

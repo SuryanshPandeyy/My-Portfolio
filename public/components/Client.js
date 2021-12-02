@@ -95,7 +95,7 @@ const Client = ({ msg }) => {
     <>
       {!session ? (
         <div className="client flexColumnCenter">
-          <h3 className="subHeading">Client Access</h3>
+          <h3>Client Access</h3>
 
           <div>
             <label forHtml="emailPhone"></label>
@@ -159,7 +159,7 @@ const Client = ({ msg }) => {
           </div>
           <Button
             onClick={(e) => signIn("google")}
-            className="signIn mui google"
+            className="signIn google"
           >
             <FcGoogle className="googleIcon" />
           </Button>

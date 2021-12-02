@@ -9,12 +9,13 @@ const nFaqBox = (val) => {
   );
 };
 
-
 const Faq = () => {
   return (
     <>
-      <div className="faqBox">
-        <div className="faq_title">FAQs</div>
+      <div className="box">
+        <div>
+          <h3>FAQs</h3>
+        </div>
         <div className="faqs">{FaqJson.map(nFaqBox)}</div>
       </div>
     </>

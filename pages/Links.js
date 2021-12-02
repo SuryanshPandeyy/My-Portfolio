@@ -46,7 +46,7 @@ const Links = () => {
                         pathname === url.link ? "active icon" : "disable icon"
                       }
                     />
-                    <h3>{url.title}</h3>
+                    <h4>{url.title}</h4>
                   </div>
                 </li>
               </Button>

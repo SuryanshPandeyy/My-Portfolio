@@ -1,7 +1,7 @@
 .admin nav {
  width: 100%;
  margin: 2rem 0;
- color:#fff;
+ color: #fff;
 }
 
 .admin nav ul {
@@ -13,9 +13,9 @@
 
 .admin nav ul li {
  margin: 0 1rem;
- border: .1rem solid rgba(150, 150, 150, 0.407);
+ border: 0.1rem solid rgba(150, 150, 150, 0.407);
  border-radius: 1rem;
- padding: .1rem 2rem;
+ padding: 0.1rem 2rem;
  color: #fff;
 }
 
@@ -26,13 +26,12 @@
 }
 
 .admin thead {
- background: #1488CC;
+ background: #1488cc;
  /* fallback for old browsers */
- background: -webkit-linear-gradient(to right, #2B32B2, #1488CC);
+ background: -webkit-linear-gradient(to right, #2b32b2, #1488cc);
  /* Chrome 10-25, Safari 5.1-6 */
- background: linear-gradient(to right, #2B32B2, #1488CC);
+ background: linear-gradient(to right, #2b32b2, #1488cc);
  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 
 .admin thead tr th {
@@ -46,17 +45,16 @@
 
 .admin tbody tr td button {
  color: #fff;
- margin: 0 .3rem;
+ margin: 0 0.3rem;
 }
 
 .admin tbody tr td button.approve {
- background: #005C97;
+ background: #005c97;
  /* fallback for old browsers */
- background: -webkit-linear-gradient(to right, #363795, #005C97);
+ background: -webkit-linear-gradient(to right, #363795, #005c97);
  /* Chrome 10-25, Safari 5.1-6 */
- background: linear-gradient(to right, #363795, #005C97);
+ background: linear-gradient(to right, #363795, #005c97);
  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 
 .admin tbody tr td button.decline {
@@ -66,7 +64,6 @@
  /* Chrome 10-25, Safari 5.1-6 */
  background: linear-gradient(to right, #fa4f0b, #f03a22);
  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 
 .loading {
@@ -104,6 +101,6 @@ button.signInOut:hover,
  font-size: 1.3rem;
 }
 
-.client{
+.client {
  color: #fff;
 }
