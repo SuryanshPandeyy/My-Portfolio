@@ -63,7 +63,7 @@ const Services = () => {
           </div>
           <br />
 
-          <div className="serviceSelect">
+          {/* <div className="serviceSelect">
             <span className="fancyArrow">
               <BsCurrencyExchange className="currIcon" />
             </span>
@@ -78,7 +78,7 @@ const Services = () => {
                 </option>
               ))}
             </select>
-          </div>
+          </div> */}
         </div>
 
         <br />

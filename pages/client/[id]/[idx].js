@@ -39,11 +39,11 @@ const Id = () => {
         <>
           {findHire !== undefined ? (
             <div className="client admin suryansh_portfolio">
-              <Link href={`../${router.query.id}`}>
+              {/* <Link href={`../${router.query.id}`}>
                 <a>
                   <Button>Back</Button>
                 </a>
-              </Link>
+              </Link> */}
               {findHire.id}
               <br />
               {findHire["Hired Date"]}

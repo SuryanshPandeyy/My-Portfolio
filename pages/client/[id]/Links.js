@@ -28,7 +28,7 @@ const Links = ({ id, idx }) => {
               </li>
             </a>
           </Link>
-          <Link href={`[id]/[idx]/`} as={`${id}/${idx}/`}>
+          <Link href={`${id}/${idx}/`}>
             <a>
               <li
                 style={

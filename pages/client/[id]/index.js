@@ -26,7 +26,7 @@ const Id = () => {
     <>
       {findData !== undefined ? (
         <div className="client admin suryansh_portfolio">
-          <Links id={router.query.id} />
+          {/* <Links id={router.query.id} /> */}
         </div>
       ) : (
         <>
