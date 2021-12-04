@@ -124,3 +124,8 @@ button.success:hover {
 .client {
  color: #fff;
 }
+
+.textSuccess {
+color: #5cb85c;
+font-size: 1.5rem;
+}

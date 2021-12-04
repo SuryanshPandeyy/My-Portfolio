@@ -1,7 +1,6 @@
 const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 
 module.exports = (phase) => {
-    
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     return {
       pageExtensions: ["mdx", "jsx", "js", "ts", "tsx"],
@@ -24,6 +23,7 @@ module.exports = (phase) => {
           "988864140252-6s32v333h05980t6nhdp17qs7fl6cg3k.apps.googleusercontent.com",
         GOOGLE_SECRET: "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",
         NEXTAUTH_URL: "http://localhost:3000",
+        NEXTAUTH_SECRET: "yBEbxG7/mEQ/MBr4zPmBF3F0krxtA6L86072HqYsFDg="
       },
     };
   }
@@ -48,14 +48,7 @@ module.exports = (phase) => {
         "988864140252-6s32v333h05980t6nhdp17qs7fl6cg3k.apps.googleusercontent.com",
       GOOGLE_SECRET: "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",
       NEXTAUTH_URL: "https://hiresupa.com/",
+      NEXTAUTH_SECRET: "yBEbxG7/mEQ/MBr4zPmBF3F0krxtA6L86072HqYsFDg="
     },
   };
 };
-
-// module.exports = {
-//   swcMinify: true,
-//     experimental: {
-//     // ssr and displayName are configured by default
-//     styledComponents: true,
-//   }
-// }

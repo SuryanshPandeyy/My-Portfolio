@@ -1289,12 +1289,12 @@ h3 {
   position: relative;
   background: rgba(128,128,128,.593)
 }
-.serviceCard ul li .check {
+.check {
   font-size: 2.6rem;
   color: #15e015;
   font-weight: 700
 }
-.serviceCard ul li .uncheck {
+.uncheck {
   font-size: 2.6rem;
   color: red;
   font-weight: 700

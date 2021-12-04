@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
 import useSWR, { mutate } from "swr";
-import { signIn, signOut, useSession } from "next-auth/client";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { Button } from "@mui/material";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Id = () => {
-  const [session, loading] = useSession();
+  const { data: session, status } = useSession();
   {
     loading && <p>Loading..</p>;
   }

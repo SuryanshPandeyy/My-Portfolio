@@ -1,6 +1,6 @@
 import "/styles/globals.css";
 import "/styles/admin.css";
-import { Provider } from "next-auth/client";
+import { SessionProvider } from "next-auth/react";
 
 // Import Swiper styles
 
@@ -18,11 +18,11 @@ import Layout from "./Layout";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <>
-      <Provider session={pageProps.session}>
+      <SessionProvider  session={pageProps.session}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </Provider>
+      </SessionProvider>
     </>
   );
 }

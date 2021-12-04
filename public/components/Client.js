@@ -1,20 +1,19 @@
 import { useState } from "react";
 import { Button } from "@mui/material";
-import axios from "axios";
-import { signIn, signOut, useSession } from "next-auth/client";
+import { signIn, signOut, useSession } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import SignedIn from "./SignedIn";
-const bcrypt = require("bcryptjs");
+import { BsCheckLg, BsX } from "react-icons/bs";
 
 const Client = ({ msg }) => {
-  const [session, loading] = useSession();
+  const { data: session, status } = useSession();
   const [emailPhone, setEmailPhone] = useState("");
   const [otp, setOtp] = useState(false);
   const [otpInputEmail, setOtpInputEmail] = useState("");
   const [otpSuccessEmail, setOtpSuccessEmail] = useState("");
   // const [login, setLogin] = useState(false);
   {
-    loading && <p>Loading..</p>;
+    status && <p>Loading..</p>;
   }
 
   const submitOtp = async (e) => {
@@ -33,7 +32,7 @@ const Client = ({ msg }) => {
         },
         body: JSON.stringify(formData),
       }).then((res) => {
-        msg("Otp recieved","danger");
+        msg("Otp recieved", "danger");
         setTimeout(msg, 2000);
         if (res.status === 200) {
           msg("Otp sent sucessfully to your Number", "success");
@@ -51,8 +50,19 @@ const Client = ({ msg }) => {
     }
   };
 
+  const login = async () => {
+    const status = await signIn("credentials", {
+      redirect: false,
+      email: emailPhone,
+    });
+
+    console.log(status);
+  };
+
   const verifyOtp = async (e) => {
     e.preventDefault();
+
+    // login();
 
     msg("Verifying...", "primary");
 
@@ -66,13 +76,15 @@ const Client = ({ msg }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
-    }).then((res) => {
+    }).then(async (res) => {
       msg("Something error", "danger");
-      setTimeout(msg, 2000);
+      // setTimeout(msg, 2000);
+
       if (res.status === 200) {
         setOtpSuccessEmail("correct");
-        msg("correct", "success");
-        setTimeout(msg, 2000);
+        msg("Signing In! Please Wait...", "success");
+        // setTimeout(msg, 2000);
+        login();
       }
       if (res.status === 409) {
         setOtpSuccessEmail("incorrect");
@@ -82,18 +94,9 @@ const Client = ({ msg }) => {
     });
   };
 
-  const login = async () => {
-    const status = await signIn("credentials", {
-      redirect: false,
-      email: emailPhone,
-    });
-
-    console.log(status);
-  };
-
   return (
     <>
-      {!session ? (
+      {status !== "authenticated" ? (
         <div className="client flexColumnCenter">
           <h3>Client Access</h3>
 
@@ -107,7 +110,10 @@ const Client = ({ msg }) => {
               disabled={otp ? true : false}
               required
             />
-            {otpSuccessEmail}
+
+            {otpSuccessEmail == "incorrect" ? (
+              <BsX className="uncheck" />
+            ) : null}
 
             {otpSuccessEmail == "incorrect" || otpSuccessEmail == "" ? (
               <>
@@ -150,9 +156,8 @@ const Client = ({ msg }) => {
               </>
             ) : (
               <>
-                <Button onClick={login} className="primary">
-                  Login
-                </Button>
+                <BsCheckLg className="textSuccess" />
+                {/* <Button onClick={login}>Login</Button> */}
               </>
             )}
           </div>

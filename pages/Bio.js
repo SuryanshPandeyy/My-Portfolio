@@ -94,7 +94,7 @@ const Bio = () => {
                   : null
               }
               download
-              className="resume_btn"
+              className="success"
             >
               Download Resume
             </Button>

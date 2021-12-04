@@ -1,4 +1,4 @@
-import { signIn, signOut, useSession } from "next-auth/client";
+import { signIn, signOut, useSession } from "next-auth/react";
 import useSWR, { mutate } from "swr";
 import Link from "next/link";
 import { Button } from "@mui/material";
@@ -6,9 +6,9 @@ import { Button } from "@mui/material";
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const SignedIn = () => {
-  const [session, loading] = useSession();
+  const {data: session, status} = useSession();
   {
-    loading && <p>Loading..</p>;
+    status && <p>Loading..</p>;
   }
 
   const { data, error } = useSWR("/api/showUsers", fetcher);
@@ -31,7 +31,7 @@ const SignedIn = () => {
   return (
     <>
       {findData ? (
-        session && session.user.email == findData.email ? (
+        status === "authenticated" && session.user.email == findData.email ? (
           <>
             <div className="signInContainer">
               <p>You are logged In with {session.user.email}</p>
