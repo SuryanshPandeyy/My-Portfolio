@@ -426,11 +426,10 @@ h3 {
 .form button.form-control {
   border: none;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-top: 2rem;
   padding: 1rem;
   width: 12rem;
-  background: #4169e1;
   color: #fff
 }
 .form button.form-disabled {

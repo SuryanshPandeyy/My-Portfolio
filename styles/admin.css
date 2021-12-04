@@ -95,25 +95,25 @@
 button.signInOut,
 button.signInOut:hover,
 .primary,
-.primary button,
+button.primary,
 .primary:hover,
-.primary button:hover {
+button.primary:hover {
  background-color: royalblue;
  color: #fff;
  font-size: 1.3rem;
 }
 .danger,
-.danger button,
+button.danger,
 .danger:hover,
-.danger button:hover {
+button.danger:hover {
  background-color: #d9534f;
  color: #fff;
  font-size: 1.3rem;
 }
 .success,
-.success button,
+button.success,
 .success:hover,
-.success button:hover {
+button.success:hover {
  background-color: #5cb85c;
  color: #fff;
  font-size: 1.3rem;

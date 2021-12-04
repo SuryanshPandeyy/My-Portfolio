@@ -514,7 +514,7 @@ const Contact = () => {
               <Button
                 type="submit"
                 name="submit"
-                className={`${!success ? "form-control" : "form-disabled"}`}
+                className={`${!success ? "primary form-control" : "form-disabled"}`}
                 disabled={success ? true : false}
               >
                 {!ids & !packageId
