@@ -9,7 +9,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 const Id = () => {
   const { data: session, status } = useSession();
   {
-    loading && <p>Loading..</p>;
+    status && <p>Loading..</p>;
   }
   const router = useRouter();
   const { data, error } = useSWR("/api/showUsers", fetcher);
