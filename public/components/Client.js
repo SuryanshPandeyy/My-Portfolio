@@ -25,7 +25,7 @@ const Client = ({ msg }) => {
         email,
       };
 
-      msg("Sending Otp to Number...");
+      msg("Sending Otp to Number...", "primary");
       await fetch("/api/updateOtp", {
         method: "POST",
         headers: {
@@ -33,20 +33,20 @@ const Client = ({ msg }) => {
         },
         body: JSON.stringify(formData),
       }).then((res) => {
-        msg("Otp recieved");
+        msg("Otp recieved","danger");
         setTimeout(msg, 2000);
         if (res.status === 200) {
-          msg("Otp sent sucessfully to your Number");
+          msg("Otp sent sucessfully to your Number", "success");
           setOtp(true);
           setTimeout(msg, 2000);
         }
         if (res.status === 409) {
-          msg("Email not found");
+          msg("Email not found", "danger");
           setTimeout(msg, 2000);
         }
       });
     } else {
-      msg("Please enter any number");
+      msg("Please enter any number", "primary");
       setTimeout(msg, 2000);
     }
   };
@@ -54,7 +54,7 @@ const Client = ({ msg }) => {
   const verifyOtp = async (e) => {
     e.preventDefault();
 
-    msg("Please Wait");
+    msg("Verifying...", "primary");
 
     const formData = {
       emailPhone,
@@ -67,16 +67,16 @@ const Client = ({ msg }) => {
       },
       body: JSON.stringify(formData),
     }).then((res) => {
-      msg("Verifying...");
+      msg("Something error", "danger");
       setTimeout(msg, 2000);
       if (res.status === 200) {
         setOtpSuccessEmail("correct");
-        msg("correct");
+        msg("correct", "success");
         setTimeout(msg, 2000);
       }
       if (res.status === 409) {
         setOtpSuccessEmail("incorrect");
-        msg("incorrect otp");
+        msg("incorrect otp", "danger");
         setTimeout(msg, 2000);
       }
     });
@@ -112,16 +112,12 @@ const Client = ({ msg }) => {
             {otpSuccessEmail == "incorrect" || otpSuccessEmail == "" ? (
               <>
                 {!otp ? (
-                  <Button
-                    className="buttonOtp"
-                    type="submit"
-                    onClick={submitOtp}
-                  >
+                  <Button className="primary" type="submit" onClick={submitOtp}>
                     Send Otp
                   </Button>
                 ) : (
                   <>
-                    <div className="otpFor">
+                    <div className="">
                       <div>
                         <div className="otpFrame1">
                           <div className="otpFrame2">
@@ -134,11 +130,14 @@ const Client = ({ msg }) => {
                             />
                           </div>
                           <div>
-                            <Button onClick={verifyOtp}>Submit Otp</Button>
+                            <Button onClick={verifyOtp} className="primary">
+                              Submit Otp
+                            </Button>
 
                             <Button
                               type="button"
                               onClick={(e) => setOtp(false)}
+                              className="danger"
                             >
                               Cancel
                             </Button>
@@ -157,10 +156,7 @@ const Client = ({ msg }) => {
               </>
             )}
           </div>
-          <Button
-            onClick={(e) => signIn("google")}
-            className="signIn google"
-          >
+          <Button onClick={(e) => signIn("google")} className="signIn google">
             <FcGoogle className="googleIcon" />
           </Button>
         </div>

@@ -39,15 +39,15 @@ const Links = () => {
           <>
             <Link href={url.link} passHref key={i} className="link">
               <Button>
-                <li>
-                  <div className="menu_active">
-                    <url.icon
-                      className={
-                        pathname === url.link ? "active icon" : "disable icon"
-                      }
-                    />
-                    <h4>{url.title}</h4>
-                  </div>
+                <li className="menu_active">
+                  <url.icon
+                    className={
+                      pathname === url.link ? "active icon" : "disable icon"
+                    }
+                  />
+                  <h4 className={pathname === url.link ? "active" : "disable"}>
+                    {url.title}
+                  </h4>
                 </li>
               </Button>
             </Link>

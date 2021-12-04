@@ -1,7 +1,7 @@
 const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 
 module.exports = (phase) => {
-
+    
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     return {
       pageExtensions: ["mdx", "jsx", "js", "ts", "tsx"],
@@ -51,3 +51,11 @@ module.exports = (phase) => {
     },
   };
 };
+
+// module.exports = {
+//   swcMinify: true,
+//     experimental: {
+//     // ssr and displayName are configured by default
+//     styledComponents: true,
+//   }
+// }

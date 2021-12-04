@@ -3,12 +3,12 @@ import { MongoClient } from "mongodb";
 const sgMail = require("@sendgrid/mail");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(10);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const handlerOtp = async (req, res) => {
   if (req.method === "POST") {
     const { email } = req.body;
 
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
     function generateOTP() {
       // Declare a digits variable

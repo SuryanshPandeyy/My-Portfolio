@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
-import { Fade, Zoom } from "react-reveal";
+import { Fade } from  "react-reveal";
 const FaqBox = (props) => {
   const [Faq, setFaq] = useState("hide");
 

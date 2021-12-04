@@ -20,44 +20,36 @@
 @import url(https://fonts.googleapis.com/css2?family=Amaranth&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Sora&display=swap);
-
 * {
   font-size: 1.5rem;
   margin: 0;
   padding: 0;
-  font-family: Mukta, sans-serif
+  font-family: Mukta,sans-serif
 }
-
 ::-webkit-scrollbar {
   width: 2rem
 }
-
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 .6rem rgba(255, 255, 255, .4);
-  -webkit-box-shadow: inset 0 0 .6rem rgba(255, 255, 255, .4);
+  box-shadow: inset 0 0 .6rem rgba(255,255,255,.4);
+  -webkit-box-shadow: inset 0 0 .6rem rgba(255,255,255,.4);
   border-radius: 10px
 }
-
 ::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 .6rem rgba(255, 255, 255, .5);
+  box-shadow: inset 0 0 .6rem rgba(255,255,255,.5);
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 .6rem rgba(255, 255, 255, .5);
-  background: linear-gradient(135deg, #a4a4a4, #bcbcbc)
+  -webkit-box-shadow: inset 0 0 .6rem rgba(255,255,255,.5);
+  background: linear-gradient(135deg,#a4a4a4,#bcbcbc)
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, silver, grey)
+  background: linear-gradient(135deg,silver,grey)
 }
-
 a {
   text-decoration: none
 }
-
 html {
   font-size: 62.5%;
   height: 100%
 }
-
 body {
   background: #15161d;
   height: 100%;
@@ -67,7 +59,6 @@ body {
   webkit-user-drag: none;
   webkit-user-zoom: none
 }
-
 a,
 button,
 h1,
@@ -76,73 +67,26 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Sora, sans-serif !important
+  font-family: Sora,sans-serif!important
 }
-
 button.google,
 button.google:hover {
   background: #f6e7ca
 }
-
 h3 {
   font-size: 2.7rem;
   color: #fff;
   text-align: center
 }
-
-.bio {
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 1rem;
-  width: 100%
-}
-
-.bio .bioData {
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%
-}
-
 .bioDesc p {
   font-weight: 400
 }
-
-.bioDataFrame {
-  background: #000
-}
-
-.bio .bioData .skillsCenter {
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  list-style-type: none;
-  margin: 3rem 2rem;
-  position: relative;
-  text-align: center;
-  text-transform: capitalize;
-  width: 100%
-}
-
 .blocker {
-  background-color: rgba(0, 0, 0, .7);
+  background-color: rgba(0,0,0,.7);
   inset: 0;
   position: fixed;
   z-index: 1199
 }
-
-.bio .bioImage {
-  height: 100%;
-  max-width: 90vw;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center
-}
-
 .bioExtra {
   display: flex;
   flex-direction: column;
@@ -151,21 +95,14 @@ h3 {
   margin: 0 4rem;
   width: 50%
 }
-
-.bioExtra2 {
-  display: flex;
-  align-items: center;
-  justify-content: center
-}
-
 .bioDetails {
   align-items: center;
   color: #fff;
   display: flex;
   justify-content: center;
-  padding: 5rem 0
+  padding: 5rem 0;
+  background: #000
 }
-
 .box {
   display: flex;
   align-items: center;
@@ -174,15 +111,12 @@ h3 {
   margin: 2rem 0;
   width: 100%
 }
-
 .containerToggle {
   text-align: center
 }
-
 .containerToggle .switchName {
   color: #fff
 }
-
 .containerToggle .toggle-switch {
   position: relative;
   width: 6rem;
@@ -191,11 +125,9 @@ h3 {
   top: .8rem;
   margin: 0 1rem
 }
-
 .containerToggle .checkbox {
   display: none
 }
-
 .containerToggle .label {
   display: block;
   overflow: hidden;
@@ -203,14 +135,12 @@ h3 {
   border: 0 solid #bbb;
   border-radius: 2rem
 }
-
 .containerToggle .inner {
   display: block;
   width: 200%;
   margin-left: -100%;
   transition: margin .1s ease-in 0s
 }
-
 .containerToggle .inner:after,
 .containerToggle .inner:before {
   float: left;
@@ -222,14 +152,12 @@ h3 {
   font-weight: 700;
   box-sizing: border-box
 }
-
 .containerToggle .inner:before {
   content: "";
   padding-left: 1rem;
   background-color: #4169e1;
   color: #fff
 }
-
 .containerToggle .inner:after {
   content: "";
   padding-right: 1rem;
@@ -237,7 +165,6 @@ h3 {
   color: #fff;
   text-align: right
 }
-
 .containerToggle .switch {
   display: block;
   width: 2rem;
@@ -251,35 +178,30 @@ h3 {
   border-radius: 2rem;
   transition: all .1s ease-in 0s
 }
-
-.containerToggle .checkbox:checked+.label .inner {
+.containerToggle .checkbox:checked + .label .inner {
   margin-left: 0
 }
-
-.containerToggle .checkbox:checked+.label .switch {
+.containerToggle .checkbox:checked + .label .switch {
   right: 0
 }
-
 .certificatesBox {
   background: #fff;
   border: .3rem solid #000;
   border-radius: 2rem;
   inset: 5rem;
-  margin-top: 10rem;
   overflow: auto;
   padding: 2rem 2rem 10rem 2rem;
   position: fixed;
-  z-index: 1200
+  z-index: 1200;
+  top: 10rem
 }
-
 .closeBtn {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255,255,255,0);
   left: 7rem;
   margin: 1rem 0;
   position: fixed;
   bottom: 5rem
 }
-
 .closeBtn button {
   background: #4169e1;
   border: none;
@@ -288,7 +210,6 @@ h3 {
   outline: 0;
   padding: 1rem 2rem
 }
-
 .certificatesTab {
   align-items: center;
   display: flex;
@@ -297,11 +218,9 @@ h3 {
   width: 100%;
   padding: 3rem 0
 }
-
 .certificatesTab .Image {
   cursor: pointer
 }
-
 .certificateTitle p {
   color: #fff;
   font-size: 3.5rem;
@@ -309,49 +228,27 @@ h3 {
   margin-bottom: 2rem;
   text-align: center
 }
-
 .certificates {
   display: grid;
   grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(55rem, 1fr));
+  grid-template-columns: repeat(auto-fill,minmax(55rem,1fr));
   place-content: center;
   place-items: center;
   width: 100%
 }
-
 .certificateImg {
   border: .14rem solid #000;
   display: flex;
   justify-content: center;
   max-width: 70vw;
-  width: 55rem
+  width: 45rem;
+  height: 20rem;
+  flex-direction: row
 }
-
 .certificateImage {
   height: 20rem;
   width: 20rem
 }
-
-.certificateDetails {
-  align-items: space-around;
-  display: flex;
-  flex-direction: column;
-  max-width: 90vw;
-  word-wrap: break-word;
-  margin: 2rem 0
-}
-
-.certificateDetails div {
-  font-size: 1.5rem
-}
-
-.certificateBio div {
-  font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: .078rem;
-  width: 20rem
-}
-
 .circles {
   align-items: center;
   background-color: #000;
@@ -361,7 +258,6 @@ h3 {
   width: 100%;
   z-index: 2000
 }
-
 .circles ul {
   color: #fff;
   display: flex;
@@ -370,17 +266,16 @@ h3 {
   list-style-type: none;
   width: 100%
 }
-
 .circles ul a {
-  width: 100%
+  width: 100%;
+  font-size: 5.5rem
 }
-
 .circles ul li {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  color: #989898;
+  color: #484848;
   cursor: pointer;
   font-size: clamp(.5rem, 3vw, 1.5rem);
   height: 5rem;
@@ -389,7 +284,15 @@ h3 {
   transition: all .2s linear;
   width: 100%
 }
-
+.circles ul li h4 {
+  font-size: 1.4rem
+}
+.circles .active {
+  color: #fff
+}
+.circles ul li .icon {
+  font-size: 2.5rem
+}
 .cartWidth {
   height: 15rem;
   max-width: 95vw;
@@ -399,31 +302,27 @@ h3 {
   align-items: center;
   justify-content: space-around
 }
-
 .client {
   margin-top: 4rem
 }
-
 .client input {
   background-color: transparent;
   border: none;
   border-bottom: .2rem solid #fff;
   color: #fff;
   margin: 1rem 0;
-  max-width: 80vw;
+  max-width: 70vw;
   padding: 1rem;
   resize: vertical;
-  width: 30rem
+  width: 20rem
 }
-
 .client .buttonOtp {
   color: #fff;
   background: #c94b4b;
-  background: -webkit-linear-gradient(to right, #4b134f, #c94b4b);
-  background: linear-gradient(to right, #4b134f, #c94b4b);
+  background: -webkit-linear-gradient(to right,#4b134f,#c94b4b);
+  background: linear-gradient(to right,#4b134f,#c94b4b);
   font-size: 1.3rem
 }
-
 .comming {
   width: 100%;
   height: 60vh;
@@ -432,35 +331,19 @@ h3 {
   align-items: center;
   justify-content: center
 }
-
 .comming p {
   font-size: 3rem
 }
-
 .contactSignOut {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center
 }
-
-.certificateImg {
-  flex-direction: column
-}
-
 .certificatesBox {
   margin-bottom: 10rem;
   margin-top: 0
 }
-
-.certificateImg {
-  border: .14rem solid #000;
-  display: flex;
-  justify-content: center;
-  max-width: 50%;
-  width: 100%
-}
-
 .certificateDetails {
   align-items: space-around;
   display: flex;
@@ -469,27 +352,22 @@ h3 {
   word-wrap: break-word;
   margin: 2rem
 }
-
 .certificateDetails div {
   font-size: 1.5rem
 }
-
 .certificateBio div {
   font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: .078rem;
   width: 20rem
 }
-
 .certificatesBox .closeBtn {
-  bottom: 15rem
+  bottom: 15rem;
+  background-color: #4169e1;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.3rem
 }
-
-.circles ul li {
-  margin: 1.5rem;
-  width: 34%
-}
-
 .flex_row {
   align-items: center;
   display: flex;
@@ -497,7 +375,7 @@ h3 {
   width: 100%;
   height: 100%;
   text-overflow: ellipsis;
-  background: radial-gradient(ellipse farthest-corner at 140rem 170%, #686868 0, #4f4f4f 70%, #353535 70%);
+  background: radial-gradient(ellipse farthest-corner at 140rem 170%,#686868 0,#4f4f4f 70%,#353535 70%);
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-background-origin: padding-box;
@@ -506,11 +384,10 @@ h3 {
   background-clip: border-box;
   -webkit-background-size: auto auto;
   background-size: auto auto;
-  -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, .3);
-  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, .3);
+  -webkit-box-shadow: 1px 1px 1px 0 rgba(0,0,0,.3);
+  box-shadow: 1px 1px 1px 0 rgba(0,0,0,.3);
   position: relative
 }
-
 .form {
   align-items: center;
   color: #fff;
@@ -520,19 +397,16 @@ h3 {
   place-content: center;
   width: 100%
 }
-
 .form form {
   display: flex;
   flex-direction: column;
   width: 70vw;
   max-width: 55rem
 }
-
 .form form label {
   align-self: flex-start;
   margin-top: 1rem
 }
-
 .form input:not([type=submit]),
 .form textarea {
   background-color: transparent;
@@ -545,12 +419,10 @@ h3 {
   resize: vertical;
   width: 100%
 }
-
 .form .verify {
   background-color: #4169e1;
   color: #fff
 }
-
 .form button.form-control {
   border: none;
   cursor: pointer;
@@ -561,7 +433,6 @@ h3 {
   background: #4169e1;
   color: #fff
 }
-
 .form button.form-disabled {
   border: none;
   cursor: default;
@@ -572,7 +443,6 @@ h3 {
   background: #909090;
   color: #fff
 }
-
 .fixed {
   display: flex;
   flex-direction: column;
@@ -581,7 +451,6 @@ h3 {
   align-items: center;
   text-align: center
 }
-
 .faqs {
   display: flex;
   align-items: center;
@@ -589,7 +458,6 @@ h3 {
   justify-content: center;
   width: 100%
 }
-
 .faqsBox {
   display: flex;
   flex-direction: column;
@@ -602,21 +470,18 @@ h3 {
   margin: 1rem 0;
   position: relative
 }
-
 .flexColumnCenter {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center
 }
-
 .faqQuest {
   color: #ffd000;
   display: flex;
   align-items: center;
   justify-content: space-between
 }
-
 .footer {
   position: absolute;
   width: 100%;
@@ -629,45 +494,37 @@ h3 {
   flex-direction: column;
   word-wrap: break-word
 }
-
 .footer .hiresupa {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center
 }
-
 .footer div {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center
 }
-
 .footer .hiresupa {
   padding: 2rem 0
 }
-
 .fancyArrow {
   position: relative;
   display: inline-block
 }
-
 .googleIcon {
   font-size: 2rem
 }
-
 .hiresupa {
   font-size: 2rem;
   font-weight: 400;
   color: #919191;
-  font-family: Iceland, cursive
+  font-family: Iceland,cursive
 }
-
 .headerIcon {
   font-size: 3rem
 }
-
 .hireLinks {
   display: flex;
   flex-direction: column;
@@ -675,29 +532,24 @@ h3 {
   justify-content: center;
   margin-top: 4rem
 }
-
 .hireLinks ul {
   list-style: none;
   display: flex
 }
-
 .hireLinks ul li {
   margin: 0 1rem
 }
-
 .hireLinksIcon {
   color: #fff;
   font-size: 3rem;
   margin-top: 2rem
 }
-
 .image {
   -ms-user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none
 }
-
 .loadCssRotate {
   border: none;
   animation: rotateRefresh 1.5s infinite;
@@ -708,53 +560,32 @@ h3 {
   margin-right: 1rem;
   cursor: pointer
 }
-
 .langIcon,
 .profIcon {
   color: #000;
   font-size: 2.5rem;
   cursor: pointer
 }
-
 .langIcon:hover,
 .profIcon:hover {
   color: #4169e1
 }
-
-.menu_active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column
-}
-
-.menu_active .active {
-  color: #fff
-}
-
-.menu_active .icon {
-  font-size: 2.5rem
-}
-
 .menuBox {
   position: fixed;
   z-index: 20000;
   bottom: 9rem;
   right: 3rem
 }
-
 .menu_settings_container button {
   border: none;
   outline: 0;
   background-color: transparent
 }
-
 .menus {
   display: flex;
   align-items: center;
   justify-content: center
 }
-
 .menus ul {
   list-style: none;
   margin-bottom: 1rem;
@@ -770,15 +601,12 @@ h3 {
   position: relative;
   right: 2rem
 }
-
 .menus ul li {
   margin: 1rem
 }
-
 .optionCart {
   justify-self: flex-end
 }
-
 .optionCart button {
   background-color: #ff3d3d;
   padding: .7rem 1.7rem;
@@ -787,48 +615,32 @@ h3 {
   color: #fff;
   cursor: pointer
 }
-
 .otpForm {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, .924);
+  background: rgba(0,0,0,.924);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 200
 }
-
 .otpFrame1 {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column
 }
-
 .otpFrame1 input {
-  padding: 1rem 2rem
+  padding: 1rem 2rem;
+  width: 20rem;
+  max-width: 80vw
 }
-
 .otpFrame1 button {
   font-size: 1.3rem;
   color: #fff;
   margin: 1rem
 }
-
-.otpFrame1 button[type=submit] {
-  background: #1488cc;
-  background: -webkit-linear-gradient(to right, #2b32b2, #1488cc);
-  background: linear-gradient(to right, #2b32b2, #1488cc)
-}
-
-.otpFrame1 button[type=button] {
-  background: #ec008c;
-  background: -webkit-linear-gradient(to right, #fc6767, #ec008c);
-  background: linear-gradient(to right, #fc6767, #ec008c)
-}
-
 .portfolio_header,
-.portfolio_header2,
 .skillTitle {
   align-items: center;
   display: flex;
@@ -836,32 +648,18 @@ h3 {
   justify-content: center;
   width: 100%
 }
-
-.portfolio_header div,
-.portfolio_header h1,
-.portfolio_header span,
-.portfolio_header2 div,
-.portfolio_header2 h1,
-.portfolio_header2 span {
-  color: #cfcfcf;
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  position: relative
-}
-
-.portfolio_header p:first-child,
-.portfolio_header2 p:first-child {
-  font-family: 'Titillium Web', sans-serif;
+.portfolio_header p {
+  font-family: 'Titillium Web',sans-serif;
   font-size: 4rem;
   font-weight: bolder;
-  background: linear-gradient(#9aff9a, #69daff);
+  background: linear-gradient(#9aff9a,#69daff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text
 }
-
 .packageCard {
   background: #fff;
-  box-shadow: .4rem .1rem 1rem .1rem rgba(157, 157, 157, .124);
+  box-shadow: .4rem .1rem 1rem .1rem rgba(157,157,157,.124);
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -872,37 +670,31 @@ h3 {
   text-align: center;
   width: 100%
 }
-
 .packageCard .CardImg {
   align-items: center;
   display: flex;
   justify-content: center;
   width: 100%
 }
-
 .packageCard .Cardtitle {
   color: #fff;
   font-size: 2rem;
   padding: 1rem 0 1rem 0
 }
-
 .packageCard .Carddetails {
   display: none;
   position: absolute
 }
-
 .packageCard:hover .packageBlocker {
-  background: linear-gradient(to bottom, grey 10%, #000 90%);
+  background: linear-gradient(to bottom,grey 10%,#000 90%);
   content: "";
   inset: 0;
   opacity: .8;
   position: absolute
 }
-
 .packageCard:hover .CardImg {
   opacity: .3
 }
-
 .packageCard:hover .Carddetails {
   align-items: center;
   display: flex;
@@ -912,12 +704,10 @@ h3 {
   text-align: center;
   width: 100%
 }
-
 .packageCard .view {
   margin: 2rem 0;
   width: 100%
 }
-
 .packageCard .view a {
   background-color: #3b64dd;
   border-radius: .4rem;
@@ -926,11 +716,9 @@ h3 {
   text-decoration: none;
   width: 10rem
 }
-
 .packageCard .view a:hover {
   background-color: #2357f5
 }
-
 .packageCard .Carddetails .view button {
   background-color: #4169e1;
   border: none;
@@ -940,29 +728,25 @@ h3 {
   outline: 0;
   padding: 1rem 2rem
 }
-
 .packageCard .Carddetails .view button:hover {
   filter: contrast(2)
 }
-
 .project {
   display: -ms-grid;
   display: grid;
   grid-auto-flow: dense;
   grid-gap: 2rem;
-  -ms-grid-column: repeat(auto-fill, minmax(30rem, 1fr));
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  -ms-grid-column: repeat(auto-fill,minmax(30rem,1fr));
+  grid-template-columns: repeat(auto-fill,minmax(30rem,1fr));
   padding: 0 2rem;
   place-content: center
 }
-
 .projectBtn {
   align-items: center;
   display: flex;
   height: 5rem;
   width: 100%
 }
-
 .projectBtn a {
   background-color: #4169e1;
   color: #fff;
@@ -970,53 +754,40 @@ h3 {
   padding: 1rem 2rem;
   text-decoration: none
 }
-
 .prevNext {
   margin-top: 1rem;
   padding: 0 2rem;
   position: relative;
   height: 1.5rem
 }
-
 .prevNext a {
   text-decoration: none
 }
-
 .prevNext button {
   background: #a73737;
-  background: -webkit-linear-gradient(to right, #7a2828, #a73737);
-  background: linear-gradient(to right, #7a2828, #a73737);
+  background: -webkit-linear-gradient(to right,#7a2828,#a73737);
+  background: linear-gradient(to right,#7a2828,#a73737);
   color: #fff;
   font-size: 1.2rem
 }
-
 .prevNext div.prev {
   float: left
 }
-
 .prevNext div.next {
   float: right
 }
-
 .resume_btn {
-  margin-bottom: 3rem
-}
-
-.resume_btn button {
   background-color: #13aa52;
   border-radius: .5rem;
   color: #fff;
   font-size: 1.2rem;
   cursor: pointer;
-  padding: 1rem 2rem;
-  width: 100%
+  padding: 1rem 2rem
 }
-
-.resume_btn button:hover {
+.resume_btn:hover {
   background-color: #13aa52;
   color: #fff
 }
-
 .react-tabs .tablist {
   border-bottom: .1rem solid #fff;
   display: flex;
@@ -1026,7 +797,6 @@ h3 {
   margin-bottom: 3rem;
   overflow: hidden
 }
-
 .react-tabs__tab {
   color: #fff;
   display: flex;
@@ -1036,13 +806,11 @@ h3 {
   text-align: center;
   min-width: 10rem
 }
-
 .react-tabs__tab--selected {
   color: #000;
   border: .5rem solid #8e6565;
   border-radius: 0
 }
-
 .refresh {
   border: none;
   outline: 0;
@@ -1052,37 +820,30 @@ h3 {
   margin-right: 1rem;
   cursor: pointer
 }
-
 .switchhide {
   overflow: hidden;
   height: 5.5rem
 }
-
 .switchshow {
   height: 100%
 }
-
 .switchAnshide {
   display: none
 }
-
 .switchAnsshow {
   word-wrap: break-word;
   width: 100%;
   margin-top: 2rem;
   color: #c5c5c5
 }
-
 .skillTitle p {
   font-size: 4rem
 }
-
 .show_btn {
   display: flex;
   align-items: center;
   justify-content: flex-end
 }
-
 .show_btn button {
   display: flex;
   align-items: center;
@@ -1093,11 +854,9 @@ h3 {
   color: #ff0;
   cursor: pointer
 }
-
 .show_btn button span {
   margin: 0 .3rem
 }
-
 .slider-wrapper {
   align-items: center;
   color: #aaa;
@@ -1105,26 +864,21 @@ h3 {
   font-weight: 700;
   justify-content: center
 }
-
 .slider {
   height: 5rem;
   overflow-y: hidden;
   text-transform: uppercase
 }
-
 .slider .slider-text1 {
   animation: slide 7s linear infinite;
   color: #d8ade6
 }
-
 .slider .slider-text2 {
   color: #ffc685
 }
-
 .slider .slider-text3 {
   color: #f6ff00
 }
-
 .slider div {
   box-sizing: border-box;
   height: 5rem;
@@ -1132,37 +886,41 @@ h3 {
   padding: 1.35rem .4rem;
   text-align: start
 }
-
 @keyframes slide {
   0% {
     margin-top: -300px
   }
-
   5% {
     margin-top: -200px
   }
-
   33% {
     margin-top: -200px
   }
-
   38% {
     margin-top: -100px
   }
-
   66% {
     margin-top: -100px
   }
-
   71% {
     margin-top: 0
   }
-
   100% {
     margin-top: 0
   }
 }
-
+.skillsCenter {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin: 3rem 2rem;
+  position: relative;
+  text-align: center;
+  text-transform: capitalize;
+  width: 100%
+}
 .skillsTab {
   position: relative;
   margin: 2rem auto;
@@ -1171,7 +929,6 @@ h3 {
   justify-content: center;
   width: 100%
 }
-
 .skillsTab::after {
   content: '';
   position: absolute;
@@ -1180,24 +937,19 @@ h3 {
   top: 0;
   bottom: 0
 }
-
 .skillsTab ul {
   list-style: none
 }
-
 .skillsTab ul li {
   position: relative;
   background-color: inherit
 }
-
 .skillsTab ul li:nth-child(odd) {
   left: -8rem
 }
-
 .skillsTab ul li:nth-child(even) {
   left: 8rem
 }
-
 @media screen and (max-width:600px) {
   .skillsTab ul li::before {
     left: 6rem;
@@ -1206,16 +958,8 @@ h3 {
     border-color: transparent #fff transparent transparent
   }
 }
-
-.skillsTab .skillsTube {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center
-}
-
-.skillsTab li .tube {
-  background: linear-gradient(to bottom, #a6a6a6, #4f4f4f);
+.skillsTab li {
+  background: linear-gradient(to bottom,#a6a6a6,#4f4f4f);
   display: flex;
   align-items: center;
   height: 2rem;
@@ -1225,18 +969,15 @@ h3 {
   max-width: 90%;
   padding: .3rem 0
 }
-
-.skillsTab li:nth-child(even) .tube {
+.skillsTab li:nth-child(even) {
   border-top-right-radius: 5rem;
   border-bottom-right-radius: 5rem
 }
-
-.skillsTab li:nth-child(odd) .tube {
+.skillsTab li:nth-child(odd) {
   border-top-left-radius: 5rem;
   border-bottom-left-radius: 5rem
 }
-
-.skillsTab li:nth-child(even) .tube .tubeValue {
+.skillsTab li:nth-child(even) .tubeValue {
   display: flex;
   align-items: center;
   animation: animate 1s ease-in-out forwards;
@@ -1248,8 +989,7 @@ h3 {
   position: absolute;
   width: 70%
 }
-
-.skillsTab li:nth-child(odd) .tube .tubeValue {
+.skillsTab li:nth-child(odd) .tubeValue {
   animation: animate 1s ease-in-out forwards;
   background-color: #87ceeb;
   border-top-left-radius: 5rem;
@@ -1260,8 +1000,7 @@ h3 {
   position: absolute;
   width: 70%
 }
-
-.skillsTab ul li .tube .title {
+.skillsTab ul li .title {
   filter: contrast(100%) brightness(100%);
   font-size: 1.5rem;
   font-weight: 400;
@@ -1269,94 +1008,82 @@ h3 {
   color: #000;
   width: 100%
 }
-
-.skillsTab ul li:nth-child(even) .tube .title {
+.skillsTab ul li:nth-child(even) .title {
   text-align: left;
   margin-left: 1rem
 }
-
-.skillsTab ul li:nth-child(odd) .tube .title {
+.skillsTab ul li:nth-child(odd) .title {
   text-align: right;
   margin-right: 1rem
 }
-
 @keyframes animate {
   from {
     width: 0
   }
 }
-
-.skillsTab ul li:nth-child(1) .tube .tubeValue,
-.skillsTab ul li:nth-child(10) .tube .tubeValue,
-.skillsTab ul li:nth-child(4) .tube .tubeValue,
-.skillsTab ul li:nth-child(7) .tube .tubeValue {
-  background: linear-gradient(45deg, #1fe6ff, #673ab7);
+.skillsTab ul li:nth-child(1) .tubeValue,
+.skillsTab ul li:nth-child(10) .tubeValue,
+.skillsTab ul li:nth-child(4) .tubeValue,
+.skillsTab ul li:nth-child(7) .tubeValue {
+  background: linear-gradient(45deg,#1fe6ff,#673ab7);
   color: #000;
   filter: brightness(110%) contrast(110%)
 }
-
-.skillsTab ul li:nth-child(11) .tube .tubeValue,
-.skillsTab ul li:nth-child(2) .tube .tubeValue,
-.skillsTab ul li:nth-child(5) .tube .tubeValue,
-.skillsTab ul li:nth-child(8) .tube .tubeValue {
-  background: linear-gradient(45deg, #3bc0ff, #3f0);
+.skillsTab ul li:nth-child(11) .tubeValue,
+.skillsTab ul li:nth-child(2) .tubeValue,
+.skillsTab ul li:nth-child(5) .tubeValue,
+.skillsTab ul li:nth-child(8) .tubeValue {
+  background: linear-gradient(45deg,#3bc0ff,#3f0);
   color: #000;
   filter: brightness(110%) contrast(110%)
 }
-
-.skillsTab ul li:nth-child(12) .tube .tubeValue,
-.skillsTab ul li:nth-child(3) .tube .tubeValue,
-.skillsTab ul li:nth-child(6) .tube .tubeValue,
-.skillsTab ul li:nth-child(9) .tube .tubeValue {
-  background: linear-gradient(45deg, #ffee54, #ff00ca);
+.skillsTab ul li:nth-child(12) .tubeValue,
+.skillsTab ul li:nth-child(3) .tubeValue,
+.skillsTab ul li:nth-child(6) .tubeValue,
+.skillsTab ul li:nth-child(9) .tubeValue {
+  background: linear-gradient(45deg,#ffee54,#ff00ca);
   color: #000;
   filter: brightness(110%) contrast(110%)
 }
-
 .skillsTab ul hr {
   background: #fff
 }
-
 .social {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 3rem
 }
-
 .social-icon {
   margin: 0 1rem
 }
-
 .select {
   width: 100%;
   margin: 1rem 0;
   padding: 1rem;
   border: none
 }
-
 .successComment {
   z-index: 3000;
   position: fixed;
-  bottom: 5rem;
+  bottom: 0rem;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   transition: all .2s linear
 }
-
 .successComment div {
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: .4rem 1rem;
-  border-radius: 1rem;
-  background-color: rgba(195, 195, 195, .793)
+  width: 100%;
+  width: 100%;
+  padding: 0.5rem 3rem;
+  
+  font-size: 1.8rem;
+ 
 }
-
 .shape:nth-of-type(1) {
   animation: wave 5s ease-in-out infinite;
-  background: radial-gradient(white 45%, #cdc3c3 100%);
+  background: radial-gradient(white 45%,#cdc3c3 100%);
   height: 25rem;
   opacity: 1;
   position: absolute;
@@ -1364,19 +1091,15 @@ h3 {
   width: 28rem;
   z-index: -1
 }
-
 @keyframes wave {
-
   0%,
   100% {
     border-radius: 60% 64% 67% 63%/67% 61% 69% 63%
   }
-
   50% {
     border-radius: 66% 64% 61% 69%/62% 63% 67% 68%
   }
 }
-
 #shape {
   align-items: stretch;
   display: flex;
@@ -1384,16 +1107,13 @@ h3 {
   justify-content: center;
   transition: all .2s linear
 }
-
 .swiper-wrapper .swiperSlide2 {
   width: 35rem
 }
-
 .swiper-container {
   width: 100%;
   height: 100%
 }
-
 .testimonialBox {
   height: 30rem;
   background-color: #fff;
@@ -1403,43 +1123,36 @@ h3 {
   align-items: center;
   justify-content: center
 }
-
 @keyframes rotateRefresh {
   to {
     transform: rotate(360deg)
   }
 }
-
 .subHeading {
   color: #fff;
   font-size: 2rem;
   font-weight: 400
 }
-
 .settings {
   display: flex;
   align-items: center;
   justify-content: flex-end
 }
-
 .settingIcon {
   color: #fff;
   font-size: 3.5rem;
   cursor: pointer
 }
-
 .settingIcon:hover {
   color: #4169e1
 }
-
 .submitformbtn {
   background: #8e2de2;
-  background: -webkit-linear-gradient(to right, #4a00e0, #8e2de2);
-  background: linear-gradient(to right, #4a00e0, #8e2de2);
+  background: -webkit-linear-gradient(to right,#4a00e0,#8e2de2);
+  background: linear-gradient(to right,#4a00e0,#8e2de2);
   font-size: 1.3rem;
   color: #fff
 }
-
 .service_container {
   width: 100%;
   margin: 2rem 0;
@@ -1448,7 +1161,6 @@ h3 {
   align-items: center;
   justify-content: center
 }
-
 .serviceBox {
   width: 100%;
   display: flex;
@@ -1456,53 +1168,42 @@ h3 {
   align-items: center;
   justify-content: center
 }
-
 .service_page {
   color: #fff
 }
-
 .servicePage_content {
   margin-top: 5rem;
   padding: 1rem 2rem
 }
-
 .servicePage_content .heading {
   display: flex;
   align-items: center;
   justify-content: space-between
 }
-
 .servicePage_content h1 {
   font-size: 3rem
 }
-
 .servicePage_content h3 {
   font-size: 2.5rem
 }
-
 .servicePage_content h3 span {
   font-size: 2.5rem;
   font-family: initial
 }
-
 .servicePage_content .content {
   margin-top: 3rem
 }
-
 .servicePage_content .content .row {
   font-size: 2.3rem
 }
-
 .serviceFooter {
   margin-top: 5rem
 }
-
 .servicePage_content ul {
   display: flex;
   flex-direction: column;
   margin: 1rem 4rem
 }
-
 .serviceCard {
   min-height: 20rem;
   padding: 2rem 0;
@@ -1512,28 +1213,23 @@ h3 {
   flex-direction: column;
   text-align: center;
   margin: 1rem 0 4rem 0;
-  box-shadow: .4rem 0 .7rem 0 rgba(91, 113, 137, .7), 0 .4rem .7rem rgba(164, 123, 123, .7)
+  box-shadow: .4rem 0 .7rem 0 rgba(91,113,137,.7),0 .4rem .7rem rgba(164,123,123,.7)
 }
-
 .swiper-pagination-bullet {
-  background-color: #fff !important
+  background-color: #fff!important
 }
-
 .serviceCard h3 {
   color: #071078;
   font-size: 3rem;
   font-weight: 400;
   margin: 1rem 0
 }
-
 .serviceCard .price p {
   font-size: 4rem
 }
-
 .serviceCard ul {
   list-style: none
 }
-
 .serviceCard ul {
   display: flex;
   flex-direction: column;
@@ -1541,13 +1237,12 @@ h3 {
   text-align: start;
   width: 100%
 }
-
 .serviceCard ul li {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 80%;
-  border: .1rem solid rgba(0, 0, 0, .2);
+  border: .1rem solid rgba(0,0,0,.2);
   margin: .3rem 0;
   padding: .7rem;
   border-radius: .4rem;
@@ -1555,25 +1250,22 @@ h3 {
   -webkit-user-select: none;
   user-select: none
 }
-
 .serviceCard ul li .serviceHeading {
   font-weight: 600;
   font-size: 1.8rem;
   margin: .2rem 0
 }
-
 .serviceCard ul li .pageNo {
   display: flex;
   align-items: center;
   justify-content: center
 }
-
 .serviceCard ul li .pageNo .pageButton {
   background-color: transparent;
   border: .1rem solid;
   border-radius: 50%;
-  height: 2.5rem !important;
-  width: 2.5rem !important;
+  height: 2.5rem!important;
+  width: 2.5rem!important;
   padding: 1rem .7rem;
   margin: 0 .5rem;
   cursor: pointer;
@@ -1582,11 +1274,9 @@ h3 {
   align-items: center;
   justify-content: center
 }
-
 .serviceCard ul li input[type=checkbox] {
   display: none
 }
-
 .serviceCard ul li label.checkbox {
   width: 2.9rem;
   height: 2.9rem;
@@ -1598,47 +1288,40 @@ h3 {
   transition: all .3s ease;
   cursor: pointer;
   position: relative;
-  background: rgba(128, 128, 128, .593)
+  background: rgba(128,128,128,.593)
 }
-
 .serviceCard ul li .check {
   font-size: 2.6rem;
   color: #15e015;
   font-weight: 700
 }
-
 .serviceCard ul li .uncheck {
   font-size: 2.6rem;
   color: red;
   font-weight: 700
 }
-
-.serviceCard ul li #check1:checked~label[for=check1],
-.serviceCard ul li #check2:checked~label[for=check2],
-.serviceCard ul li #check3:checked~label[for=check3] {
+.serviceCard ul li #check1:checked ~ label[for=check1],
+.serviceCard ul li #check2:checked ~ label[for=check2],
+.serviceCard ul li #check3:checked ~ label[for=check3] {
   background-color: transparent;
   background: #4169e1
 }
-
 .serviceCard ul li label[for=check1] svg,
 .serviceCard ul li label[for=check2] svg,
 .serviceCard ul li label[for=check3] svg {
   color: #fff
 }
-
-.serviceCard ul li #check1:checked~label[for=check1] svg,
-.serviceCard ul li #check2:checked~label[for=check2] svg,
-.serviceCard ul li #check3:checked~label[for=check3] svg {
+.serviceCard ul li #check1:checked ~ label[for=check1] svg,
+.serviceCard ul li #check2:checked ~ label[for=check2] svg,
+.serviceCard ul li #check3:checked ~ label[for=check3] svg {
   display: block
 }
-
 .serviceCard ul li div {
   display: flex;
   flex-direction: column;
   align-items: space-between;
   justify-content: center
 }
-
 .serviceBox select {
   display: inline-block;
   height: 4rem;
@@ -1652,12 +1335,10 @@ h3 {
   background: #fff;
   cursor: pointer
 }
-
 .serviceSelect {
   position: relative;
   margin: 0 2rem
 }
-
 .serviceSelect .fancyArrow {
   position: absolute;
   display: inline-block;
@@ -1671,18 +1352,15 @@ h3 {
   justify-content: center;
   border-left: .2rem solid #000
 }
-
 .serviceSelect .fancyArrow .currIcon {
   font-size: 2.5rem
 }
-
 .serviceBox select option:hover {
   background-color: #4169e1;
   color: #fff;
   text-overflow: ellipsis;
   white-space: nowrap
 }
-
 .serviceFlex {
   display: flex;
   width: 100%;
@@ -1690,11 +1368,9 @@ h3 {
   justify-content: center;
   margin: 1rem 0
 }
-
 .signIn {
   padding: 1rem
 }
-
 .signInContainer {
   margin-top: 2rem;
   display: flex;
@@ -1703,76 +1379,63 @@ h3 {
   justify-content: center;
   color: #fff
 }
-
 .templates .cardPackage {
   margin: 2rem 0;
   padding: 0 2rem;
   height: 100%
 }
-
 .testimonialInfo {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 2rem
 }
-
 .testimonialInfo p {
   background-color: #4d96cd;
   padding: 1rem 2rem;
   font-size: 2rem
 }
-
 .templateCard {
   background: #fff;
   display: flex;
   flex-direction: column
 }
-
 .templateImage {
   width: 30rem;
   height: 30rem
 }
-
 .templateFrame2 {
   height: 10rem;
   background: #000;
   padding: 1rem
 }
-
 .templateDetails1 {
   display: none
 }
-
 .templateDetails {
   flex-direction: column;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start
 }
-
 .templateDetailsSet {
   padding: 2rem
 }
-
 .templateDetailsSet form {
   display: flex;
   flex-direction: column
 }
-
 .templateDetailsSet .title {
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 400;
   text-transform: capitalize;
   margin: 1rem 0
 }
-
 .templateDetailsSet select {
   padding: .5rem .2rem;
   width: 15rem;
   margin-bottom: 1rem
 }
-
 .templateDetailsSet button {
   background: #0ed92c;
   color: #fff;
@@ -1783,28 +1446,23 @@ h3 {
   width: 8rem;
   cursor: pointer
 }
-
 .templateDetailsSet button[type=submit] {
   margin: 0 1rem;
   background: #4169e1
 }
-
 .templateDetailsSet .price {
   font-weight: 700;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
   margin: 1rem 0
 }
-
 .templateDetailsSet .price span {
   font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-weight: 400
 }
-
 .templateFrame1 {
   display: flex;
   width: 100%
 }
-
 .templateCart {
   width: 100%;
   display: flex;
@@ -1812,18 +1470,15 @@ h3 {
   justify-content: center;
   padding: 1rem 0
 }
-
 .templateCartDetails {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%
 }
-
 .templateCart .imageCart {
   margin: 0 1rem
 }
-
 .templateCart .cartDetails {
   display: flex;
   flex-direction: column;
@@ -1831,19 +1486,16 @@ h3 {
   justify-content: space-evenly;
   height: 100%
 }
-
 .templateCart .titleCart {
   font-size: 3rem;
   text-transform: capitalize;
   font-weight: 700
 }
-
 .templateCart .priceCart {
   font-size: 2.5rem;
   color: orange;
   font-weight: 700
 }
-
 .wrap {
   align-items: center;
   display: flex;
@@ -1853,114 +1505,98 @@ h3 {
   width: 100%;
   z-index: 0
 }
-
 @media only screen and (min-width:768px) {
   .suryansh_portfolio {
     margin: 10rem 0
   }
 }
-
 @media only screen and (max-width:768px) {
   .suryansh_portfolio {
     padding-bottom: 10rem
   }
 }
-
 @media only screen and (max-width:378px) {
   .bio .bioData h3 {
     font-size: 2.5rem
   }
 }
-
 @media only screen and (max-width:440px) {
   .bioContent {
     padding-top: 15rem
   }
 }
-
 @media only screen and (max-width:600px) {
   .serviceFlex {
     flex-direction: column
   }
 }
-
 @media only screen and (min-width:798px) {
   .portfolio_header2 {
     display: none
   }
-
   .inside {
     top: 0
   }
-
   .download_resume_btn {
     margin: 3rem 0
   }
 }
-
 @media only screen and (max-width:798px) {
-  .bioContent>p {
+  .bioContent > p {
     margin: 0 0
   }
-
   .templateDetails {
     display: none
   }
-
   .templateDetails1 {
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column
   }
-
   .bio {
     flex-direction: column
   }
-
   .bio .bioImage {
     margin-bottom: 2rem
   }
-
   .bio .bioData {
     flex-direction: column
   }
-
   .bioDetails {
     flex-direction: column-reverse
   }
-
   .bioExtra {
     margin-top: 4rem;
     width: 80vw
   }
-
   .bioContent {
     width: 80vw
   }
-
+  .certificatesBox {
+    inset: 4rem
+  }
+  .certificateImg {
+    height: 45rem;
+    flex-direction: column
+  }
   .flex_row {
     flex-direction: column
   }
-
   .inside {
     bottom: 0
   }
-
   .templates .cardPackage {
-    grid-template-columns: repeat(1, 1fr)
+    grid-template-columns: repeat(1,1fr)
   }
-
   .templateImage {
     width: 100%;
     height: 30rem;
     object-fit: contain
   }
-
   .templateFrame1 {
     flex-direction: column
   }
-
   .footer {
     position: relative;
     bottom: 7rem

@@ -47,10 +47,12 @@ const Contact = () => {
   const [otpInputPhone, setOtpInputPhone] = useState("");
   const [selectedVal, setSelectedVal] = useState();
   const [selectedKey, setSelectedKey] = useState();
+  const [bg, setBg] = useState("primary");
 
   const [success, setSuccess] = useState("");
-  const successMsg = (msg) => {
+  const successMsg = (msg, bg) => {
     setSuccess(msg);
+    setBg(bg);
   };
 
   const selectValue = session ? ["Query"] : ["Query", "Hire"];
@@ -85,7 +87,7 @@ const Contact = () => {
         var price = false;
       }
 
-      successMsg("Sending...");
+      successMsg("Sending...", "primary");
 
       const formData = {
         name,
@@ -109,15 +111,15 @@ const Contact = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       }).then((res) => {
-        successMsg("Details Recieved But Not Sent, Please Retry!");
+        successMsg("Details Recieved But Not Sent, Please Retry!", "danger");
         if (res.status === 200) {
-          successMsg("Details Submitted");
+          successMsg("Details Submitted", "success");
           setTimeout(successMsg, 2000);
           setOtpEmail(false);
           setOtpPhone(false);
         }
         if (res.status === 409) {
-          successMsg("Email already exists");
+          successMsg("Email already exists", "danger");
           setTimeout(successMsg, 2000);
           setOtpEmail(false);
           setOtpPhone(false);
@@ -202,7 +204,7 @@ const Contact = () => {
         }
       });
     } else {
-      successMsg("Please enter any number");
+      successMsg("Please enter any number", "primary");
       setTimeout(successMsg, 2000);
     }
   };
@@ -218,7 +220,7 @@ const Contact = () => {
           {success ? (
             <>
               <div className="successComment">
-                <div>{success}</div>
+                <div className={bg}>{success}</div>
               </div>
             </>
           ) : (

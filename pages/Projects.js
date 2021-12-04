@@ -13,7 +13,7 @@ const nPersonal = (val, key) => {
   return (
     <>
       <div className="cardPackage" key={key}>
-        <div className="cardPackage">
+       
           <div className="packageCard">
             <div className="packageBlocker"></div>
             <div className="CardImg">
@@ -35,7 +35,7 @@ const nPersonal = (val, key) => {
               </div>
             </div>
           </div>
-        </div>
+    
       </div>
     </>
   );
