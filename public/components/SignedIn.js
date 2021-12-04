@@ -27,9 +27,9 @@ const SignedIn = () => {
 
   const datas = data.message;
 
-  if (status === "authenticated") {
+  
     const findData = datas.find((data) => data.email == session.user.email);
-  }
+  
 
   return (
     <>
