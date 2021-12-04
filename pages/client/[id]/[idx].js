@@ -34,7 +34,7 @@ const Id = () => {
     : null;
   return (
     <>
-      {session && session.user.email === findData.email ? (
+      {status === "authenticated" && session.user.email === findData.email ? (
         <>
           {findHire !== undefined ? (
             <div className="client admin suryansh_portfolio">

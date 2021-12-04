@@ -26,11 +26,14 @@ const SignedIn = () => {
     );
 
   const datas = data.message;
-  const findData = datas.find((data) => data.email == session.user.email);
+
+  if (status === "authenticated") {
+    const findData = datas.find((data) => data.email == session.user.email);
+  }
 
   return (
     <>
-      {findData ? (
+      {findData && findData.hasOwnProperty("hires") ? (
         status === "authenticated" && session.user.email == findData.email ? (
           <>
             <div className="signInContainer">
@@ -60,7 +63,6 @@ const SignedIn = () => {
           <p>Your are not client</p>
         </>
       )}
-
     </>
   );
 };
