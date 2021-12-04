@@ -1,13 +1,13 @@
 import Links from "./Links";
-import { signIn, signOut, useSession } from "next-auth/client";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "@mui/material";
 
 const Index = () => {
-  const [session, loading] = useSession();
+  const {data:session, status} = useSession();
   {
-    loading && <p>Loading..</p>;
+    status && <p>Loading..</p>;
   }
 
   return (

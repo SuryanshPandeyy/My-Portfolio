@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { signIn, signOut, useSession } from "next-auth/client";
+import { signIn, signOut, useSession } from "next-auth/react";
 import { Button } from "@mui/material";
 
 const Links = () => {
-  const [session, loading] = useSession();
+  const {data:session, status} = useSession();
   const router = useRouter();
   const pathname = router.pathname;
   console.log(router);
