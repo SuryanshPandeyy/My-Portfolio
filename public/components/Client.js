@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import SignedIn from "./SignedIn";
 import { BsCheckLg, BsX } from "react-icons/bs";
 
-const Client = ({ msg }) => {
+const Client = ({ msg, setMsg }) => {
   const { data: session, status } = useSession();
   const [emailPhone, setEmailPhone] = useState("");
   const [otp, setOtp] = useState(false);
@@ -56,7 +56,9 @@ const Client = ({ msg }) => {
       email: emailPhone,
     });
 
-    console.log(status);
+    if (status.status == 200) {
+      setMsg("");
+    }
   };
 
   const verifyOtp = async (e) => {
@@ -157,7 +159,7 @@ const Client = ({ msg }) => {
             ) : (
               <>
                 <BsCheckLg className="textSuccess" />
-                {/* <Button onClick={login}>Login</Button> */}
+                
               </>
             )}
           </div>
@@ -169,8 +171,8 @@ const Client = ({ msg }) => {
         <>
           <div className="contactSignOut">
             <Button
-              onClick={(e) => (
-                e.preventDefault(), signOut((e) => e.preventDefault())
+              onClick={async (e) => (
+                e.preventDefault(), await signOut({ redirect: false })
               )}
               className="signInOut"
             >

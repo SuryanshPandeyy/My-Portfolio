@@ -25,7 +25,7 @@ const Index = () => {
               {session ? (
                 <>
                   <div>Your are not an Admin.</div>
-                  <Button onClick={() => signOut()} className="signInOut">
+                  <Button onClick={() => signOut({redirect: false})} className="signInOut">
                     Sign out
                   </Button>
                 </>

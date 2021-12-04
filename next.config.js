@@ -1,12 +1,18 @@
 const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 
 module.exports = (phase) => {
+  
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     return {
       pageExtensions: ["mdx", "jsx", "js", "ts", "tsx"],
 
       reactStrictMode: true,
       trailingSlash: true,
+      serverRuntimeConfig: {
+        // Will only be available on the server side
+        
+        NEXTAUTH_URL: process.env.NEXTAUTH_URL, // Pass through env variables
+      },
 
       env: {
         mongodb_username: "suryanshpallavi",
@@ -23,7 +29,7 @@ module.exports = (phase) => {
           "988864140252-6s32v333h05980t6nhdp17qs7fl6cg3k.apps.googleusercontent.com",
         GOOGLE_SECRET: "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",
         NEXTAUTH_URL: "http://localhost:3000",
-        NEXTAUTH_SECRET: "yBEbxG7/mEQ/MBr4zPmBF3F0krxtA6L86072HqYsFDg="
+        NEXTAUTH_SECRET: "yBEbxG7/mEQ/MBr4zPmBF3F0krxtA6L86072HqYsFDg=",
       },
     };
   }

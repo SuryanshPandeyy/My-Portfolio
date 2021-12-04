@@ -217,7 +217,7 @@ const Contact = () => {
       <div className="suryansh_portfolio" id="body">
         <div id="contact">
           <h3>Contact</h3>
-          {success ? (
+          {success !== "" ? (
             <>
               <div className="successComment">
                 <div className={bg}>{success}</div>
@@ -514,7 +514,9 @@ const Contact = () => {
               <Button
                 type="submit"
                 name="submit"
-                className={`${!success ? "primary form-control" : "form-disabled"}`}
+                className={`${
+                  !success ? "primary form-control" : "form-disabled"
+                }`}
                 disabled={success ? true : false}
               >
                 {!ids & !packageId
@@ -570,7 +572,7 @@ const Contact = () => {
         <br />
         <hr />
 
-        <Client msg={successMsg} />
+        <Client msg={successMsg} setMsg={setSuccess} />
       </div>
     </>
   );

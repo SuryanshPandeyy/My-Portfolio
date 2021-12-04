@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const SignedIn = () => {
-  const {data: session, status} = useSession();
+  const { data: session, status } = useSession();
   {
     status && <p>Loading..</p>;
   }
@@ -35,9 +35,17 @@ const SignedIn = () => {
           <>
             <div className="signInContainer">
               <p>You are logged In with {session.user.email}</p>
-              <Link href={`/client/${findData._id}`}>
+              <Link
+                href={
+                  findData.hasOwnProperty("hires")
+                    ? findData.hires.length > 1
+                      ? `/client/${findData._id}/`
+                      : `/client/${findData._id}/0`
+                    : null
+                }
+              >
                 <a className="primary">
-                  <Button>Dashboard</Button>
+                  <Button className="primary">Dashboard</Button>
                 </a>
               </Link>
             </div>
@@ -52,6 +60,7 @@ const SignedIn = () => {
           <p>Your are not client</p>
         </>
       )}
+
     </>
   );
 };
