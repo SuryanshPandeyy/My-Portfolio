@@ -19,7 +19,7 @@ async function handler(req, res) {
         success: true,
       });
     } else {
-      res.status(409).json({
+      res.status(404).json({
         success: false,
       });
     }

@@ -67,7 +67,7 @@ const handlerOtp = async (req, res) => {
         success: true,
       });
     } else {
-      res.status(409).send({ error: "Email not Exist" });
+      res.status(404).send({ error: "Email not Exist" });
     }
 
     clientDb.close();

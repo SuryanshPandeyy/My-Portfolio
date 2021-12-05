@@ -1,14 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import Heads from "./Head";
-import useSWR, { mutate } from "swr";
 import Image from "next/image";
-import Router, { useRouter } from "next/router";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import {useSession } from "next-auth/react";
 import Business from "/public/json/Templates/Business";
 import Portfolio from "/public/json/Templates/Portfolio";
 import Blogs from "/public/json/Templates/Blogs";
 import Landing from "/public/json/Templates/Landing";
-import { SiUpwork, SiFreelancer, SiFiverr } from "react-icons/si";
 import axios from "axios";
 import { Button } from "@mui/material";
 import Client from "/public/components/Client";
@@ -118,7 +116,7 @@ const Contact = () => {
           setOtpEmail(false);
           setOtpPhone(false);
         }
-        if (res.status === 409) {
+        if (res.status === 404) {
           successMsg("Email already exists", "danger");
           setTimeout(successMsg, 2000);
           setOtpEmail(false);

@@ -57,45 +57,47 @@ const ClientReviews = () => {
 
   return (
     <>
-      {datas.find((data) => data.message) ? (
-        <div className="box swiper-container">
-          <h3>Client Reviews</h3>
-          <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            effect={"coverflow"}
-            grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={"auto"}
-            coverflowEffect={{
-              rotate: 35,
-              stretch: 0,
-              depth: 100,
-              modifier: 1,
-              slideShadows: true,
-            }}
-            pagination={{ clickable: true }}
-            navigation={{ clickable: true }}
-          >
-            {/* <IoIosRefresh className={loadCss} onClick={refresh} /> */}
-            {datas.map((review, i) => (
-              <>
-                <SwiperSlide className="swiperSlide2" key={i}>
-                  <div className="cardPackage">
-                    <>
-                      <Testimonial
-                        name={review.name}
-                        message={review.message}
-                      />
-                    </>
-                  </div>
-                </SwiperSlide>
-              </>
-            ))}
-          </Swiper>
-        </div>
-      ) : (
-        ""
-      )}
+      {datas.hasOwnProperty("feedback") ? (
+        datas.find((data) => data.feedback.message) ? (
+          <div className="box swiper-container">
+            <h3>Client Reviews</h3>
+            <Swiper
+              modules={[Navigation, Pagination, Scrollbar, A11y]}
+              effect={"coverflow"}
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView={"auto"}
+              coverflowEffect={{
+                rotate: 35,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+              }}
+              pagination={{ clickable: true }}
+              navigation={{ clickable: true }}
+            >
+              {/* <IoIosRefresh className={loadCss} onClick={refresh} /> */}
+              {datas.map((review, i) => (
+                <>
+                  <SwiperSlide className="swiperSlide2" key={i}>
+                    <div className="cardPackage">
+                      <>
+                        <Testimonial
+                          name={review.name}
+                          message={review.message}
+                        />
+                      </>
+                    </div>
+                  </SwiperSlide>
+                </>
+              ))}
+            </Swiper>
+          </div>
+        ) : (
+          ""
+        )
+      ) : null}
     </>
   );
 };

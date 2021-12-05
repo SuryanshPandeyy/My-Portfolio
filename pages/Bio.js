@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import Image from "next/image";
 import { Fade, Zoom } from "react-reveal";
 import Suryansh from "/public/images/profile/profile5.png";
@@ -48,7 +48,7 @@ const Bio = () => {
                     I&apos;m a
                     <div className="slider">
                       <div className="slider-text1">NEXTJS Developer</div>
-                      <div className="slider-text2">React Developer</div>
+                      <div className="slider-text2">MERN Developer</div>
                       <div className="slider-text3">
                         Full Stack Web Developer
                       </div>

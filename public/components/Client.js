@@ -11,7 +11,6 @@ const Client = ({ msg, setMsg }) => {
   const [otp, setOtp] = useState(false);
   const [otpInputEmail, setOtpInputEmail] = useState("");
   const [otpSuccessEmail, setOtpSuccessEmail] = useState("");
-  // const [login, setLogin] = useState(false);
   {
     status && <p>Loading..</p>;
   }
@@ -39,7 +38,7 @@ const Client = ({ msg, setMsg }) => {
           setOtp(true);
           setTimeout(msg, 2000);
         }
-        if (res.status === 409) {
+        if (res.status === 404) {
           msg("Email not found", "danger");
           setTimeout(msg, 2000);
         }
@@ -63,9 +62,6 @@ const Client = ({ msg, setMsg }) => {
 
   const verifyOtp = async (e) => {
     e.preventDefault();
-
-    // login();
-
     msg("Verifying...", "primary");
 
     const formData = {
@@ -88,7 +84,7 @@ const Client = ({ msg, setMsg }) => {
         // setTimeout(msg, 2000);
         login();
       }
-      if (res.status === 409) {
+      if (res.status === 404) {
         setOtpSuccessEmail("incorrect");
         msg("incorrect otp", "danger");
         setTimeout(msg, 2000);

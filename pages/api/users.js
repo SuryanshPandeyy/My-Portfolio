@@ -1,9 +1,7 @@
 import { MongoClient } from "mongodb";
 import sgMail from "@sendgrid/mail";
-import { google } from "googleapis";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-// const nodemailer = require("nodemailer");
 
 async function handler(req, res) {
   if (req.method === "POST") {
@@ -114,7 +112,7 @@ async function handler(req, res) {
         res.status(200).json({ status: true });
       }
       if (select === "Hire") {
-        res.status(409).json({ status: false });
+        res.status(404).json({ status: false });
       }
     }
     client.close();
