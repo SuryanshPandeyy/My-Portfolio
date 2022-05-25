@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import Links from "./Links";
 
 const Skills = () => {
-  const [newField, setNewField] = useState([{name, value}]);
+  const [newField, setNewField] = useState([{ name: null, value: null }]);
 
   console.log(newField);
 
@@ -37,11 +37,7 @@ const Skills = () => {
       </div>
 
       {newField.map((field, i) => {
-        return (
-          <div key={i}>
-            
-          </div>
-        );
+        return <div key={i}></div>;
       })}
       <div>
         <Button onClick={() => setNewField([...newField, newField])}>+</Button>
