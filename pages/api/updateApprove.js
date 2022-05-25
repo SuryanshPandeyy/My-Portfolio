@@ -5,10 +5,10 @@ const handlerOtp = async (req, res) => {
     const { email, approve } = req.body;
 
     let clientDb;
-    const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.l7odd.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
+     const connectionString = process.env.MONGODB_URI;
 
-    clientDb = await MongoClient.connect(connectionString);
-    const db = clientDb.db();
+     client = await MongoClient.connect(connectionString);
+     const db = client.db(process.env.mongodb_database);
 
     // delete req.body._id;
     await db.collection("users").updateMany(

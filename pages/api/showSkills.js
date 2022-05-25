@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 
 async function handler(req, res) {
   let client;
@@ -6,17 +6,11 @@ async function handler(req, res) {
 
   client = await MongoClient.connect(connectionString);
   const db = client.db(process.env.mongodb_database);
-  
-  const reviews = await db
-    .collection("users")
-    .find()
-    .sort({
-      published: -1,
-    })
-    .toArray();
 
-  res.json({
-    message: JSON.parse(JSON.stringify(reviews)),
+  const skills = await db.collection("skills").find({}).sort({}).toArray();
+
+  res.status(200).json({
+    message: JSON.parse(JSON.stringify(skills)),
     success: true,
   });
 }

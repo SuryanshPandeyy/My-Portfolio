@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Testimonial from "/public/components/TestimonialBox";
 import useSWR, { mutate } from "swr";
 import { IoIosRefresh } from "react-icons/io";
 // import Swiper core and required modules
@@ -36,7 +35,6 @@ const ClientReviews = () => {
     );
     setloadCss("loadCssRotate");
   };
-
   if (error)
     return (
       <div className="testimonialInfo" style={{ color: "#fff" }}>
@@ -46,12 +44,12 @@ const ClientReviews = () => {
         </p>
       </div>
     );
-  if (!data)
-    return (
-      <div className="testimonialInfo" style={{ color: "#fff" }}>
-        <p> Loading... </p>
-      </div>
-    );
+  if (!data) return null;
+  // return (
+  //   <div className="testimonialInfo" style={{ color: "#fff" }}>
+  //     <p> Loading... </p>
+  //   </div>
+  // );
 
   const datas = data.message;
 
@@ -83,10 +81,12 @@ const ClientReviews = () => {
                   <SwiperSlide className="swiperSlide2" key={i}>
                     <div className="cardPackage">
                       <>
-                        <Testimonial
-                          name={review.name}
-                          message={review.message}
-                        />
+                        <div className="testimonialBox">
+                          <div className="testimonialTitle">{review.name}</div>
+                          <div className="testimonialDesc">
+                            {review.message}
+                          </div>
+                        </div>
                       </>
                     </div>
                   </SwiperSlide>

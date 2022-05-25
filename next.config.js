@@ -10,7 +10,7 @@ module.exports = (phase) => {
       trailingSlash: true,
       serverRuntimeConfig: {
         // Will only be available on the server side
-        
+
         NEXTAUTH_URL: process.env.NEXTAUTH_URL, // Pass through env variables
       },
 
@@ -19,6 +19,7 @@ module.exports = (phase) => {
         mongodb_password: "tuly%40th%40llo297",
         mongodb_cluster: "cluster0",
         mongodb_database: "hiresupa-dev",
+        MONGODB_URI: "mongodb://127.0.0.1:27017/",
         NODEMAILER_EMAIL: "suryanshpallavi@gmail.com",
         NODEMAILER_PASSWORD: "vpgmubsbtqlilncz",
         SENDGRID_API_KEY:
@@ -44,6 +45,8 @@ module.exports = (phase) => {
       mongodb_password: "tuly%40th%40llo297",
       mongodb_cluster: "cluster0",
       mongodb_database: "hiresupa",
+      MONGODB_URI:
+        "mongodb+srv://suryanshpallavi:tuly%40th%40llo297@cluster0.l7odd.mongodb.net/blog?retryWrites=true&w=majority",
       NODEMAILER_EMAIL: "suryanshpallavi@gmail.com",
       NODEMAILER_PASSWORD: "vpgmubsbtqlilncz",
       SENDGRID_API_KEY:
@@ -54,7 +57,7 @@ module.exports = (phase) => {
         "988864140252-6s32v333h05980t6nhdp17qs7fl6cg3k.apps.googleusercontent.com",
       GOOGLE_SECRET: "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",
       NEXTAUTH_URL: "https://hiresupa.com/",
-      NEXTAUTH_SECRET: "yBEbxG7/mEQ/MBr4zPmBF3F0krxtA6L86072HqYsFDg="
+      NEXTAUTH_SECRET: "yBEbxG7/mEQ/MBr4zPmBF3F0krxtA6L86072HqYsFDg=",
     },
   };
 };

@@ -4,10 +4,10 @@ const handler = async (req, res) => {
   if (req.method === "POST") {
     const { email } = req.body;
     let client;
-    const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.l7odd.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
+     const connectionString = process.env.MONGODB_URI;
 
-    client = await MongoClient.connect(connectionString);
-    const db = client.db();
+     client = await MongoClient.connect(connectionString);
+     const db = client.db(process.env.mongodb_database);
 
     await db.collection("users").deleteMany({
       email,

@@ -13,10 +13,10 @@ const handlerOtp = async (req, res) => {
       .then((verification_check) => console.log(verification_check.status));
 
     let clientDb;
-    const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.l7odd.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
+     const connectionString = process.env.MONGODB_URI;
 
-    clientDb = await MongoClient.connect(connectionString);
-    const db = clientDb.db();
+  client = await MongoClient.connect(connectionString);
+  const db = client.db(process.env.mongodb_database);
 
     await db.collection("otp").updateOne(
       { phone: phone },

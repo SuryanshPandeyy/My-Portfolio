@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 async function handler(req, res) {
   if (req.method === "POST") {
-    const { emailPhone, otpInputEmail } = req.body;
+    const { value } = req.body;
 
     let client;
     const connectionString = process.env.MONGODB_URI;
@@ -11,18 +11,12 @@ async function handler(req, res) {
     client = await MongoClient.connect(connectionString);
     const db = client.db(process.env.mongodb_database);
 
-    const collection = db.collection("users");
+    const collection = db.collection("skills");
 
-    const user = await collection.findOne({ email: emailPhone });
-    if (bcrypt.compareSync(otpInputEmail, user.otpNum)) {
-      res.status(200).json({
-        success: true,
-      });
-    } else {
-      res.status(404).json({
-        success: false,
-      });
-    }
+    await collection.insertOne({ value });
+   res.status(200).json({
+     success: true,
+   });
     client.close();
   }
 }

@@ -94,8 +94,9 @@ const Client = ({ msg, setMsg }) => {
 
   return (
     <>
-      {status !== "authenticated" ? (
         <div className="client flexColumnCenter">
+      {!session ? (
+        <>
           <h3>Client Access</h3>
 
           <div>
@@ -162,7 +163,7 @@ const Client = ({ msg, setMsg }) => {
           <Button onClick={(e) => signIn("google")} className="signIn google">
             <FcGoogle className="googleIcon" />
           </Button>
-        </div>
+       </>
       ) : (
         <>
           <div className="contactSignOut">
@@ -179,6 +180,7 @@ const Client = ({ msg, setMsg }) => {
           </div>
         </>
       )}
+       </div>
     </>
   );
 };

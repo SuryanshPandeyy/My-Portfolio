@@ -2,10 +2,10 @@ import { MongoClient } from "mongodb";
 
 async function handler(req, res) {
   let client;
-  const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.l7odd.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
+   const connectionString = process.env.MONGODB_URI;
 
-  client = await MongoClient.connect(connectionString);
-  const db = client.db();
+   client = await MongoClient.connect(connectionString);
+   const db = client.db(process.env.mongodb_database);
 
   const reviews = await db
     .collection("otpPhone")

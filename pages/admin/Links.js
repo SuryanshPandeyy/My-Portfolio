@@ -52,6 +52,19 @@ const Links = () => {
               </li>
             </a>
           </Link>
+          <Link href="/admin/Skills">
+            <a>
+              <li
+                style={
+                  pathname === "/admin/Skills"
+                    ? { backgroundColor: "royalblue", color: "#fff" }
+                    : null
+                }
+              >
+                Skills
+              </li>
+            </a>
+          </Link>
           <Button
             onClick={(e) => (
               e.preventDefault(), signOut((e) => e.preventDefault())

@@ -22,10 +22,10 @@ export default NextAuth({
     CredentialsProvider({
       async authorize(credentials) {
         let client;
-        const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.l7odd.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
+         const connectionString = process.env.MONGODB_URI;
 
-        client = await MongoClient.connect(connectionString);
-        const db = client.db();
+  client = await MongoClient.connect(connectionString);
+  const db = client.db(process.env.mongodb_database);
 
         const collection = db.collection("users");
         const user = await collection.findOne({ email: credentials.email });

@@ -214,7 +214,8 @@ const Contact = () => {
       />
       <div className="suryansh_portfolio" id="body">
         <div id="contact">
-          <h3>Contact</h3>
+          {/* <h3>Contact</h3> */}
+          <br />
           {success !== "" ? (
             <>
               <div className="successComment">

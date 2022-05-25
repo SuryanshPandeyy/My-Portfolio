@@ -49,7 +49,7 @@ const Projects = () => {
         <div id="projects" className="projects">
           <Tabs>
             <div className="fixed">
-              <h3>Projects</h3>
+              {/* <h3>Projects</h3> */}
               <br />
               <TabList className="tablist">
                 <Tab>Top Clients Projects</Tab>

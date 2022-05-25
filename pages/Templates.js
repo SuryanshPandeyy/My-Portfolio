@@ -40,7 +40,7 @@ const Templates = () => {
       <div className="suryansh_portfolio" id="body">
         {show ? (
           <div id="templates">
-            <h3>Website Templates</h3>
+            {/* <h3>Website Templates</h3> */}
             <br />
             <div id="shape">
               <Tabs>
