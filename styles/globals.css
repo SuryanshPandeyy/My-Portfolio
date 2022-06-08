@@ -781,7 +781,8 @@ h3 {
   color: #fff;
   font-size: 1.2rem;
   cursor: pointer;
-  padding: 1rem 2rem
+  padding: .5rem 1rem;
+  margin-top: 2rem;
 }
 .resume_btn:hover {
   background-color: #13aa52;

@@ -4,6 +4,9 @@ module.exports = (phase) => {
   
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     return {
+      images: {
+        domains: ["ml1dl2cwlerj.i.optimole.com", "webdesire.in"],
+      },
       pageExtensions: ["mdx", "jsx", "js", "ts", "tsx"],
 
       reactStrictMode: true,
@@ -35,6 +38,9 @@ module.exports = (phase) => {
     };
   }
   return {
+    images: {
+      domains: ["ml1dl2cwlerj.i.optimole.com", "webdesire.in"],
+    },
     pageExtensions: ["mdx", "jsx", "js", "ts", "tsx"],
 
     reactStrictMode: true,

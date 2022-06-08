@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React,  { useState } from "react";
 import { Button } from "@mui/material";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
@@ -93,79 +93,71 @@ const Client = ({ msg, setMsg }) => {
   };
 
   return (
-    <>
-        <div className="client flexColumnCenter">
-      {!session ? (
-        <>
-          <h3>Client Access</h3>
+    <React.Fragment>
+      <div className="client flexColumnCenter">
+        {!session ? (
+          <React.Fragment>
+            <h3>Client Access</h3>
 
-          <div>
-            <label forHtml="emailPhone"></label>
-            <input
-              name="email"
-              value={emailPhone}
-              onChange={(e) => setEmailPhone(e.target.value)}
-              id="emailPhone"
-              disabled={otp ? true : false}
-              required
-            />
+            <div>
+              <label forHtml="emailPhone"></label>
+              <input
+                name="email"
+                value={emailPhone}
+                onChange={(e) => setEmailPhone(e.target.value)}
+                id="emailPhone"
+                disabled={otp ? true : false}
+                required
+              />
 
-            {otpSuccessEmail == "incorrect" ? (
-              <BsX className="uncheck" />
-            ) : null}
+              {otpSuccessEmail == "incorrect" ? (
+                <BsX className="uncheck" />
+              ) : null}
 
-            {otpSuccessEmail == "incorrect" || otpSuccessEmail == "" ? (
-              <>
-                {!otp ? (
+              {otpSuccessEmail == "incorrect" || otpSuccessEmail == "" ? (
+                !otp ? (
                   <Button className="primary" type="submit" onClick={submitOtp}>
                     Send Otp
                   </Button>
                 ) : (
-                  <>
-                    <div className="">
-                      <div>
-                        <div className="otpFrame1">
-                          <div className="otpFrame2">
-                            <input
-                              type="number"
-                              name="otp"
-                              onChange={(e) => setOtpInputEmail(e.target.value)}
-                              value={otpInputEmail}
-                              required
-                            />
-                          </div>
-                          <div>
-                            <Button onClick={verifyOtp} className="primary">
-                              Submit Otp
-                            </Button>
+                  <div className="">
+                    <div>
+                      <div className="otpFrame1">
+                        <div className="otpFrame2">
+                          <input
+                            type="number"
+                            name="otp"
+                            onChange={(e) => setOtpInputEmail(e.target.value)}
+                            value={otpInputEmail}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Button onClick={verifyOtp} className="primary">
+                            Submit Otp
+                          </Button>
 
-                            <Button
-                              type="button"
-                              onClick={(e) => setOtp(false)}
-                              className="danger"
-                            >
-                              Cancel
-                            </Button>
-                          </div>
+                          <Button
+                            type="button"
+                            onClick={(e) => setOtp(false)}
+                            className="danger"
+                          >
+                            Cancel
+                          </Button>
                         </div>
                       </div>
                     </div>
-                  </>
-                )}
-              </>
-            ) : (
-              <>
+                  </div>
+                )
+              ) : (
                 <BsCheckLg className="textSuccess" />
-                
-              </>
-            )}
-          </div>
-          <Button onClick={(e) => signIn("google")} className="signIn google">
-            <FcGoogle className="googleIcon" />
-          </Button>
-       </>
-      ) : (
-        <>
+              )}
+            </div>
+            <Button onClick={(e) => signIn("google")} className="signIn google">
+              <FcGoogle className="googleIcon" />
+            </Button>
+          </React.Fragment>
+        ) : (
           <div className="contactSignOut">
             <Button
               onClick={async (e) => (
@@ -178,10 +170,9 @@ const Client = ({ msg, setMsg }) => {
 
             <SignedIn />
           </div>
-        </>
-      )}
-       </div>
-    </>
+        )}
+      </div>
+    </React.Fragment>
   );
 };
 

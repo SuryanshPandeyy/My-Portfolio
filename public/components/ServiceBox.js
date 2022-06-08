@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -13,7 +13,7 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
   const [revision, setRevision] = useState(0);
 
   return (
-    <>
+    <React.Fragment>
       <div className="serviceCard">
         <h3>{value.title}</h3>
 
@@ -50,9 +50,9 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
                 <span className="serviceHeading">Languages: </span>
                 <span>{value.languages.frontend.join(", ")}</span>
                 {check ? (
-                  <>
+                
                     <span>{value.languages.backend.join(", ")}</span>
-                  </>
+                  
                 ) : null}
               </div>
             </li>
@@ -62,7 +62,7 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
               <span className="serviceHeading">Pages:</span>
               <span className="pageNo">
                 {page === 1 ? null : (
-                  <>
+                  
                     <IconButton
                       size="small"
                       variant="outlined"
@@ -71,7 +71,7 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
                     >
                       -
                     </IconButton>
-                  </>
+                
                 )}
                 {page}
                 <IconButton
@@ -109,7 +109,7 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
 
               <span className="pageNo">
                 {revision === 0 ? null : (
-                  <>
+                  
                     <IconButton
                       size="small"
                       variant="outlined"
@@ -118,7 +118,7 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
                     >
                       -
                     </IconButton>
-                  </>
+                  
                 )}
                 +{revision}
                 <IconButton
@@ -138,14 +138,14 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
                 <span className="serviceHeading">Seo (for whole website):</span>
                 <span>
                   {checkSeo ? (
-                    <>
+                    <React.Fragment>
                       {symbol}
                       {new Intl.NumberFormat("en-IN", {
                         minimumFractionDigits: 2,
                         maximumFractionDigits: 2,
                         currency: toCurrency,
                       }).format(value.seo / priceCurr)}
-                    </>
+                    </React.Fragment>
                   ) : (
                     "No"
                   )}
@@ -192,20 +192,20 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
               <span>FREE SSL &#38; Hosting </span>
               <span>
                 {value.freeSslHosting ? (
-                  <>
+                  
                     <BsCheck2 className="check" />
-                  </>
+                  
                 ) : (
-                  <>
+                
                     <BsX className="uncheck" />
-                  </>
+                  
                 )}
               </span>
             </li>
           </ul>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 
