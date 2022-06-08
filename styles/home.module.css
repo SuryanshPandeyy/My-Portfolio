@@ -2,6 +2,7 @@
  background-color: #fff;
  width: -moz-fit-content;
  width: fit-content;
+ min-height: 15rem;
  padding: 1rem 2rem;
  margin: 1rem 0;
  border-radius: 1rem;

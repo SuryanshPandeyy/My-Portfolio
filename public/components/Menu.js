@@ -8,7 +8,7 @@ const Menu = () => {
   const [lang, setLang] = useState(false);
 
   return (
-    <>
+    
       <div className="menuBox">
         {show ? (
           <div className="menus">
@@ -36,7 +36,7 @@ const Menu = () => {
           </div>
         </div>
       </div>
-    </>
+    
   );
 };
 

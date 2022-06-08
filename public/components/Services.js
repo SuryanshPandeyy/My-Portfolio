@@ -19,7 +19,7 @@ SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 const Services = () => {
   const [check, setCheck] = useState(true);
   const [currencies] = useState(Object.keys(CurrencyJson.results));
-  const [toCurrency, setToCurrency] = useState("USD");
+  const [toCurrency, setToCurrency] = useState("INR");
   const [symbols, setSymbols] = useState(
     CurrencyJson.results[toCurrency].currencySymbol
   );

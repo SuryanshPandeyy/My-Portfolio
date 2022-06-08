@@ -1,5 +1,5 @@
 // import useSWR from "swr";
-
+import React from "react";
 import Links from "./Links";
 import Footer from "./Footer";
 import Head from "next/head";
@@ -7,7 +7,7 @@ import Menu from "./Menu";
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <React.Fragment>
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -82,7 +82,7 @@ const Layout = ({ children }) => {
       <div className="footerDiv">
         <Footer />
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

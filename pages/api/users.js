@@ -19,17 +19,40 @@ async function handler(req, res) {
     };
 
     let client;
-     const connectionString = process.env.MONGODB_URI;
+    const connectionString = process.env.MONGODB_URI;
 
-  client = await MongoClient.connect(connectionString);
-  const db = client.db(process.env.mongodb_database);
+    client = await MongoClient.connect(connectionString);
+    const db = client.db(process.env.mongodb_database);
 
     const collection = db.collection("users");
 
     const user = await collection.findOne({ email: email });
     const hireNo = user ? (user.hasOwnProperty("hires") ? true : false) : null;
 
-    if (hireNo == false || hireNo == null) {
+    await collection.insertOne({
+      email,
+      name,
+      phone,
+      message,
+      select,
+      title,
+      price,
+      approve,
+    });
+
+    await sgMail
+      .send(msg)
+      .then(() => {
+        console.log("Email Form sent");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    res.status(200).json({ status: true });
+
+    {
+      /*if (hireNo == false || hireNo == null) {
       if (!user) {
         await collection.insertOne({
           email,
@@ -114,6 +137,7 @@ async function handler(req, res) {
       if (select === "Hire") {
         res.status(404).json({ status: false });
       }
+    } */
     }
     client.close();
   }

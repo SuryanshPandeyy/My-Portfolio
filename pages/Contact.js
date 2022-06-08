@@ -1,8 +1,8 @@
-import { useState} from "react";
-import Heads from "./Head";
+import React, { useState } from "react";
+import Heads from "../public/components/Head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import {useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Business from "/public/json/Templates/Business";
 import Portfolio from "/public/json/Templates/Portfolio";
 import Blogs from "/public/json/Templates/Blogs";
@@ -53,7 +53,7 @@ const Contact = () => {
     setBg(bg);
   };
 
-  const selectValue = session ? ["Query"] : ["Query", "Hire"];
+  const selectValue = session ? ["Query"] : ["Query", "Interested In Hiring Suryansh"];
 
   const messageText = ["Ask Me", "Hire Me"];
 
@@ -111,8 +111,8 @@ const Contact = () => {
       }).then((res) => {
         successMsg("Details Recieved But Not Sent, Please Retry!", "danger");
         if (res.status === 200) {
-          successMsg("Details Submitted", "success");
-          setTimeout(successMsg, 2000);
+          successMsg("Thanks for submitting, Suryansh will contact you shortly. Appreciate your reaching out, kindly stay in touch", "success");
+          setTimeout(successMsg, 4000);
           setOtpEmail(false);
           setOtpPhone(false);
         }
@@ -208,7 +208,7 @@ const Contact = () => {
   };
 
   return (
-    <>
+    <React.Fragment>
       <Heads
         title={success ? success : "Suryansh Pandey - HireSupa: Contact"}
       />
@@ -216,14 +216,10 @@ const Contact = () => {
         <div id="contact">
           {/* <h3>Contact</h3> */}
           <br />
-          {success !== "" ? (
-            <>
-              <div className="successComment">
-                <div className={bg}>{success}</div>
-              </div>
-            </>
-          ) : (
-            ""
+          {success !== "" && (
+            <div className="successComment">
+              <div className={bg}>{success}</div>
+            </div>
           )}
 
           <div className="form">
@@ -258,79 +254,75 @@ const Contact = () => {
                   disabled={disableEmail || success ? true : false}
                   // autoComplete={false}
                 />
-                {verifyEmail && email !== "" ? (
-                  <>
-                    <Button onClick={submitEmailDetails} className="verify">
-                      Verify
-                    </Button>
-                  </>
-                ) : null}
+                {verifyEmail && email !== "" && (
+                  <Button onClick={submitEmailDetails} className="verify">
+                    Verify
+                  </Button>
+                )}
 
-                {otpEmail ? (
-                  <>
-                    <div className="otpFor">
-                      <div>
-                        <div className="otpFrame1">
-                          <div className="otpFrame2">
-                            <input
-                              type="number"
-                              name="otp"
-                              onChange={(e) => setOtpInputEmail(e.target.value)}
-                              value={otpInputEmail}
-                              required
-                              disabled={otpFillEmail || success ? true : false}
-                            />
-                          </div>
-                          <div>
-                            <Button
-                              onClick={async (e) => {
-                                e.preventDefault();
+                {otpEmail && (
+                  <div className="otpFor">
+                    <div>
+                      <div className="otpFrame1">
+                        <div className="otpFrame2">
+                          <input
+                            type="number"
+                            name="otp"
+                            onChange={(e) => setOtpInputEmail(e.target.value)}
+                            value={otpInputEmail}
+                            required
+                            disabled={otpFillEmail || success ? true : false}
+                          />
+                        </div>
+                        <div>
+                          <Button
+                            onClick={async (e) => {
+                              e.preventDefault();
 
-                                successMsg("Please Wait");
-                                axios.get(`/api/showOtp`).then((response) => {
-                                  const otpData = response.data.message;
-                                  const filterOtp = otpData.filter(
-                                    (data) => email === data.email
-                                  );
+                              successMsg("Please Wait");
+                              axios.get(`/api/showOtp`).then((response) => {
+                                const otpData = response.data.message;
+                                const filterOtp = otpData.filter(
+                                  (data) => email === data.email
+                                );
 
-                                  if (filterOtp !== []) {
-                                    if (otpInputEmail == filterOtp[0].otpNum) {
-                                      setTimeout(successMsg, 10);
-                                      setOtpSuccessEmail("correct");
-                                      setOtpFillEmail(false);
-                                      setOtpInputEmail("");
-                                      setOtpEmail(false);
-                                    } else {
-                                      setOtpSuccessEmail("incorrect");
-                                      successMsg("Wrong OTP");
-                                      setTimeout(successMsg, 2000);
-                                    }
+                                if (filterOtp !== []) {
+                                  if (otpInputEmail == filterOtp[0].otpNum) {
+                                    setTimeout(successMsg, 10);
+                                    setOtpSuccessEmail("correct");
+                                    setOtpFillEmail(false);
+                                    setOtpInputEmail("");
+                                    setOtpEmail(false);
+                                  } else {
+                                    setOtpSuccessEmail("incorrect");
+                                    successMsg("Wrong OTP");
+                                    setTimeout(successMsg, 2000);
                                   }
-                                });
-                              }}
-                              disabled={otpFillEmail ? true : false}
-                            >
-                              Submit Otp
-                            </Button>
+                                }
+                              });
+                            }}
+                            disabled={otpFillEmail ? true : false}
+                          >
+                            Submit Otp
+                          </Button>
 
-                            <Button
-                              type="button"
-                              onClick={(e) => (
-                                setOtpEmail(false),
-                                setOtpFillEmail(false),
-                                setDisableEmail(false)
-                              )}
-                            >
-                              Cancel
-                            </Button>
-                          </div>
+                          <Button
+                            type="button"
+                            onClick={(e) => (
+                              setOtpEmail(false),
+                              setOtpFillEmail(false),
+                              setDisableEmail(false)
+                            )}
+                          >
+                            Cancel
+                          </Button>
                         </div>
                       </div>
                     </div>
-                  </>
-                ) : null}
-                {otpSuccessEmail === "correct" ? (
-                  <>
+                  </div>
+                )}
+                {otpSuccessEmail === "correct" && (
+                  <React.Fragment>
                     Verified
                     <Button
                       type="button"
@@ -343,8 +335,8 @@ const Contact = () => {
                     >
                       Change Email
                     </Button>
-                  </>
-                ) : null}
+                  </React.Fragment>
+                )}
               </div>
 
               <label forHtml="phone">Phone: </label>
@@ -365,97 +357,93 @@ const Contact = () => {
                   disabled={disablePhone || success ? true : false}
                 />
 
-                {verifyPhone && phone !== "" ? (
-                  <>
-                    <Button onClick={submitPhoneDetails} className="verify">
-                      Verify
-                    </Button>
-                  </>
-                ) : null}
+                {verifyPhone && phone !== "" && (
+                  <Button onClick={submitPhoneDetails} className="verify">
+                    Verify
+                  </Button>
+                )}
 
-                {otpPhone ? (
-                  <>
-                    <div className="otpFor">
-                      <div>
-                        <div className="otpFrame1">
-                          <div className="otpFrame2">
-                            <input
-                              type="number"
-                              name="otp"
-                              onChange={(e) => setOtpInputPhone(e.target.value)}
-                              value={otpInputPhone}
-                              required
-                              disabled={otpFillPhone || success ? true : false}
-                            />
-                          </div>
-                          <div>
-                            <Button
-                              onClick={(e) => {
-                                async (e) => {
-                                  e.preventDefault();
-
-                                  successMsg("Please Wait");
-                                  axios
-                                    .get(`/api/showOtpPhone`)
-                                    .then((response) => {
-                                      const otpData = response.data.message;
-                                      const filterOtp = otpData.filter(
-                                        (data) => phone === data.phone
-                                      );
-
-                                      if (filterOtp !== []) {
-                                        if (
-                                          otpInputPhone == filterOtp[0].otpNum
-                                        ) {
-                                          setTimeout(successMsg, 10);
-                                          setOtpSuccessPhone("correct");
-                                          setOtpFillPhone(false);
-                                          setOtpInputPhone("");
-                                          setOtpPhone(false);
-                                        } else {
-                                          setOtpSuccessPhone("incorrect");
-                                          successMsg("Wrong OTP");
-                                          setTimeout(successMsg, 2000);
-                                        }
-                                      }
-                                    });
-                                };
-                              }}
-                              disabled={otpFillPhone ? true : false}
-                            >
-                              Submit Otp
-                            </Button>
-
-                            <Button
-                              type="button"
-                              onClick={(e) => (
-                                setOtpPhone(false), setOtpFillPhone(false)
-                              )}
-                            >
-                              Cancel
-                            </Button>
-                          </div>
+                {otpPhone && (
+                  <div className="otpFor">
+                    <div>
+                      <div className="otpFrame1">
+                        <div className="otpFrame2">
+                          <input
+                            type="number"
+                            name="otp"
+                            onChange={(e) => setOtpInputPhone(e.target.value)}
+                            value={otpInputPhone}
+                            required
+                            disabled={otpFillPhone || success ? true : false}
+                          />
                         </div>
-                        {otpSuccessPhone === "correct" ? (
-                          <>
-                            Verified
-                            <Button
-                              type="button"
-                              onClick={(e) => (
-                                setOtpPhone(false),
-                                setOtpFillPhone(false),
-                                setDisablePhone(false),
-                                setOtpSuccessPhone("")
-                              )}
-                            >
-                              Change Email
-                            </Button>
-                          </>
-                        ) : null}
+                        <div>
+                          <Button
+                            onClick={(e) => {
+                              async (e) => {
+                                e.preventDefault();
+
+                                successMsg("Please Wait");
+                                axios
+                                  .get(`/api/showOtpPhone`)
+                                  .then((response) => {
+                                    const otpData = response.data.message;
+                                    const filterOtp = otpData.filter(
+                                      (data) => phone === data.phone
+                                    );
+
+                                    if (filterOtp !== []) {
+                                      if (
+                                        otpInputPhone == filterOtp[0].otpNum
+                                      ) {
+                                        setTimeout(successMsg, 10);
+                                        setOtpSuccessPhone("correct");
+                                        setOtpFillPhone(false);
+                                        setOtpInputPhone("");
+                                        setOtpPhone(false);
+                                      } else {
+                                        setOtpSuccessPhone("incorrect");
+                                        successMsg("Wrong OTP");
+                                        setTimeout(successMsg, 2000);
+                                      }
+                                    }
+                                  });
+                              };
+                            }}
+                            disabled={otpFillPhone ? true : false}
+                          >
+                            Submit Otp
+                          </Button>
+
+                          <Button
+                            type="button"
+                            onClick={(e) => (
+                              setOtpPhone(false), setOtpFillPhone(false)
+                            )}
+                          >
+                            Cancel
+                          </Button>
+                        </div>
                       </div>
+                      {otpSuccessPhone === "correct" && (
+                        <React.Fragment>
+                          Verified
+                          <Button
+                            type="button"
+                            onClick={(e) => (
+                              setOtpPhone(false),
+                              setOtpFillPhone(false),
+                              setDisablePhone(false),
+                              setOtpSuccessPhone("")
+                            )}
+                          >
+                            Change Email
+                          </Button>
+                        </React.Fragment>
+                      )}
                     </div>
-                  </>
-                ) : null}
+                  </div>
+                )}
               </div>
 
               <label forHtml="select">Select:</label>
@@ -478,16 +466,16 @@ const Contact = () => {
                     );
                   })
                 ) : (
-                  <>
+                  <React.Fragment>
                     <option value="false" selected disabled>
                       Select
                     </option>
                     <option value="buy">Buy a template</option>
-                  </>
+                  </React.Fragment>
                 )}
               </select>
-              {select == "Query" ? (
-                <>
+              { (
+                <React.Fragment>
                   <label forHtml="message">
                     {!ids & !packageId
                       ? messageText[selectedKey]
@@ -508,8 +496,8 @@ const Contact = () => {
                     required
                     disabled={success ? true : false}
                   ></textarea>
-                </>
-              ) : null}
+                </React.Fragment>
+              )}
               <Button
                 type="submit"
                 name="submit"
@@ -520,9 +508,11 @@ const Contact = () => {
               >
                 {!ids & !packageId
                   ? messageText[selectedKey]
-                    ? messageText[selectedKey]
-                    : "Ask Me"
-                  : "Hire Me"}
+                    ? "Send"
+                    : //messageText[selectedKey]
+
+                      "Send"
+                  : "Send"}
               </Button>
             </form>
           </div>
@@ -567,13 +557,15 @@ const Contact = () => {
         ) : (
           ""
         )}
+
+        {/*
         <br />
         <br />
         <hr />
-
-        <Client msg={successMsg} setMsg={setSuccess} />
+      
+      <Client msg={successMsg} setMsg={setSuccess} />*/}
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

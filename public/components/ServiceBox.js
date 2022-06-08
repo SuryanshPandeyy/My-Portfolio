@@ -90,9 +90,9 @@ const ServiceBox = ({ value, check, toCurrency, priceCurr, symbol }) => {
               <span className="serviceHeading">Time Taken:</span>
               <span>
                 {!check
-                  ? Math.round(page / value.time.frontend.day) === 1
-                    ? `${Math.round(page / value.time.frontend.day)} day`
-                    : `${Math.round(page / value.time.frontend.day)} days`
+                  ? Math.round(page * value.time.frontend.day) === 1
+                    ? `${Math.round(page * value.time.frontend.day)} day`
+                    : `${Math.round(page * value.time.frontend.day)} days`
                   : page * value.time.backend.day === 1
                   ? `${page * value.time.backend.day} day`
                   : `${page * value.time.backend.day} days`}

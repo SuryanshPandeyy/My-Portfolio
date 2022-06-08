@@ -5,10 +5,9 @@ import Suryansh from "/public/images/profile/profile5.png";
 import certificates from "/public/images/certificates/UC-64a5cb50-0930-429f-9e05-db77afd1ed0f.jpg";
 import { Button } from "@mui/material";
 import Skills from "/public/json/Skills";
-import Heads from "./Head";
+import Heads from "/public/components/Head";
 import Services from "/public/components/Services";
-import { SocialIcon } from "react-social-icons";
-import FaqJson from "/public/json/FaqJson";
+import { SocialIcon } from "react-social-icons";;
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import SwiperCore, {
   A11y,
@@ -171,9 +170,16 @@ const Home = () => {
                   height={20}
                 />
               </div>
-              <p>Name: Naavigo</p>
-              <p>Position: Web Designer</p>
-              <p>Time Period: July to October 2021</p>
+              <div>
+                <strong>Name:</strong> Web Desire
+              </div>
+              <div>
+                <strong>Position:</strong> Web Designer, Web developer and App
+                Developer
+              </div>
+              <div>
+                <strong>Time Period:</strong> May 2021 to present
+              </div>
             </div>
           </SwiperSlide>
         </Swiper>
@@ -186,8 +192,8 @@ const Home = () => {
               <ul>
                 {Skills.map((skills, i) => (
                   <Fade
-                    right={skills.id % 2 === 0 ? true : false}
-                    left={skills.id % 2 === 0 ? false : true}
+                    right={i % 2 === 0 ? false : true}
+                    left={i % 2 === 0 ? true : false}
                     key={i}
                   >
                     <li>
@@ -271,21 +277,18 @@ const Home = () => {
               className="social-icon"
               bgColor="#fff"
               url="https://github.com/Suryanshpsurya"
-              style={{ width: "3.5rem", height: "3.5rem" }}
             />
 
             <SocialIcon
               className="social-icon"
               bgColor="#fff"
               url="https://codepen.io/SuryanshPallavi"
-              style={{ width: "3.5rem", height: "3.5rem" }}
             />
 
             <SocialIcon
               className="social-icon"
               bgColor="#fff"
               url="https://www.linkedin.com/in/suryanshpandeyy"
-              style={{ width: "3.5rem", height: "3.5rem" }}
             />
           </Zoom>
         </div>

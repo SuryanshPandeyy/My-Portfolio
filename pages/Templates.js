@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Heads from "./Head";
+import Heads from "/public/components/Head";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Business from "/public/json/Templates/Business";
@@ -10,32 +10,30 @@ import TemplateBox from "/public/components/TemplateBox";
 
 const nTemplate = (val, key) => {
   return (
-    <>
-      <div className="cardPackage" key={key}>
-        <TemplateBox
-          type={val.type}
-          url={val.url}
-          id={val.id}
-          price={val.price}
-          title={val.title}
-          desc={val.desc}
-          image={val.image}
-          price1={val.price1}
-          price2={val.price2}
-          price3={val.price3}
-          price4={val.price4}
-          price5={val.price5}
-          price6={val.price6}
-        />
-      </div>
-    </>
+    <div className="cardPackage" key={key}>
+      <TemplateBox
+        type={val.type}
+        url={val.url}
+        id={val.id}
+        price={val.price}
+        title={val.title}
+        desc={val.desc}
+        image={val.image}
+        price1={val.price1}
+        price2={val.price2}
+        price3={val.price3}
+        price4={val.price4}
+        price5={val.price5}
+        price6={val.price6}
+      />
+    </div>
   );
 };
 
 const Templates = () => {
-  const [show, setShow] = useState(false);
+  const show = false;
   return (
-    <>
+    <React.Fragment>
       <Heads title="Suryansh Pandey - HireSupa: Templates" />
       <div className="suryansh_portfolio" id="body">
         {show ? (
@@ -73,14 +71,12 @@ const Templates = () => {
             </div>
           </div>
         ) : (
-          <>
-            <div className="comming">
-              <p>Comming Soon</p>
-            </div>
-          </>
+          <div className="comming">
+            <p>Comming Soon</p>
+          </div>
         )}
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

@@ -14,16 +14,16 @@ import "swiper/components/effect-cube/effect-cube.min.css";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 
-import Layout from "./Layout";
+import Layout from "/public/components/Layout";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <>
+    
       <SessionProvider  session={pageProps.session}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
       </SessionProvider>
-    </>
+  
   );
 }
 
