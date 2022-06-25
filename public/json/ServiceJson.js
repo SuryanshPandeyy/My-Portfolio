@@ -2,7 +2,7 @@ const ServiceJson = [
   {
     id: 1,
     title: "Standard",
-    price: 800,
+    price: 500,
     languages: {
       frontend: ["HTML", "CSS", "JavaScript"],
       backend: ["Php", "MySQL"],
@@ -27,7 +27,7 @@ const ServiceJson = [
   {
     id: 2,
     title: "Premium",
-    price: 1500,
+    price: 800,
     languages: {
       frontend: ["ReactJS"],
       backend: ["NodeJS", "MongoDB"],
@@ -54,7 +54,7 @@ const ServiceJson = [
   {
     id: 3,
     title: "Pro",
-    price: 2000,
+    price: 1200,
     languages: {
       frontend: ["NextJS"],
       backend: ["NodeJS", "MongoDB"],
@@ -81,7 +81,7 @@ const ServiceJson = [
   {
     id: 4,
     title: "App",
-    price: 2500,
+    price: 1800,
     languages: {
       frontend: ["React Native"],
       backend: ["NodeJS", "MongoDB"],

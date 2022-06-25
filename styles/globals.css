@@ -646,17 +646,17 @@ h3 {
   background-clip: text
 }
 .packageCard {
-  background: #fff;
-  box-shadow: .4rem .1rem 1rem .1rem rgba(157,157,157,.124);
+  /* background: #fff; */
+  /* box-shadow: .4rem .1rem 1rem .1rem rgba(157,157,157,.124); */
   display: flex;
   flex-direction: column;
   height: fit-content;
   justify-content: center;
   min-height: 20rem;
-  min-width: 30rem;
+  /* min-width: 30rem; */
   position: relative;
   text-align: center;
-  width: 100%
+  width: 100%;
 }
 .packageCard .CardImg {
   align-items: center;
@@ -771,7 +771,7 @@ h3 {
   font-size: 1.2rem;
   cursor: pointer;
   padding: .5rem 1rem;
-  margin-top: 2rem
+  margin-top: 3rem
 }
 .resume_btn:hover {
   background-color: #13aa52;
@@ -1519,9 +1519,6 @@ h3 {
   }
   .inside {
     top: 0
-  }
-  .download_resume_btn {
-    margin: 3rem 0
   }
 }
 @media only screen and (max-width:798px) {

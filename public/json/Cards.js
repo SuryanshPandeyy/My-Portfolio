@@ -1,36 +1,57 @@
-import demo1 from "../images/projects/demo1.png";
+import mgtechnical from "../images/projects/mgtechnical.png";
+import mod from "../images/projects/mod.png";
+import telonestay from "../images/projects/telonestay.jpg";
+import tensmiles from "../images/projects/tensmiles.jpg";
+import ojasvadApp from "../images/projects/ojasvad.jpg";
 import EcommerceDemo2 from "../images/projects/ecomDemo2.png";
 import rocket from "../images/projects/rocket.png";
 import notes from "../images/projects/notes.png";
 import form1 from "../images/projects/form1.png";
-import win11 from "../images/projects/win11.png";
 import ojasvad from "../images/projects/ojasvad.png";
 
 const ClientsProjects = [
   {
     id: 1,
-    title: "Tensmilesfoundation app",
-    link: "",
-    image: demo1,
+    title: "MgTechnicals",
+    link: "https://www.mgtechnicals.in/",
+    image: mgtechnical,
   },
   {
     id: 2,
-    title: "TelOneStay app",
-    link: "",
-    image: demo1,
+    title: "Money On Dream Business Site",
+    link: "https://www.mgtechnicals.in/client/mod/",
+    image: mod,
   },
   {
     id: 3,
-    title: "Ojasvad",
-    link: "ojasvad.com",
-    image: ojasvad,
+    title: "TelOneStay app",
+    link: "/images/projects/telonestay.jpg",
+    image: telonestay,
   },
   {
     id: 4,
-    title: "Suryansh Pallavi Blog",
-    link: "http://suryanshpallavi.com/",
-    image: demo1,
+    title: "Ojasvad app",
+    link: "/images/projects/ojasvad.jpg",
+    image: ojasvadApp,
   },
+  {
+    id: 5,
+    title: "TensmilesFoundation app",
+    link: "/images/projects/tensmiles.jpg",
+    image: tensmiles,
+  },
+  {
+    id: 6,
+    title: "Ojasvad",
+    link: "https://ojasvad.com/",
+    image: ojasvad,
+  },
+  // {
+  //   id: 4,
+  //   title: "Suryansh Pallavi Blog",
+  //   link: "http://suryanshpallavi.com/",
+  //   image: form1,
+  // },
 ];
 
 const PersonalProjects = [
@@ -38,7 +59,7 @@ const PersonalProjects = [
     id: 1,
     title: "Demo Project",
     link: "https://suryanshpsurya.github.io/project3/",
-    image: demo1,
+    image: form1,
   },
   {
     id: 2,
