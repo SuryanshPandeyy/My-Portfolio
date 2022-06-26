@@ -75,13 +75,13 @@ const Home = () => {
                     I&apos;m a
                     <div className="slider">
                       <div className="slider-text1">
-                        Full-Stack Web Developer (NextJs, React, Node etc)
+                        Full-Stack Web & App Developer
                       </div>
                       <div className="slider-text2">
-                        Full-Stack App Developer (React Native)
+                        MERN Stack Developer
                       </div>
                       <div className="slider-text3">
-                        Web and UI Designer (CSS, Figma, etc)
+                        Web and UI Designer
                       </div>
                     </div>
                   </div>

@@ -24,31 +24,31 @@
   font-size: 1.5rem;
   margin: 0;
   padding: 0;
-  font-family: Mukta,sans-serif
+  font-family: Mukta, sans-serif;
 }
 ::-webkit-scrollbar {
-  width: 2rem
+  width: 2rem;
 }
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 .6rem rgba(255,255,255,.4);
-  -webkit-box-shadow: inset 0 0 .6rem rgba(255,255,255,.4);
-  border-radius: 10px
+  box-shadow: inset 0 0 0.6rem rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: inset 0 0 0.6rem rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 .6rem rgba(255,255,255,.5);
+  box-shadow: inset 0 0 0.6rem rgba(255, 255, 255, 0.5);
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 .6rem rgba(255,255,255,.5);
-  background: linear-gradient(135deg,#a4a4a4,#bcbcbc)
+  -webkit-box-shadow: inset 0 0 0.6rem rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, #a4a4a4, #bcbcbc);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg,silver,grey)
+  background: linear-gradient(135deg, silver, grey);
 }
 a {
-  text-decoration: none
+  text-decoration: none;
 }
 html {
   font-size: 62.5%;
-  height: 100%
+  height: 100%;
 }
 body {
   background-color: #3d3d3d;
@@ -57,7 +57,7 @@ body {
   user-select: none;
   user-zoom: none;
   webkit-user-drag: none;
-  webkit-user-zoom: none
+  webkit-user-zoom: none;
 }
 a,
 button,
@@ -67,25 +67,25 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Titillium,sans-serif!important
+  font-family: Titillium, sans-serif !important;
 }
 button.google,
 button.google:hover {
-  background: #f6e7ca
+  background: #f6e7ca;
 }
 h3 {
   font-size: 2.7rem;
   color: #fff;
-  text-align: center
+  text-align: center;
 }
 .bioDesc p {
-  font-weight: 400
+  font-weight: 400;
 }
 .blocker {
-  background-color: rgba(0,0,0,.7);
+  background-color: rgba(0, 0, 0, 0.7);
   inset: 0;
   position: fixed;
-  z-index: 1199
+  z-index: 1199;
 }
 .bioExtra {
   display: flex;
@@ -93,7 +93,7 @@ h3 {
   align-items: center;
   justify-content: center;
   margin: 0 4rem;
-  width: 50%
+  width: 50%;
 }
 .bioDetails {
   align-items: center;
@@ -101,7 +101,7 @@ h3 {
   display: flex;
   justify-content: center;
   padding: 5rem 0;
-  background: #000
+  background: #000;
 }
 .box {
   display: flex;
@@ -109,37 +109,37 @@ h3 {
   flex-direction: column;
   justify-content: center;
   margin: 2rem 0;
-  width: 100%
+  width: 100%;
 }
 .containerToggle {
-  text-align: center
+  text-align: center;
 }
 .containerToggle .switchName {
-  color: #fff
+  color: #fff;
 }
 .containerToggle .toggle-switch {
   position: relative;
   width: 6rem;
   display: inline-block;
   text-align: left;
-  top: .8rem;
-  margin: 0 1rem
+  top: 0.8rem;
+  margin: 0 1rem;
 }
 .containerToggle .checkbox {
-  display: none
+  display: none;
 }
 .containerToggle .label {
   display: block;
   overflow: hidden;
   cursor: pointer;
   border: 0 solid #bbb;
-  border-radius: 2rem
+  border-radius: 2rem;
 }
 .containerToggle .inner {
   display: block;
   width: 200%;
   margin-left: -100%;
-  transition: margin .1s ease-in 0s
+  transition: margin 0.1s ease-in 0s;
 }
 .containerToggle .inner:after,
 .containerToggle .inner:before {
@@ -150,25 +150,25 @@ h3 {
   line-height: 3.6rem;
   color: #fff;
   font-weight: 700;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 .containerToggle .inner:before {
   content: "";
   padding-left: 1rem;
   background-color: #4169e1;
-  color: #fff
+  color: #fff;
 }
 .containerToggle .inner:after {
   content: "";
   padding-right: 1rem;
   background-color: #bbb;
   color: #fff;
-  text-align: right
+  text-align: right;
 }
 .containerToggle .switch {
   display: block;
   width: 2rem;
-  margin: .5rem;
+  margin: 0.5rem;
   background: #fff;
   position: absolute;
   top: 0;
@@ -176,31 +176,31 @@ h3 {
   right: 3rem;
   border: 0 solid #bbb;
   border-radius: 2rem;
-  transition: all .1s ease-in 0s
+  transition: all 0.1s ease-in 0s;
 }
 .containerToggle .checkbox:checked + .label .inner {
-  margin-left: 0
+  margin-left: 0;
 }
 .containerToggle .checkbox:checked + .label .switch {
-  right: 0
+  right: 0;
 }
 .certificatesBox {
   background: #fff;
-  border: .3rem solid #000;
+  border: 0.3rem solid #000;
   border-radius: 2rem;
   inset: 5rem;
   overflow: auto;
   padding: 2rem 2rem 10rem 2rem;
   position: fixed;
   z-index: 1200;
-  top: 10rem
+  top: 10rem;
 }
 .closeBtn {
-  background-color: rgba(255,255,255,0);
+  background-color: rgba(255, 255, 255, 0);
   left: 7rem;
   margin: 1rem 0;
   position: fixed;
-  bottom: 5rem
+  bottom: 5rem;
 }
 .closeBtn button {
   background: #4169e1;
@@ -208,7 +208,7 @@ h3 {
   color: #fff;
   cursor: pointer;
   outline: 0;
-  padding: 1rem 2rem
+  padding: 1rem 2rem;
 }
 .certificatesTab {
   align-items: center;
@@ -216,38 +216,38 @@ h3 {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  padding: 3rem 0
+  padding: 3rem 0;
 }
 .certificatesTab .Image {
-  cursor: pointer
+  cursor: pointer;
 }
 .certificateTitle p {
   color: #fff;
   font-size: 3.5rem;
-  letter-spacing: .3rem;
+  letter-spacing: 0.3rem;
   margin-bottom: 2rem;
-  text-align: center
+  text-align: center;
 }
 .certificates {
   display: grid;
   grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fill,minmax(55rem,1fr));
+  grid-template-columns: repeat(auto-fill, minmax(55rem, 1fr));
   place-content: center;
   place-items: center;
-  width: 100%
+  width: 100%;
 }
 .certificateImg {
-  border: .14rem solid #000;
+  border: 0.14rem solid #000;
   display: flex;
   justify-content: center;
   max-width: 70vw;
   width: 45rem;
   height: 20rem;
-  flex-direction: row
+  flex-direction: row;
 }
 .certificateImage {
   height: 20rem;
-  width: 20rem
+  width: 20rem;
 }
 .circles {
   align-items: center;
@@ -256,7 +256,7 @@ h3 {
   justify-content: center;
   position: fixed;
   width: 100%;
-  z-index: 2000
+  z-index: 2000;
 }
 .circles ul {
   color: #fff;
@@ -264,11 +264,11 @@ h3 {
   align-items: center;
   justify-content: space-evenly;
   list-style-type: none;
-  width: 100%
+  width: 100%;
 }
 .circles ul a {
   width: 100%;
-  font-size: 5.5rem
+  font-size: 5.5rem;
 }
 .circles ul li {
   display: flex;
@@ -280,18 +280,18 @@ h3 {
   height: 5rem;
   margin: 1.5rem 0;
   position: relative;
-  transition: all .2s linear;
-  width: 100%
+  transition: all 0.2s linear;
+  width: 100%;
 }
 .circles ul li h4 {
-  font-size: clamp(.5rem, 3vw, 1.5rem);
-  font-family: Mukta,sans-serif!important
+  font-size: clamp(0.5rem, 3vw, 1.5rem);
+  font-family: Mukta, sans-serif !important;
 }
 .circles .active {
-  color: #fff
+  color: #fff;
 }
 .circles ul li .icon {
-  font-size: 2.5rem
+  font-size: 2.5rem;
 }
 .cartWidth {
   height: 15rem;
@@ -300,28 +300,28 @@ h3 {
   width: 70rem;
   display: flex;
   align-items: center;
-  justify-content: space-around
+  justify-content: space-around;
 }
 .client {
-  margin-top: 4rem
+  margin-top: 4rem;
 }
 .client input {
   background-color: transparent;
   border: none;
-  border-bottom: .2rem solid #fff;
+  border-bottom: 0.2rem solid #fff;
   color: #fff;
   margin: 1rem 0;
   max-width: 70vw;
   padding: 1rem;
   resize: vertical;
-  width: 20rem
+  width: 20rem;
 }
 .client .buttonOtp {
   color: #fff;
   background: #c94b4b;
-  background: -webkit-linear-gradient(to right,#4b134f,#c94b4b);
-  background: linear-gradient(to right,#4b134f,#c94b4b);
-  font-size: 1.3rem
+  background: -webkit-linear-gradient(to right, #4b134f, #c94b4b);
+  background: linear-gradient(to right, #4b134f, #c94b4b);
+  font-size: 1.3rem;
 }
 .comming {
   width: 100%;
@@ -329,20 +329,20 @@ h3 {
   color: #fff;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 .comming p {
-  font-size: 3rem
+  font-size: 3rem;
 }
 .contactSignOut {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 .certificatesBox {
   margin-bottom: 10rem;
-  margin-top: 0
+  margin-top: 0;
 }
 .certificateDetails {
   align-items: space-around;
@@ -350,23 +350,23 @@ h3 {
   flex-direction: column;
   max-width: 90vw;
   word-wrap: break-word;
-  margin: 2rem
+  margin: 2rem;
 }
 .certificateDetails div {
-  font-size: 1.5rem
+  font-size: 1.5rem;
 }
 .certificateBio div {
   font-size: 1.6rem;
   font-weight: 600;
-  letter-spacing: .078rem;
-  width: 20rem
+  letter-spacing: 0.078rem;
+  width: 20rem;
 }
 .certificatesBox .closeBtn {
   bottom: 15rem;
   background-color: #4169e1;
   color: #fff;
   padding: 1rem 2rem;
-  font-size: 1.3rem
+  font-size: 1.3rem;
 }
 .flex_row {
   align-items: center;
@@ -375,7 +375,7 @@ h3 {
   width: 100%;
   height: 100%;
   text-overflow: ellipsis;
-  position: relative
+  position: relative;
 }
 .form {
   align-items: center;
@@ -384,33 +384,33 @@ h3 {
   flex-direction: column;
   margin: 1rem 0;
   place-content: center;
-  width: 100%
+  width: 100%;
 }
 .form form {
   display: flex;
   flex-direction: column;
   width: 70vw;
-  max-width: 55rem
+  max-width: 55rem;
 }
 .form form label {
   align-self: flex-start;
-  margin-top: 1rem
+  margin-top: 1rem;
 }
-.form input:not([type=submit]),
+.form input:not([type="submit"]),
 .form textarea {
   background-color: transparent;
   border: none;
-  border-bottom: .2rem solid #fff;
+  border-bottom: 0.2rem solid #fff;
   color: #fff;
   margin: 1rem 0;
   max-width: 80vw;
   padding: 1rem;
   resize: vertical;
-  width: 100%
+  width: 100%;
 }
 .form .verify {
   background-color: #4169e1;
-  color: #fff
+  color: #fff;
 }
 .form button.form-control {
   border: none;
@@ -419,7 +419,7 @@ h3 {
   margin-top: 2rem;
   padding: 1rem;
   width: 12rem;
-  color: #fff
+  color: #fff;
 }
 .form button.form-disabled {
   border: none;
@@ -429,7 +429,7 @@ h3 {
   padding: 1rem;
   width: 12rem;
   background: #909090;
-  color: #fff
+  color: #fff;
 }
 .fixed {
   display: flex;
@@ -437,14 +437,14 @@ h3 {
   width: 100%;
   justify-content: center;
   align-items: center;
-  text-align: center
+  text-align: center;
 }
 .faqs {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  width: 100%
+  width: 100%;
 }
 .faqsBox {
   display: flex;
@@ -456,19 +456,19 @@ h3 {
   color: #fff;
   background-color: #000;
   margin: 1rem 0;
-  position: relative
+  position: relative;
 }
 .flexColumnCenter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 .faqQuest {
   color: #ffd000;
   display: flex;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
 }
 .footer {
   position: absolute;
@@ -480,63 +480,63 @@ h3 {
   justify-content: center;
   padding: 4rem 0;
   flex-direction: column;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 .footer .hiresupa {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center
+  text-align: center;
 }
 .footer div {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center
+  text-align: center;
 }
 .footer .hiresupa {
-  padding: 2rem 0
+  padding: 2rem 0;
 }
 .fancyArrow {
   position: relative;
-  display: inline-block
+  display: inline-block;
 }
 .googleIcon {
-  font-size: 2rem
+  font-size: 2rem;
 }
 .hiresupa {
   font-size: 2rem;
   font-weight: 400;
   color: #919191;
-  font-family: Iceland,cursive
+  font-family: Iceland, cursive;
 }
 .headerIcon {
-  font-size: 3rem
+  font-size: 3rem;
 }
 .hireLinks {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 4rem
+  margin-top: 4rem;
 }
 .hireLinks ul {
   list-style: none;
-  display: flex
+  display: flex;
 }
 .hireLinks ul li {
-  margin: 0 1rem
+  margin: 0 1rem;
 }
 .hireLinksIcon {
   color: #fff;
   font-size: 3rem;
-  margin-top: 2rem
+  margin-top: 2rem;
 }
 .image {
   -ms-user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none
+  user-select: none;
 }
 .loadCssRotate {
   border: none;
@@ -546,40 +546,40 @@ h3 {
   color: #fff;
   font-size: 2rem;
   margin-right: 1rem;
-  cursor: pointer
+  cursor: pointer;
 }
 .langIcon,
 .profIcon {
   color: #000;
   font-size: 2.5rem;
-  cursor: pointer
+  cursor: pointer;
 }
 .langIcon:hover,
 .profIcon:hover {
-  color: #4169e1
+  color: #4169e1;
 }
 .menuBox {
   position: fixed;
   z-index: 20000;
   bottom: 9rem;
-  right: 3rem
+  right: 3rem;
 }
 .menu_settings_container button {
   border: none;
   outline: 0;
-  background-color: transparent
+  background-color: transparent;
 }
 .menus {
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 .menus ul {
   list-style: none;
   margin-bottom: 1rem;
   background: #fff;
   width: 4rem;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -587,46 +587,46 @@ h3 {
   border-radius: 2rem;
   border-bottom-right-radius: 0;
   position: relative;
-  right: 2rem
+  right: 2rem;
 }
 .menus ul li {
-  margin: 1rem
+  margin: 1rem;
 }
 .optionCart {
-  justify-self: flex-end
+  justify-self: flex-end;
 }
 .optionCart button {
   background-color: #ff3d3d;
-  padding: .7rem 1.7rem;
+  padding: 0.7rem 1.7rem;
   border: none;
   outline: 0;
   color: #fff;
-  cursor: pointer
+  cursor: pointer;
 }
 .otpForm {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.924);
+  background: rgba(0, 0, 0, 0.924);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 200
+  z-index: 200;
 }
 .otpFrame1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column
+  flex-direction: column;
 }
 .otpFrame1 input {
   padding: 1rem 2rem;
   width: 20rem;
-  max-width: 80vw
+  max-width: 80vw;
 }
 .otpFrame1 button {
   font-size: 1.3rem;
   color: #fff;
-  margin: 1rem
+  margin: 1rem;
 }
 .portfolio_header,
 .skillTitle {
@@ -634,16 +634,16 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%
+  width: 100%;
 }
 .portfolio_header p {
-  font-family: 'Titillium Web',sans-serif;
+  font-family: "Titillium Web", sans-serif;
   font-size: 4rem;
   font-weight: bolder;
-  background: linear-gradient(#9aff9a,#69daff);
+  background: linear-gradient(#9aff9a, #69daff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text
+  background-clip: text;
 }
 .packageCard {
   /* background: #fff; */
@@ -662,26 +662,26 @@ h3 {
   align-items: center;
   display: flex;
   justify-content: center;
-  width: 100%
+  width: 100%;
 }
 .packageCard .Cardtitle {
   color: #fff;
   font-size: 2rem;
-  padding: 1rem 0 1rem 0
+  padding: 1rem 0 1rem 0;
 }
 .packageCard .Carddetails {
   display: none;
-  position: absolute
+  position: absolute;
 }
 .packageCard:hover .packageBlocker {
-  background: linear-gradient(to bottom,grey 10%,#000 90%);
+  background: linear-gradient(to bottom, grey 10%, #000 90%);
   content: "";
   inset: 0;
-  opacity: .8;
-  position: absolute
+  opacity: 0.8;
+  position: absolute;
 }
 .packageCard:hover .CardImg {
-  opacity: .3
+  opacity: 0.3;
 }
 .packageCard:hover .Carddetails {
   align-items: center;
@@ -690,22 +690,22 @@ h3 {
   justify-content: center;
   opacity: 1;
   text-align: center;
-  width: 100%
+  width: 100%;
 }
 .packageCard .view {
   margin: 2rem 0;
-  width: 100%
+  width: 100%;
 }
 .packageCard .view a {
   background-color: #3b64dd;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   color: #fff;
   padding: 1rem 2rem;
   text-decoration: none;
-  width: 10rem
+  width: 10rem;
 }
 .packageCard .view a:hover {
-  background-color: #2357f5
+  background-color: #2357f5;
 }
 .packageCard .Carddetails .view button {
   background-color: #4169e1;
@@ -714,77 +714,77 @@ h3 {
   cursor: pointer;
   margin: 1rem 0;
   outline: 0;
-  padding: 1rem 2rem
+  padding: 1rem 2rem;
 }
 .packageCard .Carddetails .view button:hover {
-  filter: contrast(2)
+  filter: contrast(2);
 }
 .project {
   display: -ms-grid;
   display: grid;
   grid-auto-flow: dense;
   grid-gap: 2rem;
-  -ms-grid-column: repeat(auto-fill,minmax(30rem,1fr));
-  grid-template-columns: repeat(auto-fill,minmax(30rem,1fr));
+  -ms-grid-column: repeat(auto-fill, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
   padding: 0 2rem;
-  place-content: center
+  place-content: center;
 }
 .projectBtn {
   align-items: center;
   display: flex;
   height: 5rem;
-  width: 100%
+  width: 100%;
 }
 .projectBtn a {
   background-color: #4169e1;
   color: #fff;
   margin: 0 1rem;
   padding: 1rem 2rem;
-  text-decoration: none
+  text-decoration: none;
 }
 .prevNext {
   margin-top: 1rem;
   padding: 0 2rem;
   position: relative;
-  height: 1.5rem
+  height: 1.5rem;
 }
 .prevNext a {
-  text-decoration: none
+  text-decoration: none;
 }
 .prevNext button {
   background: #a73737;
-  background: -webkit-linear-gradient(to right,#7a2828,#a73737);
-  background: linear-gradient(to right,#7a2828,#a73737);
+  background: -webkit-linear-gradient(to right, #7a2828, #a73737);
+  background: linear-gradient(to right, #7a2828, #a73737);
   color: #fff;
-  font-size: 1.2rem
+  font-size: 1.2rem;
 }
 .prevNext div.prev {
-  float: left
+  float: left;
 }
 .prevNext div.next {
-  float: right
+  float: right;
 }
 .resume_btn {
   background-color: #13aa52;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   color: #fff;
   font-size: 1.2rem;
   cursor: pointer;
-  padding: .5rem 1rem;
-  margin-top: 3rem
+  padding: 0.5rem 1rem;
+  margin-top: 3rem;
 }
 .resume_btn:hover {
   background-color: #13aa52;
-  color: #fff
+  color: #fff;
 }
 .react-tabs .tablist {
-  border-bottom: .1rem solid #fff;
+  border-bottom: 0.1rem solid #fff;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-bottom: 3rem;
-  overflow: hidden
+  overflow: hidden;
 }
 .react-tabs__tab {
   color: #fff;
@@ -793,12 +793,12 @@ h3 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-width: 10rem
+  min-width: 10rem;
 }
 .react-tabs__tab--selected {
   color: #000;
-  border: .5rem solid #8e6565;
-  border-radius: 0
+  border: 0.5rem solid #8e6565;
+  border-radius: 0;
 }
 .refresh {
   border: none;
@@ -807,98 +807,98 @@ h3 {
   color: #fff;
   font-size: 2rem;
   margin-right: 1rem;
-  cursor: pointer
+  cursor: pointer;
 }
 .switchhide {
   overflow: hidden;
-  height: 5.5rem
+  height: 5.5rem;
 }
 .switchshow {
-  height: 100%
+  height: 100%;
 }
 .switchAnshide {
-  display: none
+  display: none;
 }
 .switchAnsshow {
   word-wrap: break-word;
   width: 100%;
   margin-top: 2rem;
-  color: #c5c5c5
+  color: #c5c5c5;
 }
 .skillTitle p {
-  font-size: 4rem
+  font-size: 4rem;
 }
 .show_btn {
   display: flex;
   align-items: center;
-  justify-content: flex-end
+  justify-content: flex-end;
 }
 .show_btn button {
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-  padding: .4rem 1rem;
+  padding: 0.4rem 1rem;
   background-color: transparent;
   color: #ff0;
-  cursor: pointer
+  cursor: pointer;
 }
 .show_btn button span {
-  margin: 0 .3rem
+  margin: 0 0.3rem;
 }
 .slider-wrapper {
   align-items: center;
   color: #aaa;
   display: flex;
   font-weight: 700;
-  justify-content: center
+  justify-content: center;
 }
 .slider-wrapper * {
-  font-size: 1.2rem
+  font-size: 1.2rem;
 }
 .slider {
   height: 5rem;
   overflow-y: hidden;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 .slider .slider-text1 {
-  animation: slide 7s linear infinite;
-  color: #d8ade6
+  animation: slide 10s linear infinite;
+  color: #d8ade6;
 }
 .slider .slider-text2 {
-  color: #ffc685
+  color: #ffc685;
 }
 .slider .slider-text3 {
-  color: #f6ff00
+  color: #f6ff00;
 }
 .slider div {
   box-sizing: border-box;
   height: 5rem;
   margin-bottom: 5rem;
-  padding: 1.6rem .4rem;
-  text-align: start
+  padding: 1.6rem 0.4rem;
+  text-align: start;
 }
 @keyframes slide {
   0% {
-    margin-top: -300px
+    margin-top: -300px;
   }
   5% {
-    margin-top: -200px
+    margin-top: -200px;
   }
   33% {
-    margin-top: -200px
+    margin-top: -200px;
   }
   38% {
-    margin-top: -100px
+    margin-top: -100px;
   }
   66% {
-    margin-top: -100px
+    margin-top: -100px;
   }
   71% {
-    margin-top: 0
+    margin-top: 0;
   }
   100% {
-    margin-top: 0
+    margin-top: 0;
   }
 }
 .skillsCenter {
@@ -911,7 +911,7 @@ h3 {
   position: relative;
   text-align: center;
   text-transform: capitalize;
-  width: 100%
+  width: 100%;
 }
 .skillsTab {
   position: relative;
@@ -923,48 +923,48 @@ h3 {
   overflow: hidden;
 }
 .skillsTab::after {
-  content: '';
+  content: "";
   position: absolute;
-  width: .2rem;
+  width: 0.2rem;
   background-color: #fff;
   top: 0;
-  bottom: 0
+  bottom: 0;
 }
 .skillsTab ul {
   list-style: none;
 }
 .skillsTab ul li {
   position: relative;
-  background: linear-gradient(to bottom,#a6a6a6,#4f4f4f);
+  background: linear-gradient(to bottom, #a6a6a6, #4f4f4f);
   display: flex;
   align-items: center;
   height: 2rem;
   overflow: hidden;
   width: 20rem;
   max-width: 90%;
-  padding: .3rem 0;
+  padding: 0.3rem 0;
 }
 .skillsTab ul li:nth-child(odd) {
-  left: -10rem
+  left: -10rem;
 }
 .skillsTab ul li:nth-child(even) {
-  left: 12rem
+  left: 12rem;
 }
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   .skillsTab ul li::before {
     left: 6rem;
     border: medium solid #fff;
     border-width: 1rem 1rem 1rem 0;
-    border-color: transparent #fff transparent transparent
+    border-color: transparent #fff transparent transparent;
   }
 }
 .skillsTab li:nth-child(even) {
   border-top-right-radius: 5rem;
-  border-bottom-right-radius: 5rem
+  border-bottom-right-radius: 5rem;
 }
 .skillsTab li:nth-child(odd) {
   border-top-left-radius: 5rem;
-  border-bottom-left-radius: 5rem
+  border-bottom-left-radius: 5rem;
 }
 .skillsTab li:nth-child(even) .tubeValue {
   display: flex;
@@ -976,7 +976,7 @@ h3 {
   bottom: 0;
   height: 100%;
   position: absolute;
-  width: 70%
+  width: 70%;
 }
 .skillsTab li:nth-child(odd) .tubeValue {
   animation: animate 1s ease-in-out forwards;
@@ -987,7 +987,7 @@ h3 {
   height: 100%;
   right: 0;
   position: absolute;
-  width: 70%
+  width: 70%;
 }
 .skillsTab ul li .title {
   filter: contrast(100%) brightness(100%);
@@ -999,49 +999,49 @@ h3 {
 }
 .skillsTab ul li:nth-child(even) .title {
   text-align: left;
-  margin-left: 1rem
+  margin-left: 1rem;
 }
 .skillsTab ul li:nth-child(odd) .title {
   text-align: right;
-  margin-right: 1rem
+  margin-right: 1rem;
 }
 @keyframes animate {
   from {
-    width: 0
+    width: 0;
   }
 }
-.skillsTab ul li:nth-child(3n+1) .tubeValue {
-  background: linear-gradient(45deg,#1fe6ff,#673ab7);
+.skillsTab ul li:nth-child(3n + 1) .tubeValue {
+  background: linear-gradient(45deg, #1fe6ff, #673ab7);
   color: #000;
-  filter: brightness(110%) contrast(110%)
+  filter: brightness(110%) contrast(110%);
 }
-.skillsTab ul li:nth-child(3n+2) .tubeValue {
-  background: linear-gradient(45deg,#3bc0ff,#3f0);
+.skillsTab ul li:nth-child(3n + 2) .tubeValue {
+  background: linear-gradient(45deg, #3bc0ff, #3f0);
   color: #000;
-  filter: brightness(110%) contrast(110%)
+  filter: brightness(110%) contrast(110%);
 }
-.skillsTab ul li:nth-child(3n+3) .tubeValue{
-  background: linear-gradient(45deg,#ffee54,#ff00ca);
+.skillsTab ul li:nth-child(3n + 3) .tubeValue {
+  background: linear-gradient(45deg, #ffee54, #ff00ca);
   color: #000;
-  filter: brightness(110%) contrast(110%)
+  filter: brightness(110%) contrast(110%);
 }
 .skillsTab ul hr {
-  background: #fff
+  background: #fff;
 }
 .social {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3rem
+  margin: 3rem;
 }
 .social-icon {
-  margin: 0 1rem
+  margin: 0 1rem;
 }
 .select {
   width: 100%;
   margin: 1rem 0;
   padding: 1rem;
-  border: none
+  border: none;
 }
 .successComment {
   z-index: 3000;
@@ -1051,31 +1051,31 @@ h3 {
   align-items: center;
   justify-content: center;
   width: 100%;
-  transition: all .2s linear
+  transition: all 0.2s linear;
 }
 .successComment div {
   width: 100%;
   width: 100%;
-  padding: .5rem 3rem;
-  font-size: 1.8rem
+  padding: 0.5rem 3rem;
+  font-size: 1.8rem;
 }
 .shape:nth-of-type(1) {
   animation: wave 5s ease-in-out infinite;
-  background: radial-gradient(white 45%,#cdc3c3 100%);
+  background: radial-gradient(white 45%, #cdc3c3 100%);
   height: 25rem;
   opacity: 1;
   position: absolute;
   top: 4rem;
   width: 28rem;
-  z-index: -1
+  z-index: -1;
 }
 @keyframes wave {
   0%,
   100% {
-    border-radius: 60% 64% 67% 63%/67% 61% 69% 63%
+    border-radius: 60% 64% 67% 63%/67% 61% 69% 63%;
   }
   50% {
-    border-radius: 66% 64% 61% 69%/62% 63% 67% 68%
+    border-radius: 66% 64% 61% 69%/62% 63% 67% 68%;
   }
 }
 #shape {
@@ -1083,14 +1083,14 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: all .2s linear
+  transition: all 0.2s linear;
 }
 .swiper-wrapper .swiperSlide2 {
-  width: 35rem
+  width: 35rem;
 }
 .swiper-container {
   width: 100%;
-  height: 100%
+  height: 100%;
 }
 .testimonialBox {
   height: 30rem;
@@ -1099,37 +1099,37 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 @keyframes rotateRefresh {
   to {
-    transform: rotate(360deg)
+    transform: rotate(360deg);
   }
 }
 .subHeading {
   color: #fff;
   font-size: 2rem;
-  font-weight: 400
+  font-weight: 400;
 }
 .settings {
   display: flex;
   align-items: center;
-  justify-content: flex-end
+  justify-content: flex-end;
 }
 .settingIcon {
   color: #fff;
   font-size: 3.5rem;
-  cursor: pointer
+  cursor: pointer;
 }
 .settingIcon:hover {
-  color: #4169e1
+  color: #4169e1;
 }
 .submitformbtn {
   background: #8e2de2;
-  background: -webkit-linear-gradient(to right,#4a00e0,#8e2de2);
-  background: linear-gradient(to right,#4a00e0,#8e2de2);
+  background: -webkit-linear-gradient(to right, #4a00e0, #8e2de2);
+  background: linear-gradient(to right, #4a00e0, #8e2de2);
   font-size: 1.3rem;
-  color: #fff
+  color: #fff;
 }
 .service_container {
   width: 100%;
@@ -1137,128 +1137,129 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 .serviceBox {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 .service_page {
-  color: #fff
+  color: #fff;
 }
 .servicePage_content {
   margin-top: 5rem;
-  padding: 1rem 2rem
+  padding: 1rem 2rem;
 }
 .servicePage_content .heading {
   display: flex;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
 }
 .servicePage_content h1 {
-  font-size: 3rem
+  font-size: 3rem;
 }
 .servicePage_content h3 {
-  font-size: 2.5rem
+  font-size: 2.5rem;
 }
 .servicePage_content h3 span {
   font-size: 2.5rem;
-  font-family: initial
+  font-family: initial;
 }
 .servicePage_content .content {
-  margin-top: 3rem
+  margin-top: 3rem;
 }
 .servicePage_content .content .row {
-  font-size: 2.3rem
+  font-size: 2.3rem;
 }
 .serviceFooter {
-  margin-top: 5rem
+  margin-top: 5rem;
 }
 .servicePage_content ul {
   display: flex;
   flex-direction: column;
-  margin: 1rem 4rem
+  margin: 1rem 4rem;
 }
 .serviceCard {
   min-height: 20rem;
   padding: 2rem 0;
   background-color: #131313;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   text-align: center;
   margin: 1rem 0 4rem 0;
-  box-shadow: .4rem 0 .7rem 0 rgba(58,58,58,.7),0 .1rem .1rem rgba(106,106,106,.7)
+  box-shadow: 0.4rem 0 0.7rem 0 rgba(58, 58, 58, 0.7),
+    0 0.1rem 0.1rem rgba(106, 106, 106, 0.7);
 }
 .swiper-pagination-bullet {
-  background-color: #fff!important
+  background-color: #fff !important;
 }
 .serviceCard h3 {
   color: #e2f024;
   font-size: 3rem;
   font-weight: 400;
-  margin: 1rem 0
+  margin: 1rem 0;
 }
 .serviceCard .price p {
   font-size: 4rem;
-  color: #fff
+  color: #fff;
 }
 .serviceCard ul {
-  list-style: none
+  list-style: none;
 }
 .serviceCard ul {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: start;
-  width: 100%
+  width: 100%;
 }
 .serviceCard ul li {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 80%;
-  border: .1rem solid rgba(205,205,205,.2);
-  margin: .3rem 0;
-  padding: .7rem;
-  border-radius: .4rem;
+  border: 0.1rem solid rgba(205, 205, 205, 0.2);
+  margin: 0.3rem 0;
+  padding: 0.7rem;
+  border-radius: 0.4rem;
   -ms-user-select: none;
   -webkit-user-select: none;
-  user-select: none
+  user-select: none;
 }
 .serviceCard ul li .serviceHeading {
   font-weight: 600;
   font-size: 1.8rem;
-  margin: .2rem 0
+  margin: 0.2rem 0;
 }
 .serviceCard ul li span {
-  color: #fff
+  color: #fff;
 }
 .serviceCard ul li .pageNo {
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 .serviceCard ul li .pageNo .pageButton {
   background-color: transparent;
-  border: .1rem solid;
+  border: 0.1rem solid;
   border-radius: 50%;
-  height: 2.5rem!important;
-  width: 2.5rem!important;
-  padding: 1rem .7rem;
-  margin: 0 .5rem;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  padding: 1rem 0.7rem;
+  margin: 0 0.5rem;
   cursor: pointer;
   font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff
+  color: #fff;
 }
-.serviceCard ul li input[type=checkbox] {
-  display: none
+.serviceCard ul li input[type="checkbox"] {
+  display: none;
 }
 .serviceCard ul li label.checkbox {
   width: 2.9rem;
@@ -1268,59 +1269,59 @@ h3 {
   justify-content: center;
   border-radius: 50%;
   box-sizing: border-box;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
-  background: rgba(138,138,138,.593)
+  background: rgba(138, 138, 138, 0.593);
 }
 .check {
   font-size: 2.6rem;
   color: #15e015;
-  font-weight: 700
+  font-weight: 700;
 }
 .uncheck {
   font-size: 2.6rem;
   color: red;
-  font-weight: 700
+  font-weight: 700;
 }
-.serviceCard ul li #check1:checked ~ label[for=check1],
-.serviceCard ul li #check2:checked ~ label[for=check2],
-.serviceCard ul li #check3:checked ~ label[for=check3] {
+.serviceCard ul li #check1:checked ~ label[for="check1"],
+.serviceCard ul li #check2:checked ~ label[for="check2"],
+.serviceCard ul li #check3:checked ~ label[for="check3"] {
   background-color: transparent;
-  background: #4169e1
+  background: #4169e1;
 }
-.serviceCard ul li label[for=check1] svg,
-.serviceCard ul li label[for=check2] svg,
-.serviceCard ul li label[for=check3] svg {
-  color: #fff
+.serviceCard ul li label[for="check1"] svg,
+.serviceCard ul li label[for="check2"] svg,
+.serviceCard ul li label[for="check3"] svg {
+  color: #fff;
 }
-.serviceCard ul li #check1:checked ~ label[for=check1] svg,
-.serviceCard ul li #check2:checked ~ label[for=check2] svg,
-.serviceCard ul li #check3:checked ~ label[for=check3] svg {
-  display: block
+.serviceCard ul li #check1:checked ~ label[for="check1"] svg,
+.serviceCard ul li #check2:checked ~ label[for="check2"] svg,
+.serviceCard ul li #check3:checked ~ label[for="check3"] svg {
+  display: block;
 }
 .serviceCard ul li div {
   display: flex;
   flex-direction: column;
   align-items: space-between;
-  justify-content: center
+  justify-content: center;
 }
 .serviceBox select {
   display: inline-block;
   height: 4rem;
   width: 20rem;
-  padding: .2rem 1rem .2rem .2rem;
+  padding: 0.2rem 1rem 0.2rem 0.2rem;
   outline: 0;
   color: #74646e;
-  border: .1rem solid #c8bfc4;
-  border-radius: .4rem;
-  box-shadow: inset .1rem .1rem .2rem #ddd8dc;
+  border: 0.1rem solid #c8bfc4;
+  border-radius: 0.4rem;
+  box-shadow: inset 0.1rem 0.1rem 0.2rem #ddd8dc;
   background: #fff;
-  cursor: pointer
+  cursor: pointer;
 }
 .serviceSelect {
   position: relative;
-  margin: 0 2rem
+  margin: 0 2rem;
 }
 .serviceSelect .fancyArrow {
   position: absolute;
@@ -1333,26 +1334,26 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-left: .2rem solid #000
+  border-left: 0.2rem solid #000;
 }
 .serviceSelect .fancyArrow .currIcon {
-  font-size: 2.5rem
+  font-size: 2.5rem;
 }
 .serviceBox select option:hover {
   background-color: #4169e1;
   color: #fff;
   text-overflow: ellipsis;
-  white-space: nowrap
+  white-space: nowrap;
 }
 .serviceFlex {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
-  margin: 1rem 0
+  margin: 1rem 0;
 }
 .signIn {
-  padding: 1rem
+  padding: 1rem;
 }
 .signInContainer {
   margin-top: 2rem;
@@ -1360,124 +1361,124 @@ h3 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #fff
+  color: #fff;
 }
 .templates .cardPackage {
   margin: 2rem 0;
   padding: 0 2rem;
-  height: 100%
+  height: 100%;
 }
 .testimonialInfo {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem
+  margin-top: 2rem;
 }
 .testimonialInfo p {
   background-color: #4d96cd;
   padding: 1rem 2rem;
-  font-size: 2rem
+  font-size: 2rem;
 }
 .templateCard {
   background: #fff;
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 }
 .templateImage {
   width: 30rem;
-  height: 30rem
+  height: 30rem;
 }
 .templateFrame2 {
   height: 10rem;
   background: #000;
-  padding: 1rem
+  padding: 1rem;
 }
 .templateDetails1 {
-  display: none
+  display: none;
 }
 .templateDetails {
   flex-direction: column;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start
+  align-items: flex-start;
 }
 .templateDetailsSet {
-  padding: 2rem
+  padding: 2rem;
 }
 .templateDetailsSet form {
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 }
 .templateDetailsSet .title {
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 400;
   text-transform: capitalize;
-  margin: 1rem 0
+  margin: 1rem 0;
 }
 .templateDetailsSet select {
-  padding: .5rem .2rem;
+  padding: 0.5rem 0.2rem;
   width: 15rem;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
 .templateDetailsSet button {
   background: #0ed92c;
   color: #fff;
   border: none;
   outline: 0;
-  padding: .6rem .2rem;
-  margin: .5rem 0;
+  padding: 0.6rem 0.2rem;
+  margin: 0.5rem 0;
   width: 8rem;
-  cursor: pointer
+  cursor: pointer;
 }
-.templateDetailsSet button[type=submit] {
+.templateDetailsSet button[type="submit"] {
   margin: 0 1rem;
-  background: #4169e1
+  background: #4169e1;
 }
 .templateDetailsSet .price {
   font-weight: 700;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
-  margin: 1rem 0
+  margin: 1rem 0;
 }
 .templateDetailsSet .price span {
   font-size: clamp(1.6rem, 4vw, 2.2rem);
-  font-weight: 400
+  font-weight: 400;
 }
 .templateFrame1 {
   display: flex;
-  width: 100%
+  width: 100%;
 }
 .templateCart {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 0
+  padding: 1rem 0;
 }
 .templateCartDetails {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%
+  height: 100%;
 }
 .templateCart .imageCart {
-  margin: 0 1rem
+  margin: 0 1rem;
 }
 .templateCart .cartDetails {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
-  height: 100%
+  height: 100%;
 }
 .templateCart .titleCart {
   font-size: 3rem;
   text-transform: capitalize;
-  font-weight: 700
+  font-weight: 700;
 }
 .templateCart .priceCart {
   font-size: 2.5rem;
   color: orange;
-  font-weight: 700
+  font-weight: 700;
 }
 .wrap {
   align-items: center;
@@ -1486,99 +1487,99 @@ h3 {
   justify-content: center;
   position: relative;
   width: 100%;
-  z-index: 0
+  z-index: 0;
 }
-@media only screen and (min-width:768px) {
+@media only screen and (min-width: 768px) {
   .suryansh_portfolio {
-    margin: 10rem 0
+    margin: 10rem 0;
   }
 }
-@media only screen and (max-width:768px) {
+@media only screen and (max-width: 768px) {
   .suryansh_portfolio {
-    padding-bottom: 10rem
+    padding-bottom: 10rem;
   }
 }
-@media only screen and (max-width:378px) {
+@media only screen and (max-width: 378px) {
   .bio .bioData h3 {
-    font-size: 2.5rem
+    font-size: 2.5rem;
   }
 }
-@media only screen and (max-width:440px) {
+@media only screen and (max-width: 440px) {
   .bioContent {
-    padding-top: 15rem
+    padding-top: 15rem;
   }
 }
-@media only screen and (max-width:600px) {
+@media only screen and (max-width: 600px) {
   .serviceFlex {
-    flex-direction: column
+    flex-direction: column;
   }
 }
-@media only screen and (min-width:798px) {
+@media only screen and (min-width: 798px) {
   .portfolio_header2 {
-    display: none
+    display: none;
   }
   .inside {
-    top: 0
+    top: 0;
   }
 }
-@media only screen and (max-width:798px) {
+@media only screen and (max-width: 798px) {
   .bioContent > p {
-    margin: 0 0
+    margin: 0 0;
   }
   .templateDetails {
-    display: none
+    display: none;
   }
   .templateDetails1 {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    flex-direction: column
+    flex-direction: column;
   }
   .bio {
-    flex-direction: column
+    flex-direction: column;
   }
   .bio .bioImage {
-    margin-bottom: 2rem
+    margin-bottom: 2rem;
   }
   .bio .bioData {
-    flex-direction: column
+    flex-direction: column;
   }
   .bioDetails {
-    flex-direction: column-reverse
+    flex-direction: column-reverse;
   }
   .bioExtra {
     margin-top: 4rem;
-    width: 80vw
+    width: 80vw;
   }
   .bioContent {
-    width: 80vw
+    width: 80vw;
   }
   .certificatesBox {
-    inset: 4rem
+    inset: 4rem;
   }
   .certificateImg {
     height: 45rem;
-    flex-direction: column
+    flex-direction: column;
   }
   .flex_row {
-    flex-direction: column
+    flex-direction: column;
   }
   .inside {
-    bottom: 0
+    bottom: 0;
   }
   .templates .cardPackage {
-    grid-template-columns: repeat(1,1fr)
+    grid-template-columns: repeat(1, 1fr);
   }
   .templateImage {
     width: 100%;
     height: 30rem;
-    object-fit: contain
+    object-fit: contain;
   }
   .templateFrame1 {
-    flex-direction: column
+    flex-direction: column;
   }
   .footer {
     position: relative;
-    bottom: 7rem
+    bottom: 7rem;
   }
 }
