@@ -282,13 +282,7 @@ const Home = () => {
             <SocialIcon
               className="social-icon"
               bgColor="#fff"
-              url="https://codepen.io/SuryanshPallavi"
-            />
-
-            <SocialIcon
-              className="social-icon"
-              bgColor="#fff"
-              url="https://www.linkedin.com/in/suryanshpandeyy"
+              url="https://www.linkedin.com/in/pandeysuryansh"
             />
           </Zoom>
         </div>
