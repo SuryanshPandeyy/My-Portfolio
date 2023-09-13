@@ -26,11 +26,7 @@ const Links = () => {
       link: "/Templates",
       icon: BsFillCollectionFill,
     },
-    {/*
-      title: "Contact",
-      link: "/Contact",
-      icon: HiMail,
-    */},
+   
   ];
   return (
     <>
