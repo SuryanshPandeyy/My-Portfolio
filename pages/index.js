@@ -276,7 +276,7 @@ const Home = () => {
             <SocialIcon
               className="social-icon"
               bgColor="#fff"
-              url="https://github.com/Suryanshpsurya"
+              url="https://github.com/SuryanshPandeyy"
             />
 
             <SocialIcon
