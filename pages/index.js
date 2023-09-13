@@ -178,7 +178,7 @@ const Home = () => {
                 Developer
               </div>
               <div>
-                <strong>Time Period:</strong> May 2021 to present
+                <strong>Time Period:</strong> May 2021 to July 2021
               </div>
             </div>
           </SwiperSlide>
@@ -236,7 +236,7 @@ const Home = () => {
         </div>
 
         <div className="service_container">
-          <Services />
+          {/*<Services />*/}
         </div>
 
         {show && (
