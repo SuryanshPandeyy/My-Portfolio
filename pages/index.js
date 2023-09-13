@@ -99,7 +99,7 @@ const Home = () => {
               <Button
                 onClick={() =>
                   typeof window !== "undefined"
-                    ? (window.location.href = "/documents/suryansh_resume.pdf")
+                    ? (window.location.href = "/documents/Resume (2).pdf")
                     : null
                 }
                 download
