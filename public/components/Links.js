@@ -20,17 +20,17 @@ const Links = () => {
       title: "Projects",
       link: "/Projects",
       icon: AiFillCode,
-    },
+    }, 
     {
       title: "Templates",
       link: "/Templates",
       icon: BsFillCollectionFill,
     },
-    {
+    {/*
       title: "Contact",
       link: "/Contact",
       icon: HiMail,
-    },
+    */},
   ];
   return (
     <>
